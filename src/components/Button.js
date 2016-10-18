@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Button.css';
-class App extends Component {
+class Button extends Component {
   render() {
     return (
       <button className='btn' onClick={this.props.onClick}>{this.props.children}</button>
@@ -8,4 +8,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Button;
