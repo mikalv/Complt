@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import Button from './ui/Button';
+import AddItem from './components/AddItem';
 class App extends Component {
-  logClick() {
-    console.log(1);
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.logAddItem = this.logAddItem.bind(this);
+  }
+  logAddItem(e) {
+    console.log(e);
   }
   render() {
     return (
       <div>
         <h1>Oak</h1>
-        <Button onClick={this.logClick.bind(this)}>Test Button</Button>
+        <AddItem onAdd={this.logAddItem}></AddItem>
       </div>
     );
   }
