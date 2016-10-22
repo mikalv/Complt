@@ -11,6 +11,5 @@
   background-color: #c2255c;
 }
 .btn:active {
-  background-color: #a61e4d;
   transform: translateY(1px);
 }
