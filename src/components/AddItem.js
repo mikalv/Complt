@@ -38,26 +38,29 @@ class AddItem extends Component {
     this.setState({isSequential: e.target.checked});
   }
   addItem() {
-    const item = {
-      type: this.state.type,
-      name: this.state.name,
-    };
-    if (this.state.type === "task") {
-      item.contexts = this.state.contexts;
-      item.description = this.state.description
+    const name = this.state.name
+    if (name.replace(/\s+/g, '')) {
+      const item = {
+        type: this.state.type,
+        name: this.state.name,
+      };
+      if (this.state.type === "task") {
+        item.contexts = this.state.contexts;
+        item.description = this.state.description
+      }
+      if (this.state.type === "project") {
+        item.isSequential = this.state.isSequential
+      }
+      this.props.onAdd(item);
+      this.setState({
+        type: "task",
+        name: "",
+        description: "",
+        contextsInput: "",
+        contexts: [],
+        isSequential: true,
+      });
     }
-    if (this.state.type === "project") {
-      item.isSequential = this.state.isSequential
-    }
-    this.props.onAdd(item);
-    this.setState({
-      type: "task",
-      name: "",
-      description: "",
-      contextsInput: "",
-      contexts: [],
-      isSequential: true,
-    });
   }
   render() {
     return (
