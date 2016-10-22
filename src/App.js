@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from './components/Button';
+import Button from './ui/Button';
 class App extends Component {
   logClick() {
     console.log(1);
