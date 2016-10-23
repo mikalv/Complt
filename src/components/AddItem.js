@@ -43,6 +43,7 @@ class AddItem extends Component {
       const item = {
         type: this.state.type,
         name: this.state.name,
+        createdAt: new Date().toUTCString(),
       };
       if (this.state.type === 'task') {
         item.contexts = this.state.contexts;
