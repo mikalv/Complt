@@ -65,15 +65,29 @@ class AddItem extends Component {
   render() {
     return (
       <div>
-        <input type="radio" name="typeSelection" value="task" onChange={this.typeChange} checked={this.state.type === 'task'} />Task<br />
-        <input type="radio" name="typeSelection" value="project" onChange={this.typeChange} checked={this.state.type === 'project'} />Project<br />
-        <input type="radio" name="typeSelection" value="folder" onChange={this.typeChange} checked={this.state.type === 'folder'} />Folder<br />
+        <input
+          id="typeSelectionTask" type="radio" name="typeSelection"
+          value="task" onChange={this.typeChange} checked={this.state.type === 'task'}
+        />
+        <label htmlFor="typeSelectionTask">Task</label>
+        <input
+          id="typeSelectionProject" type="radio" name="typeSelection"
+          value="project" onChange={this.typeChange} checked={this.state.type === 'project'}
+        />
+        <label htmlFor="typeSelectionProject">Project</label>
+        <input
+          id="typeSelectionFolder" type="radio" name="typeSelection"
+          value="folder" onChange={this.typeChange} checked={this.state.type === 'folder'}
+        />
+        <label htmlFor="typeSelectionFolder">Folder</label>
+        <br />
         <input type="text" onChange={this.nameChange} value={this.state.name} placeholder="Name" />
         {this.state.type === 'task' ? (<div>
           <input
             type="text" onChange={this.descriptionChange}
             value={this.state.description} placeholder="Description"
           />
+          <br />
           <input
             type="text" onChange={this.contextsChange}
             value={this.state.contextsInput} placeholder="Contexts (comma seperated)"
