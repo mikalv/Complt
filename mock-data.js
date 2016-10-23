@@ -12,11 +12,10 @@ const project = {
   children: [task, task],
   name: 'Project name',
 };
-const folder = {
-  type: 'folder',
-  children: [project],
-  name: 'Folder name',
-  createdAt: new Date(),
-  modifiedAt: new Date(),
+const otherProject = {
+  type: 'project',
+  isSequential: false,
+  children: [task, project],
+  name: 'Some other project',
 };
-console.log(folder);
+console.log(otherProject);
