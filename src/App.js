@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AddItem from './components/AddItem';
 import Item from './components/Item';
-import Icon from './ui/Icon';
 
 class App extends Component {
   constructor(props) {
@@ -18,12 +18,13 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Oak</h1>
-        <AddItem onAdd={this.logAddItem} />
-        {this.state.items.map((item, i) => <Item key={i} name={item.name} type={item.type} />)}
-        <Icon icon="face" />
-      </div>
+      <MuiThemeProvider>
+        <div>
+          <h1>Oak</h1>
+          <AddItem onAdd={this.logAddItem} />
+          {this.state.items.map((item, i) => <Item key={i} item={item} />)}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
