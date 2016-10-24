@@ -54,15 +54,8 @@ class AddItem extends Component {
   addItem() {
     const name = this.state.name;
     if (name.replace(/\s+/g, '')) {
-      let isProject;
-      if (this.state.isProject === 'true') {
-        isProject = true;
-      }
-      if (this.state.isProject === 'false') {
-        isProject = false;
-      }
       const item = {
-        isProject,
+        isProject: this.state.isProject,
         name: this.state.name,
         createdAt: new Date().toUTCString(),
       };
