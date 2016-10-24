@@ -2,7 +2,7 @@ import React from 'react';
 
 const OakPropTypes = {
   item: React.PropTypes.shape({
-    type: React.PropTypes.string.isRequired,
+    isProject: React.PropTypes.bool.isRequired,
     name: React.PropTypes.string.isRequired,
     description: React.PropTypes.string,
     isSequential: React.PropTypes.bool,
