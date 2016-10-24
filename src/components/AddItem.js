@@ -1,26 +1,40 @@
 import React, { Component } from 'react';
-import Button from '../ui/Button';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import Checkbox from 'material-ui/Checkbox';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
 
 class AddItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      type: 'task',
-      name: '',
-      description: '',
-      contextsInput: '',
-      contexts: [],
-      isSequential: true,
-    };
-    this.typeChange = this.typeChange.bind(this);
+    if (props.item) {
+      this.state = props.item;
+    } else {
+      this.state = {
+        isProject: false,
+        name: '',
+        description: '',
+        contextsInput: '',
+        contexts: [],
+        isSequential: true,
+      };
+    }
+    this.isProjectChange = this.isProjectChange.bind(this);
     this.addItem = this.addItem.bind(this);
     this.descriptionChange = this.descriptionChange.bind(this);
     this.nameChange = this.nameChange.bind(this);
     this.contextsChange = this.contextsChange.bind(this);
     this.isSequentialChange = this.isSequentialChange.bind(this);
   }
-  typeChange(e) {
-    this.setState({ type: e.target.value });
+  isProjectChange(e) {
+    let isProject;
+    if (e.target.value === 'true') {
+      isProject = true;
+    }
+    if (e.target.value === 'false') {
+      isProject = false;
+    }
+    this.setState({ isProject });
   }
   nameChange(e) {
     this.setState({ name: e.target.value });
@@ -40,72 +54,79 @@ class AddItem extends Component {
   addItem() {
     const name = this.state.name;
     if (name.replace(/\s+/g, '')) {
+      let isProject;
+      if (this.state.isProject === 'true') {
+        isProject = true;
+      }
+      if (this.state.isProject === 'false') {
+        isProject = false;
+      }
       const item = {
-        type: this.state.type,
+        isProject,
         name: this.state.name,
         createdAt: new Date().toUTCString(),
       };
-      if (this.state.type === 'task') {
+      if (!this.state.isProject) {
         item.contexts = this.state.contexts;
         item.description = this.state.description;
       }
-      if (this.state.type === 'project') {
+      if (this.state.isProject) {
         item.isSequential = this.state.isSequential;
       }
       this.props.onAdd(item);
-      this.setState({
-        type: 'task',
-        name: '',
-        description: '',
-        contextsInput: '',
-        contexts: [],
-        isSequential: true,
-      });
+      if (this.props.shouldClearItem) {
+        this.setState({
+          isProject: false,
+          name: '',
+          description: '',
+          contextsInput: '',
+          contexts: [],
+          isSequential: true,
+        });
+      }
     }
   }
   render() {
     return (
       <div>
-        <input
-          id="typeSelectionTask" type="radio" name="typeSelection"
-          value="task" onChange={this.typeChange} checked={this.state.type === 'task'}
+        <RadioButtonGroup
+          name="typesdfsdft" onChange={this.isProjectChange}
+          valueSelected={String(this.state.isProject)}
+        >
+          <RadioButton
+            value="false"
+            label="Task"
+          />
+          <RadioButton
+            value="true"
+            label="Project"
+          />
+        </RadioButtonGroup>
+        <TextField
+          onChange={this.nameChange}
+          value={this.state.name}
+          floatingLabelText="Name"
         />
-        <label htmlFor="typeSelectionTask">Task</label>
-        <input
-          id="typeSelectionProject" type="radio" name="typeSelection"
-          value="project" onChange={this.typeChange} checked={this.state.type === 'project'}
-        />
-        <label htmlFor="typeSelectionProject">Project</label>
-        <input
-          id="typeSelectionFolder" type="radio" name="typeSelection"
-          value="folder" onChange={this.typeChange} checked={this.state.type === 'folder'}
-        />
-        <label htmlFor="typeSelectionFolder">Folder</label>
-        <br />
-        <input type="text" onChange={this.nameChange} value={this.state.name} placeholder="Name" />
-        {this.state.type === 'task' ? (<div>
-          <input
-            type="text" onChange={this.descriptionChange}
-            value={this.state.description} placeholder="Description"
+        {!this.state.isProject ? (<div>
+          <TextField
+            onChange={this.descriptionChange}
+            value={this.state.description} floatingLabelText="Description"
           />
           <br />
-          <input
-            type="text" onChange={this.contextsChange}
-            value={this.state.contextsInput} placeholder="Contexts (comma seperated)"
+          <TextField
+            onChange={this.contextsChange}
+            value={this.state.contextsInput} floatingLabelText="Contexts (comma seperated)"
           />
-        </div>) : ''}
-        {this.state.type === 'project' ?
+        </div>) :
           <div>
-            <br />
-            <input
-              type="checkbox" id="isSequential" onChange={this.isSequentialChange}
+            <Checkbox
+              onCheck={this.isSequentialChange}
               checked={this.state.isSequential}
+              label="Should This Project Be Sequential?"
             />
-            <label htmlFor="isSequential">Should This Project Be Sequential?</label>
-          </div>
-          : ''}
+          </div>}
         <br />
-        <Button onClick={this.addItem}>Add</Button>
+        <FlatButton onClick={this.addItem} label="Add" />
       </div>
     );
   }
@@ -113,6 +134,8 @@ class AddItem extends Component {
 
 AddItem.propTypes = {
   onAdd: React.PropTypes.func,
+  shouldClearItem: React.PropTypes.bool,
+  item: React.PropTypes.shape({}),
 };
 
 export default AddItem;
