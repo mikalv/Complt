@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { List } from 'material-ui/List';
 import AddItem from './components/AddItem';
 import Item from './components/Item';
 
@@ -22,7 +23,10 @@ class App extends Component {
         <div>
           <h1>Oak</h1>
           <AddItem onAdd={this.logAddItem} />
-          {this.state.items.map((item, i) => <Item key={i} item={item} />)}
+          <br />
+          <List>
+            {this.state.items.map((item, i) => <Item key={i} item={item} />)}
+          </List>
         </div>
       </MuiThemeProvider>
     );

@@ -1,19 +1,19 @@
 import React from 'react';
-import Button from '../ui/Button';
-import Icon from '../ui/Icon';
+import { ListItem } from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
+import ActionAssignment from 'material-ui/svg-icons/action/assignment';
+import ActionDone from 'material-ui/svg-icons/action/done';
+import OakPropTypes from '../PropTypes';
 
-const Item = ({ name, onItemClickAdd, type }) => (
-  <div className={type}>
-    <span>{name}</span>
-    {type !== 'task' ? <Button onClick={onItemClickAdd}><Icon icon="add" /></Button> : ''}
-  </div>
+const Item = ({ item }) => (
+  <ListItem
+    primaryText={item.name}
+    leftAvatar={<Avatar icon={item.isProject ? <ActionAssignment /> : <ActionDone />} />}
+  />
 );
 
-
 Item.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  type: React.PropTypes.string.isRequired,
-  onItemClickAdd: React.PropTypes.func,
+  item: OakPropTypes.item,
 };
 
 export default Item;
