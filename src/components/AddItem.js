@@ -67,16 +67,14 @@ class AddItem extends Component {
         item.isSequential = this.state.isSequential;
       }
       this.props.onAdd(item);
-      if (this.props.shouldClearItem) {
-        this.setState({
-          isProject: false,
-          name: '',
-          description: '',
-          contextsInput: '',
-          contexts: [],
-          isSequential: true,
-        });
-      }
+      this.setState({
+        isProject: false,
+        name: '',
+        description: '',
+        contextsInput: '',
+        contexts: [],
+        isSequential: true,
+      });
     }
   }
   render() {
@@ -127,7 +125,6 @@ class AddItem extends Component {
 
 AddItem.propTypes = {
   onAdd: React.PropTypes.func,
-  shouldClearItem: React.PropTypes.bool,
   item: React.PropTypes.shape({}),
 };
 
