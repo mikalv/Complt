@@ -57,7 +57,7 @@ class AddItem extends Component {
       const item = {
         isProject: this.state.isProject,
         name: this.state.name,
-        createdAt: new Date().toUTCString(),
+        createdAt: new Date().getTime(),
       };
       if (!this.state.isProject) {
         item.contexts = this.state.contexts;
