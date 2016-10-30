@@ -66,6 +66,7 @@ class App extends Component {
             onRequestChange={open => this.setState({ drawerOpen: open })}
             open={this.state.drawerOpen}
             swipeAreaWidth={50}
+            zDepth={this.state.drawerDocked ? 0 : 2}
           >Drawer</Drawer>
           <div className="container drawer-margin">
             <AddItem onAdd={this.logAddItem} />
