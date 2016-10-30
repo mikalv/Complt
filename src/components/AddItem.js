@@ -3,6 +3,7 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
+import ChipInput from 'material-ui-chip-input';
 
 class AddItem extends Component {
   constructor(props) {
@@ -23,8 +24,9 @@ class AddItem extends Component {
     this.addItem = this.addItem.bind(this);
     this.descriptionChange = this.descriptionChange.bind(this);
     this.nameChange = this.nameChange.bind(this);
-    this.contextsChange = this.contextsChange.bind(this);
     this.isSequentialChange = this.isSequentialChange.bind(this);
+    this.addContext = this.addContext.bind(this);
+    this.deleteContext = this.deleteContext.bind(this);
   }
   isProjectChange(e) {
     let isProject;
@@ -39,11 +41,18 @@ class AddItem extends Component {
   nameChange(e) {
     this.setState({ name: e.target.value });
   }
-  contextsChange(e) {
-    const contextsInput = e.target.value;
-    const contexts = [];
-    contextsInput.replace(/\s+/g, '').split(',').map(context => contexts.push(context));
-    this.setState({ contexts, contextsInput });
+  addContext(context) {
+    const contexts = this.state.contexts;
+    if (contexts.indexOf(context) !== -1) {
+      return;
+    }
+    contexts.push(context);
+    this.setState({ contexts });
+  }
+  deleteContext(context) {
+    const contexts = this.state.contexts;
+    contexts.splice(contexts.indexOf(context), 1);
+    this.setState({ contexts });
   }
   descriptionChange(e) {
     this.setState({ description: e.target.value });
@@ -104,9 +113,11 @@ class AddItem extends Component {
             value={this.state.description} floatingLabelText="Description"
           />
           <br />
-          <TextField
-            onChange={this.contextsChange}
-            value={this.state.contextsInput} floatingLabelText="Contexts (comma seperated)"
+          <ChipInput
+            floatingLabelText="Contexts"
+            value={this.state.contexts}
+            onRequestAdd={context => this.addContext(context)}
+            onRequestDelete={context => this.deleteContext(context)}
           />
         </div>) :
           <div>
