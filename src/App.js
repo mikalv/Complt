@@ -10,6 +10,7 @@ import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
 import AddItem from './components/AddItem';
 import Item from './components/Item';
+import DrawerContent from './components/DrawerContent';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -76,7 +77,7 @@ class App extends Component {
             open={this.state.drawerOpen}
             swipeAreaWidth={50}
             zDepth={this.state.drawerDocked ? 0 : 2}
-          >Drawer</Drawer>
+          ><DrawerContent /></Drawer>
           <div className="container drawer-margin">
             <AddItem onAdd={this.logAddItem} />
             <br />
