@@ -1,15 +1,13 @@
 /* eslint-disable  no-undef */
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { List } from 'material-ui/List';
+
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { pink500, pink700, tealA200 } from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
-import AddItem from './components/AddItem';
-import Item from './components/Item';
 import DrawerContent from './components/DrawerContent';
 
 const muiTheme = getMuiTheme({
@@ -24,24 +22,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
       drawerOpen: false,
       drawerDocked: false,
     };
-    this.logAddItem = this.logAddItem.bind(this);
     this.toggleDrawer = this.toggleDrawer.bind(this);
-    this.handleItemAvatarTap = this.handleItemAvatarTap.bind(this);
     window.setTimeout(() => {
       this.windowResize();
     }, 0);
     window.addEventListener('resize', () => {
       this.windowResize();
     });
-  }
-  logAddItem(item) {
-    const items = this.state.items;
-    items.push(item);
-    this.setState({ items });
   }
   toggleDrawer() {
     this.setState({ drawerOpen: !this.state.drawerOpen });
@@ -52,14 +42,6 @@ class App extends Component {
     } else {
       this.setState({ drawerOpen: false, drawerDocked: false });
     }
-  }
-  handleItemAvatarTap(e, id) {
-    const items = this.state.items;
-    if (items[id].isProject) {
-      return;
-    }
-    items[id].isCompleted = !items[id].isCompleted;
-    this.setState({ items });
   }
   render() {
     return (
@@ -79,12 +61,7 @@ class App extends Component {
             zDepth={this.state.drawerDocked ? 0 : 2}
           ><DrawerContent /></Drawer>
           <div className="container drawer-margin">
-            <AddItem onAdd={this.logAddItem} />
-            <br />
-            <List>
-              {this.state.items.map((item, i) =>
-                <Item id={i} key={i} item={item} onAvatarTouchTap={this.handleItemAvatarTap} />)}
-            </List>
+            {this.props.children}
           </div>
         </div>
       </MuiThemeProvider>
@@ -92,4 +69,7 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  children: React.PropTypes.node,
+};
 export default App;
