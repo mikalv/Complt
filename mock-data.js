@@ -1,3 +1,4 @@
+/* eslint-disable */
 const task = {
   type: 'task',
   name: 'Thing I have to do',
