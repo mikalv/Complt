@@ -3,6 +3,7 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import Toggle from 'material-ui/Toggle';
 
 class AddItem extends Component {
   constructor(props) {
@@ -110,10 +111,11 @@ class AddItem extends Component {
           />
         </div>) :
           <div>
-            <Checkbox
-              onCheck={this.isSequentialChange}
-              checked={this.state.isSequential}
+            <Toggle
+              onToggle={this.isSequentialChange}
+              toggled={this.state.isSequential}
               label="Should This Project Be Sequential?"
+              labelPosition="right"
             />
           </div>}
         <br />
