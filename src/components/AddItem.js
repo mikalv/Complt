@@ -14,7 +14,6 @@ class AddItem extends Component {
       this.state = {
         isProject: false,
         name: '',
-        description: '',
         contextsInput: '',
         contexts: [],
         isSequential: true,
@@ -22,7 +21,6 @@ class AddItem extends Component {
     }
     this.isProjectChange = this.isProjectChange.bind(this);
     this.addItem = this.addItem.bind(this);
-    this.descriptionChange = this.descriptionChange.bind(this);
     this.nameChange = this.nameChange.bind(this);
     this.isSequentialChange = this.isSequentialChange.bind(this);
     this.addContext = this.addContext.bind(this);
@@ -54,9 +52,6 @@ class AddItem extends Component {
     contexts.splice(contexts.indexOf(context), 1);
     this.setState({ contexts });
   }
-  descriptionChange(e) {
-    this.setState({ description: e.target.value });
-  }
   isSequentialChange(e) {
     this.setState({ isSequential: e.target.checked });
   }
@@ -70,7 +65,6 @@ class AddItem extends Component {
       };
       if (!this.state.isProject) {
         item.contexts = this.state.contexts;
-        item.description = this.state.description;
       }
       if (this.state.isProject) {
         item.isSequential = this.state.isSequential;
@@ -79,7 +73,6 @@ class AddItem extends Component {
       this.setState({
         isProject: false,
         name: '',
-        description: '',
         contextsInput: '',
         contexts: [],
         isSequential: true,
@@ -108,11 +101,6 @@ class AddItem extends Component {
           floatingLabelText="Name"
         />
         {!this.state.isProject ? (<div>
-          <TextField
-            onChange={this.descriptionChange}
-            value={this.state.description} floatingLabelText="Description"
-          />
-          <br />
           <ChipInput
             floatingLabelText="Contexts"
             value={this.state.contexts}

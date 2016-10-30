@@ -3,7 +3,6 @@ const task = {
   name: 'Thing I have to do',
   contexts: ['@work', '@home'],
   isCompleted: false,
-  description: 'this is the description for this task',
   dueDate: new Date().getTime(),
 };
 const project = {
