@@ -57,6 +57,7 @@ class App extends Component {
         <div>
           <AppBar
             title="Oak" className="drawer-margin"
+            onLeftIconButtonTouchTap={this.toggleDrawer}
             iconElementLeft={this.state.drawerDocked ?
               <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
           />
