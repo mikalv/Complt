@@ -54,6 +54,9 @@ class App extends Component {
   }
   handleItemAvatarTap(e, id) {
     const items = this.state.items;
+    if (items[id].isProject) {
+      return;
+    }
     items[id].isCompleted = !items[id].isCompleted;
     this.setState({ items });
   }
