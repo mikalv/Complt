@@ -29,6 +29,7 @@ class App extends Component {
     };
     this.logAddItem = this.logAddItem.bind(this);
     this.toggleDrawer = this.toggleDrawer.bind(this);
+    this.handleItemAvatarTap = this.handleItemAvatarTap.bind(this);
     window.setTimeout(() => {
       this.windowResize();
     }, 0);
@@ -51,6 +52,11 @@ class App extends Component {
       this.setState({ drawerOpen: false, drawerDocked: false });
     }
   }
+  handleItemAvatarTap(e, id) {
+    const items = this.state.items;
+    items[id].isCompleted = !items[id].isCompleted;
+    this.setState({ items });
+  }
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -72,7 +78,8 @@ class App extends Component {
             <AddItem onAdd={this.logAddItem} />
             <br />
             <List>
-              {this.state.items.map((item, i) => <Item key={i} item={item} />)}
+              {this.state.items.map((item, i) =>
+                <Item id={i} key={i} item={item} onAvatarTouchTap={this.handleItemAvatarTap} />)}
             </List>
           </div>
         </div>
