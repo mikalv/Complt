@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { List } from 'material-ui/List';
 import AddItem from './AddItem';
-import Item from './Item';
+import ItemList from './ItemList';
 
 class Home extends Component {
   constructor(props) {
@@ -17,23 +16,19 @@ class Home extends Component {
     items.push(item);
     this.setState({ items });
   }
-  handleItemAvatarTap(e, id) {
+  handleItemAvatarTap(index) {
     const items = this.state.items;
-    if (items[id].isProject) {
+    if (items[index].isProject) {
       return;
     }
-    items[id].isCompleted = !items[id].isCompleted;
+    items[index].isCompleted = !items[index].isCompleted;
     this.setState({ items });
   }
   render() {
     return (
       <div className="container">
         <AddItem onAdd={this.addItem} />
-        <br />
-        <List>
-          {this.state.items.map((item, i) =>
-            <Item id={i} key={i} item={item} onAvatarTouchTap={this.handleItemAvatarTap} />)}
-        </List>
+        <ItemList items={this.state.items} onItemAvatarTap={this.handleItemAvatarTap} />
       </div>
     );
   }
