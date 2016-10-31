@@ -8,3 +8,8 @@ lint:
   script:
    - npm install
    - node ./node_modules/eslint/bin/eslint.js .
+
+jest:
+  script:
+    - npm install
+    - npm test
