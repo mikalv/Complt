@@ -27,7 +27,7 @@ class Home extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <AddItem onAdd={this.addItem} />
         <br />
         <List>

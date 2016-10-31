@@ -47,12 +47,7 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <AppBar
-            title="Oak" className="drawer-margin"
-            onLeftIconButtonTouchTap={this.toggleDrawer}
-            iconElementLeft={this.state.drawerDocked ?
-              <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
-          />
+
           <Drawer
             docked={this.state.drawerDocked}
             onRequestChange={open => this.setState({ drawerOpen: open })}
@@ -60,7 +55,13 @@ class App extends Component {
             swipeAreaWidth={50}
             zDepth={this.state.drawerDocked ? 0 : 2}
           ><DrawerContent /></Drawer>
-          <div className="container drawer-margin">
+          <div className="drawer-margin">
+            <AppBar
+              title="Oak" className="drawer-margin"
+              onLeftIconButtonTouchTap={this.toggleDrawer}
+              iconElementLeft={this.state.drawerDocked ?
+                <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
+            />
             {this.props.children}
           </div>
         </div>
