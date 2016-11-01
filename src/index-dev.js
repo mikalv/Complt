@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-undef */
 /* eslint-disable global-require */
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
