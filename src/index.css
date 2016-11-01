@@ -16,8 +16,9 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-.flex-col-rev {
-  display: flex;
-  flex-direction: column-reverse;
-  height: calc(100vh - 64px);
+.add-task {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
 }

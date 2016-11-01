@@ -7,7 +7,7 @@ import ActionLabel from 'material-ui/svg-icons/action/label';
 const DrawerContent = (props, { router }) => (
   <List>
     <ListItem onTouchTap={() => { router.push('/'); }} leftIcon={<ActionHome />}>Home</ListItem>
-    <ListItem leftIcon={<ContentInbox />}>Inbox</ListItem>
+    <ListItem onTouchTap={() => { router.push('/inbox'); }} leftIcon={<ContentInbox />}>Inbox</ListItem>
     <ListItem leftIcon={<ActionLabel />}>Contexts</ListItem>
   </List>
 );
