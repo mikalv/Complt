@@ -12,7 +12,10 @@ class Inbox extends Component {
     this.handleItemAvatarTap = this.handleItemAvatarTap.bind(this);
   }
   componentWillMount() {
-    this.setState({ tasks: JSON.parse(window.localStorage.inboxTasks) });
+    const tasks = window.localStorage.inboxTasks;
+    if (tasks) {
+      this.setState({ tasks: JSON.parse(tasks) });
+    }
   }
   addTask(task) {
     this.setState({ tasks: [...this.state.tasks, task] }, () => {
