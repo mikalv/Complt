@@ -1,22 +1,11 @@
 /* eslint-disable  no-undef */
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { pink500, pink700, tealA200 } from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
 import DrawerContent from './components/DrawerContent';
-
-const muiTheme = getMuiTheme({
-  palette: {
-    primary1Color: pink500,
-    primary2Color: pink700,
-    accent1Color: tealA200,
-  },
-});
+import MuiTheme from './MuiTheme';
 
 class App extends Component {
   constructor(props) {
@@ -45,9 +34,8 @@ class App extends Component {
   }
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
+      <MuiTheme>
         <div>
-
           <Drawer
             docked={this.state.drawerDocked}
             onRequestChange={open => this.setState({ drawerOpen: open })}
@@ -65,7 +53,7 @@ class App extends Component {
             {this.props.children}
           </div>
         </div>
-      </MuiThemeProvider>
+      </MuiTheme>
     );
   }
 }
