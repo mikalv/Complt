@@ -71,8 +71,6 @@ recursive(paths.appBuild, (err, fileNames) => {
 
   // Merge with the public folder
   copyPublicFolder();
-  // Copy _redirects to build folder so that browserHistory works on Netlify
-  fs.copySync('_redirects', 'build/_redirects');
 });
 
 // Print a detailed summary of build files.
