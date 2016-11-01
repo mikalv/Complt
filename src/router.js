@@ -4,7 +4,7 @@ import App from './App';
 import Home from './components/Home';
 import Inbox from './components/Inbox';
 
-const AppRouter = () => (
+const router = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
@@ -13,4 +13,4 @@ const AppRouter = () => (
   </Router>
 );
 
-export default AppRouter;
+export default router;
