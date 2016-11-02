@@ -32,7 +32,7 @@ class Inbox extends Component {
   render() {
     return (
       <div>
-        <ItemList items={this.state.tasks} onItemAvatarTap={this.handleItemAvatarTap} style={{ marginBottom: 'auto', height: '100%' }} />
+        <ItemList items={this.state.tasks} onItemAvatarTap={this.handleItemAvatarTap} style={{ marginBottom: '116px', height: '100%' }} />
         <div className="add-task">
           <AddTask onAddTask={this.addTask} />
         </div>
