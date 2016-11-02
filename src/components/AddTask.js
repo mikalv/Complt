@@ -50,7 +50,7 @@ class AddTask extends Component {
   render() {
     return (
       <form onSubmit={this.submitTask}>
-        <Paper zDepth={2} style={{ padding: 10 }}>
+        <Paper zDepth={2} style={{ padding: 10 }} className="drawer-margin">
           <TextField
             name="textInput"
             hintText="e.g. Finish Report @work"
