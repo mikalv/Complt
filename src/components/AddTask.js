@@ -24,7 +24,8 @@ class AddTask extends Component {
       this.valueInput.focus();
     });
   }
-  submitTask() {
+  submitTask(e) {
+    e.preventDefault();
     const valueParts = this.state.value.split(' ');
     const task = {
       isProject: false,
@@ -48,23 +49,26 @@ class AddTask extends Component {
   }
   render() {
     return (
-      <Paper zDepth={2} style={{ padding: 10 }}>
-        <TextField
-          name="textInput"
-          hintText="e.g. Finish Report @work"
-          value={this.state.value}
-          style={{ width: '100%' }}
-          onChange={this.valueChange}
-          ref={input => (this.valueInput = input)}
-        />
-        <br />
-        <IconButton disableTouchRipple onTouchTap={this.ActionLabelTap}>
-          <ActionLabel />
-        </IconButton>
-        <IconButton style={{ float: 'right' }} disableTouchRipple onTouchTap={this.submitTask}>
-          <ContentSend />
-        </IconButton>
-      </Paper>
+      <form onSubmit={this.submitTask}>
+        <Paper zDepth={2} style={{ padding: 10 }}>
+          <TextField
+            name="textInput"
+            hintText="e.g. Finish Report @work"
+            value={this.state.value}
+            style={{ width: '100%' }}
+            onChange={this.valueChange}
+            ref={input => (this.valueInput = input)}
+          />
+          <br />
+          <IconButton disableTouchRipple onTouchTap={this.ActionLabelTap}>
+            <ActionLabel />
+          </IconButton>
+          <IconButton type="submit" style={{ float: 'right' }} disableTouchRipple>
+            <ContentSend />
+          </IconButton>
+        </Paper>
+      </form>
+
     );
   }
 }
