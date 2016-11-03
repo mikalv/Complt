@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
-import router from '../router';
+import Root from '../Root';
 
 it('renders without crashing', () => {
-  mount(router);
+  mount(Root);
 });
