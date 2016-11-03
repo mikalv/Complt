@@ -42,7 +42,7 @@ class App extends Component {
             open={this.state.drawerOpen}
             swipeAreaWidth={50}
             zDepth={this.state.drawerDocked ? 0 : 2}
-          ><DrawerContent /></Drawer>
+          ><DrawerContent onLocationTap={this.toggleDrawer} /></Drawer>
           <AppBar
             title="Oak" className="drawer-margin"
             onLeftIconButtonTouchTap={this.toggleDrawer}
