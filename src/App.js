@@ -15,9 +15,9 @@ class App extends Component {
       drawerDocked: false,
     };
     this.toggleDrawer = this.toggleDrawer.bind(this);
-    window.setTimeout(() => {
-      this.windowResize();
-    }, 0);
+  }
+  componentWillMount() {
+    this.windowResize();
     window.addEventListener('resize', () => {
       this.windowResize();
     });
