@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import router from './router';
+import Root from './Root';
 import './index.css';
 
 injectTapEventPlugin();
 ReactDOM.render(
-  router,
+  Root,
   document.getElementById('root')
 );
