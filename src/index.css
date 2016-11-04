@@ -22,3 +22,11 @@ body {
   right: 0;
   width: 100%;
 }
+.app-bar {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+}
+.app-content {
+  margin-top: 64px;
+}

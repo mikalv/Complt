@@ -44,12 +44,12 @@ class App extends Component {
             zDepth={this.state.drawerDocked ? 0 : 2}
           ><DrawerContent onLocationTap={this.toggleDrawer} /></Drawer>
           <AppBar
-            title="Oak" className="drawer-margin"
+            title="Oak" className="drawer-margin app-bar"
             onLeftIconButtonTouchTap={this.toggleDrawer}
             iconElementLeft={this.state.drawerDocked ?
               <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
           />
-          <div className="drawer-margin">
+          <div className="drawer-margin app-content">
             {this.props.children}
           </div>
         </div>
