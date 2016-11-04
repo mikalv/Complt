@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../redux/actions';
 import AddTask from './AddTask';
 import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';

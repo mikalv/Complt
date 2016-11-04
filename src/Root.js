@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import Home from './components/Home';
 import Inbox from './components/Inbox';
-import projects from './projects';
+import projects from './redux/projects';
 
 
 const store = createStore(
