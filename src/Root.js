@@ -8,23 +8,26 @@ import App from './App';
 import Home from './components/Home';
 import Inbox from './components/Inbox';
 import projects from './redux/projects';
-
+import drawer from './redux/drawer';
 
 const store = createStore(
   combineReducers({
     routing: routerReducer,
+    drawer,
     projects,
   }),
   compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    autoRehydrate()
+    process.env.NODE_ENV === 'production' ?
+      autoRehydrate() :
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 
-persistStore(store, {
-  blacklist: 'routing',
-});
-
+if (process.env.NODE_ENV === 'production') {
+  persistStore(store, {
+    whitelist: 'projects',
+  });
+}
 const history = syncHistoryWithStore(browserHistory, store);
 
 const Root = (

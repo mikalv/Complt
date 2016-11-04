@@ -1,4 +1,4 @@
-import { ADD_TASK, COMPLETE_TASK } from './actionTypes';
+import { ADD_TASK, COMPLETE_TASK, TOGGLE_DRAWER, DOCK_DRAWER } from './actionTypes';
 
 export function addTask(task) {
   return {
@@ -11,5 +11,18 @@ export function completeTask(index, isCompleted) {
     type: COMPLETE_TASK,
     index,
     isCompleted,
+  };
+}
+
+export function toggleDrawer() {
+  return {
+    type: TOGGLE_DRAWER,
+  };
+}
+
+export function dockDrawer(shouldDock) {
+  return {
+    type: DOCK_DRAWER,
+    shouldDock,
   };
 }

@@ -4,32 +4,26 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from './redux/actions';
 import DrawerContent from './components/DrawerContent';
 import MuiTheme from './MuiTheme';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      drawerOpen: false,
-      drawerDocked: false,
-    };
-    this.toggleDrawer = this.toggleDrawer.bind(this);
-  }
   componentWillMount() {
     this.windowResize();
     window.addEventListener('resize', () => {
       this.windowResize();
     });
   }
-  toggleDrawer() {
-    this.setState({ drawerOpen: !this.state.drawerOpen });
-  }
   windowResize() {
     if (window.innerWidth >= 768) {
-      this.setState({ drawerOpen: true, drawerDocked: true });
-    } else {
-      this.setState({ drawerOpen: false, drawerDocked: false });
+      if (!this.props.drawer.isDocked) {
+        this.props.dockDrawer(true);
+      }
+    } else if (this.props.drawer.isDocked) {
+      this.props.dockDrawer(false);
     }
   }
   render() {
@@ -37,16 +31,16 @@ class App extends Component {
       <MuiTheme>
         <div>
           <Drawer
-            docked={this.state.drawerDocked}
-            onRequestChange={open => this.setState({ drawerOpen: open })}
-            open={this.state.drawerOpen}
+            docked={this.props.drawer.isDocked}
+            onRequestChange={this.props.toggleDrawer}
+            open={this.props.drawer.isOpen}
             swipeAreaWidth={50}
-            zDepth={this.state.drawerDocked ? 0 : 2}
-          ><DrawerContent onLocationTap={this.toggleDrawer} /></Drawer>
+            zDepth={this.props.drawer.isDocked ? 0 : 2}
+          ><DrawerContent onLocationTap={this.props.toggleDrawer} /></Drawer>
           <AppBar
             title="Oak" className="drawer-margin app-bar"
-            onLeftIconButtonTouchTap={this.toggleDrawer}
-            iconElementLeft={this.state.drawerDocked ?
+            onLeftIconButtonTouchTap={this.props.toggleDrawer}
+            iconElementLeft={this.props.drawer.isDocked ?
               <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
           />
           <div className="drawer-margin app-content">
@@ -60,5 +54,22 @@ class App extends Component {
 
 App.propTypes = {
   children: React.PropTypes.node,
+  toggleDrawer: React.PropTypes.func,
+  dockDrawer: React.PropTypes.func,
+  drawer: React.PropTypes.shape({
+    isOpen: React.PropTypes.bool,
+    isDocked: React.PropTypes.bool,
+  }),
 };
-export default App;
+
+function mapStateToProps(state) {
+  return {
+    drawer: state.drawer,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
