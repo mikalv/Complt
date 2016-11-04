@@ -1,44 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import AddTask from './AddTask';
 import ItemList from './ItemList';
+import OakPropTypes from '../PropTypes';
 
-class Inbox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tasks: [],
-    };
-    this.addTask = this.addTask.bind(this);
-    this.handleItemAvatarTap = this.handleItemAvatarTap.bind(this);
-  }
-  componentWillMount() {
-    const tasks = window.localStorage.inboxTasks;
-    if (tasks) {
-      this.setState({ tasks: JSON.parse(tasks) });
-    }
-  }
-  addTask(task) {
-    this.setState({ tasks: [...this.state.tasks, task] }, () => {
-      window.localStorage.inboxTasks = JSON.stringify(this.state.tasks);
-    });
-  }
-  handleItemAvatarTap(index) {
-    const tasks = this.state.tasks;
-    tasks[index].isCompleted = !tasks[index].isCompleted;
-    this.setState({ tasks }, () => {
-      window.localStorage.inboxTasks = JSON.stringify(this.state.tasks);
-    });
-  }
-  render() {
-    return (
-      <div>
-        <ItemList items={this.state.tasks} onItemAvatarTap={this.handleItemAvatarTap} style={{ marginBottom: '116px', height: '100%' }} />
-        <div className="add-task">
-          <AddTask onAddTask={this.addTask} />
-        </div>
-      </div>
-    );
-  }
+const Inbox = ({ inbox, addTask, completeTask }) => (
+  <div>
+    <ItemList items={inbox} onItemAvatarTap={completeTask} style={{ marginBottom: '116px', height: '100%' }} />
+    <div className="add-task">
+      <AddTask onAddTask={addTask} />
+    </div>
+  </div>
+);
+
+Inbox.propTypes = {
+  inbox: React.PropTypes.arrayOf(OakPropTypes.item),
+  addTask: React.PropTypes.func,
+  completeTask: React.PropTypes.func,
+};
+
+function mapStateToProps(state) {
+  return {
+    inbox: state.projects,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
 }
 
-export default Inbox;
+export default connect(mapStateToProps, mapDispatchToProps)(Inbox);

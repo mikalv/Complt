@@ -6,10 +6,12 @@ import { Provider } from 'react-redux';
 import App from './App';
 import Home from './components/Home';
 import Inbox from './components/Inbox';
+import projects from './projects';
 
 const store = createStore(
   combineReducers({
     routing: routerReducer,
+    projects,
   }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
