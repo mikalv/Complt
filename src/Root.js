@@ -10,7 +10,7 @@ import Inbox from './components/Inbox';
 const store = createStore(
   combineReducers({
     routing: routerReducer,
-  })
+  }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 const history = syncHistoryWithStore(browserHistory, store);
