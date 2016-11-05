@@ -36,7 +36,13 @@ class App extends Component {
             open={this.props.drawer.isOpen}
             swipeAreaWidth={50}
             zDepth={this.props.drawer.isDocked ? 0 : 2}
-          ><DrawerContent onLocationTap={this.props.toggleDrawer} /></Drawer>
+          ><DrawerContent
+            onLocationTap={() => {
+              if (!this.props.drawer.isDocked) {
+                this.props.toggleDrawer();
+              }
+            }}
+          /></Drawer>
           <AppBar
             title="Oak" className="drawer-margin app-bar"
             onLeftIconButtonTouchTap={this.props.toggleDrawer}
