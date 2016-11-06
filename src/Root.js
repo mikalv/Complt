@@ -4,11 +4,18 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { createStore, combineReducers, compose } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { Provider } from 'react-redux';
+import OfflinePlugin from 'offline-plugin/runtime';
 import App from './App';
 import Home from './components/Home';
 import Inbox from './components/Inbox';
 import projects from './redux/projects';
 import drawer from './redux/drawer';
+
+OfflinePlugin.install({
+  onUpdateReady: () => {
+    OfflinePlugin.applyUpdate();
+  },
+});
 
 const store = createStore(
   combineReducers({

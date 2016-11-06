@@ -55,6 +55,7 @@
   "dependencies": {
     "material-ui": "^0.16.1",
     "material-ui-chip-input": "^0.9.1",
+    "offline-plugin": "^3.4.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
