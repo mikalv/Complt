@@ -13,9 +13,10 @@ import MuiTheme from './MuiTheme';
 class App extends Component {
   componentWillMount() {
     this.windowResize();
-    window.addEventListener('resize', () => {
-      this.windowResize();
-    });
+    window.addEventListener('resize', () => this.windowResize());
+  }
+  componentWillUnmount() {
+    window.removeEventLister('resize', () => this.windowResize());
   }
   windowResize() {
     if (window.innerWidth >= 768) {
