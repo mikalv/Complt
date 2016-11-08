@@ -5,7 +5,7 @@ const initialState = {
   isOpen: false,
 };
 
-export default function DrawerReducer(state = initialState, action) {
+export default function drawerReducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_DRAWER:
       if (!state.isDocked) {

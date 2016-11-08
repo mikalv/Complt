@@ -2,7 +2,7 @@ import { ADD_TASK, COMPLETE_TASK } from './actionTypes';
 
 const initialState = [];
 
-export default function ProjectsReducer(state = initialState, action) {
+export default function projectsReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TASK:
       return [...state, action.task];
