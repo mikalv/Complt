@@ -53,6 +53,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "electron": "^1.4.5",
     "material-ui": "^0.16.1",
     "material-ui-chip-input": "^0.9.1",
     "offline-plugin": "^3.4.2",
@@ -67,7 +68,9 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "npm run build:web",
+    "build:web": "node scripts/build.js web",
+    "build:electron": "node scripts/build.js electron",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
@@ -94,6 +97,8 @@
     "rules": {
       "react/jsx-filename-extension": 0,
       "import/no-extraneous-dependencies": 0,
+      "import/no-unresolved": 0,
+      "import/extensions": 0,
       "no-underscore-dangle": 0
     },
     "env": {

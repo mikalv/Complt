@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { createStore, combineReducers, compose } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
@@ -10,12 +10,15 @@ import Home from './components/Home';
 import Inbox from './components/Inbox';
 import projects from './redux/projects';
 import drawer from './redux/drawer';
+import history from './history';
 
-OfflinePlugin.install({
-  onUpdateReady: () => {
-    OfflinePlugin.applyUpdate();
-  },
-});
+if (process.env.PLAT === 'web') {
+  OfflinePlugin.install({
+    onUpdateReady: () => {
+      OfflinePlugin.applyUpdate();
+    },
+  });
+}
 
 const store = createStore(
   combineReducers({
@@ -35,11 +38,11 @@ if (process.env.NODE_ENV === 'production') {
     whitelist: 'projects',
   });
 }
-const history = syncHistoryWithStore(browserHistory, store);
+const historyWithStore = syncHistoryWithStore(history, store);
 
 const Root = (
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={historyWithStore}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="inbox" component={Inbox} />

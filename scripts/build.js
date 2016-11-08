@@ -16,9 +16,12 @@ var rimrafSync = require('rimraf').sync;
 var webpack = require('webpack');
 var config = require('../config/webpack.config.prod');
 var paths = require('../config/paths');
+var platform = require('../config/platform');
 var checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 var recursive = require('recursive-readdir');
 var stripAnsi = require('strip-ansi');
+
+process.env.PLAT = platform.name;
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -109,7 +112,18 @@ function printFileSizes(stats, previousSizeMap) {
 
 // Create the production build and print the deployment instructions.
 function build(previousSizeMap) {
-  console.log('Creating an optimized production build...');
+  if (platform.name === 'electron') {
+    config.resolve.extensions.unshift('.electron.js');
+    config.target = 'electron-renderer';
+    console.log('Creating an optimized production build for electron');
+  }
+  if (platform.name === 'web') {
+    if (platform.isImplicit) {
+      console.log('Platform not specified, defaulting to web');
+    }
+    console.log('Creating an optimized production build for the web');
+    config.resolve.extensions.unshift('.web.js');
+  }
   webpack(config).run((err, stats) => {
     if (err) {
       console.error('Failed to create a production build. Reason:');

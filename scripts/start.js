@@ -19,6 +19,9 @@ var openBrowser = require('react-dev-utils/openBrowser');
 var prompt = require('react-dev-utils/prompt');
 var config = require('../config/webpack.config.dev');
 var paths = require('../config/paths');
+var platform = require('../config/platform');
+
+process.env.PLAT = platform.name;
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -44,6 +47,18 @@ if (isSmokeTest) {
 }
 
 function setupCompiler(host, port, protocol) {
+  if (platform.name === 'electron') {
+    config.resolve.extensions.unshift('.electron.js');
+    config.target = 'electron-renderer';
+    console.log('Compiling for electron');
+  }
+  if (platform.name === 'web') {
+    if (platform.isImplicit) {
+      console.log('Platform not specified, defaulting to web');
+    }
+    console.log('Compiling for the web');
+    config.resolve.extensions.unshift('.web.js');
+  }
   // "Compiler" is a low-level interface to Webpack.
   // It lets us listen to some events and provide our own custom messages.
   compiler = webpack(config, handleCompile);
