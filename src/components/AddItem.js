@@ -107,15 +107,14 @@ class AddItem extends Component {
             onRequestAdd={context => this.addContext(context)}
             onRequestDelete={context => this.deleteContext(context)}
           />
-        </div>) :
-          <div>
-            <Toggle
-              onToggle={this.isSequentialChange}
-              toggled={this.state.isSequential}
-              label="Should This Project Be Sequential?"
-              labelPosition="right"
-            />
-          </div>}
+        </div>) : <div>
+          <Toggle
+            onToggle={this.isSequentialChange}
+            toggled={this.state.isSequential}
+            label="Should This Project Be Sequential?"
+            labelPosition="right"
+          />
+        </div>}
         <br />
         <FlatButton onClick={this.addItem} label="Add" />
       </div>
