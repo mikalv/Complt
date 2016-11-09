@@ -10,7 +10,7 @@ import * as actions from './redux/actions';
 import DrawerContent from './components/DrawerContent';
 import MuiTheme from './MuiTheme';
 
-class App extends Component {
+export class App extends Component {
   componentWillMount() {
     this.windowResize();
     window.addEventListener('resize', () => this.windowResize());
