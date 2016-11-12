@@ -16,7 +16,7 @@ export class App extends Component {
     window.addEventListener('resize', () => this.windowResize());
   }
   componentWillUnmount() {
-    window.removeEventLister('resize', () => this.windowResize());
+    window.removeEventListener('resize', () => this.windowResize());
   }
   windowResize() {
     if (window.innerWidth >= 768) {
