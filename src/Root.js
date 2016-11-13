@@ -1,17 +1,27 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { createStore, combineReducers, compose } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { Provider } from 'react-redux';
-import App from './App';
-import Home from './components/Home';
-import Inbox from './components/Inbox';
 import projects from './redux/projects';
 import drawer from './redux/drawer';
+import auth from './redux/auth';
+import OakRouter from './OakRouter';
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/service-worker.js');
+}
+
+let enhancer;
+
+if (window.__REDUX_DEVTOOLS_EXTENSION__) {
+  enhancer = compose(
+      autoRehydrate(),
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+} else {
+  enhancer = autoRehydrate();
 }
 
 const store = createStore(
@@ -19,29 +29,19 @@ const store = createStore(
     routing: routerReducer,
     drawer,
     projects,
+    auth,
   }),
-  compose(
-    process.env.NODE_ENV === 'production' ?
-      autoRehydrate() :
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  enhancer
 );
 
-if (process.env.NODE_ENV === 'production') {
-  persistStore(store, {
-    whitelist: 'projects',
-  });
-}
+persistStore(store, {
+  whitelist: ['projects', 'auth'],
+});
 const history = syncHistoryWithStore(browserHistory, store);
 
 const Root = (
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Home} />
-        <Route path="inbox" component={Inbox} />
-      </Route>
-    </Router>
+    <OakRouter history={history} />
   </Provider>
 );
 
