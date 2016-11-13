@@ -422,7 +422,7 @@ exports[`App component renders correctly when the drawer is closed and undocked 
     </div>
   </div>
   <div
-    className="drawer-margin app-bar"
+    className="drawer-margin App-bar"
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -540,7 +540,7 @@ exports[`App component renders correctly when the drawer is closed and undocked 
     </h1>
   </div>
   <div
-    className="drawer-margin app-content" />
+    className="drawer-margin App-content" />
 </div>
 `;
 
@@ -946,7 +946,7 @@ exports[`App component renders correctly when the drawer is docked 1`] = `
     </div>
   </div>
   <div
-    className="drawer-margin app-bar"
+    className="drawer-margin App-bar"
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1002,7 +1002,7 @@ exports[`App component renders correctly when the drawer is docked 1`] = `
     </h1>
   </div>
   <div
-    className="drawer-margin app-content" />
+    className="drawer-margin App-content" />
 </div>
 `;
 
@@ -1430,7 +1430,7 @@ exports[`App component renders correctly when the drawer is open and undocked 1`
     </div>
   </div>
   <div
-    className="drawer-margin app-bar"
+    className="drawer-margin App-bar"
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -1548,6 +1548,6 @@ exports[`App component renders correctly when the drawer is open and undocked 1`
     </h1>
   </div>
   <div
-    className="drawer-margin app-content" />
+    className="drawer-margin App-content" />
 </div>
 `;
