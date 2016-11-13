@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddItem from './AddItem';
 import ItemList from './ItemList';
+import './Home.css';
 
 class Home extends Component {
   constructor(props) {

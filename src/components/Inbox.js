@@ -5,11 +5,12 @@ import * as actions from '../redux/actions';
 import AddTask from './AddTask';
 import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';
+import './Inbox.css';
 
 const Inbox = ({ inbox, addTask, completeTask }) => (
   <div>
     <ItemList items={inbox} onItemAvatarTap={completeTask} style={{ marginBottom: '116px', height: '100%' }} />
-    <div className="add-task">
+    <div className="Inbox-AddTask">
       <AddTask onAddTask={addTask} />
     </div>
   </div>

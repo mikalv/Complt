@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 import DrawerContent from './components/DrawerContent';
 import MuiTheme from './MuiTheme';
+import './App.css';
 
 export class App extends Component {
   componentWillMount() {
@@ -37,20 +38,22 @@ export class App extends Component {
             open={this.props.drawer.isOpen}
             swipeAreaWidth={50}
             zDepth={this.props.drawer.isDocked ? 0 : 2}
-          ><DrawerContent
-            onLocationTap={() => {
-              if (!this.props.drawer.isDocked) {
-                this.props.toggleDrawer();
-              }
-            }}
-          /></Drawer>
+          >
+            <DrawerContent
+              onLocationTap={() => {
+                if (!this.props.drawer.isDocked) {
+                  this.props.toggleDrawer();
+                }
+              }}
+            />
+          </Drawer>
           <AppBar
-            title="Oak" className="drawer-margin app-bar"
+            title="Oak" className="drawer-margin App-bar"
             onLeftIconButtonTouchTap={this.props.toggleDrawer}
             iconElementLeft={this.props.drawer.isDocked ?
               <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
           />
-          <div className="drawer-margin app-content">
+          <div className="drawer-margin App-content">
             {this.props.children}
           </div>
         </div>

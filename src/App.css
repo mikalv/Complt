@@ -1,0 +1,8 @@
+.App-bar {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+}
+.App-content {
+  margin-top: 64px;
+}

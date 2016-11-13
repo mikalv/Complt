@@ -3,30 +3,9 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f9fa;
 }
-.container {
-  padding: 20px;
-}
 @media (min-width: 768px) {
   .drawer-margin {
     margin-left: 256px;
     max-width: calc(100% - 256px);
   }
-}
-.chip-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-.add-task {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-}
-.app-bar {
-  position: fixed !important;
-  top: 0;
-  right: 0;
-}
-.app-content {
-  margin-top: 64px;
 }

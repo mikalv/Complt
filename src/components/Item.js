@@ -6,6 +6,7 @@ import ActionAssignment from 'material-ui/svg-icons/action/assignment';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import { lightGreenA400 } from 'material-ui/styles/colors';
 import OakPropTypes from '../PropTypes';
+import './Item.css';
 
 const Item = ({ item, onAvatarTouchTap, id }) => (
   <ListItem
@@ -16,7 +17,7 @@ const Item = ({ item, onAvatarTouchTap, id }) => (
     />}
   >
     {item.name}
-    {item.isProject ? undefined : <div className="chip-container">
+    {item.isProject ? undefined : <div className="Item-chip-container">
       {item.contexts.map(
         (context, i) => <Chip key={i} style={{ marginRight: 5, marginTop: 3 }}>{context}</Chip>)}
     </div>}
