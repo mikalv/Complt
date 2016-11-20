@@ -6,28 +6,24 @@ import * as actions from '../redux/actions';
 
 class Login extends Component {
   componentWillMount() {
-    if (!this.props.idToken) {
-      this.lock = new Auth0Lock('GfMoEkzkCGYB9p1cyQ042XyVshskXt8p', 'oakapp.auth0.com', {
-        closable: false,
-        languageDictionary: {
-          title: 'Oak',
-        },
-      });
-      this.lock.show();
-      this.lock.on('authenticated', (token) => {
-        this.props.login(token);
-        this.lock.getProfile(token.idToken,
-          (error, profile) => {
-            this.props.getProfile(profile);
-            this.props.router.push('/');
-          });
-      });
-    } else {
-      this.props.router.push('/');
-    }
+    this.lock = new Auth0Lock('GfMoEkzkCGYB9p1cyQ042XyVshskXt8p', 'oakapp.auth0.com', {
+      closable: false,
+      languageDictionary: {
+        title: 'Oak',
+      },
+    });
+    this.lock.on('authenticated', (token) => {
+      this.props.login(token);
+      this.lock.getProfile(token.idToken,
+        (error, profile) => {
+          this.props.getProfile(profile);
+          this.props.router.push('/');
+        });
+    });
+    this.lock.show();
   }
   componentWillUnmount() {
-    if (this.lock) this.lock.hide();
+    this.lock.hide();
   }
   render() {
     return (
@@ -42,7 +38,6 @@ Login.propTypes = {
   router: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
-  idToken: React.PropTypes.string,
 };
 
 function mapStateToProps(state) {
