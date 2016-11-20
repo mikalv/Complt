@@ -2,8 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { App } from '../App';
 
-jest.mock('react-dom');
-
 describe('App component', () => {
   it('renders without crashing', () => {
     renderer.create(<App drawer={{ isOpen: false, isDocked: false }} dockDrawer={() => {}} />);
