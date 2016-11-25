@@ -1,0 +1,35 @@
+service: oak-api
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpackIncludeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  cfLogs: true
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:BatchGetItem"
+        -  "dynamodb:BatchWriteItem"
+        -  "dynamodb:DeleteItem"
+        -  "dynamodb:GetItem"
+        -  "dynamodb:GetRecords"
+        -  "dynamodb:PutItem"
+        -  "dynamodb:Query"
+        -  "dynamodb:Scan"
+        -  "dynamodb:UpdateItem"
+      Resource: "arn:aws:dynamodb:us-east-1:310549993992:table/items"
+functions:
+  graphql:
+    handler: handler.graphql
+    memory: 512
+    timeout: 10
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
