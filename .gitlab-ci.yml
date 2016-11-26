@@ -6,6 +6,9 @@ cache:
 
 before_script:
   - npm install
+  - cd api
+  - npm install
+  - cd ..
 
 lint:
   script:
