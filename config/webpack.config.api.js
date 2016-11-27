@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, 'handler.js'),
+  entry: path.join(__dirname, '..', 'handler.js'),
   resolve: {
     extensions: ['.js', ''],
   },
@@ -9,7 +9,7 @@ module.exports = {
   target: 'node',
   output: {
     libraryTarget: 'commonjs',
-    path: '.webpack',
+    path: path.join(__dirname, '..', '.webpack'),
     filename: 'handler.js',
   },
   module: {
@@ -18,7 +18,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel',
-        include: __dirname,
+        include: path.join(__dirname, '..'),
       },
       {
         test: /\.json$/,

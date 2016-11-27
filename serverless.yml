@@ -5,6 +5,7 @@ plugins:
 
 custom:
   webpackIncludeModules: true
+  webpack: config/webpack.config.api.js
 
 provider:
   name: aws

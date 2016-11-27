@@ -4,7 +4,7 @@ import getUserId from './api/auth';
 
 module.exports.graphql = (event, context, callback) => {
   getUserId(event.headers.Authorization).then((user) => {
-    if (user === 'Unauthorized') {
+    if (user === 'Unauthorized' || user === 'Not enough or too many segments') {
       const response = {
         statusCode: 401,
         headers: {
