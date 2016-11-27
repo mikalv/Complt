@@ -14,7 +14,8 @@ module.exports.graphql = (event, context, callback) => {
       };
       callback(null, response);
     } else {
-      graphql(schema, event.body, { userId: user.user_id }).then((result) => {
+      const body = JSON.parse(event.body);
+      graphql(schema, body.query, { userId: user.user_id }, undefined, body.variables, body.operationName).then((result) => {
         const response = {
           statusCode: 200,
           headers: {
