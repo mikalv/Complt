@@ -1,6 +1,6 @@
 import { graphql } from 'graphql';
-import schema from './src/graphql/schema';
-import getUserId from './src/auth';
+import schema from './api/schema';
+import getUserId from './api/auth';
 
 module.exports.graphql = (event, context, callback) => {
   getUserId(event.headers.Authorization).then((user) => {

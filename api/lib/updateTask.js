@@ -1,4 +1,4 @@
-import { Item } from '../dynamo/models';
+import { Item } from '../dynamoModels';
 import getItemsByUserAndIds from './getItemsByUserAndIds';
 
 function updateTask(user, task) {

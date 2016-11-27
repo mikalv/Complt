@@ -1,4 +1,4 @@
-import { Inbox, Item } from '../dynamo/models';
+import { Inbox, Item } from '../dynamoModels';
 
 export function verifyInboxExists(user) {
   return new Promise((resolve, reject) => {

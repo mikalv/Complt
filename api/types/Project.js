@@ -7,7 +7,7 @@ import {
   GraphQLList,
 } from 'graphql';
 import Item from './Item';
-import getItemsByUserAndIds from '../../lib/getItemsByUserAndIds';
+import getItemsByUserAndIds from '../lib/getItemsByUserAndIds';
 
 const Project = new GraphQLObjectType({
   name: 'Project',

@@ -9,9 +9,9 @@ import Item from './types/Item';
 import Task from './types/Task';
 import TaskInput from './inputs/TaskInput';
 import TaskUpdateInput from './inputs/TaskUpdateInput';
-import getItemsByUserAndIds from '../lib/getItemsByUserAndIds';
-import { verifyInboxExists, addItemToInbox } from '../lib/inbox';
-import updateTask from '../lib/updateTask';
+import getItemsByUserAndIds from './lib/getItemsByUserAndIds';
+import { verifyInboxExists, addItemToInbox } from './lib/inbox';
+import updateTask from './lib/updateTask';
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({

@@ -1,4 +1,4 @@
-import { Item } from '../dynamo/models';
+import { Item } from '../dynamoModels';
 
 function getItemsByUserAndIds(user, ids = []) {
   return new Promise((resolve, reject) => {
