@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRedirect } from 'react-router';
 import App from './App';
-import Home from './components/Home';
 import Inbox from './components/Inbox';
 import Account from './components/Account';
 import Login from './components/Login';
@@ -28,7 +27,7 @@ class OakRouter extends Component {
         <Route path="login" component={Login} />
         <Route path="/" component={App}>
           <Route onEnter={this.isAuthenticated}>
-            <IndexRoute component={Home} />
+            <IndexRedirect to="inbox" />
             <Route path="inbox" component={Inbox} />
             <Route path="account" component={Account} />
           </Route>
