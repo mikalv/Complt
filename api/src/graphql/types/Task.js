@@ -15,7 +15,12 @@ const Task = new GraphQLObjectType({
       id: { type: new GraphQLNonNull(GraphQLID) },
       name: { type: GraphQLString },
       isCompleted: { type: GraphQLBoolean },
-      contexts: { type: new GraphQLList(GraphQLString) },
+      contexts: {
+        type: new GraphQLList(GraphQLString),
+        resolve(obj) {
+          return obj.contexts || [];
+        },
+      },
     };
   },
 });
