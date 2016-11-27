@@ -14,6 +14,12 @@ const profile = {
 };
 
 describe('authReducer', () => {
+  beforeAll(() => {
+    global.localStorage = {
+      setItem() {},
+      removeItem() {},
+    };
+  });
   it('should return the inital state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });

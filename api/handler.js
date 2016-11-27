@@ -15,16 +15,17 @@ module.exports.graphql = (event, context, callback) => {
       callback(null, response);
     } else {
       const body = JSON.parse(event.body);
-      graphql(schema, body.query, { userId: user.user_id }, undefined, body.variables, body.operationName).then((result) => {
-        const response = {
-          statusCode: 200,
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-          },
-          body: JSON.stringify(result),
-        };
-        callback(null, response);
-      });
+      graphql(schema, body.query, { userId: user.user_id }, undefined, body.variables,
+        body.operationName).then((result) => {
+          const response = {
+            statusCode: 200,
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify(result),
+          };
+          callback(null, response);
+        });
     }
   });
 };
