@@ -7,12 +7,18 @@ import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';
 import './Inbox.css';
 
+
 const Inbox = props => (
   <div>
     {props.data.loading ? <div className="flex center row">
       <CircularProgress className="Inbox-loading" />
     </div> : <div>
-      <ItemList items={props.data.inbox || []} style={{ marginBottom: '116px', height: '100%' }} />
+      <ItemList
+        items={props.data.inbox || []}
+        onItemAvatarTap={index =>
+          props.completeTask(props.data.inbox[index].id, !props.data.inbox[index].isCompleted)}
+        style={{ marginBottom: '116px', height: '100%' }}
+      />
       <div className="Inbox-AddTask">
         <AddTask onAddTask={props.createTask} />
       </div>
@@ -25,6 +31,7 @@ Inbox.propTypes = {
     loading: React.PropTypes.bool,
   }),
   createTask: React.PropTypes.func,
+  completeTask: React.PropTypes.func,
 };
 
 const inboxItemsQuery = gql`
@@ -49,8 +56,41 @@ mutation addTask($input: TaskInput) {
 }
 `;
 
+const CompleteTaskMutation = gql`
+mutation completeTask($input: TaskUpdateInput) {
+  taskUpdate(input: $input) {
+    id
+    isCompleted
+  }
+}
+`;
+
 export default compose(
   graphql(inboxItemsQuery),
+  graphql(CompleteTaskMutation, {
+    props({ mutate }) {
+      return {
+        completeTask(id, isCompleted) {
+          mutate({
+            variables: {
+              input: {
+                id,
+                isCompleted,
+              },
+            },
+            optimisticResponse: {
+              __typename: 'Mutation',
+              taskUpdate: {
+                id,
+                isCompleted,
+                __typename: 'Task',
+              },
+            },
+          });
+        },
+      };
+    },
+  }),
   graphql(addTaskMutation, {
     props({ mutate }) {
       return {
