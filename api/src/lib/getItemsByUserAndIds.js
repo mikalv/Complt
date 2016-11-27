@@ -9,7 +9,8 @@ function getItemsByUserAndIds(user, ids = []) {
     Item.getItems(idsWithOwner, (error, items) => {
       if (error) reject(error);
       const itemsFormatted = items.map(item => item.attrs);
-      resolve(itemsFormatted);
+      const itemsOrdered = ids.map(id => itemsFormatted.filter(item => item.id === id)[0]);
+      resolve(itemsOrdered);
     });
   });
 }

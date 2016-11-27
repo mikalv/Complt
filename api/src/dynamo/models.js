@@ -15,7 +15,7 @@ const Item = vogels.define('Item', {
     id: vogels.types.uuid(),
     isCompleted: Joi.boolean(),
     projectType: Joi.string().regex(/(seq|para)/),
-    children: vogels.types.stringSet(),
+    children: Joi.array(),
   },
 });
 
@@ -29,7 +29,7 @@ const Inbox = vogels.define('Inbox', {
     owner: Joi.string().required(),
     id: Joi.string().regex(/inbox/).default('inbox'),
     projectType: Joi.string().regex(/inbox/).default('inbox'),
-    children: vogels.types.stringSet(),
+    children: Joi.array(),
   },
 });
 

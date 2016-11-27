@@ -21,8 +21,10 @@ export function addItemToInbox(itemToAdd) {
     verifyInboxExists(itemToAdd.owner).then((inbox) => {
       Item.create(itemToAdd, (ItemCreateError, item) => {
         if (ItemCreateError) reject(ItemCreateError);
-        const inboxChildren = inbox.children || [];
-        inboxChildren.push(item.attrs.id);
+        const inboxChildren = [
+          ...inbox.children || [],
+          item.attrs.id,
+        ];
         Inbox.update({ id: 'inbox', owner: itemToAdd.owner, children: inboxChildren }, (InboxUpdateError, inboxUpdated) => {
           if (InboxUpdateError) {
             Item.destroy(item, () => {
