@@ -9,3 +9,12 @@ body {
     max-width: calc(100% - 256px);
   }
 }
+.flex {
+  display: flex;
+}
+.center {
+  justify-content: center;
+}
+.row {
+  flex-direction: row;
+}
