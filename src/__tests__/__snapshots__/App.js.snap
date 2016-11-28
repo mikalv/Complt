@@ -390,7 +390,7 @@ exports[`App component renders correctly when the drawer is closed and undocked 
                     "position": "relative"
                   }
                 }>
-                Contexts
+                Tags
                 <svg
                   onMouseEnter={[Function anonymous]}
                   onMouseLeave={[Function anonymous]}
@@ -914,7 +914,7 @@ exports[`App component renders correctly when the drawer is docked 1`] = `
                     "position": "relative"
                   }
                 }>
-                Contexts
+                Tags
                 <svg
                   onMouseEnter={[Function anonymous]}
                   onMouseLeave={[Function anonymous]}
@@ -1398,7 +1398,7 @@ exports[`App component renders correctly when the drawer is open and undocked 1`
                     "position": "relative"
                   }
                 }>
-                Contexts
+                Tags
                 <svg
                   onMouseEnter={[Function anonymous]}
                   onMouseLeave={[Function anonymous]}
