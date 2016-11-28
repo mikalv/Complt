@@ -14,8 +14,8 @@ class AddItem extends Component {
       this.state = {
         isProject: false,
         name: '',
-        contextsInput: '',
-        contexts: [],
+        tagsInput: '',
+        tags: [],
         isSequential: true,
       };
     }
@@ -23,8 +23,8 @@ class AddItem extends Component {
     this.addItem = this.addItem.bind(this);
     this.nameChange = this.nameChange.bind(this);
     this.isSequentialChange = this.isSequentialChange.bind(this);
-    this.addContext = this.addContext.bind(this);
-    this.deleteContext = this.deleteContext.bind(this);
+    this.addTag = this.addTag.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
   }
   isProjectChange(e) {
     let isProject;
@@ -39,18 +39,18 @@ class AddItem extends Component {
   nameChange(e) {
     this.setState({ name: e.target.value });
   }
-  addContext(context) {
-    const contexts = this.state.contexts;
-    if (contexts.indexOf(context) !== -1) {
+  addTag(tag) {
+    const tags = this.state.tags;
+    if (tags.indexOf(tag) !== -1) {
       return;
     }
-    contexts.push(context);
-    this.setState({ contexts });
+    tags.push(tag);
+    this.setState({ tags });
   }
-  deleteContext(context) {
-    const contexts = this.state.contexts;
-    contexts.splice(contexts.indexOf(context), 1);
-    this.setState({ contexts });
+  deleteTag(tag) {
+    const tags = this.state.tags;
+    tags.splice(tags.indexOf(tag), 1);
+    this.setState({ tags });
   }
   isSequentialChange(e) {
     this.setState({ isSequential: e.target.checked });
@@ -64,7 +64,7 @@ class AddItem extends Component {
         createdAt: new Date().getTime(),
       };
       if (!this.state.isProject) {
-        item.contexts = this.state.contexts;
+        item.tags = this.state.tags;
       }
       if (this.state.isProject) {
         item.isSequential = this.state.isSequential;
@@ -73,8 +73,8 @@ class AddItem extends Component {
       this.setState({
         isProject: false,
         name: '',
-        contextsInput: '',
-        contexts: [],
+        tagsInput: '',
+        tags: [],
         isSequential: true,
       });
     }
@@ -102,10 +102,10 @@ class AddItem extends Component {
         />
         {!this.state.isProject ? (<div>
           <ChipInput
-            floatingLabelText="Contexts"
-            value={this.state.contexts}
-            onRequestAdd={context => this.addContext(context)}
-            onRequestDelete={context => this.deleteContext(context)}
+            floatingLabelText="Tags"
+            value={this.state.tags}
+            onRequestAdd={tag => this.addTag(tag)}
+            onRequestDelete={tag => this.deleteTag(tag)}
           />
         </div>) : <div>
           <Toggle

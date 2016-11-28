@@ -22,8 +22,8 @@ const Item = ({ item, onAvatarTouchTap, id }) => {
     >
       {item.name}
       {item.isProject ? undefined : <div className="Item-chip-container">
-        {item.contexts.map(
-          (context, i) => <Chip key={i} style={{ marginRight: 5, marginTop: 3 }}>{context}</Chip>)}
+        {item.tags.map(
+          (tag, i) => <Chip key={i} style={{ marginRight: 5, marginTop: 3 }}>{tag}</Chip>)}
       </div>}
     </ListItem>
   );

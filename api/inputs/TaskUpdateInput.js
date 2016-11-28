@@ -13,7 +13,7 @@ const TaskUpdateInput = new GraphQLInputObjectType({
     id: { type: new GraphQLNonNull(GraphQLID) },
     name: { type: GraphQLString },
     isCompleted: { type: GraphQLBoolean },
-    contexts: { type: new GraphQLList(GraphQLString) },
+    tags: { type: new GraphQLList(GraphQLString) },
   }),
 });
 

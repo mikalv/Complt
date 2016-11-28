@@ -11,7 +11,7 @@ const TaskInput = new GraphQLInputObjectType({
   fields: () => ({
     name: { type: new GraphQLNonNull(GraphQLString) },
     isCompleted: { type: new GraphQLNonNull(GraphQLBoolean) },
-    contexts: { type: new GraphQLList(GraphQLString) },
+    tags: { type: new GraphQLList(GraphQLString) },
   }),
 });
 

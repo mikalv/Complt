@@ -10,7 +10,7 @@ const Item = vogels.define('Item', {
   schema: {
     name: Joi.string().required(),
     isProject: Joi.boolean().required(),
-    contexts: vogels.types.stringSet(),
+    tags: Joi.array(),
     owner: Joi.string().required(),
     id: vogels.types.uuid(),
     isCompleted: Joi.boolean(),

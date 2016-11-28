@@ -30,12 +30,12 @@ class AddTask extends Component {
     const task = {
       isProject: false,
       name: '',
-      contexts: [],
+      tags: [],
       createdAt: new Date().getTime(),
     };
     valueParts.forEach((part) => {
       if (part.startsWith('@')) {
-        task.contexts.push(part);
+        task.tags.push(part);
         return;
       }
       task.name += ` ${part}`;

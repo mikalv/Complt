@@ -10,7 +10,7 @@ const DrawerContent = ({ onLocationTap }, { router }) => (
     <ListItem onTouchTap={() => { router.push('/'); onLocationTap(); }} leftIcon={<ActionHome />}>Home</ListItem>
     <ListItem onTouchTap={() => { router.push('/account'); onLocationTap(); }} leftIcon={<SocialPerson />}>Account</ListItem>
     <ListItem onTouchTap={() => { router.push('/inbox'); onLocationTap(); }} leftIcon={<ContentInbox />}>Inbox</ListItem>
-    <ListItem leftIcon={<ActionLabel />}>Contexts</ListItem>
+    <ListItem leftIcon={<ActionLabel />}>Tags</ListItem>
   </List>
 );
 

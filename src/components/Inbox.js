@@ -40,7 +40,7 @@ query Inbox{
     id
     name
     isCompleted
-    contexts
+    tags
   }
 }
 `;
@@ -51,7 +51,7 @@ mutation addTask($input: TaskInput) {
     id
     name
     isCompleted
-    contexts
+    tags
   }
 }
 `;
@@ -100,7 +100,7 @@ export default compose(
               input: {
                 name: task.name,
                 isCompleted: task.isCompleted || false,
-                contexts: task.contexts || [],
+                tags: task.tags || [],
               },
             },
             optimisticResponse: {
@@ -109,7 +109,7 @@ export default compose(
                 id: task.name + new Date().toString(),
                 name: task.name,
                 isCompleted: task.isCompleted || false,
-                contexts: task.contexts || [],
+                tags: task.tags || [],
                 isOptimistic: true,
                 __typename: 'Task',
               },

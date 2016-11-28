@@ -9,7 +9,7 @@ const OakPropTypes = {
     modifiedAt: React.PropTypes.number,
     children: React.PropTypes.arr,
     dueDate: React.PropTypes.number,
-    contexts: React.PropTypes.arr,
+    tags: React.PropTypes.arrayOf(React.PropTypes.string),
     isCompleted: React.PropTypes.bool,
   }),
 };
