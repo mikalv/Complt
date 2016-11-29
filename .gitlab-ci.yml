@@ -13,4 +13,4 @@ lint:
 
 jest:
   script:
-    - npm run covecov
+    - npm run codecov
