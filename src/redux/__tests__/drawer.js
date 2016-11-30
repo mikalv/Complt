@@ -23,10 +23,16 @@ describe('drawerReducer', () => {
       isOpen: true,
     });
   });
-  it('should handle DOCK_DRAWER', () => {
+  it('should handle DOCK_DRAWER with shouldDock = true', () => {
     expect(reducer(undefined, dockDrawer(true))).toEqual({
       isDocked: true,
       isOpen: true,
+    });
+  });
+  it('should handle DOCK_DRAWER with shouldDock = false', () => {
+    expect(reducer(undefined, dockDrawer(false))).toEqual({
+      isDocked: false,
+      isOpen: false,
     });
   });
 });
