@@ -3,6 +3,7 @@ image: kkarczmarczyk/node-yarn:latest
 cache:
   paths:
   - node_modules/
+  - yarn-cache/
 
 before_script:
   - yarn install --cache-folder yarn-cache
