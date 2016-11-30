@@ -16,4 +16,3 @@ dist.js
 npm-debug.log
 .serverless
 .webpack
-yarn-cache
