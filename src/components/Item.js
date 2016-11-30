@@ -17,7 +17,7 @@ const Item = ({ item, onAvatarTouchTap, id }) => (
     />}
   >
     {item.name}
-    {item.tags ? undefined : <div className="Item-chip-container">
+    {!item.tags ? undefined : <div className="Item-chip-container">
       {item.tags.map(
         (tag, i) => <Chip key={i} style={{ marginRight: 5, marginTop: 3 }}>{tag}</Chip>)}
     </div>}
