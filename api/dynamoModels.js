@@ -43,7 +43,7 @@ const Root = vogels.define('Root', {
     owner: Joi.string().required(),
     id: Joi.string().regex(/root/).default('root'),
     projectType: Joi.string().regex(/root/).default('root'),
-    children: vogels.types.stringSet(),
+    children: Joi.array(),
   },
 });
 

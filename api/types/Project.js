@@ -3,7 +3,7 @@ import {
   GraphQLID,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLEnumType,
+  GraphQLBoolean,
   GraphQLList,
 } from 'graphql';
 import Item from './Item';
@@ -20,13 +20,17 @@ const Project = new GraphQLObjectType({
       name: {
         type: GraphQLString,
       },
-      projectType: {
-        type: new GraphQLEnumType({
-          values: {
-            para: { value: 'para' },
-            seq: { value: 'seq' },
-          },
-        }),
+      isSequential: {
+        type: GraphQLBoolean,
+        resolve(obj) {
+          if (obj.projectType === 'seq') {
+            return true;
+          }
+          if (obj.projectType === 'para') {
+            return false;
+          }
+          return null;
+        },
       },
       children: {
         type: new GraphQLList(Item),

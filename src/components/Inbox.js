@@ -46,8 +46,8 @@ query Inbox{
 `;
 
 const addTaskMutation = gql`
-mutation addTask($input: TaskInput) {
-  createTaskInInbox(input: $input) {
+mutation addTask($task: TaskInput!, $projectId: ID!) {
+  createTask(task: $task, projectId: $projectId) {
     id
     name
     isCompleted
@@ -97,15 +97,16 @@ export default compose(
         createTask(task) {
           mutate({
             variables: {
-              input: {
+              task: {
                 name: task.name,
                 isCompleted: task.isCompleted || false,
                 tags: task.tags || [],
               },
+              projectId: 'inbox',
             },
             optimisticResponse: {
               __typename: 'Mutation',
-              createTaskInInbox: {
+              createTask: {
                 id: task.name + new Date().toString(),
                 name: task.name,
                 isCompleted: task.isCompleted || false,
@@ -120,7 +121,7 @@ export default compose(
                   ...prev,
                   inbox: [
                     ...prev.inbox,
-                    mutationResult.data.createTaskInInbox,
+                    mutationResult.data.createTask,
                   ],
                 };
               },

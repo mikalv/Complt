@@ -7,10 +7,14 @@ import {
 } from 'graphql';
 import Item from './types/Item';
 import Task from './types/Task';
+import Project from './types/Project';
 import TaskInput from './inputs/TaskInput';
 import TaskUpdateInput from './inputs/TaskUpdateInput';
+import ProjectInput from './inputs/ProjectInput';
 import getItemsByUserAndIds from './lib/getItemsByUserAndIds';
 import { verifyInboxExists, addItemToInbox } from './lib/inbox';
+import { verifyRootExists, addItemToRoot } from './lib/root';
+import addItemToProject from './lib/addItemToProject';
 import updateTask from './lib/updateTask';
 
 const schema = new GraphQLSchema({
@@ -37,24 +41,19 @@ const schema = new GraphQLSchema({
             .then(inbox => getItemsByUserAndIds(rootValue.userId, inbox.children));
         },
       },
+      root: {
+        name: 'Root',
+        type: new GraphQLList(Item),
+        resolve(rootValue) {
+          return verifyRootExists(rootValue.userId)
+            .then(rootProject => getItemsByUserAndIds(rootValue.userId, rootProject.children));
+        },
+      },
     },
   }),
   mutation: new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-      createTaskInInbox: {
-        args: {
-          input: { type: TaskInput },
-        },
-        type: Task,
-        resolve({ userId }, { input }) {
-          return addItemToInbox({
-            ...input,
-            owner: userId,
-            isProject: false,
-          }).then(task => task);
-        },
-      },
       taskUpdate: {
         args: {
           input: { type: TaskUpdateInput },
@@ -62,6 +61,52 @@ const schema = new GraphQLSchema({
         type: Task,
         resolve({ userId }, { input }) {
           return updateTask(userId, input);
+        },
+      },
+      createProject: {
+        args: {
+          projectId: { type: new GraphQLNonNull(GraphQLID) },
+          project: { type: new GraphQLNonNull(ProjectInput) },
+        },
+        type: Project,
+        resolve({ userId }, { project, projectId }) {
+          const projectToCreate = {
+            name: project.name,
+            projectType: project.isSequential ? 'seq' : 'para',
+            owner: userId,
+            isProject: true,
+          };
+          if (projectId === 'root') {
+            return addItemToRoot(projectToCreate).then(projectCreated => projectCreated);
+          }
+          if (projectId === 'inbox') {
+            return new Error('Projects cannot be added to the inbox');
+          }
+          return addItemToProject(projectToCreate, projectId)
+          .then(projectCreated => projectCreated);
+        },
+      },
+      createTask: {
+        args: {
+          projectId: { type: new GraphQLNonNull(GraphQLID) },
+          task: { type: new GraphQLNonNull(TaskInput) },
+        },
+        type: Task,
+        resolve({ userId }, { task, projectId }) {
+          const taskToCreate = {
+            name: task.name,
+            isCompleted: task.isCompleted,
+            tags: task.tags,
+            owner: userId,
+            isProject: false,
+          };
+          if (projectId === 'root') {
+            return new Error('Projects cannot be added to the inbox');
+          }
+          if (projectId === 'inbox') {
+            return addItemToInbox(taskToCreate).then(taskCreated => taskCreated);
+          }
+          return addItemToProject(taskToCreate, projectId).then(taskCreated => taskCreated);
         },
       },
     },
