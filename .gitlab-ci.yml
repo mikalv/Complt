@@ -14,3 +14,14 @@ lint:
 jest:
   script:
     - npm run codecov
+
+api/deploy:
+  stage: deploy
+  script:
+    - npm run deploy:prod
+  only:
+    - master
+  environment:
+    name: api/production
+    url: https://5yt9wld04i.execute-api.us-east-1.amazonaws.com/production/graphql
+  when: manual
