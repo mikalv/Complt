@@ -18,6 +18,8 @@ const Inbox = props => (
         onItemAvatarTap={index =>
           props.completeTask(props.data.inbox[index].id, !props.data.inbox[index].isCompleted)}
         style={{ marginBottom: '116px', height: '100%' }}
+        canDelete
+        onDelete={index => props.deleteTask(props.data.inbox[index].id)}
       />
       <div className="Inbox-AddTask">
         <AddTask onAddTask={props.createTask} />
@@ -31,7 +33,8 @@ Inbox.propTypes = {
     loading: React.PropTypes.bool,
   }),
   createTask: React.PropTypes.func,
-  completeTask: React.PropTypes.func,
+  completeTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  deleteTask: React.PropTypes.func,
 };
 
 const inboxItemsQuery = gql`
@@ -61,6 +64,14 @@ mutation completeTask($input: TaskUpdateInput) {
   taskUpdate(input: $input) {
     id
     isCompleted
+  }
+}
+`;
+
+const deleteTaskMutation = gql`
+mutation deleteTask($parentProjectId: ID!, $taskId: ID!) {
+  deleteTask(parentProjectId: $parentProjectId, taskId: $taskId) {
+    id
   }
 }
 `;
@@ -122,6 +133,39 @@ export default compose(
                   inbox: [
                     ...prev.inbox,
                     mutationResult.data.createTask,
+                  ],
+                };
+              },
+            },
+          });
+        },
+      };
+    },
+  }),
+  graphql(deleteTaskMutation, {
+    props({ mutate }) {
+      return {
+        deleteTask(taskId) {
+          mutate({
+            variables: {
+              parentProjectId: 'inbox',
+              taskId,
+            },
+            optimisticResponse: {
+              __typename: 'Mutation',
+              taskUpdate: {
+                id: taskId,
+                __typename: 'Task',
+              },
+            },
+            updateQueries: {
+              Inbox(prev) {
+                const taskIndex = prev.inbox.findIndex(item => item.id === taskId);
+                return {
+                  ...prev,
+                  inbox: [
+                    ...prev.inbox.slice(0, taskIndex),
+                    ...prev.inbox.slice(taskIndex + 1),
                   ],
                 };
               },
