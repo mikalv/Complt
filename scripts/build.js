@@ -1,5 +1,7 @@
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.NODE_ENV = 'production';
+process.env.REACT_APP_API_URL = 'https://5yt9wld04i.execute-api.us-east-1.amazonaws.com/production/graphql';
+
 
 // Load environment variables from .env file. Surpress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables

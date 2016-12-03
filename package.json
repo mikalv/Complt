@@ -87,9 +87,11 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "start:prod": "PROD_API=true npm start",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom --verbose",
     "deploy": "serverless deploy",
+    "deploy:prod": "serverless deploy --stage production",
     "graphiql": "node ./api/dev/server-setup.js",
     "coverage": "npm test -- --coverage",
     "codecov": "npm run coverage && codecov"

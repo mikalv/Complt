@@ -14,7 +14,7 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/service-worker.js');
 }
 
-const networkInterface = createNetworkInterface({ uri: 'https://8lq0gtonr5.execute-api.us-east-1.amazonaws.com/dev/graphql' });
+const networkInterface = createNetworkInterface({ uri: process.env.REACT_APP_API_URL });
 
 networkInterface.use([{
   applyMiddleware(req, next) {
