@@ -16,6 +16,7 @@ import { verifyInboxExists, addItemToInbox } from './lib/inbox';
 import { verifyRootExists, addItemToRoot } from './lib/root';
 import addItemToProject from './lib/addItemToProject';
 import updateTask from './lib/updateTask';
+import deleteTask from './lib/deleteTask';
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -61,6 +62,16 @@ const schema = new GraphQLSchema({
         type: Task,
         resolve({ userId }, { input }) {
           return updateTask(userId, input);
+        },
+      },
+      deleteTask: {
+        args: {
+          parentProjectId: { type: new GraphQLNonNull(GraphQLID) },
+          taskId: { type: new GraphQLNonNull(GraphQLID) },
+        },
+        type: Task,
+        resolve({ userId }, { parentProjectId, taskId }) {
+          return deleteTask(userId, taskId, parentProjectId);
         },
       },
       createProject: {
