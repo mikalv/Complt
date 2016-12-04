@@ -12,8 +12,6 @@ import TaskInput from './inputs/TaskInput';
 import TaskUpdateInput from './inputs/TaskUpdateInput';
 import ProjectInput from './inputs/ProjectInput';
 import getItemsByUserAndIds from './lib/getItemsByUserAndIds';
-import addItemToInbox from './lib/inbox';
-import addItemToRoot from './lib/root';
 import addItemToProject from './lib/addItemToProject';
 import verifyItemExists from './lib/verifyItemExists';
 import updateTask from './lib/updateTask';
@@ -88,9 +86,6 @@ const schema = new GraphQLSchema({
             owner: userId,
             isProject: true,
           };
-          if (projectId === 'root') {
-            return addItemToRoot(projectToCreate).then(projectCreated => projectCreated);
-          }
           if (projectId === 'inbox') {
             return new Error('Projects cannot be added to the inbox');
           }
@@ -112,12 +107,6 @@ const schema = new GraphQLSchema({
             owner: userId,
             isProject: false,
           };
-          if (projectId === 'root') {
-            return new Error('Projects cannot be added to the inbox');
-          }
-          if (projectId === 'inbox') {
-            return addItemToInbox(taskToCreate).then(taskCreated => taskCreated);
-          }
           return addItemToProject(taskToCreate, projectId).then(taskCreated => taskCreated);
         },
       },
