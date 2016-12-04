@@ -1,4 +1,4 @@
-const vogels = require('vogels');
+const vogels = require('vogels-promisified');
 const Joi = require('joi');
 
 vogels.AWS.config.update({ region: 'us-east-1' });

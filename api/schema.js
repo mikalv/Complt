@@ -12,9 +12,10 @@ import TaskInput from './inputs/TaskInput';
 import TaskUpdateInput from './inputs/TaskUpdateInput';
 import ProjectInput from './inputs/ProjectInput';
 import getItemsByUserAndIds from './lib/getItemsByUserAndIds';
-import { verifyInboxExists, addItemToInbox } from './lib/inbox';
-import { verifyRootExists, addItemToRoot } from './lib/root';
+import addItemToInbox from './lib/inbox';
+import addItemToRoot from './lib/root';
 import addItemToProject from './lib/addItemToProject';
+import verifyItemExists from './lib/verifyItemExists';
 import updateTask from './lib/updateTask';
 import deleteTask from './lib/deleteTask';
 
@@ -38,7 +39,7 @@ const schema = new GraphQLSchema({
         name: 'Inbox',
         type: new GraphQLList(Task),
         resolve(rootValue) {
-          return verifyInboxExists(rootValue.userId)
+          return verifyItemExists(rootValue.userId, 'inbox')
             .then(inbox => getItemsByUserAndIds(rootValue.userId, inbox.children));
         },
       },
@@ -46,7 +47,7 @@ const schema = new GraphQLSchema({
         name: 'Root',
         type: new GraphQLList(Item),
         resolve(rootValue) {
-          return verifyRootExists(rootValue.userId)
+          return verifyItemExists(rootValue.userId, 'root')
             .then(rootProject => getItemsByUserAndIds(rootValue.userId, rootProject.children));
         },
       },
