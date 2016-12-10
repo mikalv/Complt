@@ -18,3 +18,12 @@ body {
 .row {
   flex-direction: row;
 }
+.column {
+  flex-direction: column;
+}
+.space-between {
+  justify-content: space-between;
+}
+.loading-padding {
+  padding: 20px;
+}

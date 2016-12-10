@@ -1,130 +1,111 @@
 import React, { Component } from 'react';
-import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
-import Toggle from 'material-ui/Toggle';
-import ChipInput from 'material-ui-chip-input';
+import ActionLabel from 'material-ui/svg-icons/action/label';
+import ContentSend from 'material-ui/svg-icons/content/send';
+import ActionAssignment from 'material-ui/svg-icons/action/assignment';
+import ActionDone from 'material-ui/svg-icons/action/done';
+import Paper from 'material-ui/Paper';
+import IconButton from 'material-ui/IconButton';
+import './AddItem.css';
 
 class AddItem extends Component {
   constructor(props) {
     super(props);
-    if (props.item) {
-      this.state = props.item;
+    this.state = {
+      value: '',
+      type: props.initialType || 'Task',
+    };
+    this.valueChange = this.valueChange.bind(this);
+    this.ActionLabelTap = this.ActionLabelTap.bind(this);
+    this.submitItem = this.submitItem.bind(this);
+    this.switchType = this.switchType.bind(this);
+  }
+  valueChange(e) {
+    this.setState({ value: e.target.value });
+  }
+  ActionLabelTap() {
+    const value = this.state.value.trim();
+    this.setState({ value: `${value} @` }, () => {
+      this.valueInput.focus();
+    });
+  }
+  submitItem(e) {
+    e.preventDefault();
+    let item;
+    if (this.state.type === 'Project') {
+      item = {
+        __typename: 'Project',
+        name: '',
+      };
     } else {
-      this.state = {
-        isProject: false,
+      item = {
+        __typename: 'Task',
         name: '',
-        tagsInput: '',
         tags: [],
-        isSequential: true,
       };
     }
-    this.isProjectChange = this.isProjectChange.bind(this);
-    this.addItem = this.addItem.bind(this);
-    this.nameChange = this.nameChange.bind(this);
-    this.isSequentialChange = this.isSequentialChange.bind(this);
-    this.addTag = this.addTag.bind(this);
-    this.deleteTag = this.deleteTag.bind(this);
-  }
-  isProjectChange(e) {
-    let isProject;
-    if (e.target.value === 'true') {
-      isProject = true;
-    }
-    if (e.target.value === 'false') {
-      isProject = false;
-    }
-    this.setState({ isProject });
-  }
-  nameChange(e) {
-    this.setState({ name: e.target.value });
-  }
-  addTag(tag) {
-    const tags = this.state.tags;
-    if (tags.indexOf(tag) !== -1) {
-      return;
-    }
-    tags.push(tag);
-    this.setState({ tags });
-  }
-  deleteTag(tag) {
-    const tags = this.state.tags;
-    tags.splice(tags.indexOf(tag), 1);
-    this.setState({ tags });
-  }
-  isSequentialChange(e) {
-    this.setState({ isSequential: e.target.checked });
-  }
-  addItem() {
-    const name = this.state.name;
-    if (name.replace(/\s+/g, '')) {
-      const item = {
-        isProject: this.state.isProject,
-        name: this.state.name,
-        createdAt: new Date().getTime(),
-      };
-      if (!this.state.isProject) {
-        item.tags = this.state.tags;
-      }
-      if (this.state.isProject) {
-        item.isSequential = this.state.isSequential;
-      }
-      this.props.onAdd(item);
-      this.setState({
-        isProject: false,
-        name: '',
-        tagsInput: '',
-        tags: [],
-        isSequential: true,
+    if (item.tags) {
+      const valueParts = this.state.value.split(' ');
+      valueParts.forEach((part) => {
+        if (part.startsWith('@')) {
+          item.tags.push(part);
+          return;
+        }
+        item.name += ` ${part}`;
       });
+    } else item.name = this.state.value;
+    item.name = item.name.trim();
+    if (!item.name) return;
+    this.setState({ value: '' });
+    this.props.onAddItem(item);
+  }
+  switchType() {
+    if (this.state.type === 'Project') {
+      this.setState({ type: 'Task' });
+    } else {
+      this.setState({ type: 'Project' });
     }
   }
   render() {
     return (
-      <div>
-        <RadioButtonGroup
-          name="typesdfsdft" onChange={this.isProjectChange}
-          valueSelected={String(this.state.isProject)}
-        >
-          <RadioButton
-            value="false"
-            label="Task"
-          />
-          <RadioButton
-            value="true"
-            label="Project"
-          />
-        </RadioButtonGroup>
-        <TextField
-          onChange={this.nameChange}
-          value={this.state.name}
-          floatingLabelText="Name"
-        />
-        {!this.state.isProject ? (<div>
-          <ChipInput
-            floatingLabelText="Tags"
-            value={this.state.tags}
-            onRequestAdd={tag => this.addTag(tag)}
-            onRequestDelete={tag => this.deleteTag(tag)}
-          />
-        </div>) : <div>
-          <Toggle
-            onToggle={this.isSequentialChange}
-            toggled={this.state.isSequential}
-            label="Should This Project Be Sequential?"
-            labelPosition="right"
-          />
-        </div>}
-        <br />
-        <FlatButton onClick={this.addItem} label="Add" />
-      </div>
+      <form onSubmit={this.submitItem}>
+        <Paper zDepth={2} style={{ padding: 10 }} className="drawer-margin">
+          <div className="flex column">
+            <TextField
+              name="textInput"
+              hintText={this.state.type === 'Project' ? 'e.g. Report' : 'e.g. Finish Report @work'}
+              value={this.state.value}
+              style={{ width: '100%' }}
+              onChange={this.valueChange}
+              ref={input => (this.valueInput = input)}
+            />
+            <div className="flex row space-between">
+              <div>
+                {this.state.type === 'Project' ? null : <IconButton disableTouchRipple onTouchTap={this.ActionLabelTap}>
+                  <ActionLabel />
+                </IconButton>}
+              </div>
+              <div>
+                <IconButton type="submit" style={{ float: 'right' }} disableTouchRipple>
+                  <ContentSend />
+                </IconButton>
+                {this.props.canChangeType ? <IconButton style={{ float: 'right' }} disableTouchRipple onTouchTap={this.switchType}>
+                  {this.state.type === 'Project' ? <ActionDone /> : <ActionAssignment />}
+                </IconButton> : null}
+              </div>
+            </div>
+          </div>
+        </Paper>
+      </form>
+
     );
   }
 }
 
 AddItem.propTypes = {
-  onAdd: React.PropTypes.func,
-  item: React.PropTypes.shape({}),
+  onAddItem: React.PropTypes.func.isRequired,
+  initialType: React.PropTypes.oneOf(['Project', 'Task']),
+  canChangeType: React.PropTypes.bool,
 };
 
 export default AddItem;

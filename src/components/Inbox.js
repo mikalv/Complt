@@ -2,16 +2,14 @@ import React from 'react';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import CircularProgress from 'material-ui/CircularProgress';
-import AddTask from './AddTask';
+import AddItem from './AddItem';
 import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';
-import './Inbox.css';
-
 
 const Inbox = props => (
   <div>
     {props.data.loading ? <div className="flex center row">
-      <CircularProgress className="Inbox-loading" />
+      <CircularProgress className="loading-padding" />
     </div> : <div>
       <ItemList
         items={props.data.inbox || []}
@@ -21,8 +19,8 @@ const Inbox = props => (
         canDelete
         onDelete={index => props.deleteTask(props.data.inbox[index].id)}
       />
-      <div className="Inbox-AddTask">
-        <AddTask onAddTask={props.createTask} />
+      <div className="AddItem-fixed">
+        <AddItem initialType="Task" onAddItem={props.createTask} />
       </div>
     </div>}
   </div>
