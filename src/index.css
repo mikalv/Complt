@@ -27,3 +27,7 @@ body {
 .loading-padding {
   padding: 20px;
 }
+.full {
+  height: 100vh;
+  width: 100vw;
+}
