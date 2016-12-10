@@ -10,16 +10,17 @@ import { lightGreenA400 } from 'material-ui/styles/colors';
 import OakPropTypes from '../PropTypes';
 import './Item.css';
 
-const Item = ({ item, onAvatarTouchTap, onDelete, canDelete, id }) => (
+const Item = ({ item, onAvatarTouchTap, onDelete, canDelete, onItemTap }) => (
   <ListItem
     leftAvatar={<Avatar
       color={item.isCompleted ? lightGreenA400 : undefined}
-      onTouchTap={e => onAvatarTouchTap(e, id)}
+      onTouchTap={onAvatarTouchTap}
       icon={item.__typename === 'Project' ? <ActionAssignment /> : <ActionDone />}
     />}
+    onTouchTap={onItemTap}
     rightIconButton={
       canDelete ?
-        <IconButton onTouchTap={e => onDelete(e, id)}><ActionDelete /></IconButton> : null}
+        <IconButton onTouchTap={onDelete}><ActionDelete /></IconButton> : undefined}
   >
     {item.name}
     {!item.tags ? undefined : <div className="Item-chip-container">
@@ -32,9 +33,9 @@ const Item = ({ item, onAvatarTouchTap, onDelete, canDelete, id }) => (
 Item.propTypes = {
   item: OakPropTypes.item,
   onAvatarTouchTap: React.PropTypes.func,
-  id: React.PropTypes.number,
   canDelete: React.PropTypes.bool,
   onDelete: React.PropTypes.func,
+  onItemTap: React.PropTypes.func,
 };
 
 export default Item;
