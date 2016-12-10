@@ -9,6 +9,7 @@ import { ApolloProvider } from 'react-apollo';
 import drawer from './redux/drawer';
 import auth from './redux/auth';
 import OakRouter from './OakRouter';
+import MuiTheme from './MuiTheme';
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/service-worker.js');
@@ -69,7 +70,9 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 const Root = (
   <ApolloProvider store={store} client={client}>
-    <OakRouter history={history} />
+    <MuiTheme>
+      <OakRouter history={history} />
+    </MuiTheme>
   </ApolloProvider>
 );
 

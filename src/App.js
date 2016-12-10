@@ -8,7 +8,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 import DrawerContent from './components/DrawerContent';
-import MuiTheme from './MuiTheme';
 import './App.css';
 
 export class App extends Component {
@@ -30,34 +29,32 @@ export class App extends Component {
   }
   render() {
     return (
-      <MuiTheme>
-        <div>
-          <Drawer
-            docked={this.props.drawer.isDocked}
-            onRequestChange={this.props.toggleDrawer}
-            open={this.props.drawer.isOpen}
-            swipeAreaWidth={50}
-            zDepth={this.props.drawer.isDocked ? 0 : 2}
-          >
-            <DrawerContent
-              onLocationTap={() => {
-                if (!this.props.drawer.isDocked) {
-                  this.props.toggleDrawer();
-                }
-              }}
-            />
-          </Drawer>
-          <AppBar
-            title="Oak" className="drawer-margin App-bar"
-            onLeftIconButtonTouchTap={this.props.toggleDrawer}
-            iconElementLeft={this.props.drawer.isDocked ?
-              <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
+      <div>
+        <Drawer
+          docked={this.props.drawer.isDocked}
+          onRequestChange={this.props.toggleDrawer}
+          open={this.props.drawer.isOpen}
+          swipeAreaWidth={50}
+          zDepth={this.props.drawer.isDocked ? 0 : 2}
+        >
+          <DrawerContent
+            onLocationTap={() => {
+              if (!this.props.drawer.isDocked) {
+                this.props.toggleDrawer();
+              }
+            }}
           />
-          <div className="drawer-margin App-content">
-            {this.props.children}
-          </div>
+        </Drawer>
+        <AppBar
+          title="Oak" className="drawer-margin App-bar"
+          onLeftIconButtonTouchTap={this.props.toggleDrawer}
+          iconElementLeft={this.props.drawer.isDocked ?
+            <div /> : <IconButton disableTouchRipple><NavigationMenu /></IconButton>}
+        />
+        <div className="drawer-margin App-content">
+          {this.props.children}
         </div>
-      </MuiTheme>
+      </div>
     );
   }
 }
