@@ -16,7 +16,7 @@ const Inbox = props => (
         onItemAvatarTap={index =>
           props.completeTask(props.data.inbox[index].id, !props.data.inbox[index].isCompleted)}
         style={{ marginBottom: '116px', height: '100%' }}
-        canDelete
+        canDeleteTask
         onDelete={index => props.deleteTask(props.data.inbox[index].id)}
       />
       <div className="AddItem-fixed">
