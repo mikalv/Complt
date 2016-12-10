@@ -1,56 +1,55 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Auth0Lock from 'auth0-lock';
+import RaisedButton from 'material-ui/RaisedButton';
+import Auth0 from 'auth0-js';
 import * as actions from '../redux/actions';
 
 class Login extends Component {
-  componentWillMount() {
-    this.lock = new Auth0Lock('GfMoEkzkCGYB9p1cyQ042XyVshskXt8p', 'oakapp.auth0.com', {
-      closable: false,
-      languageDictionary: {
-        title: 'Oak',
-      },
+  constructor(props) {
+    super(props);
+    this.loginWithGoogle = this.loginWithGoogle.bind(this);
+    this.auth0 = new Auth0({
+      domain: 'oakapp.auth0.com',
+      clientID: 'GfMoEkzkCGYB9p1cyQ042XyVshskXt8p',
+      callbackURL: window.location.href,
+      responseType: 'token',
     });
-    this.lock.on('authenticated', (token) => {
-      this.props.login(token);
-      this.lock.getProfile(token.idToken,
-        (error, profile) => {
-          this.props.getProfile(profile);
-          this.props.router.push('/');
-        });
-    });
-    this.lock.show();
   }
-  componentWillUnmount() {
-    this.lock.hide();
+  componentDidMount() {
+    const result = this.auth0.parseHash(window.location.hash);
+    if (result && result.idToken) {
+      setTimeout(() => {
+        this.props.login(result);
+        this.props.router.push('/');
+      }, 100);
+    }
+  }
+  loginWithGoogle() {
+    this.auth0.login({
+      connection: 'google-oauth2',
+    });
   }
   render() {
     return (
-      <div />
+      <div className="flex row full center">
+        <div className="flex column center">
+          <RaisedButton label="Login With Google" onTouchTap={this.loginWithGoogle} />
+        </div>
+      </div>
     );
   }
 }
 
 Login.propTypes = {
-  getProfile: React.PropTypes.func,
   login: React.PropTypes.func,
   router: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };
 
-function mapStateToProps(state) {
-  return {
-    picture: state.auth.profile.picture,
-    name: state.auth.profile.name,
-    email: state.auth.profile.email,
-    idToken: state.auth.token.idToken,
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(undefined, mapDispatchToProps)(Login);
