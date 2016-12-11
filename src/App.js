@@ -38,10 +38,9 @@ export class App extends Component {
           zDepth={this.props.drawer.isDocked ? 0 : 2}
         >
           <DrawerContent
-            onLocationTap={() => {
-              if (!this.props.drawer.isDocked) {
-                this.props.toggleDrawer();
-              }
+            onLocationTap={(newLocation) => {
+              if (!this.props.drawer.isDocked) this.props.toggleDrawer();
+              this.props.router.push(newLocation);
             }}
           />
         </Drawer>
@@ -66,6 +65,9 @@ App.propTypes = {
   drawer: React.PropTypes.shape({
     isOpen: React.PropTypes.bool,
     isDocked: React.PropTypes.bool,
+  }),
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func,
   }),
 };
 

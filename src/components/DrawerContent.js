@@ -5,18 +5,14 @@ import SocialPerson from 'material-ui/svg-icons/social/person';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ActionLabel from 'material-ui/svg-icons/action/label';
 
-const DrawerContent = ({ onLocationTap }, { router }) => (
+const DrawerContent = ({ onLocationTap }) => (
   <List>
-    <ListItem onTouchTap={() => { router.push('/'); onLocationTap(); }} leftIcon={<ActionHome />}>Home</ListItem>
-    <ListItem onTouchTap={() => { router.push('/account'); onLocationTap(); }} leftIcon={<SocialPerson />}>Account</ListItem>
-    <ListItem onTouchTap={() => { router.push('/inbox'); onLocationTap(); }} leftIcon={<ContentInbox />}>Inbox</ListItem>
+    <ListItem onTouchTap={() => onLocationTap('/')} leftIcon={<ActionHome />}>Home</ListItem>
+    <ListItem onTouchTap={() => onLocationTap('/account')} leftIcon={<SocialPerson />}>Account</ListItem>
+    <ListItem onTouchTap={() => onLocationTap('/inbox')} leftIcon={<ContentInbox />}>Inbox</ListItem>
     <ListItem leftIcon={<ActionLabel />}>Tags</ListItem>
   </List>
 );
-
-DrawerContent.contextTypes = {
-  router: React.PropTypes.object,
-};
 
 DrawerContent.propTypes = {
   onLocationTap: React.PropTypes.func,
