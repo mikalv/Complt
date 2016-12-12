@@ -10,7 +10,7 @@ import { lightGreenA400 } from 'material-ui/styles/colors';
 import OakPropTypes from '../PropTypes';
 import './Item.css';
 
-const Item = ({ item, onAvatarTouchTap, onDelete, canDelete, onItemTap }) => (
+const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap }) => (
   <ListItem
     leftAvatar={<Avatar
       color={item.isCompleted ? lightGreenA400 : undefined}

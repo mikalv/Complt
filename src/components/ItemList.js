@@ -4,7 +4,7 @@ import Item from './Item';
 import OakPropTypes from '../PropTypes';
 
 const ItemList = (
-  { items, onItemAvatarTap, style, onDelete, canDeleteTask, canDeleteProject, onItemTap }
+  { items = [], onItemAvatarTap, style, onDelete, canDeleteTask, canDeleteProject, onItemTap }
 ) => (
   <List style={style}>
     {items.map((item, i) => {
