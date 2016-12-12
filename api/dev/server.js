@@ -10,6 +10,11 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
   rootValue: {
     userId: 'testUserId',
+    user: {
+      name: 'Example Person',
+      email: 'person@example.com',
+      picture: 'http://gravatar.com/someperson',
+    },
   },
 }));
 

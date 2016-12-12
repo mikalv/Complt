@@ -8,6 +8,7 @@ import {
 import Item from './types/Item';
 import Task from './types/Task';
 import Project from './types/Project';
+import User from './types/User';
 import TaskInput from './inputs/TaskInput';
 import TaskUpdateInput from './inputs/TaskUpdateInput';
 import ProjectInput from './inputs/ProjectInput';
@@ -48,6 +49,11 @@ const schema = new GraphQLSchema({
           return verifyItemExists(rootValue.userId, 'root')
             .then(rootProject => getItemsByUserAndIds(rootValue.userId, rootProject.children));
         },
+      },
+      user: {
+        name: 'User',
+        type: User,
+        resolve: ({ user }) => user,
       },
     },
   }),
