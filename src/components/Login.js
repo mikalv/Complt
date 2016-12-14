@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Auth0 from 'auth0-js';
 import * as actions from '../redux/actions';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.loginWithGoogle = this.loginWithGoogle.bind(this);
