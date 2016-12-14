@@ -1,10 +1,13 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo';
-import gql from 'graphql-tag';
 import CircularProgress from 'material-ui/CircularProgress';
 import AddItem from './AddItem';
 import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';
+import inboxItemsQuery from '../graphql/inboxItems.gql';
+import addTaskMutation from '../graphql/addTask.gql';
+import CompleteTaskMutation from '../graphql/completeTask.gql';
+import deleteTaskMutation from '../graphql/deleteTask.gql';
 
 const Inbox = props => (
   <div>
@@ -34,45 +37,6 @@ Inbox.propTypes = {
   completeTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   deleteTask: React.PropTypes.func,
 };
-
-const inboxItemsQuery = gql`
-query Inbox{
-  inbox {
-    id
-    name
-    isCompleted
-    tags
-  }
-}
-`;
-
-const addTaskMutation = gql`
-mutation addTask($task: TaskInput!, $projectId: ID!) {
-  createTask(task: $task, projectId: $projectId) {
-    id
-    name
-    isCompleted
-    tags
-  }
-}
-`;
-
-const CompleteTaskMutation = gql`
-mutation completeTask($input: TaskUpdateInput) {
-  taskUpdate(input: $input) {
-    id
-    isCompleted
-  }
-}
-`;
-
-const deleteTaskMutation = gql`
-mutation deleteTask($parentProjectId: ID!, $taskId: ID!) {
-  deleteTask(parentProjectId: $parentProjectId, taskId: $taskId) {
-    id
-  }
-}
-`;
 
 export default compose(
   graphql(inboxItemsQuery),
