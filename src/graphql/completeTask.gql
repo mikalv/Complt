@@ -1,0 +1,6 @@
+mutation completeTask($input: TaskUpdateInput) {
+  taskUpdate(input: $input) {
+    id
+    isCompleted
+  }
+}

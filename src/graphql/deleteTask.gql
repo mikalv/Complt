@@ -1,0 +1,5 @@
+mutation deleteTask($parentProjectId: ID!, $taskId: ID!) {
+  deleteTask(parentProjectId: $parentProjectId, taskId: $taskId) {
+    id
+  }
+}
