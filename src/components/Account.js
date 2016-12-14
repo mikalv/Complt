@@ -1,58 +1,68 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Avatar from 'material-ui/Avatar';
 import FlatButton from 'material-ui/FlatButton';
 import SocialPerson from 'material-ui/svg-icons/social/person';
+import Auth0 from 'auth0-js';
+import gql from 'graphql-tag';
+import { graphql, compose } from 'react-apollo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../redux/actions';
 import './Account.css';
 
-class Account extends Component {
-  constructor(props) {
-    super(props);
-    this.logout = this.logout.bind(this);
-  }
-  logout() {
-    this.props.logout();
-    window.location.reload();
-  }
-  render() {
-    return (
-      <div className="Account-container">
-        <h1 className="Account-item">{this.props.name}</h1>
-        <p className="Account-item">{this.props.email}</p>
-        <div className={'Account-icon-container'}>
-          <Avatar src={this.props.picture} icon={<SocialPerson />} size={150} />
-        </div>
-        <FlatButton
-          label="Sign Out"
-          labelPosition="after"
-          primary
-          onTouchTap={this.logout}
-          icon={<SocialPerson />}
-        />
-      </div>
-    );
-  }
-}
+const Account = props => (
+  <div className="flex center column text-center">
+    {props.data.user ? <h1>{props.data.user.name}</h1> : ''}
+    {props.data.loading ? <h1>Loading...</h1> : ''}
+    <p>{props.data.user ? props.data.user.email : ''}</p>
+    <div>
+      <Avatar src={props.data.user ? props.data.user.picture : ''} icon={<SocialPerson />} size={150} />
+    </div>
+    <FlatButton
+      label="Sign Out"
+      labelPosition="after"
+      primary
+      onTouchTap={() => {
+        props.logout();
+        const clientID = 'GfMoEkzkCGYB9p1cyQ042XyVshskXt8p';
+        const auth0 = new Auth0({
+          domain: 'oakapp.auth0.com',
+          clientID,
+        });
+        auth0.logout({ returnTo: window.location.href, client_id: clientID }, { version: 'v2' });
+      }}
+      icon={<SocialPerson />}
+    />
+  </div>
+);
 
 Account.propTypes = {
   logout: React.PropTypes.func,
-  picture: React.PropTypes.string,
-  name: React.PropTypes.string,
-  email: React.PropTypes.string,
+  data: React.PropTypes.shape({
+    loading: React.PropTypes.bool,
+    user: React.PropTypes.shape({
+      picture: React.PropTypes.string,
+      name: React.PropTypes.string,
+      email: React.PropTypes.string,
+    }),
+  }),
 };
-
-function mapStateToProps(state) {
-  return {
-    picture: state.auth.profile.picture,
-    name: state.auth.profile.name,
-    email: state.auth.profile.email,
-  };
-}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Account);
+const UserQuery = gql`
+query User {
+  user {
+    name
+    email
+    picture
+  }
+}
+`;
+
+export default compose(
+  graphql(UserQuery),
+  connect(undefined, mapDispatchToProps)
+)(Account);
