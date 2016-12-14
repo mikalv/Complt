@@ -9,7 +9,7 @@ import addTaskMutation from '../graphql/addTask.gql';
 import CompleteTaskMutation from '../graphql/completeTask.gql';
 import deleteTaskMutation from '../graphql/deleteTask.gql';
 
-const Inbox = props => (
+export const Inbox = props => (
   <div>
     {props.data.loading ? <div className="flex center row">
       <CircularProgress className="loading-padding" />

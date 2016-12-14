@@ -10,7 +10,7 @@ import * as actions from '../redux/actions';
 import UserQuery from '../graphql/user.gql';
 import './Account.css';
 
-const Account = props => (
+export const Account = props => (
   <div className="flex center column text-center">
     {props.data.user ? <h1>{props.data.user.name}</h1> : ''}
     {props.data.loading ? <h1>Loading...</h1> : ''}
