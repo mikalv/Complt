@@ -103,6 +103,12 @@ module.exports = {
         include: paths.appSrc,
         loader: 'babel',
       },
+      // Loader for GraphQL queries
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader',
+      },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
