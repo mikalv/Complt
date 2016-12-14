@@ -3,7 +3,6 @@ import {
   DOCK_DRAWER,
   LOGIN,
   LOGOUT,
-  GET_PROFILE,
 } from './actionTypes';
 
 export function toggleDrawer() {
@@ -29,12 +28,5 @@ export function login(token) {
 export function logout() {
   return {
     type: LOGOUT,
-  };
-}
-
-export function getProfile(profile) {
-  return {
-    type: GET_PROFILE,
-    profile,
   };
 }
