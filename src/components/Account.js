@@ -3,11 +3,11 @@ import Avatar from 'material-ui/Avatar';
 import FlatButton from 'material-ui/FlatButton';
 import SocialPerson from 'material-ui/svg-icons/social/person';
 import Auth0 from 'auth0-js';
-import gql from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../redux/actions';
+import UserQuery from '../graphql/user.gql';
 import './Account.css';
 
 const Account = props => (
@@ -51,16 +51,6 @@ Account.propTypes = {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
-
-const UserQuery = gql`
-query User {
-  user {
-    name
-    email
-    picture
-  }
-}
-`;
 
 export default compose(
   graphql(UserQuery),
