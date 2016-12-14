@@ -1,16 +1,10 @@
 import reducer, { initialState } from '../auth';
-import { login, logout, getProfile } from '../actions';
+import { login, logout } from '../actions';
 
 const token = {
   accessToken: 'sdfsdfubdsghbdf234234',
   idToken: 'jdsfjnsdfjn.sdfjsdfjsdjknfsdf324324.sdfsdf23423434',
   idTokenPayload: {},
-};
-
-const profile = {
-  name: 'Example Person',
-  email: 'person@example.com',
-  picture: 'http://gravatar.com/someperson',
 };
 
 describe('authReducer', () => {
@@ -24,12 +18,9 @@ describe('authReducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
   it('should handle LOGIN', () => {
-    expect(reducer(undefined, login(token))).toEqual({ token, profile: initialState.profile });
-  });
-  it('should handle GET_PROFILE', () => {
-    expect(reducer(undefined, getProfile(profile))).toEqual({ token: initialState.token, profile });
+    expect(reducer(undefined, login(token))).toEqual({ token });
   });
   it('should handle LOGOUT', () => {
-    expect(reducer({ token, profile }, logout())).toEqual(initialState);
+    expect(reducer({ token }, logout())).toEqual(initialState);
   });
 });

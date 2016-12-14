@@ -1,14 +1,4 @@
-.Account-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-wrap: wrap;
-}
 .Account-icon-container {
   margin: 30px;
-  width: 100%;
-}
-.Account-item {
   width: 100%;
 }
