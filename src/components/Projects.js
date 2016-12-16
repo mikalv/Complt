@@ -7,7 +7,7 @@ import OakPropTypes from '../PropTypes';
 import rootItemsQuery from '../graphql/rootItems.gql';
 import addProjectMutation from '../graphql/addProject.gql';
 
-const Projects = props => (
+export const Projects = props => (
   <div>
     {props.data.loading ? <div className="flex center row">
       <CircularProgress className="loading-padding" />
