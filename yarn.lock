@@ -346,7 +346,21 @@ autoprefixer@6.4.1:
     postcss "^5.1.2"
     postcss-value-parser "^3.2.3"
 
-aws-sdk@^2.3.17, aws-sdk@^2.7.7:
+aws-sdk@^2.7.13:
+  version "2.7.15"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.7.15.tgz#b3257c95553dfa28707f468bc664f0b14f506295"
+  dependencies:
+    buffer "4.9.1"
+    crypto-browserify "1.0.9"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.1.5"
+    url "0.10.3"
+    uuid "3.0.0"
+    xml2js "0.4.15"
+    xmlbuilder "2.6.2"
+
+aws-sdk@^2.7.7:
   version "2.7.13"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.7.13.tgz#bb2384b6b49d45d0bcc6ff1701aff32db042a57c"
   dependencies:
@@ -2841,6 +2855,10 @@ get-proxy@^1.0.1:
 get-stdin@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
+
+get-stdin@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-5.0.1.tgz#122e161591e21ff4c52530305693f20e6393a398"
 
 get-stream@^2.2.0, get-stream@^2.3.0:
   version "2.3.1"
@@ -6216,18 +6234,19 @@ serverless-webpack@^1.0.0-rc.2:
     npm-programmatic "0.0.5"
     webpack "^1.13.1"
 
-serverless@^1.2.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.3.0.tgz#5b1143b67b201de21f152192d8f7920bbf785c48"
+serverless@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.4.0.tgz#7229d98e8471010cca8eecb931cc1a1362e27d48"
   dependencies:
     archiver "^1.1.0"
     async "^1.5.2"
-    aws-sdk "^2.3.17"
+    aws-sdk "^2.7.13"
     bluebird "^3.4.0"
     chalk "^1.1.1"
     download "^5.0.2"
     filesize "^3.3.0"
     fs-extra "^0.26.7"
+    get-stdin "^5.0.1"
     glob-all "^3.1.0"
     https-proxy-agent "^1.0.0"
     js-yaml "^3.6.1"

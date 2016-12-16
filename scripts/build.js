@@ -1,6 +1,8 @@
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.NODE_ENV = 'production';
 process.env.REACT_APP_API_URL = 'https://5yt9wld04i.execute-api.us-east-1.amazonaws.com/production/graphql';
+process.env.REACT_APP_AUTH0_DOMAIN = 'oakapp.auth0.com';
+process.env.REACT_APP_AUTH0_CLIENT_ID = 'GfMoEkzkCGYB9p1cyQ042XyVshskXt8p';
 
 
 // Load environment variables from .env file. Surpress warnings using silent

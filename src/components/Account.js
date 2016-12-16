@@ -24,12 +24,11 @@ export const Account = props => (
       primary
       onTouchTap={() => {
         props.logout();
-        const clientID = 'GfMoEkzkCGYB9p1cyQ042XyVshskXt8p';
         const auth0 = new Auth0({
-          domain: 'oakapp.auth0.com',
-          clientID,
+          domain: process.env.REACT_APP_AUTH0_DOMAIN,
+          clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
         });
-        auth0.logout({ returnTo: window.location.href, client_id: clientID }, { version: 'v2' });
+        auth0.logout({ returnTo: window.location.href, client_id: process.env.REACT_APP_AUTH0_CLIENT_ID }, { version: 'v2' });
       }}
       icon={<SocialPerson />}
     />
