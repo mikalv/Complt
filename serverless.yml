@@ -33,3 +33,6 @@ functions:
           path: graphql
           method: post
           cors: true
+    environment:
+      AUTH0_DOMAIN: oakapp.auth0.com
+      AUTH0_CLIENT_ID: y7tj9sJYELA92W4KdpQaZJ1MwO9NbbFX

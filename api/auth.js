@@ -1,10 +1,10 @@
 import { AuthenticationClient } from 'auth0';
 
 const authenticationClient = new AuthenticationClient({
-  domain: 'oakapp.auth0.com',
-  clientId: 'y7tj9sJYELA92W4KdpQaZJ1MwO9NbbFX',
+  domain: process.env.AUTH0_DOMAIN,
+  clientId: process.env.AUTH0_CLIENT_ID,
 });
-
+console.log(JSON.stringify(process.env));
 function getToken(tokenWithBearer) {
   const match = tokenWithBearer.match(/^Bearer (.*)$/);
   if (!match || match.length < 2) {
