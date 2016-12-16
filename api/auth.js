@@ -4,7 +4,7 @@ const authenticationClient = new AuthenticationClient({
   domain: process.env.AUTH0_DOMAIN,
   clientId: process.env.AUTH0_CLIENT_ID,
 });
-console.log(JSON.stringify(process.env));
+
 function getToken(tokenWithBearer) {
   const match = tokenWithBearer.match(/^Bearer (.*)$/);
   if (!match || match.length < 2) {
