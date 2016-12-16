@@ -10,8 +10,8 @@ export class Login extends Component {
     super(props);
     this.loginWithGoogle = this.loginWithGoogle.bind(this);
     this.auth0 = new Auth0({
-      domain: 'oakapp.auth0.com',
-      clientID: 'GfMoEkzkCGYB9p1cyQ042XyVshskXt8p',
+      domain: process.env.REACT_APP_AUTH0_DOMAIN,
+      clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
       callbackURL: window.location.href,
       responseType: 'token',
     });
