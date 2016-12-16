@@ -9,6 +9,7 @@ stages:
 cache:
   paths:
   - node_modules/
+  - ~/.yarn-cache/
 
 before_script:
   - yarn install
