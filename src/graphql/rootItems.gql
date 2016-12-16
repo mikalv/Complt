@@ -1,0 +1,14 @@
+query Root {
+  root {
+    ... on Project {
+      id
+      name
+    }
+    ... on Task {
+      id
+      name
+      isCompleted
+      tags
+    }
+  }
+}
