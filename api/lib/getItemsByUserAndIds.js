@@ -1,7 +1,7 @@
 import { Item } from '../dynamoModels';
 
 function getItemsByUserAndIds(user, ids) {
-  if (!user && !ids) return Promise.reject('No user id or no item ids were given');
+  if (!user || !ids) return Promise.reject('No user id or no item ids were given');
   const idsWithOwner = ids.map(id => ({
     id,
     owner: user,
