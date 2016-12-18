@@ -6,11 +6,7 @@ function deleteTask(user, taskId, parentProjectId) {
     verifyItemExists(user, taskId),
     verifyItemExists(user, parentProjectId),
   ]).then(([task, parentProject]) => {
-    if (
-      task.isProject === false &&
-      parentProject.isProject === true &&
-      parentProject.children.indexOf(task.id) !== -1
-    ) {
+    if (task.isProject === false && parentProject.isProject === true) {
       const taskIndex = parentProject.children.indexOf(task.id);
       if (taskIndex !== -1) {
         parentProject.children.splice(taskIndex, 1);
