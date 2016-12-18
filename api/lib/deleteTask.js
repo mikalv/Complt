@@ -2,6 +2,7 @@ import { Item } from '../dynamoModels';
 import verifyItemExists from './verifyItemExists';
 
 function deleteTask(user, taskId, parentProjectId) {
+  if (!user || !taskId || !parentProjectId) return Promise.reject('No user id, no task id or no parent project id was given');
   return Promise.all([
     verifyItemExists(user, taskId),
     verifyItemExists(user, parentProjectId),

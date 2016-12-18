@@ -60,4 +60,9 @@ describe('deleteTask()', () => {
       expect(task).toEqual({ owner: 'someUserId', id: 'someTaskThatHasAParentProject', isProject: false });
     })
   );
+  it('rejects if it is passed no arguments', () =>
+    deleteTask().catch((error) => {
+      expect(error).toEqual('No user id, no task id or no parent project id was given');
+    })
+  );
 });
