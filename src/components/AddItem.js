@@ -6,6 +6,7 @@ import ActionAssignment from 'material-ui/svg-icons/action/assignment';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import Paper from 'material-ui/Paper';
 import IconButton from 'material-ui/IconButton';
+import processItem from '../utils/processItem';
 import './AddItem.css';
 
 class AddItem extends Component {
@@ -31,31 +32,8 @@ class AddItem extends Component {
   }
   submitItem(e) {
     e.preventDefault();
-    let item;
-    if (this.state.type === 'Project') {
-      item = {
-        __typename: 'Project',
-        name: '',
-      };
-    } else {
-      item = {
-        __typename: 'Task',
-        name: '',
-        tags: [],
-      };
-    }
-    if (item.tags) {
-      const valueParts = this.state.value.split(' ');
-      valueParts.forEach((part) => {
-        if (part.startsWith('@')) {
-          item.tags.push(part);
-          return;
-        }
-        item.name += ` ${part}`;
-      });
-    } else item.name = this.state.value;
-    item.name = item.name.trim();
-    if (!item.name) return;
+    const item = processItem(this.state.value, this.state.type);
+    if (!item) return;
     this.setState({ value: '' });
     this.props.onAddItem(item);
   }
