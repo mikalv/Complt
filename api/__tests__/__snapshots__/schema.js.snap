@@ -1,0 +1,59 @@
+exports[`GraphQL schema matches the snapshot 1`] = `
+"union Item = Task | Project
+
+type Mutation {
+  taskUpdate(input: TaskUpdateInput): Task
+  deleteTask(parentProjectId: ID!, taskId: ID!): Task
+  createProject(projectId: ID!, project: ProjectInput!): Project
+  createTask(projectId: ID!, task: TaskInput!): Task
+}
+
+# A project that can contain tasks or other projects
+type Project {
+  id: ID!
+  name: String
+  isSequential: Boolean
+  children: [Item]
+}
+
+input ProjectInput {
+  name: String!
+  isSequential: Boolean!
+}
+
+type Query {
+  itemById(id: ID!): Item
+  inbox: [Task]
+  root: [Item]
+  user: User
+}
+
+# A task
+type Task {
+  id: ID!
+  name: String
+  isCompleted: Boolean
+  tags: [String]
+}
+
+input TaskInput {
+  name: String!
+  isCompleted: Boolean!
+  tags: [String]
+}
+
+input TaskUpdateInput {
+  id: ID!
+  name: String
+  isCompleted: Boolean
+  tags: [String]
+}
+
+# The data of the user who is performing the request
+type User {
+  name: String
+  email: String
+  picture: String
+}
+"
+`;
