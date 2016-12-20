@@ -36,7 +36,7 @@ const Project = new GraphQLObjectType({
         type: new GraphQLList(Item),
         resolve(obj) {
           if (!obj.children) return [];
-          return getItemsByUserAndIds('mitchell', obj.children);
+          return getItemsByUserAndIds(obj.owner, obj.children);
         },
       },
     };
