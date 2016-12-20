@@ -16,7 +16,7 @@ before_script:
 
 lint:
   script:
-   - node ./node_modules/eslint/bin/eslint.js .
+   - npm run lint
 
 jest:
   script:

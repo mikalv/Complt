@@ -9,7 +9,7 @@ app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true,
   rootValue: {
-    userId: 'testUserId',
+    userId: 'google-oauth2|112855707418786611612',
     user: {
       name: 'Example Person',
       email: 'person@example.com',

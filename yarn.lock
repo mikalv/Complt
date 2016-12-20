@@ -897,6 +897,14 @@ babel-plugin-transform-strict-mode@^6.18.0:
     babel-runtime "^6.0.0"
     babel-types "^6.18.0"
 
+babel-polyfill@^6.7.4:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.20.0.tgz#de4a371006139e20990aac0be367d398331204e7"
+  dependencies:
+    babel-runtime "^6.20.0"
+    core-js "^2.4.0"
+    regenerator-runtime "^0.10.0"
+
 babel-preset-es2015@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-preset-es2015/-/babel-preset-es2015-6.18.0.tgz#b8c70df84ec948c43dcf2bf770e988eb7da88312"
@@ -966,7 +974,7 @@ babel-register@^6.14.0, babel-register@^6.18.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.9.0, babel-runtime@^6.9.1:
+babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.9.0, babel-runtime@^6.9.1, babel-runtime@>=6.0.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.20.0.tgz#87300bdcf4cd770f09bf0048c64204e17806d16f"
   dependencies:
@@ -2328,6 +2336,14 @@ eslint-plugin-flowtype@2.18.1:
   dependencies:
     lodash "^4.15.0"
 
+eslint-plugin-graphql:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-graphql/-/eslint-plugin-graphql-0.4.3.tgz#17596c4a9b5692873ccc0410545ce230edcff047"
+  dependencies:
+    babel-polyfill "^6.7.4"
+    graphql "^0.5.0"
+    lodash "^4.11.1"
+
 eslint-plugin-import@^1.16.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-1.16.0.tgz#b2fa07ebcc53504d0f2a4477582ec8bff1871b9f"
@@ -3031,6 +3047,12 @@ graphql-anywhere@^1.0.0:
 graphql-tag@^1.0.0, graphql-tag@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-1.1.2.tgz#3e9951d5664e73c1aceee0329f0152bf3020fbb7"
+
+graphql@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.5.0.tgz#1f03f8267128392df05d449889c48c4bd9ac34ce"
+  dependencies:
+    babel-runtime ">=6.0.0"
 
 graphql@^0.8.2:
   version "0.8.2"
