@@ -6,6 +6,7 @@ import {
   GraphQLBoolean,
   GraphQLList,
 } from 'graphql';
+import { taskTagsResolver } from './resolvers';
 
 const Task = new GraphQLObjectType({
   name: 'Task',
@@ -17,9 +18,7 @@ const Task = new GraphQLObjectType({
       isCompleted: { type: GraphQLBoolean },
       tags: {
         type: new GraphQLList(GraphQLString),
-        resolve(obj) {
-          return obj.tags || [];
-        },
+        resolve: taskTagsResolver,
       },
     };
   },

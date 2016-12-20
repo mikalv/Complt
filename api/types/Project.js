@@ -7,7 +7,7 @@ import {
   GraphQLList,
 } from 'graphql';
 import Item from './Item';
-import getItemsByUserAndIds from '../lib/getItemsByUserAndIds';
+import { projectIsSequentialResolver, projectChildrenResolver } from './resolvers';
 
 const Project = new GraphQLObjectType({
   name: 'Project',
@@ -22,22 +22,11 @@ const Project = new GraphQLObjectType({
       },
       isSequential: {
         type: GraphQLBoolean,
-        resolve(obj) {
-          if (obj.projectType === 'seq') {
-            return true;
-          }
-          if (obj.projectType === 'para') {
-            return false;
-          }
-          return null;
-        },
+        resolve: projectIsSequentialResolver,
       },
       children: {
         type: new GraphQLList(Item),
-        resolve(obj) {
-          if (!obj.children) return [];
-          return getItemsByUserAndIds(obj.owner, obj.children);
-        },
+        resolve: projectChildrenResolver,
       },
     };
   },
