@@ -8,11 +8,13 @@ function getToken(tokenWithBearer) {
   return match[1];
 }
 
-const getUserId = tokenWithBearer => new Promise((resolve, reject) => {
+const getUserId = (tokenWithBearer) => {
   const token = getToken(tokenWithBearer);
-  if (token === null) reject('Token not found');
-  authenticationClient.tokens.getInfo(token).then(thing =>
-  resolve(thing)).catch(error => reject(error));
-});
+  if (token === null) return Promise.reject('Token not found');
+  return authenticationClient.tokens.getInfo(token).then((user) => {
+    if (typeof user === 'object') return user;
+    return Promise.reject('Unauthorized');
+  });
+};
 
 export default getUserId;
