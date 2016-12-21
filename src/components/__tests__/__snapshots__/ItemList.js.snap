@@ -3,25 +3,25 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
   style={
     Object {
       "muiPrepared": true,
-      "padding": "8px 0px 8px 0px"
+      "padding": "8px 0px 8px 0px",
     }
   }>
   <div>
     <span
       disabled={undefined}
       href={undefined}
-      onBlur={[Function anonymous]}
-      onClick={[Function anonymous]}
-      onFocus={[Function anonymous]}
-      onKeyDown={[Function anonymous]}
-      onKeyUp={[Function anonymous]}
-      onMouseDown={[Function onMouseDown]}
-      onMouseEnter={[Function anonymous]}
-      onMouseLeave={[Function anonymous]}
-      onMouseUp={[Function onMouseUp]}
-      onTouchEnd={[Function anonymous]}
-      onTouchStart={[Function anonymous]}
-      onTouchTap={[Function anonymous]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
       open={null}
       style={
         Object {
@@ -45,16 +45,16 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
           "textDecoration": "none",
           "transform": "translate(0, 0)",
           "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null
+          "verticalAlign": null,
         }
       }
       tabIndex={0}>
       <div
-        onMouseDown={[Function anonymous]}
-        onMouseLeave={[Function anonymous]}
-        onMouseUp={[Function anonymous]}
-        onTouchEnd={[Function anonymous]}
-        onTouchStart={[Function anonymous]}>
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
         <div
           style={
             Object {
@@ -64,7 +64,7 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
               "paddingLeft": 72,
               "paddingRight": 56,
               "paddingTop": 20,
-              "position": "relative"
+              "position": "relative",
             }
           }>
           Project
@@ -88,12 +88,12 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                 "position": "absolute",
                 "top": 8,
                 "userSelect": "none",
-                "width": 40
+                "width": 40,
               }
             }>
             <svg
-              onMouseEnter={[Function anonymous]}
-              onMouseLeave={[Function anonymous]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 Object {
                   "color": "#ffffff",
@@ -105,7 +105,7 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                   "muiPrepared": true,
                   "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                   "userSelect": "none",
-                  "width": 24
+                  "width": 24,
                 }
               }
               viewBox="0 0 24 24">
@@ -116,19 +116,19 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
           <button
             disabled={false}
             href={undefined}
-            onBlur={[Function anonymous]}
-            onClick={[Function anonymous]}
-            onFocus={[Function anonymous]}
-            onKeyDown={[Function anonymous]}
-            onKeyUp={[Function anonymous]}
-            onMouseDown={[Function anonymous]}
-            onMouseEnter={[Function anonymous]}
-            onMouseLeave={[Function anonymous]}
-            onMouseOut={[Function anonymous]}
-            onMouseUp={[Function anonymous]}
-            onTouchEnd={[Function onTouchEnd]}
-            onTouchStart={[Function onTouchStart]}
-            onTouchTap={[Function anonymous]}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            onTouchTap={[Function]}
             style={
               Object {
                 "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -153,20 +153,20 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                 "transform": "translate(0, 0)",
                 "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                 "verticalAlign": null,
-                "width": 48
+                "width": 48,
               }
             }
             tabIndex={0}
             type="button">
             <div
-              onMouseDown={[Function anonymous]}
-              onMouseLeave={[Function anonymous]}
-              onMouseUp={[Function anonymous]}
-              onTouchEnd={[Function anonymous]}
-              onTouchStart={[Function anonymous]}>
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}>
               <svg
-                onMouseEnter={[Function anonymous]}
-                onMouseLeave={[Function anonymous]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 style={
                   Object {
                     "color": "rgba(0, 0, 0, 0.87)",
@@ -176,7 +176,7 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                     "muiPrepared": true,
                     "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                     "userSelect": "none",
-                    "width": 24
+                    "width": 24,
                   }
                 }
                 viewBox="0 0 24 24">
@@ -197,25 +197,25 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
   style={
     Object {
       "muiPrepared": true,
-      "padding": "8px 0px 8px 0px"
+      "padding": "8px 0px 8px 0px",
     }
   }>
   <div>
     <span
       disabled={undefined}
       href={undefined}
-      onBlur={[Function anonymous]}
-      onClick={[Function anonymous]}
-      onFocus={[Function anonymous]}
-      onKeyDown={[Function anonymous]}
-      onKeyUp={[Function anonymous]}
-      onMouseDown={[Function onMouseDown]}
-      onMouseEnter={[Function anonymous]}
-      onMouseLeave={[Function anonymous]}
-      onMouseUp={[Function onMouseUp]}
-      onTouchEnd={[Function anonymous]}
-      onTouchStart={[Function anonymous]}
-      onTouchTap={[Function anonymous]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
       open={null}
       style={
         Object {
@@ -239,16 +239,16 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
           "textDecoration": "none",
           "transform": "translate(0, 0)",
           "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null
+          "verticalAlign": null,
         }
       }
       tabIndex={0}>
       <div
-        onMouseDown={[Function anonymous]}
-        onMouseLeave={[Function anonymous]}
-        onMouseUp={[Function anonymous]}
-        onTouchEnd={[Function anonymous]}
-        onTouchStart={[Function anonymous]}>
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
         <div
           style={
             Object {
@@ -258,7 +258,7 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
               "paddingLeft": 72,
               "paddingRight": 56,
               "paddingTop": 20,
-              "position": "relative"
+              "position": "relative",
             }
           }>
           Task
@@ -282,12 +282,12 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                 "position": "absolute",
                 "top": 8,
                 "userSelect": "none",
-                "width": 40
+                "width": 40,
               }
             }>
             <svg
-              onMouseEnter={[Function anonymous]}
-              onMouseLeave={[Function anonymous]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 Object {
                   "color": "#ffffff",
@@ -299,7 +299,7 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                   "muiPrepared": true,
                   "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                   "userSelect": "none",
-                  "width": 24
+                  "width": 24,
                 }
               }
               viewBox="0 0 24 24">
@@ -310,19 +310,19 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
           <button
             disabled={false}
             href={undefined}
-            onBlur={[Function anonymous]}
-            onClick={[Function anonymous]}
-            onFocus={[Function anonymous]}
-            onKeyDown={[Function anonymous]}
-            onKeyUp={[Function anonymous]}
-            onMouseDown={[Function anonymous]}
-            onMouseEnter={[Function anonymous]}
-            onMouseLeave={[Function anonymous]}
-            onMouseOut={[Function anonymous]}
-            onMouseUp={[Function anonymous]}
-            onTouchEnd={[Function onTouchEnd]}
-            onTouchStart={[Function onTouchStart]}
-            onTouchTap={[Function anonymous]}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            onTouchTap={[Function]}
             style={
               Object {
                 "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -347,20 +347,20 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                 "transform": "translate(0, 0)",
                 "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                 "verticalAlign": null,
-                "width": 48
+                "width": 48,
               }
             }
             tabIndex={0}
             type="button">
             <div
-              onMouseDown={[Function anonymous]}
-              onMouseLeave={[Function anonymous]}
-              onMouseUp={[Function anonymous]}
-              onTouchEnd={[Function anonymous]}
-              onTouchStart={[Function anonymous]}>
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}>
               <svg
-                onMouseEnter={[Function anonymous]}
-                onMouseLeave={[Function anonymous]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 style={
                   Object {
                     "color": "rgba(0, 0, 0, 0.87)",
@@ -370,7 +370,7 @@ exports[`ItemList component passes the canDelete prop to the Item component if t
                     "muiPrepared": true,
                     "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                     "userSelect": "none",
-                    "width": 24
+                    "width": 24,
                   }
                 }
                 viewBox="0 0 24 24">
@@ -391,25 +391,25 @@ exports[`ItemList component passes the onItemAvatarTap function to the Item comp
   style={
     Object {
       "muiPrepared": true,
-      "padding": "8px 0px 8px 0px"
+      "padding": "8px 0px 8px 0px",
     }
   }>
   <div>
     <span
       disabled={undefined}
       href={undefined}
-      onBlur={[Function anonymous]}
-      onClick={[Function anonymous]}
-      onFocus={[Function anonymous]}
-      onKeyDown={[Function anonymous]}
-      onKeyUp={[Function anonymous]}
-      onMouseDown={[Function onMouseDown]}
-      onMouseEnter={[Function anonymous]}
-      onMouseLeave={[Function anonymous]}
-      onMouseUp={[Function onMouseUp]}
-      onTouchEnd={[Function anonymous]}
-      onTouchStart={[Function anonymous]}
-      onTouchTap={[Function anonymous]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
       open={null}
       style={
         Object {
@@ -433,16 +433,16 @@ exports[`ItemList component passes the onItemAvatarTap function to the Item comp
           "textDecoration": "none",
           "transform": "translate(0, 0)",
           "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null
+          "verticalAlign": null,
         }
       }
       tabIndex={0}>
       <div
-        onMouseDown={[Function anonymous]}
-        onMouseLeave={[Function anonymous]}
-        onMouseUp={[Function anonymous]}
-        onTouchEnd={[Function anonymous]}
-        onTouchStart={[Function anonymous]}>
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
         <div
           style={
             Object {
@@ -452,14 +452,14 @@ exports[`ItemList component passes the onItemAvatarTap function to the Item comp
               "paddingLeft": 72,
               "paddingRight": 16,
               "paddingTop": 20,
-              "position": "relative"
+              "position": "relative",
             }
           }>
           Task
           <div
             className={undefined}
             color={undefined}
-            onTouchTap={[Function anonymous]}
+            onTouchTap={[Function]}
             size={40}
             style={
               Object {
@@ -476,12 +476,12 @@ exports[`ItemList component passes the onItemAvatarTap function to the Item comp
                 "position": "absolute",
                 "top": 8,
                 "userSelect": "none",
-                "width": 40
+                "width": 40,
               }
             }>
             <svg
-              onMouseEnter={[Function anonymous]}
-              onMouseLeave={[Function anonymous]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 Object {
                   "color": "#ffffff",
@@ -493,7 +493,7 @@ exports[`ItemList component passes the onItemAvatarTap function to the Item comp
                   "muiPrepared": true,
                   "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                   "userSelect": "none",
-                  "width": 24
+                  "width": 24,
                 }
               }
               viewBox="0 0 24 24">
@@ -513,25 +513,25 @@ exports[`ItemList component passes the onItemTap function to the Item component 
   style={
     Object {
       "muiPrepared": true,
-      "padding": "8px 0px 8px 0px"
+      "padding": "8px 0px 8px 0px",
     }
   }>
   <div>
     <span
       disabled={undefined}
       href={undefined}
-      onBlur={[Function anonymous]}
-      onClick={[Function anonymous]}
-      onFocus={[Function anonymous]}
-      onKeyDown={[Function anonymous]}
-      onKeyUp={[Function anonymous]}
-      onMouseDown={[Function onMouseDown]}
-      onMouseEnter={[Function anonymous]}
-      onMouseLeave={[Function anonymous]}
-      onMouseUp={[Function onMouseUp]}
-      onTouchEnd={[Function anonymous]}
-      onTouchStart={[Function anonymous]}
-      onTouchTap={[Function anonymous]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
       open={null}
       style={
         Object {
@@ -555,16 +555,16 @@ exports[`ItemList component passes the onItemTap function to the Item component 
           "textDecoration": "none",
           "transform": "translate(0, 0)",
           "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null
+          "verticalAlign": null,
         }
       }
       tabIndex={0}>
       <div
-        onMouseDown={[Function anonymous]}
-        onMouseLeave={[Function anonymous]}
-        onMouseUp={[Function anonymous]}
-        onTouchEnd={[Function anonymous]}
-        onTouchStart={[Function anonymous]}>
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
         <div
           style={
             Object {
@@ -574,7 +574,7 @@ exports[`ItemList component passes the onItemTap function to the Item component 
               "paddingLeft": 72,
               "paddingRight": 16,
               "paddingTop": 20,
-              "position": "relative"
+              "position": "relative",
             }
           }>
           Task
@@ -598,12 +598,12 @@ exports[`ItemList component passes the onItemTap function to the Item component 
                 "position": "absolute",
                 "top": 8,
                 "userSelect": "none",
-                "width": 40
+                "width": 40,
               }
             }>
             <svg
-              onMouseEnter={[Function anonymous]}
-              onMouseLeave={[Function anonymous]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 Object {
                   "color": "#ffffff",
@@ -615,7 +615,7 @@ exports[`ItemList component passes the onItemTap function to the Item component 
                   "muiPrepared": true,
                   "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                   "userSelect": "none",
-                  "width": 24
+                  "width": 24,
                 }
               }
               viewBox="0 0 24 24">
@@ -635,25 +635,25 @@ exports[`ItemList component renders an item correctly 1`] = `
   style={
     Object {
       "muiPrepared": true,
-      "padding": "8px 0px 8px 0px"
+      "padding": "8px 0px 8px 0px",
     }
   }>
   <div>
     <span
       disabled={undefined}
       href={undefined}
-      onBlur={[Function anonymous]}
-      onClick={[Function anonymous]}
-      onFocus={[Function anonymous]}
-      onKeyDown={[Function anonymous]}
-      onKeyUp={[Function anonymous]}
-      onMouseDown={[Function onMouseDown]}
-      onMouseEnter={[Function anonymous]}
-      onMouseLeave={[Function anonymous]}
-      onMouseUp={[Function onMouseUp]}
-      onTouchEnd={[Function anonymous]}
-      onTouchStart={[Function anonymous]}
-      onTouchTap={[Function anonymous]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
       open={null}
       style={
         Object {
@@ -677,16 +677,16 @@ exports[`ItemList component renders an item correctly 1`] = `
           "textDecoration": "none",
           "transform": "translate(0, 0)",
           "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null
+          "verticalAlign": null,
         }
       }
       tabIndex={0}>
       <div
-        onMouseDown={[Function anonymous]}
-        onMouseLeave={[Function anonymous]}
-        onMouseUp={[Function anonymous]}
-        onTouchEnd={[Function anonymous]}
-        onTouchStart={[Function anonymous]}>
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
         <div
           style={
             Object {
@@ -696,7 +696,7 @@ exports[`ItemList component renders an item correctly 1`] = `
               "paddingLeft": 72,
               "paddingRight": 16,
               "paddingTop": 20,
-              "position": "relative"
+              "position": "relative",
             }
           }>
           Task
@@ -720,12 +720,12 @@ exports[`ItemList component renders an item correctly 1`] = `
                 "position": "absolute",
                 "top": 8,
                 "userSelect": "none",
-                "width": 40
+                "width": 40,
               }
             }>
             <svg
-              onMouseEnter={[Function anonymous]}
-              onMouseLeave={[Function anonymous]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
               style={
                 Object {
                   "color": "#ffffff",
@@ -737,7 +737,7 @@ exports[`ItemList component renders an item correctly 1`] = `
                   "muiPrepared": true,
                   "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                   "userSelect": "none",
-                  "width": 24
+                  "width": 24,
                 }
               }
               viewBox="0 0 24 24">
@@ -757,7 +757,7 @@ exports[`ItemList component renders without crashing when an item is null 1`] = 
   style={
     Object {
       "muiPrepared": true,
-      "padding": "8px 0px 8px 0px"
+      "padding": "8px 0px 8px 0px",
     }
   } />
 `;
@@ -767,7 +767,7 @@ exports[`ItemList component renders without crashing with no items 1`] = `
   style={
     Object {
       "muiPrepared": true,
-      "padding": "8px 0px 8px 0px"
+      "padding": "8px 0px 8px 0px",
     }
   } />
 `;
