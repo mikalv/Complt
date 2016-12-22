@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Projects from '../Projects';
+import { Root } from '../Root';
 import MuiTheme from '../../MuiTheme';
 
-describe('Projects component', () => {
+describe('Root component', () => {
   it('renders without crashing', () => {
     renderer.create(<MuiTheme>
-      <Projects projectChildren={[]} />
+      <Root data={{ root: [], loading: false }} />
     </MuiTheme>);
   });
 });

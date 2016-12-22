@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Projects from '../Projects';
+import { Project } from '../Project';
 import MuiTheme from '../../MuiTheme';
 
-describe('Projects component', () => {
+describe('Project component', () => {
   it('renders without crashing', () => {
     renderer.create(<MuiTheme>
-      <Projects projectChildren={[]} />
+      <Project data={{ itemById: { children: [] }, loading: false }} />
     </MuiTheme>);
   });
 });

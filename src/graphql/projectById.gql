@@ -1,0 +1,19 @@
+query ProjectById($id: ID!) {
+  itemById(id: $id) {
+    ... on Project {
+      id
+      children {
+        ... on Project {
+          id
+          name
+        }
+        ... on Task {
+          id
+          name
+          isCompleted
+          tags
+        }
+      }
+    }
+  }
+}
