@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
-import ApolloClient, { createNetworkInterface, addTypename } from 'apollo-client';
+import ApolloClient, { createNetworkInterface, addTypename, applyAfterware } from 'apollo-client'; // eslint-disable-line no-unused-vars
 import { ApolloProvider } from 'react-apollo';
 import drawer from './redux/drawer';
 import auth from './redux/auth';
@@ -22,6 +22,11 @@ networkInterface.use([{
     if (!req.options.headers) req.options.headers = {};
     const token = localStorage.getItem('token') || null;
     req.options.headers.authorization = token ? `Bearer ${token}` : null;
+    next();
+  },
+}]).useAfter([{
+  applyAfterware({ response }, next) {
+    if (response.status === 401) browserHistory.push('/login');
     next();
   },
 }]);
