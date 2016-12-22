@@ -56,13 +56,15 @@ export default compose(
               },
             },
             updateQueries: {
-              ItemById(prev, { mutationResult }) {
+              ProjectById(prev, { mutationResult }) {
                 return {
-                  ...prev,
-                  itemById: [
+                  itemById: {
                     ...prev.itemById,
-                    mutationResult.data.createProject,
-                  ],
+                    children: [
+                      ...prev.itemById.children,
+                      mutationResult.data.createProject,
+                    ],
+                  },
                 };
               },
             },
