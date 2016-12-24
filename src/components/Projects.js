@@ -10,6 +10,7 @@ const Projects = props => (
       <CircularProgress className="loading-padding" />
     </div> : <div>
       <ItemList
+        onItemAvatarTap={props.onAvatarTap}
         items={props.projectChildren || []}
         onItemTap={i => props.onItemTap(i)}
         style={{ marginBottom: '116px', height: '100%' }}
@@ -18,6 +19,7 @@ const Projects = props => (
     <div className="AddItem-fixed">
       <AddItem
         initialType="Project"
+        canChangeType
         onAddItem={(item) => {
           if (item.__typename === 'Project') props.onCreateProject(item.name);
           else props.onCreateTask(item);
@@ -31,6 +33,7 @@ Projects.propTypes = {
   loading: React.PropTypes.bool,
   onCreateProject: React.PropTypes.func,
   onCreateTask: React.PropTypes.func,
+  onAvatarTap: React.PropTypes.func,
 };
 
 export default Projects;
