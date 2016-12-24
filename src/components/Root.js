@@ -6,11 +6,13 @@ import rootItemsQuery from '../graphql/rootItems.gql';
 import addProjectMutation from '../graphql/addProject.gql';
 import completeTaskMutation from '../graphql/completeTask.gql';
 import addTaskMutation from '../graphql/addTask.gql';
+import deleteTaskMutation from '../graphql/deleteTask.gql';
 
 export const Root = props => (
   <Projects
     onCreateProject={props.createProject}
     onCreateTask={props.createTask}
+    onDelete={index => props.deleteTask(props.data.root[index].id)}
     onAvatarTap={(index) => {
       if (props.data.root[index].__typename === 'Task') {
         props.completeTask(props.data.root[index].id, !props.data.root[index].isCompleted);
@@ -32,6 +34,7 @@ Root.propTypes = {
   }),
   createProject: React.PropTypes.func,
   createTask: React.PropTypes.func,
+  deleteTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   completeTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   router: React.PropTypes.shape({
     push: React.PropTypes.func,
@@ -39,6 +42,39 @@ Root.propTypes = {
 };
 export default compose(
   graphql(rootItemsQuery),
+  graphql(deleteTaskMutation, {
+    props({ mutate }) {
+      return {
+        deleteTask(taskId) {
+          mutate({
+            variables: {
+              parentProjectId: 'root',
+              taskId,
+            },
+            optimisticResponse: {
+              __typename: 'Mutation',
+              deleteTask: {
+                id: taskId,
+                __typename: 'Task',
+              },
+            },
+            updateQueries: {
+              Root(prev) {
+                const taskIndex = prev.root.findIndex(item => item.id === taskId);
+                return {
+                  ...prev,
+                  root: [
+                    ...prev.root.slice(0, taskIndex),
+                    ...prev.root.slice(taskIndex + 1),
+                  ],
+                };
+              },
+            },
+          });
+        },
+      };
+    },
+  }),
   graphql(completeTaskMutation, {
     props({ mutate }) {
       return {

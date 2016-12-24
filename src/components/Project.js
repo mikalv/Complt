@@ -6,14 +6,17 @@ import projectById from '../graphql/projectById.gql';
 import addProjectMutation from '../graphql/addProject.gql';
 import completeTaskMutation from '../graphql/completeTask.gql';
 import addTaskMutation from '../graphql/addTask.gql';
+import deleteTaskMutation from '../graphql/deleteTask.gql';
 
 export const Project = props => (
   <Projects
     onCreateProject={props.createProject}
     onCreateTask={props.createTask}
+    onDelete={index => props.deleteTask(props.data.itemById.children[index].id)}
     onAvatarTap={(index) => {
-      if (props.data.root[index].__typename === 'Task') {
-        props.completeTask(props.data.root[index].id, !props.data.root[index].isCompleted);
+      if (props.data.itemById.children[index].__typename === 'Task') {
+        props.completeTask(props.data.itemById.children[index].id,
+          !props.data.itemById.children[index].isCompleted);
       }
     }}
     onItemTap={(i) => {
@@ -34,6 +37,7 @@ Project.propTypes = {
   }),
   createProject: React.PropTypes.func,
   createTask: React.PropTypes.func,
+  deleteTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   completeTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   routeParams: React.PropTypes.shape({
     projectId: React.PropTypes.string, // eslint-disable-line react/no-unused-prop-types
@@ -45,6 +49,42 @@ Project.propTypes = {
 export default compose(
   graphql(projectById, {
     options: ({ routeParams }) => ({ variables: { id: routeParams.projectId } }),
+  }),
+  graphql(deleteTaskMutation, {
+    props({ mutate, ownProps }) {
+      return {
+        deleteTask(taskId) {
+          mutate({
+            variables: {
+              parentProjectId: ownProps.routeParams.projectId,
+              taskId,
+            },
+            optimisticResponse: {
+              __typename: 'Mutation',
+              deleteTask: {
+                id: taskId,
+                __typename: 'Task',
+              },
+            },
+            updateQueries: {
+              ProjectById(prev) {
+                const taskIndex = prev.itemById.children.findIndex(item => item.id === taskId);
+                return {
+                  ...prev,
+                  itemById: {
+                    ...prev.itemById,
+                    children: [
+                      ...prev.itemById.children.slice(0, taskIndex),
+                      ...prev.itemById.children.slice(taskIndex + 1),
+                    ],
+                  },
+                };
+              },
+            },
+          });
+        },
+      };
+    },
   }),
   graphql(completeTaskMutation, {
     props({ mutate }) {

@@ -10,6 +10,8 @@ const Projects = props => (
       <CircularProgress className="loading-padding" />
     </div> : <div>
       <ItemList
+        onDelete={i => props.onDelete(i)}
+        canDeleteTask
         onItemAvatarTap={props.onAvatarTap}
         items={props.projectChildren || []}
         onItemTap={i => props.onItemTap(i)}
@@ -34,6 +36,7 @@ Projects.propTypes = {
   onCreateProject: React.PropTypes.func,
   onCreateTask: React.PropTypes.func,
   onAvatarTap: React.PropTypes.func,
+  onDelete: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
 };
 
 export default Projects;
