@@ -2,6 +2,7 @@ import getItemsByUserAndIds from './lib/getItemsByUserAndIds';
 import verifyItemExists from './lib/verifyItemExists';
 import updateTask from './lib/updateTask';
 import deleteTask from './lib/deleteTask';
+import deleteProject from './lib/deleteProject';
 import addItemToProject from './lib/addItemToProject';
 
 export function queryItemByIdResolver(rootValue, { id }) {
@@ -26,6 +27,9 @@ export function mutationTaskUpdateResolver({ userId }, { input }) {
 }
 export function mutationDeleteTaskResolver({ userId }, { parentProjectId, taskId }) {
   return deleteTask(userId, taskId, parentProjectId);
+}
+export function mutationDeleteProjectResolver({ userId }, { parentProjectId, projectId }) {
+  return deleteProject(userId, projectId, parentProjectId);
 }
 export function mutationCreateProjectResolver({ userId }, { project, projectId }) {
   const projectToCreate = {

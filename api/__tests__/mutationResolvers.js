@@ -1,17 +1,20 @@
 import {
   mutationTaskUpdateResolver,
   mutationDeleteTaskResolver,
+  mutationDeleteProjectResolver,
   mutationCreateProjectResolver,
   mutationCreateTaskResolver,
 } from '../resolvers';
 import updateTask from '../lib/updateTask';
 import deleteTask from '../lib/deleteTask';
+import deleteProject from '../lib/deleteProject';
 import addItemToProject from '../lib/addItemToProject';
 
-jest.mock('../lib/updateTask').mock('../lib/deleteTask').mock('../lib/addItemToProject');
+jest.mock('../lib/updateTask').mock('../lib/deleteTask').mock('../lib/deleteProject').mock('../lib/addItemToProject');
 
 updateTask.mockReturnValue({ id: 'someUpdatedTask', owner: 'someUserId' });
 deleteTask.mockReturnValue({ id: 'someDeletedTask', owner: 'someUserId' });
+deleteProject.mockReturnValue({ id: 'someDeletedProject', owner: 'someUserId' });
 addItemToProject.mockImplementation(itemToAdd => Promise.resolve(itemToAdd));
 
 describe('mutationTaskUpdateResolver()', () => {
@@ -26,7 +29,12 @@ describe('mutationDeleteTaskResolver()', () => {
     expect(deleteTask).toBeCalledWith('someUserId', 'someDeletedTask', 'someParentProject');
   });
 });
-
+describe('mutationDeleteProjectResolver()', () => {
+  it('calls deleteProject correctly and resolves to the value of deleteTask', () => {
+    expect(mutationDeleteProjectResolver({ userId: 'someUserId' }, { projectId: 'someDeletedProject', parentProjectId: 'someParentProject' })).toEqual({ id: 'someDeletedProject', owner: 'someUserId' });
+    expect(deleteProject).toBeCalledWith('someUserId', 'someDeletedProject', 'someParentProject');
+  });
+});
 describe('mutationCreateProjectResolver()', () => {
   it('returns an error if the projectId is inbox', () => {
     expect(mutationCreateProjectResolver({ userId: 'someUserId' }, { project: {}, projectId: 'inbox' }))

@@ -60,6 +60,14 @@ const schema = new GraphQLSchema({
         type: Task,
         resolve: resolvers.mutationDeleteTaskResolver,
       },
+      deleteProject: {
+        args: {
+          parentProjectId: { type: new GraphQLNonNull(GraphQLID) },
+          projectId: { type: new GraphQLNonNull(GraphQLID) },
+        },
+        type: Task,
+        resolve: resolvers.mutationDeleteProjectResolver,
+      },
       createProject: {
         args: {
           projectId: { type: new GraphQLNonNull(GraphQLID) },
