@@ -4,7 +4,7 @@ exports[`GraphQL schema matches the snapshot 1`] = `
 type Mutation {
   taskUpdate(input: TaskUpdateInput): Task
   deleteTask(parentProjectId: ID!, taskId: ID!): Task
-  deleteProject(parentProjectId: ID!, projectId: ID!): Task
+  deleteProject(parentProjectId: ID!, projectId: ID!): Project
   createProject(projectId: ID!, project: ProjectInput!): Project
   createTask(projectId: ID!, task: TaskInput!): Task
 }
