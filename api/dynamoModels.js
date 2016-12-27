@@ -1,9 +1,9 @@
-const vogels = require('vogels-promisified');
+const dynogels = require('dynogels-promisified');
 const Joi = require('joi');
 
-vogels.AWS.config.update({ region: 'us-east-1' });
+dynogels.AWS.config.update({ region: 'us-east-1' });
 
-const Item = vogels.define('Item', {
+const Item = dynogels.define('Item', {
   hashKey: 'owner',
   rangeKey: 'id',
   timestamps: true,
@@ -12,14 +12,14 @@ const Item = vogels.define('Item', {
     isProject: Joi.boolean().required(),
     tags: Joi.array(),
     owner: Joi.string().required(),
-    id: vogels.types.uuid(),
+    id: dynogels.types.uuid(),
     isCompleted: Joi.boolean(),
     projectType: Joi.string().regex(/(seq|para)/),
     children: Joi.array(),
   },
 });
 
-const Inbox = vogels.define('Inbox', {
+const Inbox = dynogels.define('Inbox', {
   hashKey: 'owner',
   rangeKey: 'id',
   timestamps: true,
@@ -33,7 +33,7 @@ const Inbox = vogels.define('Inbox', {
   },
 });
 
-const Root = vogels.define('Root', {
+const Root = dynogels.define('Root', {
   hashKey: 'owner',
   rangeKey: 'id',
   timestamps: true,
