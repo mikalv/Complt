@@ -7,12 +7,17 @@ import addProjectMutation from '../graphql/addProject.gql';
 import completeTaskMutation from '../graphql/completeTask.gql';
 import addTaskMutation from '../graphql/addTask.gql';
 import deleteTaskMutation from '../graphql/deleteTask.gql';
+import deleteProjectMutation from '../graphql/deleteProject.gql';
 
 export const Root = props => (
   <Projects
     onCreateProject={props.createProject}
     onCreateTask={props.createTask}
-    onDelete={index => props.deleteTask(props.data.root[index].id)}
+    onDelete={(index) => {
+      const item = props.data.root[index];
+      if (item.__typename === 'Task') props.deleteTask(item.id);
+      if (item.__typename === 'Project') props.deleteProject(item.id);
+    }}
     onAvatarTap={(index) => {
       if (props.data.root[index].__typename === 'Task') {
         props.completeTask(props.data.root[index].id, !props.data.root[index].isCompleted);
@@ -42,6 +47,32 @@ Root.propTypes = {
 };
 export default compose(
   graphql(rootItemsQuery),
+  graphql(deleteProjectMutation, {
+    props({ mutate }) {
+      return {
+        deleteProject(projectId) {
+          mutate({
+            variables: {
+              parentProjectId: 'root',
+              projectId,
+            },
+            updateQueries: {
+              Root(prev) {
+                const projectIndex = prev.root.findIndex(item => item.id === projectId);
+                return {
+                  ...prev,
+                  root: [
+                    ...prev.root.slice(0, projectIndex),
+                    ...prev.root.slice(projectIndex + 1),
+                  ],
+                };
+              },
+            },
+          });
+        },
+      };
+    },
+  }),
   graphql(deleteTaskMutation, {
     props({ mutate }) {
       return {

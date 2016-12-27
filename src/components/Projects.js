@@ -12,6 +12,7 @@ const Projects = props => (
       <ItemList
         onDelete={i => props.onDelete(i)}
         canDeleteTask
+        canDeleteProject
         onItemAvatarTap={props.onAvatarTap}
         items={props.projectChildren || []}
         onItemTap={i => props.onItemTap(i)}

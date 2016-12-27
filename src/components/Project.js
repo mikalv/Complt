@@ -7,12 +7,17 @@ import addProjectMutation from '../graphql/addProject.gql';
 import completeTaskMutation from '../graphql/completeTask.gql';
 import addTaskMutation from '../graphql/addTask.gql';
 import deleteTaskMutation from '../graphql/deleteTask.gql';
+import deleteProjectMutation from '../graphql/deleteProject.gql';
 
 export const Project = props => (
   <Projects
     onCreateProject={props.createProject}
     onCreateTask={props.createTask}
-    onDelete={index => props.deleteTask(props.data.itemById.children[index].id)}
+    onDelete={(index) => {
+      const item = props.data.itemById.children[index];
+      if (item.__typename === 'Task') props.deleteTask(item.id);
+      if (item.__typename === 'Project') props.deleteProject(item.id);
+    }}
     onAvatarTap={(index) => {
       if (props.data.itemById.children[index].__typename === 'Task') {
         props.completeTask(props.data.itemById.children[index].id,
@@ -49,6 +54,36 @@ Project.propTypes = {
 export default compose(
   graphql(projectById, {
     options: ({ routeParams }) => ({ variables: { id: routeParams.projectId } }),
+  }),
+  graphql(deleteProjectMutation, {
+    props({ mutate, ownProps }) {
+      return {
+        deleteProject(projectId) {
+          mutate({
+            variables: {
+              parentProjectId: ownProps.routeParams.projectId,
+              projectId,
+            },
+            updateQueries: {
+              ProjectById(prev) {
+                const projectIndex = prev.itemById.children.findIndex(item =>
+                  item.id === projectId);
+                return {
+                  ...prev,
+                  itemById: {
+                    ...prev.itemById,
+                    children: [
+                      ...prev.itemById.children.slice(0, projectIndex),
+                      ...prev.itemById.children.slice(projectIndex + 1),
+                    ],
+                  },
+                };
+              },
+            },
+          });
+        },
+      };
+    },
   }),
   graphql(deleteTaskMutation, {
     props({ mutate, ownProps }) {

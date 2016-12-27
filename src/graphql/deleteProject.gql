@@ -1,0 +1,5 @@
+mutation deleteProject($parentProjectId: ID!, $projectId: ID!) {
+  deleteProject(parentProjectId: $parentProjectId, projectId: $projectId) {
+    id
+  }
+}
