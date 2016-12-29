@@ -4,7 +4,7 @@ import Projects from './Projects';
 import OakPropTypes from '../PropTypes';
 import projectById from '../graphql/projectById.gql';
 import addProjectMutation from '../graphql/addProject.gql';
-import completeTaskMutation from '../graphql/completeTask.gql';
+import GraphQLCompleteTask from '../graphql/completeTask';
 import addTaskMutation from '../graphql/addTask.gql';
 import deleteTaskMutation from '../graphql/deleteTask.gql';
 import deleteProjectMutation from '../graphql/deleteProject.gql';
@@ -121,30 +121,7 @@ export default compose(
       };
     },
   }),
-  graphql(completeTaskMutation, {
-    props({ mutate }) {
-      return {
-        completeTask(id, isCompleted) {
-          mutate({
-            variables: {
-              input: {
-                id,
-                isCompleted,
-              },
-            },
-            optimisticResponse: {
-              __typename: 'Mutation',
-              taskUpdate: {
-                id,
-                isCompleted,
-                __typename: 'Task',
-              },
-            },
-          });
-        },
-      };
-    },
-  }),
+  GraphQLCompleteTask,
   graphql(addTaskMutation, {
     props({ mutate, ownProps }) {
       return {

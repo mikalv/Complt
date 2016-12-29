@@ -6,7 +6,7 @@ import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';
 import inboxItemsQuery from '../graphql/inboxItems.gql';
 import addTaskMutation from '../graphql/addTask.gql';
-import CompleteTaskMutation from '../graphql/completeTask.gql';
+import GraphQLCompleteTask from '../graphql/completeTask';
 import deleteTaskMutation from '../graphql/deleteTask.gql';
 
 export const Inbox = props => (
@@ -40,30 +40,7 @@ Inbox.propTypes = {
 
 export default compose(
   graphql(inboxItemsQuery),
-  graphql(CompleteTaskMutation, {
-    props({ mutate }) {
-      return {
-        completeTask(id, isCompleted) {
-          mutate({
-            variables: {
-              input: {
-                id,
-                isCompleted,
-              },
-            },
-            optimisticResponse: {
-              __typename: 'Mutation',
-              taskUpdate: {
-                id,
-                isCompleted,
-                __typename: 'Task',
-              },
-            },
-          });
-        },
-      };
-    },
-  }),
+  GraphQLCompleteTask,
   graphql(addTaskMutation, {
     props({ mutate }) {
       return {
