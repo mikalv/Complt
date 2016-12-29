@@ -34,10 +34,9 @@ networkInterface.use([{
 
 const client = new ApolloClient({
   networkInterface,
-  queryTransformer: addTypename,
   dataIdFromObject(result) {
-    if (result.__typename && result.id) {
-      return `${result.__typename}:${result.id}}`;
+    if (result.id) {
+      return result.id;
     }
     return null;
   },
