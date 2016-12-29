@@ -1,7 +1,6 @@
 query ProjectById($id: ID!) {
   itemById(id: $id) {
     ... on Project {
-      id
       children {
         ... on Project {
           id
