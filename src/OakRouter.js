@@ -50,7 +50,7 @@ OakRouter.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    idToken: state.auth.token.idToken,
+    idToken: state.auth,
   };
 }
 

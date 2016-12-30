@@ -20,7 +20,7 @@ export class Login extends Component {
     const result = this.auth0.parseHash(window.location.hash);
     if (result && result.idToken) {
       setTimeout(() => {
-        this.props.login(result);
+        this.props.login(result.idToken);
         this.props.router.push('/');
       }, 100);
     }
