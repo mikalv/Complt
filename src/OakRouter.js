@@ -5,7 +5,7 @@ import App from './App';
 import Inbox from './components/Inbox';
 import Account from './components/Account';
 import Login from './components/Login';
-import Root from './components/Root';
+import RootProject from './components/RootProject';
 import Project from './components/Project';
 import isTokenExpired from './utils/auth';
 
@@ -32,7 +32,7 @@ class OakRouter extends Component {
             <IndexRedirect to="inbox" />
             <Route path="inbox" component={Inbox} />
             <Route path="account" component={Account} />
-            <Route path="projects" component={Root} />
+            <Route path="projects" component={RootProject} />
             <Route path="project/:projectId" component={Project} />
           </Route>
         </Route>

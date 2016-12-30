@@ -9,7 +9,7 @@ import addTaskMutation from '../graphql/addTask.gql';
 import deleteTaskMutation from '../graphql/deleteTask.gql';
 import deleteProjectMutation from '../graphql/deleteProject.gql';
 
-export const Root = props => (
+export const RootProject = props => (
   <Projects
     onCreateProject={props.createProject}
     onCreateTask={props.createTask}
@@ -32,7 +32,7 @@ export const Root = props => (
     loading={props.data.loading}
   />
 );
-Root.propTypes = {
+RootProject.propTypes = {
   data: React.PropTypes.shape({
     root: React.PropTypes.arrayOf(OakPropTypes.item),
     loading: React.PropTypes.bool,
@@ -184,4 +184,4 @@ export default compose(
       };
     },
   }),
-)(Root);
+)(RootProject);
