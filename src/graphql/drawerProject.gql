@@ -1,0 +1,14 @@
+mutation DrawerProjectById($id: ID!) {
+  itemById(id: $id) {
+    ... on Project {
+      children {
+        id
+        name
+      }
+    }
+    ... on Task {
+      id
+      name
+    }
+  }
+}

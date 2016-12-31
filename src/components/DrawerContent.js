@@ -6,6 +6,7 @@ import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ActionLabel from 'material-ui/svg-icons/action/label';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
+import DrawerContentProjectRoot from './DrawerContentProjectRoot';
 
 const DrawerContent = ({ onLocationTap }) => (
   <List>
@@ -15,7 +16,7 @@ const DrawerContent = ({ onLocationTap }) => (
     <ListItem leftIcon={<ActionLabel />}>Tags</ListItem>
     <Divider />
     <Subheader>Projects</Subheader>
-    <ListItem onTouchTap={() => onLocationTap('/projects')}>Me</ListItem>
+    <DrawerContentProjectRoot onLocationTap={onLocationTap} />
   </List>
 );
 

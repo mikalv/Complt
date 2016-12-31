@@ -1,0 +1,8 @@
+query DrawerRoot {
+  root {
+    ... on Project {
+      id
+      name
+    }
+  }
+}
