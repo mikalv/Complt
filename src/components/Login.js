@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'react-md/lib/Buttons/Button';
 import Auth0 from 'auth0-js';
 import * as actions from '../redux/actions';
 
@@ -34,7 +34,7 @@ export class Login extends Component {
     return (
       <div className="flex row full center">
         <div className="flex column center">
-          <RaisedButton label="Login With Google" onTouchTap={this.loginWithGoogle} />
+          <Button raised label="Login With Google" onClick={this.loginWithGoogle} />
         </div>
       </div>
     );

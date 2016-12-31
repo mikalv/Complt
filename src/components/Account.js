@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
-import FlatButton from 'material-ui/FlatButton';
+import Button from 'react-md/lib/Buttons/Button';
 import SocialPerson from 'material-ui/svg-icons/social/person';
 import Auth0 from 'auth0-js';
 import { graphql, compose } from 'react-apollo';
@@ -18,11 +18,10 @@ export const Account = props => (
     <div>
       <Avatar src={props.data.user ? props.data.user.picture : ''} icon={<SocialPerson />} size={150} />
     </div>
-    <FlatButton
+    <Button
       label="Sign Out"
-      labelPosition="after"
-      primary
-      onTouchTap={() => {
+      flat
+      onClick={() => {
         props.logout();
         const auth0 = new Auth0({
           domain: process.env.REACT_APP_AUTH0_DOMAIN,
@@ -30,7 +29,6 @@ export const Account = props => (
         });
         auth0.logout({ returnTo: window.location.href, client_id: process.env.REACT_APP_AUTH0_CLIENT_ID }, { version: 'v2' });
       }}
-      icon={<SocialPerson />}
     />
   </div>
 );
