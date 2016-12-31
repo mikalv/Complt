@@ -1,11 +1,11 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import { Account } from '../Account';
 import MuiTheme from '../../MuiTheme';
 
 describe('Account component', () => {
   it('renders without crashing', () => {
-    renderer.create(<MuiTheme>
+    mount(<MuiTheme>
       <Account data={{ user: {}, loading: false }} />
     </MuiTheme>);
   });
