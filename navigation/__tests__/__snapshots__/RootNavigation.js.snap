@@ -1,0 +1,57 @@
+exports[`RootNavigation renderIcon renders correctly when it's not selected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail" />
+`;
+
+exports[`RootNavigation renderIcon renders correctly when it's selected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail" />
+`;
+
+exports[`RootNavigation renderTitle renders correctly when it's not selected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#222",
+        "fontSize": 17,
+        "marginBottom": 2,
+        "marginLeft": 18,
+        "marginTop": 2,
+      },
+      null,
+    ]
+  }>
+  Inbox
+</Text>
+`;
+
+exports[`RootNavigation renderTitle renders correctly when it's selected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#222",
+        "fontSize": 17,
+        "marginBottom": 2,
+        "marginLeft": 18,
+        "marginTop": 2,
+      },
+      Object {
+        "color": "#03CEA4",
+      },
+    ]
+  }>
+  Inbox
+</Text>
+`;

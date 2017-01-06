@@ -91,4 +91,5 @@ const RootNavigation = () => (
   </DrawerNavigation>
 );
 
+export { renderTitle, renderIcon };
 export default RootNavigation;
