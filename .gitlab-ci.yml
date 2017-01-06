@@ -1,0 +1,59 @@
+image: kkarczmarczyk/node-yarn:latest
+
+stages:
+  - test
+  - build
+  - deploy
+
+
+cache:
+  paths:
+  - node_modules/
+  - ~/.yarn-cache/
+
+before_script:
+  - yarn install
+
+lint:
+  script:
+   - npm run lint
+
+jest:
+  script:
+    - npm run codecov
+
+
+web/deploy/staging:
+  stage: deploy
+  script:
+    - npm run build
+    - 'npm run deploy:web:staging'
+  only:
+    - master
+  environment:
+    name: web/staging
+    url: https://staging.oak.mitchellhamilton.me
+
+web/deploy/production:
+  stage: deploy
+  script:
+    - npm run build
+    - 'npm run deploy:web:prod'
+  only:
+    - master
+  environment:
+    name: web/production
+    url: https://oak.mitchellhamilton.me
+  when: manual
+
+
+api/deploy:
+  stage: deploy
+  script:
+    - 'npm run deploy:api:prod'
+  only:
+    - master
+  environment:
+    name: api/production
+    url: https://5yt9wld04i.execute-api.us-east-1.amazonaws.com/production/graphql
+  when: manual

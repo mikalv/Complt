@@ -1,0 +1,34 @@
+{
+  "name": "Oak",
+  "version": "0.0.0",
+  "description": "Hello Exponent!",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "lint": "eslint .",
+    "coverage": "npm test -- --coverage",
+    "codecov": "npm run coverage && codecov"
+  },
+  "jest": {
+    "preset": "jest-exponent"
+  },
+  "dependencies": {
+    "@exponent/ex-navigation": "~2.3.0",
+    "@exponent/samples": "~1.0.2",
+    "@exponent/vector-icons": "~2.0.3",
+    "codecov": "^1.0.1",
+    "exponent": "~12.0.3",
+    "react": "~15.3.2",
+    "react-native": "git+https://github.com/exponentjs/react-native#sdk-12.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-import": "^2.1.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.6.0",
+    "jest": "^18.1.0",
+    "jest-exponent": "~0.1.4"
+  }
+}
