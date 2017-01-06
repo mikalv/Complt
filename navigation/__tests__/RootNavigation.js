@@ -24,12 +24,12 @@ describe('RootNavigation', () => {
   });
   describe('renderIcon', () => {
     it('renders correctly when it\'s selected', () => {
-      const component = renderIcon('inbox', true);
+      const component = renderer.create(renderIcon('inbox', true));
       const tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
     it('renders correctly when it\'s not selected', () => {
-      const component = renderIcon('inbox', false);
+      const component = renderer.create(renderIcon('inbox', false));
       const tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
