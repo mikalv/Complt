@@ -20,7 +20,7 @@ const networkInterface = createNetworkInterface({ uri: process.env.REACT_APP_API
 networkInterface.use([{
   applyMiddleware(req, next) {
     if (!req.options.headers) req.options.headers = {};
-    const token = store.getState().auth; // eslint-disable-line no-use-before-define
+    const token = JSON.parse(localStorage.getItem('reduxPersist:auth')) || null;
     req.options.headers.authorization = token ? `Bearer ${token}` : null;
     next();
   },
