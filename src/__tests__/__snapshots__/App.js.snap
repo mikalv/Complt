@@ -513,7 +513,7 @@ exports[`App component renders correctly when the drawer is closed and undocked 
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-        "backgroundColor": "#e91e63",
+        "backgroundColor": "#59C9A5",
         "borderRadius": "0px",
         "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
                0 1px 4px rgba(0, 0, 0, 0.12)",
@@ -1124,7 +1124,7 @@ exports[`App component renders correctly when the drawer is docked 1`] = `
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-        "backgroundColor": "#e91e63",
+        "backgroundColor": "#59C9A5",
         "borderRadius": "0px",
         "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
                0 1px 4px rgba(0, 0, 0, 0.12)",
@@ -1695,7 +1695,7 @@ exports[`App component renders correctly when the drawer is open and undocked 1`
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-        "backgroundColor": "#e91e63",
+        "backgroundColor": "#59C9A5",
         "borderRadius": "0px",
         "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
                0 1px 4px rgba(0, 0, 0, 0.12)",
