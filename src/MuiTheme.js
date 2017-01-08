@@ -1,15 +1,14 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { pink500, pink700, tealA200 } from 'material-ui/styles/colors';
+import { pinkA200 } from 'material-ui/styles/colors';
 
 const MuiTheme = ({ children }) => (
   <MuiThemeProvider
     muiTheme={getMuiTheme({
       palette: {
-        primary1Color: pink500,
-        primary2Color: pink700,
-        accent1Color: tealA200,
+        primary1Color: '#59C9A5',
+        accent1Color: pinkA200,
       },
     })}
   >
