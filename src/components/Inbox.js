@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo';
-import CircularProgress from 'material-ui/CircularProgress';
+import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import AddItem from './AddItem';
 import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';
@@ -12,7 +12,9 @@ import deleteTaskMutation from '../graphql/deleteTask.gql';
 export const Inbox = props => (
   <div>
     {props.data.loading ? <div className="flex center row">
-      <CircularProgress className="loading-padding" />
+      <div className="loading-padding">
+        <CircularProgress scale={2} />
+      </div>
     </div> : <div>
       <ItemList
         items={props.data.inbox || []}
