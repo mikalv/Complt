@@ -5,8 +5,6 @@ import MuiTheme from '../../MuiTheme';
 
 describe('Account component', () => {
   it('renders without crashing', () => {
-    mount(<MuiTheme>
-      <Account data={{ user: {}, loading: false }} />
-    </MuiTheme>);
+    mount(<Account data={{ user: {}, loading: false }} />);
   });
 });
