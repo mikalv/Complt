@@ -58,12 +58,12 @@ class AddItem extends Component {
                 </Button>}
               </div>
               <div>
-                <Button icon primary type="submit">
-                  send
-                </Button>
                 {this.props.canChangeType ? <Button icon onClick={this.switchType}>
                   {this.state.type === 'Project' ? 'done' : 'assignment'}
                 </Button> : null}
+                <Button icon primary type="submit">
+                  send
+                </Button>
               </div>
             </div>
           </div>
