@@ -30,6 +30,14 @@ describe('mutationDeleteTaskResolver()', () => {
   });
 });
 describe('mutationDeleteProjectResolver()', () => {
+  it('returns an error if the projectId is inbox', () => {
+    expect(mutationDeleteProjectResolver({ userId: 'someUserId' }, { projectId: 'inbox', parentProjectId: 'someParentProject' })).toEqual(new Error('The inbox project cannot be deleted'));
+    expect(deleteProject).not.toBeCalled();
+  });
+  it('returns an error if the projectId is root', () => {
+    expect(mutationDeleteProjectResolver({ userId: 'someUserId' }, { projectId: 'root', parentProjectId: 'someParentProject' })).toEqual(new Error('The root project cannot be deleted'));
+    expect(deleteProject).not.toBeCalled();
+  });
   it('calls deleteProject correctly and resolves to the value of deleteTask', () => {
     expect(mutationDeleteProjectResolver({ userId: 'someUserId' }, { projectId: 'someDeletedProject', parentProjectId: 'someParentProject' })).toEqual({ id: 'someDeletedProject', owner: 'someUserId' });
     expect(deleteProject).toBeCalledWith('someUserId', 'someDeletedProject', 'someParentProject');

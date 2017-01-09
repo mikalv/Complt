@@ -4,8 +4,7 @@ import ActionHome from 'material-ui/svg-icons/action/home';
 import SocialPerson from 'material-ui/svg-icons/social/person';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ActionLabel from 'material-ui/svg-icons/action/label';
-import Divider from 'material-ui/Divider';
-import Subheader from 'material-ui/Subheader';
+import ActionAssignment from 'material-ui/svg-icons/action/assignment';
 
 const DrawerContent = ({ onLocationTap }) => (
   <List>
@@ -13,9 +12,7 @@ const DrawerContent = ({ onLocationTap }) => (
     <ListItem onTouchTap={() => onLocationTap('/account')} leftIcon={<SocialPerson />}>Account</ListItem>
     <ListItem onTouchTap={() => onLocationTap('/inbox')} leftIcon={<ContentInbox />}>Inbox</ListItem>
     <ListItem leftIcon={<ActionLabel />}>Tags</ListItem>
-    <Divider />
-    <Subheader>Projects</Subheader>
-    <ListItem onTouchTap={() => onLocationTap('/projects')}>Me</ListItem>
+    <ListItem onTouchTap={() => onLocationTap('/projects')} leftIcon={<ActionAssignment />}>Projects</ListItem>
   </List>
 );
 

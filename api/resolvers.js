@@ -29,6 +29,7 @@ export function mutationDeleteTaskResolver({ userId }, { parentProjectId, taskId
   return deleteTask(userId, taskId, parentProjectId);
 }
 export function mutationDeleteProjectResolver({ userId }, { parentProjectId, projectId }) {
+  if (projectId === 'inbox' || projectId === 'root') return new Error(`The ${projectId} project cannot be deleted`);
   return deleteProject(userId, projectId, parentProjectId);
 }
 export function mutationCreateProjectResolver({ userId }, { project, projectId }) {
