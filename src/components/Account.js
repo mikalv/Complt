@@ -1,24 +1,23 @@
 import React from 'react';
-import Avatar from 'material-ui/Avatar';
+import Avatar from 'react-md/lib/Avatars';
 import Button from 'react-md/lib/Buttons/Button';
-import SocialPerson from 'material-ui/svg-icons/social/person';
+import FontIcon from 'react-md/lib/FontIcons';
 import Auth0 from 'auth0-js';
 import { graphql, compose } from 'react-apollo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../redux/actions';
 import UserQuery from '../graphql/user.gql';
-import './Account.css';
 
 export const Account = props => (
-  <div className="flex center column text-center">
+  <div className="flex center column text-center" style={{ 'padding-top': '100px' }}>
     {props.data.user ? <h1>{props.data.user.name}</h1> : ''}
     {props.data.loading ? <h1>Loading...</h1> : ''}
     <p>{props.data.user ? props.data.user.email : ''}</p>
     <div>
-      <Avatar src={props.data.user ? props.data.user.picture : ''} icon={<SocialPerson />} size={150} />
+      <Avatar src={props.data.user ? props.data.user.picture : ''} icon={<FontIcon>person</FontIcon>} style={{ height: '150px', width: '150px' }} />
     </div>
-    <Button
+    <div><Button
       label="Sign Out"
       flat
       onClick={() => {
@@ -29,7 +28,7 @@ export const Account = props => (
         });
         auth0.logout({ returnTo: window.location.href, client_id: process.env.REACT_APP_AUTH0_CLIENT_ID }, { version: 'v2' });
       }}
-    />
+    /></div>
   </div>
 );
 
