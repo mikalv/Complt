@@ -1,6 +1,6 @@
 @import '~react-md/src/scss/react-md';
 
-$md-primary-color: $md-pink-500;
-$md-secondary-color: $md-teal-a-200;
+$md-primary-color: #59C9A5;
+$md-secondary-color: $md-pink-a-200;
 
-@include react-md-buttons;
+@include react-md-everything;

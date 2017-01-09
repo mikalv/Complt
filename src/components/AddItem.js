@@ -47,7 +47,7 @@ class AddItem extends Component {
   render() {
     return (
       <form onSubmit={this.submitItem}>
-        <Paper zDepth={2} style={{ padding: 10 }} className="drawer-margin">
+        <Paper zDepth={2} style={{ padding: 10 }} className="md-drawer-relative">
           <div className="flex column">
             <TextField
               name="textInput"
@@ -64,10 +64,13 @@ class AddItem extends Component {
                 </IconButton>}
               </div>
               <div>
-                <IconButton type="submit" style={{ float: 'right' }} disableTouchRipple>
+                <IconButton type="submit" disableTouchRipple>
                   <ContentSend />
                 </IconButton>
-                {this.props.canChangeType ? <IconButton style={{ float: 'right' }} disableTouchRipple onTouchTap={this.switchType}>
+                {this.props.canChangeType ? <IconButton
+                  disableTouchRipple
+                  onTouchTap={this.switchType}
+                >
                   {this.state.type === 'Project' ? <ActionDone /> : <ActionAssignment />}
                 </IconButton> : null}
               </div>
