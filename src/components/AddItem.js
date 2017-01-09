@@ -43,7 +43,7 @@ class AddItem extends Component {
   render() {
     return (
       <form onSubmit={this.submitItem}>
-        <Paper zDepth={2} style={{ padding: 10 }} className="md-drawer-relative">
+        <Paper zDepth={2} style={{ padding: 10, 'background-color': '#fff' }} className="md-drawer-relative">
           <div className="flex column">
             <TextField
               placeholder={this.state.type === 'Project' ? 'e.g. Report' : 'e.g. Finish Report @work'}
