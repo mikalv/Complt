@@ -8,7 +8,6 @@ import ApolloClient, { createNetworkInterface, applyAfterware } from 'apollo-cli
 import { ApolloProvider } from 'react-apollo';
 import auth from './redux/auth';
 import OakRouter from './OakRouter';
-import MuiTheme from './MuiTheme';
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/service-worker.js');
@@ -72,9 +71,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 const Root = (
   <ApolloProvider store={store} client={client}>
-    <MuiTheme>
-      <OakRouter history={history} />
-    </MuiTheme>
+    <OakRouter history={history} />
   </ApolloProvider>
 );
 
