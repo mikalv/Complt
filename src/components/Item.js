@@ -1,33 +1,35 @@
 import React from 'react';
-import { ListItem } from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
-import IconButton from 'material-ui/IconButton';
-import ActionAssignment from 'material-ui/svg-icons/action/assignment';
-import ActionDelete from 'material-ui/svg-icons/action/delete';
-import ActionDone from 'material-ui/svg-icons/action/done';
-import { lightGreenA400 } from 'material-ui/styles/colors';
+import ListItem from 'react-md/lib/Lists/ListItem';
+import Avatar from 'react-md/lib/Avatars';
+import Chip from 'react-md/lib/Chips';
+import Button from 'react-md/lib/Buttons';
+import FontIcon from 'react-md/lib/FontIcons';
 import OakPropTypes from '../PropTypes';
 import './Item.css';
 
+
 const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap }) => (
+
   <ListItem
     leftAvatar={<Avatar
-      color={item.isCompleted ? lightGreenA400 : undefined}
-      onTouchTap={onAvatarTouchTap}
-      icon={item.__typename === 'Project' ? <ActionAssignment /> : <ActionDone />}
+      onClick={onAvatarTouchTap}
+      icon={<FontIcon style={{ color: item.isCompleted ? '#00E676' : undefined }}>{item.__typename === 'Project' ? 'assignment' : 'done'}</FontIcon>}
     />}
-    onTouchTap={onItemTap}
-    rightIconButton={
-      canDelete ?
-        <IconButton onTouchTap={onDelete}><ActionDelete /></IconButton> : undefined}
-  >
-    {item.name}
-    {!item.tags ? undefined : <div className="Item-chip-container">
+    onClick={onItemTap}
+    threeLines
+    primaryText={item.name}
+    secondaryText={!item.tags || item.tags.length === 0 ? undefined : <div className="Item-chip-container">
       {item.tags.map(
-        (tag, i) => <Chip key={i} style={{ marginRight: 5, marginTop: 3 }}>{tag}</Chip>)}
+        (tag, i) => <Chip key={i} style={{ marginRight: 5, marginTop: 3 }} label={tag} />)}
     </div>}
-  </ListItem>
+  >{canDelete ?
+    <Button
+      icon
+      onClick={(e) => {
+        e.stopPropagation();
+        onDelete(e);
+      }}
+    >delete</Button> : undefined}</ListItem>
 );
 
 Item.propTypes = {

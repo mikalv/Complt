@@ -1,773 +1,263 @@
-exports[`ItemList component passes the canDelete prop to the Item component if the item is a project and the component has the canDeleteProject prop 1`] = `
-<div
-  style={
-    Object {
-      "muiPrepared": true,
-      "padding": "8px 0px 8px 0px",
-    }
-  }>
-  <div>
-    <span
-      disabled={undefined}
-      href={undefined}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
-      open={null}
-      style={
-        Object {
-          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-          "background": "none",
-          "backgroundColor": null,
-          "border": 10,
-          "boxSizing": "border-box",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "cursor": "pointer",
-          "display": "block",
-          "fontFamily": "Roboto, sans-serif",
-          "fontSize": 16,
-          "fontWeight": "inherit",
-          "lineHeight": "16px",
-          "margin": 0,
-          "muiPrepared": true,
-          "outline": "none",
-          "padding": 0,
-          "position": "relative",
-          "textDecoration": "none",
-          "transform": "translate(0, 0)",
-          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null,
-        }
-      }
-      tabIndex={0}>
-      <div
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
-        <div
-          style={
-            Object {
-              "marginLeft": 0,
-              "muiPrepared": true,
-              "paddingBottom": 20,
-              "paddingLeft": 72,
-              "paddingRight": 56,
-              "paddingTop": 20,
-              "position": "relative",
-            }
-          }>
-          Project
-          <div
-            className={undefined}
-            color={undefined}
-            onTouchTap={undefined}
-            size={40}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "rgb(188, 188, 188)",
-                "borderRadius": "50%",
-                "color": "#ffffff",
-                "display": "inline-flex",
-                "fontSize": 20,
-                "height": 40,
-                "justifyContent": "center",
-                "left": 16,
-                "muiPrepared": true,
-                "position": "absolute",
-                "top": 8,
-                "userSelect": "none",
-                "width": 40,
-              }
-            }>
-            <svg
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "display": "inline-block",
-                  "fill": "#ffffff",
-                  "fontSize": 24,
-                  "height": 24,
-                  "margin": 8,
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "width": 24,
-                }
-              }
-              viewBox="0 0 24 24">
-              <path
-                d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-            </svg>
-          </div>
-          <button
-            disabled={false}
-            href={undefined}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseOut={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            onTouchTap={[Function]}
-            style={
-              Object {
-                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-                "background": "none",
-                "border": 10,
-                "boxSizing": "border-box",
-                "cursor": "pointer",
-                "display": "block",
-                "fontFamily": "Roboto, sans-serif",
-                "fontSize": 0,
-                "fontWeight": "inherit",
-                "height": 48,
-                "margin": 0,
-                "muiPrepared": true,
-                "outline": "none",
-                "overflow": "visible",
-                "padding": 12,
-                "position": "absolute",
-                "right": 4,
-                "textDecoration": "none",
-                "top": 4,
-                "transform": "translate(0, 0)",
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "verticalAlign": null,
-                "width": 48,
-              }
-            }
-            tabIndex={0}
-            type="button">
-            <div
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchStart={[Function]}>
-              <svg
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  Object {
-                    "color": "rgba(0, 0, 0, 0.87)",
-                    "display": "inline-block",
-                    "fill": "currentColor",
-                    "height": 24,
-                    "muiPrepared": true,
-                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                    "userSelect": "none",
-                    "width": 24,
-                  }
-                }
-                viewBox="0 0 24 24">
-                <path
-                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-              </svg>
-            </div>
-          </button>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ItemList component passes the canDelete prop to the Item component if the item is a task and the component has the canDeleteTask prop 1`] = `
-<div
-  style={
-    Object {
-      "muiPrepared": true,
-      "padding": "8px 0px 8px 0px",
-    }
-  }>
-  <div>
-    <span
-      disabled={undefined}
-      href={undefined}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
-      open={null}
-      style={
-        Object {
-          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-          "background": "none",
-          "backgroundColor": null,
-          "border": 10,
-          "boxSizing": "border-box",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "cursor": "pointer",
-          "display": "block",
-          "fontFamily": "Roboto, sans-serif",
-          "fontSize": 16,
-          "fontWeight": "inherit",
-          "lineHeight": "16px",
-          "margin": 0,
-          "muiPrepared": true,
-          "outline": "none",
-          "padding": 0,
-          "position": "relative",
-          "textDecoration": "none",
-          "transform": "translate(0, 0)",
-          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null,
-        }
-      }
-      tabIndex={0}>
-      <div
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
-        <div
-          style={
-            Object {
-              "marginLeft": 0,
-              "muiPrepared": true,
-              "paddingBottom": 20,
-              "paddingLeft": 72,
-              "paddingRight": 56,
-              "paddingTop": 20,
-              "position": "relative",
-            }
-          }>
-          Task
-          <div
-            className={undefined}
-            color={undefined}
-            onTouchTap={undefined}
-            size={40}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "rgb(188, 188, 188)",
-                "borderRadius": "50%",
-                "color": "#ffffff",
-                "display": "inline-flex",
-                "fontSize": 20,
-                "height": 40,
-                "justifyContent": "center",
-                "left": 16,
-                "muiPrepared": true,
-                "position": "absolute",
-                "top": 8,
-                "userSelect": "none",
-                "width": 40,
-              }
-            }>
-            <svg
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "display": "inline-block",
-                  "fill": "#ffffff",
-                  "fontSize": 24,
-                  "height": 24,
-                  "margin": 8,
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "width": 24,
-                }
-              }
-              viewBox="0 0 24 24">
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-            </svg>
-          </div>
-          <button
-            disabled={false}
-            href={undefined}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseOut={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            onTouchTap={[Function]}
-            style={
-              Object {
-                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-                "background": "none",
-                "border": 10,
-                "boxSizing": "border-box",
-                "cursor": "pointer",
-                "display": "block",
-                "fontFamily": "Roboto, sans-serif",
-                "fontSize": 0,
-                "fontWeight": "inherit",
-                "height": 48,
-                "margin": 0,
-                "muiPrepared": true,
-                "outline": "none",
-                "overflow": "visible",
-                "padding": 12,
-                "position": "absolute",
-                "right": 4,
-                "textDecoration": "none",
-                "top": 4,
-                "transform": "translate(0, 0)",
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "verticalAlign": null,
-                "width": 48,
-              }
-            }
-            tabIndex={0}
-            type="button">
-            <div
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchStart={[Function]}>
-              <svg
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  Object {
-                    "color": "rgba(0, 0, 0, 0.87)",
-                    "display": "inline-block",
-                    "fill": "currentColor",
-                    "height": 24,
-                    "muiPrepared": true,
-                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                    "userSelect": "none",
-                    "width": 24,
-                  }
-                }
-                viewBox="0 0 24 24">
-                <path
-                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-              </svg>
-            </div>
-          </button>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ItemList component passes the onItemAvatarTap function to the Item component 1`] = `
-<div
-  style={
-    Object {
-      "muiPrepared": true,
-      "padding": "8px 0px 8px 0px",
-    }
-  }>
-  <div>
-    <span
-      disabled={undefined}
-      href={undefined}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
-      open={null}
-      style={
-        Object {
-          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-          "background": "none",
-          "backgroundColor": null,
-          "border": 10,
-          "boxSizing": "border-box",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "cursor": "pointer",
-          "display": "block",
-          "fontFamily": "Roboto, sans-serif",
-          "fontSize": 16,
-          "fontWeight": "inherit",
-          "lineHeight": "16px",
-          "margin": 0,
-          "muiPrepared": true,
-          "outline": "none",
-          "padding": 0,
-          "position": "relative",
-          "textDecoration": "none",
-          "transform": "translate(0, 0)",
-          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null,
-        }
-      }
-      tabIndex={0}>
-      <div
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
-        <div
-          style={
-            Object {
-              "marginLeft": 0,
-              "muiPrepared": true,
-              "paddingBottom": 20,
-              "paddingLeft": 72,
-              "paddingRight": 16,
-              "paddingTop": 20,
-              "position": "relative",
-            }
-          }>
-          Task
-          <div
-            className={undefined}
-            color={undefined}
-            onTouchTap={[Function]}
-            size={40}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "rgb(188, 188, 188)",
-                "borderRadius": "50%",
-                "color": "#ffffff",
-                "display": "inline-flex",
-                "fontSize": 20,
-                "height": 40,
-                "justifyContent": "center",
-                "left": 16,
-                "muiPrepared": true,
-                "position": "absolute",
-                "top": 8,
-                "userSelect": "none",
-                "width": 40,
-              }
-            }>
-            <svg
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "display": "inline-block",
-                  "fill": "#ffffff",
-                  "fontSize": 24,
-                  "height": 24,
-                  "margin": 8,
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "width": 24,
-                }
-              }
-              viewBox="0 0 24 24">
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ItemList component passes the onItemTap function to the Item component 1`] = `
-<div
-  style={
-    Object {
-      "muiPrepared": true,
-      "padding": "8px 0px 8px 0px",
-    }
-  }>
-  <div>
-    <span
-      disabled={undefined}
-      href={undefined}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
-      open={null}
-      style={
-        Object {
-          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-          "background": "none",
-          "backgroundColor": null,
-          "border": 10,
-          "boxSizing": "border-box",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "cursor": "pointer",
-          "display": "block",
-          "fontFamily": "Roboto, sans-serif",
-          "fontSize": 16,
-          "fontWeight": "inherit",
-          "lineHeight": "16px",
-          "margin": 0,
-          "muiPrepared": true,
-          "outline": "none",
-          "padding": 0,
-          "position": "relative",
-          "textDecoration": "none",
-          "transform": "translate(0, 0)",
-          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null,
-        }
-      }
-      tabIndex={0}>
-      <div
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
-        <div
-          style={
-            Object {
-              "marginLeft": 0,
-              "muiPrepared": true,
-              "paddingBottom": 20,
-              "paddingLeft": 72,
-              "paddingRight": 16,
-              "paddingTop": 20,
-              "position": "relative",
-            }
-          }>
-          Task
-          <div
-            className={undefined}
-            color={undefined}
-            onTouchTap={undefined}
-            size={40}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "rgb(188, 188, 188)",
-                "borderRadius": "50%",
-                "color": "#ffffff",
-                "display": "inline-flex",
-                "fontSize": 20,
-                "height": 40,
-                "justifyContent": "center",
-                "left": 16,
-                "muiPrepared": true,
-                "position": "absolute",
-                "top": 8,
-                "userSelect": "none",
-                "width": 40,
-              }
-            }>
-            <svg
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "display": "inline-block",
-                  "fill": "#ffffff",
-                  "fontSize": 24,
-                  "height": 24,
-                  "margin": 8,
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "width": 24,
-                }
-              }
-              viewBox="0 0 24 24">
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-`;
-
 exports[`ItemList component renders an item correctly 1`] = `
-<div
-  style={
-    Object {
-      "muiPrepared": true,
-      "padding": "8px 0px 8px 0px",
-    }
+<Component
+  items={
+    Array [
+      Object {
+        "__typename": "Task",
+        "isCompleted": false,
+        "name": "Task",
+      },
+    ]
   }>
-  <div>
-    <span
-      disabled={undefined}
-      href={undefined}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
-      open={null}
-      style={
-        Object {
-          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-          "background": "none",
-          "backgroundColor": null,
-          "border": 10,
-          "boxSizing": "border-box",
-          "color": "rgba(0, 0, 0, 0.87)",
-          "cursor": "pointer",
-          "display": "block",
-          "fontFamily": "Roboto, sans-serif",
-          "fontSize": 16,
-          "fontWeight": "inherit",
-          "lineHeight": "16px",
-          "margin": 0,
-          "muiPrepared": true,
-          "outline": "none",
-          "padding": 0,
-          "position": "relative",
-          "textDecoration": "none",
-          "transform": "translate(0, 0)",
-          "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          "verticalAlign": null,
+  <List>
+    <ul
+      className="md-list">
+      <Component
+        item={
+          Object {
+            "__typename": "Task",
+            "isCompleted": false,
+            "name": "Task",
+          }
         }
-      }
-      tabIndex={0}>
-      <div
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
-        <div
-          style={
-            Object {
-              "marginLeft": 0,
-              "muiPrepared": true,
-              "paddingBottom": 20,
-              "paddingLeft": 72,
-              "paddingRight": 16,
-              "paddingTop": 20,
-              "position": "relative",
-            }
-          }>
-          Task
-          <div
-            className={undefined}
-            color={undefined}
-            onTouchTap={undefined}
-            size={40}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "rgb(188, 188, 188)",
-                "borderRadius": "50%",
-                "color": "#ffffff",
-                "display": "inline-flex",
-                "fontSize": 20,
-                "height": 40,
-                "justifyContent": "center",
-                "left": 16,
-                "muiPrepared": true,
-                "position": "absolute",
-                "top": 8,
-                "userSelect": "none",
-                "width": 40,
+        onDelete={[Function]}>
+        <ListItem
+          activeClassName="md-text--theme-primary"
+          component="div"
+          expanderIconChildren="keyboard_arrow_down"
+          leftAvatar={
+            <Avatar
+              icon={
+                <FontIcon
+                  iconClassName="material-icons"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }>
+                  done
+                </FontIcon>
               }
-            }>
-            <svg
-              onMouseEnter={[Function]}
+              onClick={undefined}
+              suffixes={
+                Array [
+                  "red",
+                  "pink",
+                  "purple",
+                  "deep-purple",
+                  "indigo",
+                  "blue",
+                  "light-blue",
+                  "cyan",
+                  "teal",
+                  "green",
+                  "light-green",
+                  "lime",
+                  "yellow",
+                  "amber",
+                  "orange",
+                  "deep-orange",
+                  "brown",
+                  "grey",
+                  "blue-grey",
+                ]
+              } />
+          }
+          primaryText="Task"
+          threeLines={true}>
+          <li
+            className="md-list-item">
+            <AccessibleFakeButtonInked
+              __SUPER_SECRET_REF__={[Function]}
+              aria-expanded={null}
+              className="md-list-tile md-text md-list-tile--avatar"
+              component="div"
+              inkTransitionEnterTimeout={450}
+              inkTransitionLeaveTimeout={300}
+              inkTransitionOverlap={150}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
               onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "display": "inline-block",
-                  "fill": "#ffffff",
-                  "fontSize": 24,
-                  "height": 24,
-                  "margin": 8,
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "width": 24,
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}>
+              <AccessibleFakeButton
+                aria-expanded={null}
+                className="md-list-tile md-text md-list-tile--avatar"
+                component="div"
+                ink={
+                  <InkContainer
+                    className={undefined}
+                    disabledInteractions={undefined}
+                    inkClassName={undefined}
+                    inkStyle={undefined}
+                    style={undefined}
+                    transitionEnterTimeout={450}
+                    transitionLeaveTimeout={300}
+                    transitionOverlap={150}
+                    waitForInkTransition={undefined} />
                 }
-              }
-              viewBox="0 0 24 24">
-              <path
-                d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ItemList component renders without crashing when an item is null 1`] = `
-<div
-  style={
-    Object {
-      "muiPrepared": true,
-      "padding": "8px 0px 8px 0px",
-    }
-  } />
-`;
-
-exports[`ItemList component renders without crashing with no items 1`] = `
-<div
-  style={
-    Object {
-      "muiPrepared": true,
-      "padding": "8px 0px 8px 0px",
-    }
-  } />
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                tabIndex={0}>
+                <div
+                  aria-expanded={null}
+                  aria-pressed={false}
+                  className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--avatar"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  role="button"
+                  tabIndex={0}>
+                  <InkContainer
+                    transitionEnterTimeout={450}
+                    transitionLeaveTimeout={300}
+                    transitionOverlap={150}>
+                    <ReactTransitionGroup
+                      childFactory={[Function]}
+                      className="md-ink-container"
+                      component="div">
+                      <div
+                        className="md-ink-container" />
+                    </ReactTransitionGroup>
+                  </InkContainer>
+                  <TileAddon
+                    activeClassName="md-text--theme-primary"
+                    avatar={
+                      <Avatar
+                        icon={
+                          <FontIcon
+                            iconClassName="material-icons"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }>
+                            done
+                          </FontIcon>
+                        }
+                        onClick={undefined}
+                        suffixes={
+                          Array [
+                            "red",
+                            "pink",
+                            "purple",
+                            "deep-purple",
+                            "indigo",
+                            "blue",
+                            "light-blue",
+                            "cyan",
+                            "teal",
+                            "green",
+                            "light-green",
+                            "lime",
+                            "yellow",
+                            "amber",
+                            "orange",
+                            "deep-orange",
+                            "brown",
+                            "grey",
+                            "blue-grey",
+                          ]
+                        } />
+                    }>
+                    <div
+                      className="md-tile-addon md-tile-addon--avatar">
+                      <Avatar
+                        icon={
+                          <FontIcon
+                            iconClassName="material-icons"
+                            style={
+                              Object {
+                                "color": undefined,
+                              }
+                            }>
+                            done
+                          </FontIcon>
+                        }
+                        suffixes={
+                          Array [
+                            "red",
+                            "pink",
+                            "purple",
+                            "deep-purple",
+                            "indigo",
+                            "blue",
+                            "light-blue",
+                            "cyan",
+                            "teal",
+                            "green",
+                            "light-green",
+                            "lime",
+                            "yellow",
+                            "amber",
+                            "orange",
+                            "deep-orange",
+                            "brown",
+                            "grey",
+                            "blue-grey",
+                          ]
+                        }>
+                        <div
+                          className="md-inline-block md-avatar md-avatar--default">
+                          <div
+                            className="md-avatar-content">
+                            <FontIcon
+                              iconClassName="material-icons"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }>
+                              <i
+                                className="md-icon material-icons"
+                                style={
+                                  Object {
+                                    "color": undefined,
+                                  }
+                                }>
+                                done
+                              </i>
+                            </FontIcon>
+                          </div>
+                        </div>
+                      </Avatar>
+                    </div>
+                  </TileAddon>
+                  <ListItemText
+                    activeClassName="md-text--theme-primary"
+                    className="md-tile-content--left-avatar"
+                    primaryText="Task"
+                    threeLines={true}>
+                    <div
+                      className="md-tile-content md-tile-content--left-avatar">
+                      <div
+                        className="md-tile-text--primary md-text">
+                        Task
+                      </div>
+                    </div>
+                  </ListItemText>
+                  <TileAddon
+                    activeClassName="md-text--theme-primary" />
+                </div>
+              </AccessibleFakeButton>
+            </AccessibleFakeButtonInked>
+          </li>
+        </ListItem>
+      </Component>
+    </ul>
+  </List>
+</Component>
 `;

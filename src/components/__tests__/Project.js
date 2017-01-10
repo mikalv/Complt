@@ -1,12 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import { Project } from '../Project';
-import MuiTheme from '../../MuiTheme';
 
 describe('Project component', () => {
   it('renders without crashing', () => {
-    renderer.create(<MuiTheme>
-      <Project data={{ itemById: { children: [] }, loading: false }} />
-    </MuiTheme>);
+    mount(<Project data={{ itemById: { children: [] }, loading: false }} />);
   });
 });

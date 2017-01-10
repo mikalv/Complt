@@ -3,12 +3,6 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f9fa;
 }
-@media (min-width: 768px) {
-  .drawer-margin {
-    margin-left: 256px;
-    max-width: calc(100% - 256px);
-  }
-}
 .flex {
   display: flex;
 }

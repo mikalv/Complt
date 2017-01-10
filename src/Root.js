@@ -6,10 +6,8 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import ApolloClient, { createNetworkInterface, applyAfterware } from 'apollo-client'; // eslint-disable-line no-unused-vars
 import { ApolloProvider } from 'react-apollo';
-import drawer from './redux/drawer';
 import auth from './redux/auth';
 import OakRouter from './OakRouter';
-import MuiTheme from './MuiTheme';
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/service-worker.js');
@@ -60,7 +58,6 @@ if (window.__REDUX_DEVTOOLS_EXTENSION__) {
 const store = createStore(
   combineReducers({
     routing: routerReducer,
-    drawer,
     auth,
     apollo: client.reducer(),
   }),
@@ -74,9 +71,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 const Root = (
   <ApolloProvider store={store} client={client}>
-    <MuiTheme>
-      <OakRouter history={history} />
-    </MuiTheme>
+    <OakRouter history={history} />
   </ApolloProvider>
 );
 

@@ -1,12 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import AddItem from '../AddItem';
-import MuiTheme from '../../MuiTheme';
 
 describe('AddItem component', () => {
   it('renders without crashing', () => {
-    renderer.create(<MuiTheme>
-      <AddItem />
-    </MuiTheme>);
+    mount(<AddItem onAddItem={jest.fn()} />);
   });
 });

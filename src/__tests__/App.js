@@ -1,40 +1,28 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { App } from '../App';
-import MuiTheme from '../MuiTheme';
+import { shallow } from 'enzyme';
+import App, { navItemsWithActive } from '../App';
 
 describe('App component', () => {
   it('renders without crashing', () => {
-    renderer.create(<MuiTheme>
-      <App drawer={{ isOpen: false, isDocked: false }} dockDrawer={() => {}} />
-    </MuiTheme>);
+    shallow(<App location={{ pathname: '/inbox' }}><div /></App>);
   });
-  it('calls dockDrawer function initally', () => {
-    const dockDrawer = jest.fn();
-    renderer.create(<MuiTheme>
-      <App drawer={{ isOpen: false, isDocked: false }} dockDrawer={dockDrawer} />
-    </MuiTheme>);
-    expect(dockDrawer).toBeCalled();
+  it('renders correctly when the pathname matches a route', () => {
+    const component = shallow(<App location={{ pathname: '/inbox' }}><div /></App>);
+    expect(component).toMatchSnapshot();
   });
-  it('renders correctly when the drawer is open and undocked', () => {
-    const component = renderer.create(<MuiTheme>
-      <App drawer={{ isOpen: true, isDocked: false }} dockDrawer={() => {}} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+  it('renders correctly when the pathname does not match a route', () => {
+    const component = shallow(<App location={{ pathname: '/some/path/that/does/not/exist' }}><div /></App>);
+    expect(component).toMatchSnapshot();
   });
-  it('renders correctly when the drawer is closed and undocked', () => {
-    const component = renderer.create(<MuiTheme>
-      <App drawer={{ isOpen: false, isDocked: false }} dockDrawer={() => {}} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  it('renders correctly when the drawer is docked', () => {
-    const component = renderer.create(<MuiTheme>
-      <App drawer={{ isOpen: true, isDocked: true }} dockDrawer={() => {}} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+  describe('navItemsWithActive()', () => {
+    it('returns the same array if none of the to properties = the route', () => {
+      const items = [{ to: '/inbox' }, { to: '/projects' }, { to: '/account' }];
+      expect(navItemsWithActive(items, '/some/path/that/does/not/exist')).toEqual(items);
+    });
+    it('returns an array with the active property on the objects that have the same path as the current path', () => {
+      const items = [{ to: '/inbox' }, { to: '/projects' }, { to: '/account' }];
+      const expectedItems = [{ to: '/inbox', active: true }, { to: '/projects' }, { to: '/account' }];
+      expect(navItemsWithActive(items, '/inbox')).toEqual(expectedItems);
+    });
   });
 });

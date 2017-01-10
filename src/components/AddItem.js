@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
-import ActionLabel from 'material-ui/svg-icons/action/label';
-import ContentSend from 'material-ui/svg-icons/content/send';
-import ActionAssignment from 'material-ui/svg-icons/action/assignment';
-import ActionDone from 'material-ui/svg-icons/action/done';
-import Paper from 'material-ui/Paper';
-import IconButton from 'material-ui/IconButton';
+import TextField from 'react-md/lib/TextFields';
+import Paper from 'react-md/lib/Papers';
+import Button from 'react-md/lib/Buttons';
 import processItem from '../utils/processItem';
 import './AddItem.css';
 
@@ -21,8 +17,8 @@ class AddItem extends Component {
     this.submitItem = this.submitItem.bind(this);
     this.switchType = this.switchType.bind(this);
   }
-  valueChange(e) {
-    this.setState({ value: e.target.value });
+  valueChange(value) {
+    this.setState({ value });
   }
   ActionLabelTap() {
     const value = this.state.value.trim();
@@ -47,29 +43,27 @@ class AddItem extends Component {
   render() {
     return (
       <form onSubmit={this.submitItem}>
-        <Paper zDepth={2} style={{ padding: 10 }} className="drawer-margin">
+        <Paper zDepth={2} style={{ padding: 10, 'background-color': '#fff' }} className="md-drawer-relative">
           <div className="flex column">
             <TextField
-              name="textInput"
-              hintText={this.state.type === 'Project' ? 'e.g. Report' : 'e.g. Finish Report @work'}
+              placeholder={this.state.type === 'Project' ? 'e.g. Report' : 'e.g. Finish Report @work'}
               value={this.state.value}
-              style={{ width: '100%' }}
               onChange={this.valueChange}
               ref={input => (this.valueInput = input)}
             />
             <div className="flex row space-between">
               <div>
-                {this.state.type === 'Project' ? null : <IconButton disableTouchRipple onTouchTap={this.ActionLabelTap}>
-                  <ActionLabel />
-                </IconButton>}
+                {this.state.type === 'Project' ? null : <Button icon onClick={this.ActionLabelTap}>
+                  label
+                </Button>}
               </div>
               <div>
-                <IconButton type="submit" style={{ float: 'right' }} disableTouchRipple>
-                  <ContentSend />
-                </IconButton>
-                {this.props.canChangeType ? <IconButton style={{ float: 'right' }} disableTouchRipple onTouchTap={this.switchType}>
-                  {this.state.type === 'Project' ? <ActionDone /> : <ActionAssignment />}
-                </IconButton> : null}
+                {this.props.canChangeType ? <Button icon onClick={this.switchType}>
+                  {this.state.type === 'Project' ? 'done' : 'assignment'}
+                </Button> : null}
+                <Button icon primary type="submit">
+                  send
+                </Button>
               </div>
             </div>
           </div>

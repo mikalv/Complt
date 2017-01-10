@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'material-ui/List';
+import List from 'react-md/lib/Lists/List';
 import Item from './Item';
 import OakPropTypes from '../PropTypes';
 
