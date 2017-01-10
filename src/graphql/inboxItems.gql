@@ -1,8 +1,0 @@
-query Inbox {
-  inbox {
-    id
-    name
-    isCompleted
-    tags
-  }
-}

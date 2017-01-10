@@ -3,11 +3,9 @@ import Avatar from 'react-md/lib/Avatars';
 import Button from 'react-md/lib/Buttons/Button';
 import FontIcon from 'react-md/lib/FontIcons';
 import Auth0 from 'auth0-js';
-import { graphql, compose } from 'react-apollo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../redux/actions';
-import UserQuery from '../graphql/user.gql';
 
 export const Account = props => (
   <div className="flex center column text-center" style={{ 'padding-top': '100px' }}>
@@ -48,7 +46,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
 
-export default compose(
-  graphql(UserQuery),
-  connect(undefined, mapDispatchToProps)
-)(Account);
+export default connect(undefined, mapDispatchToProps)(Account);
