@@ -1,764 +1,1428 @@
 exports[`Item component renders a completed task correctly 1`] = `
-<div>
-  <span
-    disabled={undefined}
-    href={undefined}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    onTouchTap={[Function]}
-    open={null}
-    style={
-      Object {
-        "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-        "background": "none",
-        "backgroundColor": null,
-        "border": 10,
-        "boxSizing": "border-box",
-        "color": "rgba(0, 0, 0, 0.87)",
-        "cursor": "pointer",
-        "display": "block",
-        "fontFamily": "Roboto, sans-serif",
-        "fontSize": 16,
-        "fontWeight": "inherit",
-        "lineHeight": "16px",
-        "margin": 0,
-        "muiPrepared": true,
-        "outline": "none",
-        "padding": 0,
-        "position": "relative",
-        "textDecoration": "none",
-        "transform": "translate(0, 0)",
-        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-        "verticalAlign": null,
-      }
+<Component
+  item={
+    Object {
+      "__typename": "Task",
+      "isCompleted": true,
+      "name": "Task",
     }
-    tabIndex={0}>
-    <div
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}>
-      <div
-        style={
-          Object {
-            "marginLeft": 0,
-            "muiPrepared": true,
-            "paddingBottom": 20,
-            "paddingLeft": 72,
-            "paddingRight": 16,
-            "paddingTop": 20,
-            "position": "relative",
-          }
-        }>
-        Task
-        <div
-          className={undefined}
-          color="#76ff03"
-          onTouchTap={undefined}
-          size={40}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(188, 188, 188)",
-              "borderRadius": "50%",
-              "color": "#76ff03",
-              "display": "inline-flex",
-              "fontSize": 20,
-              "height": 40,
-              "justifyContent": "center",
-              "left": 16,
-              "muiPrepared": true,
-              "position": "absolute",
-              "top": 8,
-              "userSelect": "none",
-              "width": 40,
-            }
-          }>
-          <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+  }>
+  <ListItem
+    activeClassName="md-text--theme-primary"
+    component="div"
+    expanderIconChildren="keyboard_arrow_down"
+    leftAvatar={
+      <Avatar
+        icon={
+          <FontIcon
+            iconClassName="material-icons"
             style={
               Object {
-                "color": "#76ff03",
-                "display": "inline-block",
-                "fill": "#76ff03",
-                "fontSize": 24,
-                "height": 24,
-                "margin": 8,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 24,
+                "color": "#00E676",
               }
-            }
-            viewBox="0 0 24 24">
-            <path
-              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </span>
-</div>
+            }>
+            done
+          </FontIcon>
+        }
+        onClick={undefined}
+        suffixes={
+          Array [
+            "red",
+            "pink",
+            "purple",
+            "deep-purple",
+            "indigo",
+            "blue",
+            "light-blue",
+            "cyan",
+            "teal",
+            "green",
+            "light-green",
+            "lime",
+            "yellow",
+            "amber",
+            "orange",
+            "deep-orange",
+            "brown",
+            "grey",
+            "blue-grey",
+          ]
+        } />
+    }
+    primaryText="Task"
+    threeLines={true}>
+    <li
+      className="md-list-item">
+      <AccessibleFakeButtonInked
+        __SUPER_SECRET_REF__={[Function]}
+        aria-expanded={null}
+        className="md-list-tile md-text md-list-tile--avatar"
+        component="div"
+        inkTransitionEnterTimeout={450}
+        inkTransitionLeaveTimeout={300}
+        inkTransitionOverlap={150}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
+        <AccessibleFakeButton
+          aria-expanded={null}
+          className="md-list-tile md-text md-list-tile--avatar"
+          component="div"
+          ink={
+            <InkContainer
+              className={undefined}
+              disabledInteractions={undefined}
+              inkClassName={undefined}
+              inkStyle={undefined}
+              style={undefined}
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}
+              waitForInkTransition={undefined} />
+          }
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}>
+          <div
+            aria-expanded={null}
+            aria-pressed={false}
+            className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--avatar"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}>
+            <InkContainer
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}>
+              <ReactTransitionGroup
+                childFactory={[Function]}
+                className="md-ink-container"
+                component="div">
+                <div
+                  className="md-ink-container" />
+              </ReactTransitionGroup>
+            </InkContainer>
+            <TileAddon
+              activeClassName="md-text--theme-primary"
+              avatar={
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": "#00E676",
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  onClick={undefined}
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  } />
+              }>
+              <div
+                className="md-tile-addon md-tile-addon--avatar">
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": "#00E676",
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  }>
+                  <div
+                    className="md-inline-block md-avatar md-avatar--default">
+                    <div
+                      className="md-avatar-content">
+                      <FontIcon
+                        iconClassName="material-icons"
+                        style={
+                          Object {
+                            "color": "#00E676",
+                          }
+                        }>
+                        <i
+                          className="md-icon material-icons"
+                          style={
+                            Object {
+                              "color": "#00E676",
+                            }
+                          }>
+                          done
+                        </i>
+                      </FontIcon>
+                    </div>
+                  </div>
+                </Avatar>
+              </div>
+            </TileAddon>
+            <ListItemText
+              activeClassName="md-text--theme-primary"
+              className="md-tile-content--left-avatar"
+              primaryText="Task"
+              threeLines={true}>
+              <div
+                className="md-tile-content md-tile-content--left-avatar">
+                <div
+                  className="md-tile-text--primary md-text">
+                  Task
+                </div>
+              </div>
+            </ListItemText>
+            <TileAddon
+              activeClassName="md-text--theme-primary" />
+          </div>
+        </AccessibleFakeButton>
+      </AccessibleFakeButtonInked>
+    </li>
+  </ListItem>
+</Component>
 `;
 
 exports[`Item component renders a project correctly 1`] = `
-<div>
-  <span
-    disabled={undefined}
-    href={undefined}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    onTouchTap={[Function]}
-    open={null}
-    style={
-      Object {
-        "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-        "background": "none",
-        "backgroundColor": null,
-        "border": 10,
-        "boxSizing": "border-box",
-        "color": "rgba(0, 0, 0, 0.87)",
-        "cursor": "pointer",
-        "display": "block",
-        "fontFamily": "Roboto, sans-serif",
-        "fontSize": 16,
-        "fontWeight": "inherit",
-        "lineHeight": "16px",
-        "margin": 0,
-        "muiPrepared": true,
-        "outline": "none",
-        "padding": 0,
-        "position": "relative",
-        "textDecoration": "none",
-        "transform": "translate(0, 0)",
-        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-        "verticalAlign": null,
-      }
+<Component
+  item={
+    Object {
+      "__typename": "Project",
+      "name": "Project",
     }
-    tabIndex={0}>
-    <div
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}>
-      <div
-        style={
-          Object {
-            "marginLeft": 0,
-            "muiPrepared": true,
-            "paddingBottom": 20,
-            "paddingLeft": 72,
-            "paddingRight": 16,
-            "paddingTop": 20,
-            "position": "relative",
-          }
-        }>
-        Project
-        <div
-          className={undefined}
-          color={undefined}
-          onTouchTap={undefined}
-          size={40}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(188, 188, 188)",
-              "borderRadius": "50%",
-              "color": "#ffffff",
-              "display": "inline-flex",
-              "fontSize": 20,
-              "height": 40,
-              "justifyContent": "center",
-              "left": 16,
-              "muiPrepared": true,
-              "position": "absolute",
-              "top": 8,
-              "userSelect": "none",
-              "width": 40,
-            }
-          }>
-          <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+  }>
+  <ListItem
+    activeClassName="md-text--theme-primary"
+    component="div"
+    expanderIconChildren="keyboard_arrow_down"
+    leftAvatar={
+      <Avatar
+        icon={
+          <FontIcon
+            iconClassName="material-icons"
             style={
               Object {
-                "color": "#ffffff",
-                "display": "inline-block",
-                "fill": "#ffffff",
-                "fontSize": 24,
-                "height": 24,
-                "margin": 8,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 24,
+                "color": undefined,
               }
-            }
-            viewBox="0 0 24 24">
-            <path
-              d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </span>
-</div>
+            }>
+            assignment
+          </FontIcon>
+        }
+        onClick={undefined}
+        suffixes={
+          Array [
+            "red",
+            "pink",
+            "purple",
+            "deep-purple",
+            "indigo",
+            "blue",
+            "light-blue",
+            "cyan",
+            "teal",
+            "green",
+            "light-green",
+            "lime",
+            "yellow",
+            "amber",
+            "orange",
+            "deep-orange",
+            "brown",
+            "grey",
+            "blue-grey",
+          ]
+        } />
+    }
+    primaryText="Project"
+    threeLines={true}>
+    <li
+      className="md-list-item">
+      <AccessibleFakeButtonInked
+        __SUPER_SECRET_REF__={[Function]}
+        aria-expanded={null}
+        className="md-list-tile md-text md-list-tile--avatar"
+        component="div"
+        inkTransitionEnterTimeout={450}
+        inkTransitionLeaveTimeout={300}
+        inkTransitionOverlap={150}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
+        <AccessibleFakeButton
+          aria-expanded={null}
+          className="md-list-tile md-text md-list-tile--avatar"
+          component="div"
+          ink={
+            <InkContainer
+              className={undefined}
+              disabledInteractions={undefined}
+              inkClassName={undefined}
+              inkStyle={undefined}
+              style={undefined}
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}
+              waitForInkTransition={undefined} />
+          }
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}>
+          <div
+            aria-expanded={null}
+            aria-pressed={false}
+            className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--avatar"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}>
+            <InkContainer
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}>
+              <ReactTransitionGroup
+                childFactory={[Function]}
+                className="md-ink-container"
+                component="div">
+                <div
+                  className="md-ink-container" />
+              </ReactTransitionGroup>
+            </InkContainer>
+            <TileAddon
+              activeClassName="md-text--theme-primary"
+              avatar={
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      assignment
+                    </FontIcon>
+                  }
+                  onClick={undefined}
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  } />
+              }>
+              <div
+                className="md-tile-addon md-tile-addon--avatar">
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      assignment
+                    </FontIcon>
+                  }
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  }>
+                  <div
+                    className="md-inline-block md-avatar md-avatar--default">
+                    <div
+                      className="md-avatar-content">
+                      <FontIcon
+                        iconClassName="material-icons"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }>
+                        <i
+                          className="md-icon material-icons"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }>
+                          assignment
+                        </i>
+                      </FontIcon>
+                    </div>
+                  </div>
+                </Avatar>
+              </div>
+            </TileAddon>
+            <ListItemText
+              activeClassName="md-text--theme-primary"
+              className="md-tile-content--left-avatar"
+              primaryText="Project"
+              threeLines={true}>
+              <div
+                className="md-tile-content md-tile-content--left-avatar">
+                <div
+                  className="md-tile-text--primary md-text">
+                  Project
+                </div>
+              </div>
+            </ListItemText>
+            <TileAddon
+              activeClassName="md-text--theme-primary" />
+          </div>
+        </AccessibleFakeButton>
+      </AccessibleFakeButtonInked>
+    </li>
+  </ListItem>
+</Component>
 `;
 
 exports[`Item component renders a task with tags correctly 1`] = `
-<div>
-  <span
-    disabled={undefined}
-    href={undefined}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    onTouchTap={[Function]}
-    open={null}
-    style={
-      Object {
-        "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-        "background": "none",
-        "backgroundColor": null,
-        "border": 10,
-        "boxSizing": "border-box",
-        "color": "rgba(0, 0, 0, 0.87)",
-        "cursor": "pointer",
-        "display": "block",
-        "fontFamily": "Roboto, sans-serif",
-        "fontSize": 16,
-        "fontWeight": "inherit",
-        "lineHeight": "16px",
-        "margin": 0,
-        "muiPrepared": true,
-        "outline": "none",
-        "padding": 0,
-        "position": "relative",
-        "textDecoration": "none",
-        "transform": "translate(0, 0)",
-        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-        "verticalAlign": null,
-      }
+<Component
+  item={
+    Object {
+      "__typename": "Task",
+      "isCompleted": false,
+      "name": "Task",
+      "tags": Array [
+        "@tag",
+        "@another-tag",
+      ],
     }
-    tabIndex={0}>
-    <div
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}>
+  }>
+  <ListItem
+    activeClassName="md-text--theme-primary"
+    component="div"
+    expanderIconChildren="keyboard_arrow_down"
+    leftAvatar={
+      <Avatar
+        icon={
+          <FontIcon
+            iconClassName="material-icons"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }>
+            done
+          </FontIcon>
+        }
+        onClick={undefined}
+        suffixes={
+          Array [
+            "red",
+            "pink",
+            "purple",
+            "deep-purple",
+            "indigo",
+            "blue",
+            "light-blue",
+            "cyan",
+            "teal",
+            "green",
+            "light-green",
+            "lime",
+            "yellow",
+            "amber",
+            "orange",
+            "deep-orange",
+            "brown",
+            "grey",
+            "blue-grey",
+          ]
+        } />
+    }
+    primaryText="Task"
+    secondaryText={
       <div
-        style={
-          Object {
-            "marginLeft": 0,
-            "muiPrepared": true,
-            "paddingBottom": 20,
-            "paddingLeft": 72,
-            "paddingRight": 16,
-            "paddingTop": 20,
-            "position": "relative",
-          }
-        }>
-        Task
-        <div
-          className="Item-chip-container">
-          <div
-            className={undefined}
-            disabled={undefined}
-            href={undefined}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            onTouchTap={[Function]}
-            style={
-              Object {
-                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-                "backgroundColor": "rgb(224, 224, 224)",
-                "border": 10,
-                "borderRadius": 16,
-                "boxShadow": null,
-                "boxSizing": "border-box",
-                "cursor": "default",
-                "display": "flex",
-                "fontFamily": "Roboto, sans-serif",
-                "fontSize": "inherit",
-                "fontWeight": "inherit",
-                "margin": 0,
-                "marginRight": 5,
-                "marginTop": 3,
-                "muiPrepared": true,
-                "outline": "none",
-                "padding": 0,
-                "textDecoration": "none",
-                "transform": null,
-                "verticalAlign": null,
-                "whiteSpace": "nowrap",
-                "width": "fit-content",
-              }
-            }
-            tabIndex={0}>
-            <span
-              style={
-                Object {
-                  "color": "rgba(0, 0, 0, 0.87)",
-                  "fontSize": 14,
-                  "fontWeight": 400,
-                  "lineHeight": "32px",
-                  "muiPrepared": true,
-                  "paddingLeft": 12,
-                  "paddingRight": 12,
-                  "userSelect": "none",
-                  "whiteSpace": "nowrap",
-                }
-              }>
-              @tag
-            </span>
-          </div>
-          <div
-            className={undefined}
-            disabled={undefined}
-            href={undefined}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            onTouchTap={[Function]}
-            style={
-              Object {
-                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-                "backgroundColor": "rgb(224, 224, 224)",
-                "border": 10,
-                "borderRadius": 16,
-                "boxShadow": null,
-                "boxSizing": "border-box",
-                "cursor": "default",
-                "display": "flex",
-                "fontFamily": "Roboto, sans-serif",
-                "fontSize": "inherit",
-                "fontWeight": "inherit",
-                "margin": 0,
-                "marginRight": 5,
-                "marginTop": 3,
-                "muiPrepared": true,
-                "outline": "none",
-                "padding": 0,
-                "textDecoration": "none",
-                "transform": null,
-                "verticalAlign": null,
-                "whiteSpace": "nowrap",
-                "width": "fit-content",
-              }
-            }
-            tabIndex={0}>
-            <span
-              style={
-                Object {
-                  "color": "rgba(0, 0, 0, 0.87)",
-                  "fontSize": 14,
-                  "fontWeight": 400,
-                  "lineHeight": "32px",
-                  "muiPrepared": true,
-                  "paddingLeft": 12,
-                  "paddingRight": 12,
-                  "userSelect": "none",
-                  "whiteSpace": "nowrap",
-                }
-              }>
-              @another-tag
-            </span>
-          </div>
-        </div>
-        <div
-          className={undefined}
-          color={undefined}
-          onTouchTap={undefined}
-          size={40}
+        className="Item-chip-container">
+        <Chip
+          label="@tag"
+          rotateIcon={true}
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(188, 188, 188)",
-              "borderRadius": "50%",
-              "color": "#ffffff",
-              "display": "inline-flex",
-              "fontSize": 20,
-              "height": 40,
-              "justifyContent": "center",
-              "left": 16,
-              "muiPrepared": true,
-              "position": "absolute",
-              "top": 8,
-              "userSelect": "none",
-              "width": 40,
+              "marginRight": 5,
+              "marginTop": 3,
             }
           }>
-          <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            style={
-              Object {
-                "color": "#ffffff",
-                "display": "inline-block",
-                "fill": "#ffffff",
-                "fontSize": 24,
-                "height": 24,
-                "margin": 8,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 24,
-              }
+          add_circle
+        </Chip>
+        <Chip
+          label="@another-tag"
+          rotateIcon={true}
+          style={
+            Object {
+              "marginRight": 5,
+              "marginTop": 3,
             }
-            viewBox="0 0 24 24">
-            <path
-              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg>
-        </div>
+          }>
+          add_circle
+        </Chip>
       </div>
-    </div>
-  </span>
-</div>
+    }
+    threeLines={true}>
+    <li
+      className="md-list-item">
+      <AccessibleFakeButtonInked
+        __SUPER_SECRET_REF__={[Function]}
+        aria-expanded={null}
+        className="md-list-tile md-text md-list-tile--three-lines"
+        component="div"
+        inkTransitionEnterTimeout={450}
+        inkTransitionLeaveTimeout={300}
+        inkTransitionOverlap={150}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
+        <AccessibleFakeButton
+          aria-expanded={null}
+          className="md-list-tile md-text md-list-tile--three-lines"
+          component="div"
+          ink={
+            <InkContainer
+              className={undefined}
+              disabledInteractions={undefined}
+              inkClassName={undefined}
+              inkStyle={undefined}
+              style={undefined}
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}
+              waitForInkTransition={undefined} />
+          }
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}>
+          <div
+            aria-expanded={null}
+            aria-pressed={false}
+            className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--three-lines"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}>
+            <InkContainer
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}>
+              <ReactTransitionGroup
+                childFactory={[Function]}
+                className="md-ink-container"
+                component="div">
+                <div
+                  className="md-ink-container" />
+              </ReactTransitionGroup>
+            </InkContainer>
+            <TileAddon
+              activeClassName="md-text--theme-primary"
+              avatar={
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  onClick={undefined}
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  } />
+              }>
+              <div
+                className="md-tile-addon md-tile-addon--avatar">
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  }>
+                  <div
+                    className="md-inline-block md-avatar md-avatar--default">
+                    <div
+                      className="md-avatar-content">
+                      <FontIcon
+                        iconClassName="material-icons"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }>
+                        <i
+                          className="md-icon material-icons"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }>
+                          done
+                        </i>
+                      </FontIcon>
+                    </div>
+                  </div>
+                </Avatar>
+              </div>
+            </TileAddon>
+            <ListItemText
+              activeClassName="md-text--theme-primary"
+              className="md-tile-content--left-avatar"
+              primaryText="Task"
+              secondaryText={
+                <div
+                  className="Item-chip-container">
+                  <Chip
+                    label="@tag"
+                    rotateIcon={true}
+                    style={
+                      Object {
+                        "marginRight": 5,
+                        "marginTop": 3,
+                      }
+                    }>
+                    add_circle
+                  </Chip>
+                  <Chip
+                    label="@another-tag"
+                    rotateIcon={true}
+                    style={
+                      Object {
+                        "marginRight": 5,
+                        "marginTop": 3,
+                      }
+                    }>
+                    add_circle
+                  </Chip>
+                </div>
+              }
+              threeLines={true}>
+              <div
+                className="md-tile-content md-tile-content--left-avatar">
+                <div
+                  className="md-tile-text--primary md-text">
+                  Task
+                </div>
+                <div
+                  className="md-tile-text--secondary md-text--secondary md-tile-text--three-lines">
+                  <div
+                    className="Item-chip-container">
+                    <Chip
+                      label="@tag"
+                      rotateIcon={true}
+                      style={
+                        Object {
+                          "marginRight": 5,
+                          "marginTop": 3,
+                        }
+                      }>
+                      <button
+                        className="md-chip"
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        style={
+                          Object {
+                            "marginRight": 5,
+                            "marginTop": 3,
+                          }
+                        }
+                        type="button">
+                        <span
+                          className="md-chip-text">
+                          @tag
+                        </span>
+                      </button>
+                    </Chip>
+                    <Chip
+                      label="@another-tag"
+                      rotateIcon={true}
+                      style={
+                        Object {
+                          "marginRight": 5,
+                          "marginTop": 3,
+                        }
+                      }>
+                      <button
+                        className="md-chip"
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        style={
+                          Object {
+                            "marginRight": 5,
+                            "marginTop": 3,
+                          }
+                        }
+                        type="button">
+                        <span
+                          className="md-chip-text">
+                          @another-tag
+                        </span>
+                      </button>
+                    </Chip>
+                  </div>
+                </div>
+              </div>
+            </ListItemText>
+            <TileAddon
+              activeClassName="md-text--theme-primary" />
+          </div>
+        </AccessibleFakeButton>
+      </AccessibleFakeButtonInked>
+    </li>
+  </ListItem>
+</Component>
 `;
 
 exports[`Item component renders an uncompleted task correctly 1`] = `
-<div>
-  <span
-    disabled={undefined}
-    href={undefined}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    onTouchTap={[Function]}
-    open={null}
-    style={
-      Object {
-        "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-        "background": "none",
-        "backgroundColor": null,
-        "border": 10,
-        "boxSizing": "border-box",
-        "color": "rgba(0, 0, 0, 0.87)",
-        "cursor": "pointer",
-        "display": "block",
-        "fontFamily": "Roboto, sans-serif",
-        "fontSize": 16,
-        "fontWeight": "inherit",
-        "lineHeight": "16px",
-        "margin": 0,
-        "muiPrepared": true,
-        "outline": "none",
-        "padding": 0,
-        "position": "relative",
-        "textDecoration": "none",
-        "transform": "translate(0, 0)",
-        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-        "verticalAlign": null,
-      }
+<Component
+  item={
+    Object {
+      "__typename": "Task",
+      "isCompleted": false,
+      "name": "Task",
     }
-    tabIndex={0}>
-    <div
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}>
-      <div
-        style={
-          Object {
-            "marginLeft": 0,
-            "muiPrepared": true,
-            "paddingBottom": 20,
-            "paddingLeft": 72,
-            "paddingRight": 16,
-            "paddingTop": 20,
-            "position": "relative",
-          }
-        }>
-        Task
-        <div
-          className={undefined}
-          color={undefined}
-          onTouchTap={undefined}
-          size={40}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(188, 188, 188)",
-              "borderRadius": "50%",
-              "color": "#ffffff",
-              "display": "inline-flex",
-              "fontSize": 20,
-              "height": 40,
-              "justifyContent": "center",
-              "left": 16,
-              "muiPrepared": true,
-              "position": "absolute",
-              "top": 8,
-              "userSelect": "none",
-              "width": 40,
-            }
-          }>
-          <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+  }>
+  <ListItem
+    activeClassName="md-text--theme-primary"
+    component="div"
+    expanderIconChildren="keyboard_arrow_down"
+    leftAvatar={
+      <Avatar
+        icon={
+          <FontIcon
+            iconClassName="material-icons"
             style={
               Object {
-                "color": "#ffffff",
-                "display": "inline-block",
-                "fill": "#ffffff",
-                "fontSize": 24,
-                "height": 24,
-                "margin": 8,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 24,
+                "color": undefined,
               }
-            }
-            viewBox="0 0 24 24">
-            <path
-              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </span>
-</div>
+            }>
+            done
+          </FontIcon>
+        }
+        onClick={undefined}
+        suffixes={
+          Array [
+            "red",
+            "pink",
+            "purple",
+            "deep-purple",
+            "indigo",
+            "blue",
+            "light-blue",
+            "cyan",
+            "teal",
+            "green",
+            "light-green",
+            "lime",
+            "yellow",
+            "amber",
+            "orange",
+            "deep-orange",
+            "brown",
+            "grey",
+            "blue-grey",
+          ]
+        } />
+    }
+    primaryText="Task"
+    threeLines={true}>
+    <li
+      className="md-list-item">
+      <AccessibleFakeButtonInked
+        __SUPER_SECRET_REF__={[Function]}
+        aria-expanded={null}
+        className="md-list-tile md-text md-list-tile--avatar"
+        component="div"
+        inkTransitionEnterTimeout={450}
+        inkTransitionLeaveTimeout={300}
+        inkTransitionOverlap={150}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
+        <AccessibleFakeButton
+          aria-expanded={null}
+          className="md-list-tile md-text md-list-tile--avatar"
+          component="div"
+          ink={
+            <InkContainer
+              className={undefined}
+              disabledInteractions={undefined}
+              inkClassName={undefined}
+              inkStyle={undefined}
+              style={undefined}
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}
+              waitForInkTransition={undefined} />
+          }
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}>
+          <div
+            aria-expanded={null}
+            aria-pressed={false}
+            className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--avatar"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}>
+            <InkContainer
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}>
+              <ReactTransitionGroup
+                childFactory={[Function]}
+                className="md-ink-container"
+                component="div">
+                <div
+                  className="md-ink-container" />
+              </ReactTransitionGroup>
+            </InkContainer>
+            <TileAddon
+              activeClassName="md-text--theme-primary"
+              avatar={
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  onClick={undefined}
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  } />
+              }>
+              <div
+                className="md-tile-addon md-tile-addon--avatar">
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  }>
+                  <div
+                    className="md-inline-block md-avatar md-avatar--default">
+                    <div
+                      className="md-avatar-content">
+                      <FontIcon
+                        iconClassName="material-icons"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }>
+                        <i
+                          className="md-icon material-icons"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }>
+                          done
+                        </i>
+                      </FontIcon>
+                    </div>
+                  </div>
+                </Avatar>
+              </div>
+            </TileAddon>
+            <ListItemText
+              activeClassName="md-text--theme-primary"
+              className="md-tile-content--left-avatar"
+              primaryText="Task"
+              threeLines={true}>
+              <div
+                className="md-tile-content md-tile-content--left-avatar">
+                <div
+                  className="md-tile-text--primary md-text">
+                  Task
+                </div>
+              </div>
+            </ListItemText>
+            <TileAddon
+              activeClassName="md-text--theme-primary" />
+          </div>
+        </AccessibleFakeButton>
+      </AccessibleFakeButtonInked>
+    </li>
+  </ListItem>
+</Component>
 `;
 
 exports[`Item component renders the delete button when it has the canDelete prop 1`] = `
-<div>
-  <span
-    disabled={undefined}
-    href={undefined}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchStart={[Function]}
-    onTouchTap={[Function]}
-    open={null}
-    style={
-      Object {
-        "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-        "background": "none",
-        "backgroundColor": null,
-        "border": 10,
-        "boxSizing": "border-box",
-        "color": "rgba(0, 0, 0, 0.87)",
-        "cursor": "pointer",
-        "display": "block",
-        "fontFamily": "Roboto, sans-serif",
-        "fontSize": 16,
-        "fontWeight": "inherit",
-        "lineHeight": "16px",
-        "margin": 0,
-        "muiPrepared": true,
-        "outline": "none",
-        "padding": 0,
-        "position": "relative",
-        "textDecoration": "none",
-        "transform": "translate(0, 0)",
-        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-        "verticalAlign": null,
-      }
+<Component
+  canDelete={true}
+  item={
+    Object {
+      "__typename": "Task",
+      "isCompleted": false,
+      "name": "Task",
     }
-    tabIndex={0}>
-    <div
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}>
-      <div
-        style={
-          Object {
-            "marginLeft": 0,
-            "muiPrepared": true,
-            "paddingBottom": 20,
-            "paddingLeft": 72,
-            "paddingRight": 56,
-            "paddingTop": 20,
-            "position": "relative",
-          }
-        }>
-        Task
-        <div
-          className={undefined}
-          color={undefined}
-          onTouchTap={undefined}
-          size={40}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(188, 188, 188)",
-              "borderRadius": "50%",
-              "color": "#ffffff",
-              "display": "inline-flex",
-              "fontSize": 20,
-              "height": 40,
-              "justifyContent": "center",
-              "left": 16,
-              "muiPrepared": true,
-              "position": "absolute",
-              "top": 8,
-              "userSelect": "none",
-              "width": 40,
-            }
-          }>
-          <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+  }>
+  <ListItem
+    activeClassName="md-text--theme-primary"
+    component="div"
+    expanderIconChildren="keyboard_arrow_down"
+    leftAvatar={
+      <Avatar
+        icon={
+          <FontIcon
+            iconClassName="material-icons"
             style={
               Object {
-                "color": "#ffffff",
-                "display": "inline-block",
-                "fill": "#ffffff",
-                "fontSize": 24,
-                "height": 24,
-                "margin": 8,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 24,
+                "color": undefined,
               }
-            }
-            viewBox="0 0 24 24">
-            <path
-              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg>
-        </div>
-        <button
-          disabled={false}
-          href={undefined}
-          onBlur={[Function]}
+            }>
+            done
+          </FontIcon>
+        }
+        onClick={undefined}
+        suffixes={
+          Array [
+            "red",
+            "pink",
+            "purple",
+            "deep-purple",
+            "indigo",
+            "blue",
+            "light-blue",
+            "cyan",
+            "teal",
+            "green",
+            "light-green",
+            "lime",
+            "yellow",
+            "amber",
+            "orange",
+            "deep-orange",
+            "brown",
+            "grey",
+            "blue-grey",
+          ]
+        } />
+    }
+    primaryText="Task"
+    threeLines={true}>
+    <li
+      className="md-list-item">
+      <AccessibleFakeButtonInked
+        __SUPER_SECRET_REF__={[Function]}
+        aria-expanded={null}
+        className="md-list-tile md-text md-list-tile--avatar"
+        component="div"
+        inkTransitionEnterTimeout={450}
+        inkTransitionLeaveTimeout={300}
+        inkTransitionOverlap={150}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}>
+        <AccessibleFakeButton
+          aria-expanded={null}
+          className="md-list-tile md-text md-list-tile--avatar"
+          component="div"
+          ink={
+            <InkContainer
+              className={undefined}
+              disabledInteractions={undefined}
+              inkClassName={undefined}
+              inkStyle={undefined}
+              style={undefined}
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}
+              waitForInkTransition={undefined} />
+          }
           onClick={[Function]}
-          onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          onMouseOut={[Function]}
-          onMouseUp={[Function]}
+          onMouseOver={[Function]}
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
-          onTouchTap={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "background": "none",
-              "border": 10,
-              "boxSizing": "border-box",
-              "cursor": "pointer",
-              "display": "block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": 0,
-              "fontWeight": "inherit",
-              "height": 48,
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "overflow": "visible",
-              "padding": 12,
-              "position": "absolute",
-              "right": 4,
-              "textDecoration": "none",
-              "top": 4,
-              "transform": "translate(0, 0)",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": null,
-              "width": 48,
-            }
-          }
-          tabIndex={0}
-          type="button">
+          role="button"
+          tabIndex={0}>
           <div
-            onMouseDown={[Function]}
+            aria-expanded={null}
+            aria-pressed={false}
+            className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--avatar"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
             onMouseLeave={[Function]}
-            onMouseUp={[Function]}
+            onMouseOver={[Function]}
             onTouchEnd={[Function]}
-            onTouchStart={[Function]}>
-            <svg
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "rgba(0, 0, 0, 0.87)",
-                  "display": "inline-block",
-                  "fill": "currentColor",
-                  "height": 24,
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "width": 24,
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}>
+            <InkContainer
+              transitionEnterTimeout={450}
+              transitionLeaveTimeout={300}
+              transitionOverlap={150}>
+              <ReactTransitionGroup
+                childFactory={[Function]}
+                className="md-ink-container"
+                component="div">
+                <div
+                  className="md-ink-container" />
+              </ReactTransitionGroup>
+            </InkContainer>
+            <TileAddon
+              activeClassName="md-text--theme-primary"
+              avatar={
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  onClick={undefined}
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  } />
+              }>
+              <div
+                className="md-tile-addon md-tile-addon--avatar">
+                <Avatar
+                  icon={
+                    <FontIcon
+                      iconClassName="material-icons"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }>
+                      done
+                    </FontIcon>
+                  }
+                  suffixes={
+                    Array [
+                      "red",
+                      "pink",
+                      "purple",
+                      "deep-purple",
+                      "indigo",
+                      "blue",
+                      "light-blue",
+                      "cyan",
+                      "teal",
+                      "green",
+                      "light-green",
+                      "lime",
+                      "yellow",
+                      "amber",
+                      "orange",
+                      "deep-orange",
+                      "brown",
+                      "grey",
+                      "blue-grey",
+                    ]
+                  }>
+                  <div
+                    className="md-inline-block md-avatar md-avatar--default">
+                    <div
+                      className="md-avatar-content">
+                      <FontIcon
+                        iconClassName="material-icons"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }>
+                        <i
+                          className="md-icon material-icons"
+                          style={
+                            Object {
+                              "color": undefined,
+                            }
+                          }>
+                          done
+                        </i>
+                      </FontIcon>
+                    </div>
+                  </div>
+                </Avatar>
+              </div>
+            </TileAddon>
+            <ListItemText
+              activeClassName="md-text--theme-primary"
+              className="md-tile-content--left-avatar"
+              primaryText="Task"
+              threeLines={true}>
+              <div
+                className="md-tile-content md-tile-content--left-avatar">
+                <div
+                  className="md-tile-text--primary md-text">
+                  Task
+                </div>
+              </div>
+            </ListItemText>
+            <TileAddon
+              activeClassName="md-text--theme-primary" />
+            <ButtonTooltipedInked
+              icon={true}
+              inkTransitionEnterTimeout={450}
+              inkTransitionLeaveTimeout={300}
+              inkTransitionOverlap={150}
+              onClick={[Function]}>
+              <ButtonTooltiped
+                icon={true}
+                ink={
+                  <InkContainer
+                    className={undefined}
+                    disabledInteractions={undefined}
+                    inkClassName={undefined}
+                    inkStyle={undefined}
+                    style={undefined}
+                    transitionEnterTimeout={450}
+                    transitionLeaveTimeout={300}
+                    transitionOverlap={150}
+                    waitForInkTransition={undefined} />
                 }
-              }
-              viewBox="0 0 24 24">
-              <path
-                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-            </svg>
+                onClick={[Function]}
+                tooltipDelay={0}
+                tooltipPosition="bottom"
+                tooltipTransitionEnterTimeout={150}
+                tooltipTransitionLeaveTimeout={150}>
+                <Button
+                  fixedPosition="br"
+                  icon={true}
+                  iconBefore={true}
+                  ink={
+                    <InkContainer
+                      className={undefined}
+                      disabledInteractions={undefined}
+                      inkClassName={undefined}
+                      inkStyle={undefined}
+                      style={undefined}
+                      transitionEnterTimeout={450}
+                      transitionLeaveTimeout={300}
+                      transitionOverlap={150}
+                      waitForInkTransition={undefined} />
+                  }
+                  onClick={[Function]}
+                  type="button">
+                  <button
+                    className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseOver={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchStart={[Function]}
+                    type="button">
+                    <InkContainer
+                      transitionEnterTimeout={450}
+                      transitionLeaveTimeout={300}
+                      transitionOverlap={150}>
+                      <ReactTransitionGroup
+                        childFactory={[Function]}
+                        className="md-ink-container"
+                        component="div">
+                        <div
+                          className="md-ink-container" />
+                      </ReactTransitionGroup>
+                    </InkContainer>
+                    <FontIcon
+                      iconClassName="material-icons">
+                      <i
+                        className="md-icon material-icons">
+                        delete
+                      </i>
+                    </FontIcon>
+                  </button>
+                </Button>
+              </ButtonTooltiped>
+            </ButtonTooltipedInked>
           </div>
-        </button>
-      </div>
-    </div>
-  </span>
-</div>
+        </AccessibleFakeButton>
+      </AccessibleFakeButtonInked>
+    </li>
+  </ListItem>
+</Component>
 `;

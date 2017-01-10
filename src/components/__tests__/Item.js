@@ -1,42 +1,34 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import Item from '../Item';
-import MuiTheme from '../../MuiTheme';
 
 describe('Item component', () => {
   it('renders an uncompleted task correctly', () => {
-    const component = renderer.create(<MuiTheme>
-      <Item item={{ name: 'Task', __typename: 'Task', isCompleted: false }} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = mount(<Item item={{ name: 'Task', __typename: 'Task', isCompleted: false }} />);
+    expect(component).toMatchSnapshot();
   });
   it('renders a completed task correctly', () => {
-    const component = renderer.create(<MuiTheme>
-      <Item item={{ name: 'Task', __typename: 'Task', isCompleted: true }} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = mount(<Item item={{ name: 'Task', __typename: 'Task', isCompleted: true }} />);
+    expect(component).toMatchSnapshot();
   });
   it('renders a task with tags correctly', () => {
-    const component = renderer.create(<MuiTheme>
-      <Item item={{ name: 'Task', __typename: 'Task', isCompleted: false, tags: ['@tag', '@another-tag'] }} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = mount(<Item item={{ name: 'Task', __typename: 'Task', isCompleted: false, tags: ['@tag', '@another-tag'] }} />);
+    expect(component).toMatchSnapshot();
   });
   it('renders a project correctly', () => {
-    const component = renderer.create(<MuiTheme>
-      <Item item={{ name: 'Project', __typename: 'Project' }} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = mount(<Item item={{ name: 'Project', __typename: 'Project' }} />);
+    expect(component).toMatchSnapshot();
   });
   it('renders the delete button when it has the canDelete prop', () => {
-    const component = renderer.create(<MuiTheme>
-      <Item canDelete item={{ name: 'Task', __typename: 'Task', isCompleted: false }} />
-    </MuiTheme>);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = mount(<Item canDelete item={{ name: 'Task', __typename: 'Task', isCompleted: false }} />);
+    expect(component).toMatchSnapshot();
+  });
+  it('only calls onDelete when the delete button is pressed', () => {
+    const onItemTap = jest.fn();
+    const onDelete = jest.fn();
+    const component = mount(<Item canDelete onItemTap={onItemTap} onDelete={onDelete} item={{ name: 'Task', __typename: 'Task', isCompleted: false }} />);
+    component.find('Button').simulate('click');
+    expect(onItemTap).not.toBeCalled();
+    expect(onDelete).toBeCalled();
   });
 });
