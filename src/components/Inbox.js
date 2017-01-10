@@ -6,7 +6,7 @@ import OakPropTypes from '../PropTypes';
 
 export const Inbox = props => (
   <div>
-    {props.data.loading ? <div className="flex center row">
+    {props.data ? <div className="flex center row">
       <div className="loading-padding">
         <CircularProgress scale={2} />
       </div>
