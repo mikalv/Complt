@@ -78,7 +78,8 @@
     "react-router-redux": "^4.0.6",
     "react-test-renderer": "^15.4.0",
     "redux": "^3.6.0",
-    "redux-persist": "^4.0.0-alpha7"
+    "redux-persist": "^4.0.0-alpha7",
+    "uuid": "^3.0.1"
   },
   "scripts": {
     "start": "node scripts/start.js",

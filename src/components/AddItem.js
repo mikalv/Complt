@@ -10,7 +10,7 @@ class AddItem extends Component {
     super(props);
     this.state = {
       value: '',
-      type: props.initialType || 'Task',
+      isProject: props.initalIsProject,
     };
     this.valueChange = this.valueChange.bind(this);
     this.ActionLabelTap = this.ActionLabelTap.bind(this);
@@ -28,22 +28,18 @@ class AddItem extends Component {
   }
   submitItem(e) {
     e.preventDefault();
-    const item = processItem(this.state.value, this.state.type);
+    const item = processItem(this.state.value, this.state.isProject);
     if (!item) return;
     this.setState({ value: '' });
     this.props.onAddItem(item);
   }
   switchType() {
-    if (this.state.type === 'Project') {
-      this.setState({ type: 'Task' });
-    } else {
-      this.setState({ type: 'Project' });
-    }
+    this.setState({ isProject: !this.state.isProject });
   }
   render() {
     return (
       <form onSubmit={this.submitItem}>
-        <Paper zDepth={2} style={{ padding: 10, 'background-color': '#fff' }} className="md-drawer-relative">
+        <Paper zDepth={2} style={{ padding: 10, backgroundColor: '#fff' }} className="md-drawer-relative">
           <div className="flex column">
             <TextField
               placeholder={this.state.type === 'Project' ? 'e.g. Report' : 'e.g. Finish Report @work'}
@@ -76,7 +72,7 @@ class AddItem extends Component {
 
 AddItem.propTypes = {
   onAddItem: React.PropTypes.func.isRequired,
-  initialType: React.PropTypes.oneOf(['Project', 'Task']),
+  initalIsProject: React.PropTypes.bool,
   canChangeType: React.PropTypes.bool,
 };
 

@@ -15,6 +15,8 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/service-worker.js');
 }
 
+global.db = db;
+
 const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
   path: '/items',
   db,
