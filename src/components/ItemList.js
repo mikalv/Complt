@@ -8,13 +8,13 @@ const ItemList = (
 ) => (
   <List style={style}>
     {items.map((item, i) => {
-      if (item === null) return null;
+      if (!item) return null;
       return (<Item
         key={i}
         item={item}
         canDelete={
-          (canDeleteTask && item.__typename === 'Task') ||
-          (canDeleteProject && item.__typename === 'Project')}
+          (canDeleteTask && item.isProject === false) ||
+          (canDeleteProject && item.isProject === true)}
         onAvatarTouchTap={onItemAvatarTap !== undefined ? () => onItemAvatarTap(i) : undefined}
         onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
         onDelete={() => onDelete(i)}
