@@ -10,7 +10,7 @@ class AddItem extends Component {
     super(props);
     this.state = {
       value: '',
-      type: props.initialType || 'Task',
+      isProject: props.initialIsProject,
     };
     this.valueChange = this.valueChange.bind(this);
     this.ActionLabelTap = this.ActionLabelTap.bind(this);
@@ -76,7 +76,7 @@ class AddItem extends Component {
 
 AddItem.propTypes = {
   onAddItem: React.PropTypes.func.isRequired,
-  initialType: React.PropTypes.oneOf(['Project', 'Task']),
+  initialIsProject: React.PropTypes.bool,
   canChangeType: React.PropTypes.bool,
 };
 

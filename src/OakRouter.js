@@ -28,13 +28,13 @@ class OakRouter extends Component {
       <Router history={this.props.history}>
         <Route path="login" component={Login} />
         <Route path="/" component={App}>
-          <Route onEnter={this.isAuthenticated}>
-            <IndexRedirect to="inbox" />
-            <Route path="inbox" component={Inbox} />
-            <Route path="account" component={Account} />
-            <Route path="projects" component={RootProject} />
-            <Route path="project/:projectId" component={Project} />
-          </Route>
+          {/* <Route onEnter={this.isAuthenticated}> */}
+          <IndexRedirect to="inbox" />
+          <Route path="inbox" component={Inbox} />
+          <Route path="account" component={Account} />
+          <Route path="projects" component={RootProject} />
+          <Route path="project/:projectId" component={Project} />
+          {/* </Route> */}
         </Route>
       </Router>
     );
