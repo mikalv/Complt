@@ -14,7 +14,7 @@ export const Inbox = props => (
         props.completeTask(props.inbox[index]._id, !props.inbox[index].isCompleted)}
       style={{ marginBottom: '116px', height: '100%' }}
       canDeleteTask
-      onDelete={index => props.deleteTask(props.inbox[index].id)}
+      onDelete={index => props.deleteTask('inbox', props.inbox[index]._id)}
     />
     <div className="AddItem-fixed">
       <AddItem initialIsProject={false} onAddItem={item => props.createTask('inbox', item)} />

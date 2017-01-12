@@ -80,23 +80,23 @@ export default function itemsReducer(state = initialState, action) {
     }
     case DELETE_TASK: {
       const parentProject = state.find(item => item._id === action.parentProjectId);
-      const childId = parentProject.children.indexOf(action.id);
-      if (childId === -1) return state;
-      const indexOfId = state.findIndex(item => item._id === action.id);
+      const childIndexInParent = parentProject.children.indexOf(action.id);
+      if (childIndexInParent === -1) return state;
+      const taskIndex = state.findIndex(item => item._id === action.id);
       const stateWithoutTask = [
-        ...state.slice(0, indexOfId),
-        ...state.slice(indexOfId + 1),
+        ...state.slice(0, taskIndex),
+        ...state.slice(taskIndex + 1),
       ];
       const parentProjectIndex = stateWithoutTask.findIndex(item =>
         item._id === action.parentProjectId);
       return [
-        ...state.slice(0, parentProjectIndex),
+        ...stateWithoutTask.slice(0, parentProjectIndex),
         { ...parentProject,
           children: [
-            ...state.slice(0, childId),
-            ...state.slice(childId + 1),
+            ...parentProject.children.slice(0, childIndexInParent),
+            ...parentProject.children.slice(childIndexInParent + 1),
           ] },
-        ...state.slice(parentProjectIndex + 1),
+        ...stateWithoutTask.slice(parentProjectIndex + 1),
       ];
     }
     default: {
