@@ -25,6 +25,12 @@ const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
     insert: doc => ({ type: INSERT_ITEM_POUCH, item: doc }),
     update: doc => ({ type: UPDATE_ITEM_POUCH, item: doc }),
   },
+  handleResponse: (error, data, cb) => {
+    if (error) {
+      console.error('A PouchDB error occured', error, data); // eslint-disable-line no-console
+    }
+    cb(error);
+  },
 });
 
 let enhancer;
