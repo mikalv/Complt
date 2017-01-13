@@ -15,14 +15,14 @@ function ensureRootAndInboxExists(state, action) {
     if (state.findIndex(item => item._id === 'root') !== -1) return state;
     return [
       ...state,
-      { _id: 'root', children: [] },
+      { _id: 'root', isProject: true, children: [] },
     ];
   }
   if (action.parentProjectId === 'inbox') {
     if (state.findIndex(item => item._id === 'inbox') !== -1) return state;
     return [
       ...state,
-      { _id: 'inbox', children: [] },
+      { _id: 'inbox', isProject: true, children: [] },
     ];
   }
   return state;
