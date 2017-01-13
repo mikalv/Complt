@@ -1,40 +1,36 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../redux/actions';
 import Projects from './Projects';
 import OakPropTypes from '../PropTypes';
 
 export const Project = props => (
   <Projects
-    onCreateProject={props.createProject}
-    onCreateTask={props.createTask}
+    onCreateProject={project => props.createProject(props.routeParams.projectId, project)}
+    onCreateTask={task => props.createTask(props.routeParams.projectId, task)}
     onDelete={(index) => {
-      const item = props.data.itemById.children[index];
-      if (item.__typename === 'Task') props.deleteTask(item.id);
-      if (item.__typename === 'Project') props.deleteProject(item.id);
+      const item = props.project[index];
+      if (item.isProject) props.deleteProject(props.routeParams.projectId, item._id);
+      else props.deleteTask(props.routeParams.projectId, item._id);
     }}
     onAvatarTap={(index) => {
-      if (props.data.itemById.children[index].__typename === 'Task') {
-        props.completeTask(props.data.itemById.children[index].id,
-          !props.data.itemById.children[index].isCompleted);
+      if (!props.project[index].isProject) {
+        props.completeTask(props.project[index]._id, !props.project[index].isCompleted);
       }
     }}
     onItemTap={(i) => {
-      if (props.data.itemById.children[i].__typename === 'Project') {
-        props.router.push(`/project/${props.data.itemById.children[i].id}`);
+      if (props.project[i].isProject) {
+        props.router.push(`/project/${props.project[i]._id}`);
       }
     }}
-    projectChildren={props.data.loading ? [] : props.data.itemById.children}
-    loading={props.data.loading}
+    projectChildren={props.project}
   />
 );
 Project.propTypes = {
-  data: React.PropTypes.shape({
-    itemById: React.PropTypes.shape({
-      children: React.PropTypes.arrayOf(OakPropTypes.item),
-    }),
-    loading: React.PropTypes.bool,
-  }),
-  createProject: React.PropTypes.func,
-  createTask: React.PropTypes.func,
+  project: React.PropTypes.arrayOf(OakPropTypes.item),
+  createProject: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  createTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   deleteTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   completeTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   routeParams: React.PropTypes.shape({
@@ -44,4 +40,16 @@ Project.propTypes = {
     push: React.PropTypes.func,
   }),
 };
-export default Project;
+function mapStateToProps(state, ownProps) {
+  const project = state.items.find(item => item._id === ownProps.routeParams.projectId);
+  if (project === undefined) return { project: [] };
+  const projectChildren = project.children.map(id =>
+    state.items.find(item => item._id === id));
+  return { project: projectChildren };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Project);

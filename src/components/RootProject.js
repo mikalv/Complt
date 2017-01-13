@@ -1,41 +1,53 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../redux/actions';
 import Projects from './Projects';
 import OakPropTypes from '../PropTypes';
 
 export const RootProject = props => (
   <Projects
-    onCreateProject={props.createProject}
-    onCreateTask={props.createTask}
+    onCreateProject={project => props.createProject('root', project)}
+    onCreateTask={task => props.createTask('root', task)}
     onDelete={(index) => {
-      const item = props.data.root[index];
-      if (item.__typename === 'Task') props.deleteTask(item.id);
-      if (item.__typename === 'Project') props.deleteProject(item.id);
+      const item = props.root[index];
+      if (item.isProject) props.deleteProject('root', item._id);
+      else props.deleteTask('root', item._id);
     }}
     onAvatarTap={(index) => {
-      if (props.data.root[index].__typename === 'Task') {
-        props.completeTask(props.data.root[index].id, !props.data.root[index].isCompleted);
+      if (!props.root[index].isProject) {
+        props.completeTask(props.root[index]._id, !props.root[index].isCompleted);
       }
     }}
     onItemTap={(i) => {
-      if (props.data.root[i].__typename === 'Project') {
-        props.router.push(`/project/${props.data.root[i].id}`);
+      if (props.root[i].isProject) {
+        props.router.push(`/project/${props.root[i]._id}`);
       }
     }}
-    projectChildren={props.data.root}
-    loading={props.data.loading}
+    projectChildren={props.root}
   />
 );
 RootProject.propTypes = {
-  data: React.PropTypes.shape({
-    root: React.PropTypes.arrayOf(OakPropTypes.item),
-    loading: React.PropTypes.bool,
-  }),
-  createProject: React.PropTypes.func,
-  createTask: React.PropTypes.func,
+  root: React.PropTypes.arrayOf(OakPropTypes.item),
+  createProject: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  createTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   deleteTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  deleteProject: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   completeTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   router: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };
-export default RootProject;
+
+function mapStateToProps(state) {
+  const rootProject = state.items.find(item => item._id === 'root');
+  if (rootProject === undefined) return { root: [] };
+  const rootChildren = rootProject.children.map(id => state.items.find(item => item._id === id));
+  return { root: rootChildren };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RootProject);

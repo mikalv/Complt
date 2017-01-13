@@ -16,7 +16,7 @@ const Projects = props => (
         canDeleteTask
         canDeleteProject
         onItemAvatarTap={props.onAvatarTap}
-        items={props.projectChildren || []}
+        items={props.projectChildren}
         onItemTap={i => props.onItemTap(i)}
         style={{ marginBottom: '116px', height: '100%' }}
       />
@@ -26,7 +26,7 @@ const Projects = props => (
         initialType="Project"
         canChangeType
         onAddItem={(item) => {
-          if (item.__typename === 'Project') props.onCreateProject(item.name);
+          if (item.isProject) props.onCreateProject(item);
           else props.onCreateTask(item);
         }}
       />
