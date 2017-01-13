@@ -4,6 +4,7 @@ export default function processItem(value, isProject) {
     item = {
       isProject: true,
       name: '',
+      children: [],
     };
   } else {
     item = {
