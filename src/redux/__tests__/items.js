@@ -8,7 +8,7 @@ const items = [
   { _id: 'item4' },
 ];
 
-describe('authReducer', () => {
+describe('itemsReducer', () => {
   it('returns the inital state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
