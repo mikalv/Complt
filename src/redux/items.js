@@ -5,13 +5,14 @@ import {
   CREATE_ITEM,
   COMPLETE_TASK,
   DELETE_TASK,
+  DELETE_PROJECT,
 } from './actionTypes';
 
 export const initialState = [];
 
 function ensureRootAndInboxExists(state, action) {
   if (action.parentProjectId === 'root') {
-    if (state.findIndex(item => item._id === 'inbox') !== -1) return state;
+    if (state.findIndex(item => item._id === 'root') !== -1) return state;
     return [
       ...state,
       { _id: 'root', children: [] },
@@ -86,6 +87,28 @@ export default function itemsReducer(state = initialState, action) {
       const stateWithoutTask = [
         ...state.slice(0, taskIndex),
         ...state.slice(taskIndex + 1),
+      ];
+      const parentProjectIndex = stateWithoutTask.findIndex(item =>
+        item._id === action.parentProjectId);
+      return [
+        ...stateWithoutTask.slice(0, parentProjectIndex),
+        { ...parentProject,
+          children: [
+            ...parentProject.children.slice(0, childIndexInParent),
+            ...parentProject.children.slice(childIndexInParent + 1),
+          ] },
+        ...stateWithoutTask.slice(parentProjectIndex + 1),
+      ];
+    }
+    case DELETE_PROJECT: {
+      const parentProject = state.find(item => item._id === action.parentProjectId);
+      const childIndexInParent = parentProject.children.indexOf(action.id);
+      if (childIndexInParent === -1) return state;
+      const childIndex = state.findIndex(item => item._id === action.id);
+      if (state[childIndex].children.length > 0) return state;
+      const stateWithoutTask = [
+        ...state.slice(0, childIndex),
+        ...state.slice(childIndex + 1),
       ];
       const parentProjectIndex = stateWithoutTask.findIndex(item =>
         item._id === action.parentProjectId);

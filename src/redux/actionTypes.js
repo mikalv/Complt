@@ -6,3 +6,4 @@ export const UPDATE_ITEM_POUCH = 'UPDATE_ITEM_POUCH';
 export const CREATE_ITEM = 'CREATE_ITEM';
 export const COMPLETE_TASK = 'COMPLETE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
+export const DELETE_PROJECT = 'DELETE_PROJECT';

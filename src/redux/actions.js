@@ -5,6 +5,7 @@ import {
   CREATE_ITEM,
   COMPLETE_TASK,
   DELETE_TASK,
+  DELETE_PROJECT,
 } from './actionTypes';
 
 export function login(token) {
@@ -55,6 +56,14 @@ export function completeTask(id, isCompleted) {
 export function deleteTask(parentProjectId, id) {
   return {
     type: DELETE_TASK,
+    parentProjectId,
+    id,
+  };
+}
+
+export function deleteProject(parentProjectId, id) {
+  return {
+    type: DELETE_PROJECT,
     parentProjectId,
     id,
   };
