@@ -19,7 +19,7 @@ describe('itemsReducer', () => {
       { _id: 'item4' },
     ]);
   });
-  it('should handle INSERT_ITEM_POUCH', () => {
+  it('handles INSERT_ITEM_POUCH correctly', () => {
     expect(reducer(items, { type: INSERT_ITEM_POUCH, item: { _id: 'item20' } })).toEqual([
       { _id: 'item1' },
       { _id: 'item2' },
@@ -28,7 +28,7 @@ describe('itemsReducer', () => {
       { _id: 'item20' },
     ]);
   });
-  it('should handle UPDATE_ITEM_POUCH', () => {
+  it('handles UPDATE_ITEM_POUCH correctly', () => {
     expect(reducer(items, { type: UPDATE_ITEM_POUCH, item: { _id: 'item2', someOtherProperty: true } })).toEqual([
       { _id: 'item1' },
       { _id: 'item2', someOtherProperty: true },
