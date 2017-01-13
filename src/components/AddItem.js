@@ -42,20 +42,20 @@ class AddItem extends Component {
         <Paper zDepth={2} style={{ padding: 10, backgroundColor: '#fff' }} className="md-drawer-relative">
           <div className="flex column">
             <TextField
-              placeholder={this.state.type === 'Project' ? 'e.g. Report' : 'e.g. Finish Report @work'}
+              placeholder={this.state.isProject ? 'e.g. Report' : 'e.g. Finish Report @work'}
               value={this.state.value}
               onChange={this.valueChange}
               ref={input => (this.valueInput = input)}
             />
             <div className="flex row space-between">
               <div>
-                {this.state.type === 'Project' ? null : <Button icon onClick={this.ActionLabelTap}>
+                {this.state.isProject ? null : <Button icon onClick={this.ActionLabelTap}>
                   label
                 </Button>}
               </div>
               <div>
                 {this.props.canChangeType ? <Button icon onClick={this.switchType}>
-                  {this.state.type === 'Project' ? 'done' : 'assignment'}
+                  {this.state.isProject ? 'done' : 'assignment'}
                 </Button> : null}
                 <Button icon primary type="submit">
                   send
