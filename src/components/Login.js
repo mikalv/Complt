@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Button from 'react-md/lib/Buttons/Button';
 import Auth0 from 'auth0-js';
-import * as actions from '../redux/actions';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 
 export class Login extends Component {
   constructor(props) {
@@ -52,9 +51,5 @@ Login.propTypes = {
     push: React.PropTypes.func,
   }),
 };
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
-}
 
 export default connect(undefined, mapDispatchToProps)(Login);

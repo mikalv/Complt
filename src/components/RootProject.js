@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../redux/actions';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 import Projects from './Projects';
 import OakPropTypes from '../PropTypes';
 
@@ -44,10 +43,6 @@ function mapStateToProps(state) {
   if (rootProject === undefined) return { root: [] };
   const rootChildren = rootProject.children.map(id => state.items.find(item => item._id === id));
   return { root: rootChildren };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootProject);

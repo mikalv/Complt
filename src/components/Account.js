@@ -4,8 +4,7 @@ import Button from 'react-md/lib/Buttons/Button';
 import FontIcon from 'react-md/lib/FontIcons';
 import Auth0 from 'auth0-js';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../redux/actions';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 
 export const Account = props => (
   <div className="flex center column text-center" style={{ paddingTop: '100px' }}>
@@ -42,10 +41,6 @@ function mapStateToProps(state) {
   return {
     user: state.profile,
   };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import AddItem from './AddItem';
 import ItemList from './ItemList';
 import OakPropTypes from '../PropTypes';
-import * as actions from '../redux/actions';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 
 export const Inbox = props => (
   <div>
@@ -33,10 +32,6 @@ function mapStateToProps(state) {
   if (inbox === undefined) return {};
   const inboxChildren = inbox.children.map(id => state.items.find(item => item._id === id));
   return { inbox: inboxChildren };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Inbox);

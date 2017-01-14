@@ -4,8 +4,7 @@ import Snackbar from 'react-md/lib/Snackbars';
 import FontIcon from 'react-md/lib/FontIcons';
 import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from './redux/actions';
+import mapDispatchToProps from './utils/mapDispatchToProps';
 
 const navItems = [{
   to: '/inbox',
@@ -75,10 +74,6 @@ App.propTypes = {
 
 function mapStateToProps({ toasts }) {
   return { toasts };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
