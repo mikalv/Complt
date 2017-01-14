@@ -4,6 +4,6 @@ import { Account } from '../Account';
 
 describe('Account component', () => {
   it('renders without crashing', () => {
-    mount(<Account data={{ user: {}, loading: false }} />);
+    mount(<Account user={{}} />);
   });
 });
