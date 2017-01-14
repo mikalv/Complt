@@ -1,13 +1,17 @@
 import jwtDecode from 'jwt-decode';
 
 const getTokenExpirationDate = (token) => {
-  const decoded = jwtDecode(token);
-  if (!decoded.exp) {
+  try {
+    const decoded = jwtDecode(token);
+    if (!decoded.exp) {
+      return null;
+    }
+    const date = new Date(0);
+    date.setUTCSeconds(decoded.exp);
+    return date;
+  } catch (error) {
     return null;
   }
-  const date = new Date(0);
-  date.setUTCSeconds(decoded.exp);
-  return date;
 };
 
 
