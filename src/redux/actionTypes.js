@@ -8,3 +8,5 @@ export const CREATE_ITEM = 'CREATE_ITEM';
 export const COMPLETE_TASK = 'COMPLETE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 export const DELETE_PROJECT = 'DELETE_PROJECT';
+export const SHOW_TOAST = 'SHOW_TOAST';
+export const DISMISS_TOAST = 'DISMISS_TOAST';

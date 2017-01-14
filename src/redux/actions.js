@@ -7,6 +7,8 @@ import {
   COMPLETE_TASK,
   DELETE_TASK,
   DELETE_PROJECT,
+  SHOW_TOAST,
+  DISMISS_TOAST,
 } from './actionTypes';
 
 export function login(token) {
@@ -74,5 +76,18 @@ export function deleteProject(parentProjectId, id) {
     type: DELETE_PROJECT,
     parentProjectId,
     id,
+  };
+}
+
+export function showToast(toast) {
+  return {
+    type: SHOW_TOAST,
+    toast,
+  };
+}
+
+export function dismissToast() {
+  return {
+    type: DISMISS_TOAST,
   };
 }

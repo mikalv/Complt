@@ -8,6 +8,7 @@ import PouchMiddleware from 'pouch-redux-middleware';
 import auth from './redux/auth';
 import items from './redux/items';
 import profile from './redux/profile';
+import toasts from './redux/toasts';
 import OakRouter from './OakRouter';
 import db from './db';
 import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './redux/actionTypes';
@@ -55,6 +56,7 @@ const store = createStore(
     items,
     auth,
     profile,
+    toasts,
   }),
   enhancer
 );
