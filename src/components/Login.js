@@ -19,10 +19,12 @@ export class Login extends Component {
   componentDidMount() {
     const result = this.auth0.parseHash(window.location.hash);
     if (result && result.idToken) {
-      setTimeout(() => {
-        this.props.login(result.idToken);
+      this.props.login(result.idToken);
+      this.auth0.getProfile(result.idToken, (error, profile) => {
+        if (error) return;
+        this.props.getProfile(profile);
         this.props.router.push('/');
-      }, 100);
+      });
     }
   }
   loginWithGoogle() {
@@ -43,6 +45,7 @@ export class Login extends Component {
 
 Login.propTypes = {
   login: React.PropTypes.func,
+  getProfile: React.PropTypes.func,
   router: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
