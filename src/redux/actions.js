@@ -2,6 +2,7 @@ import uuid from 'uuid';
 import {
   LOGIN,
   LOGOUT,
+  GET_PROFILE,
   CREATE_ITEM,
   COMPLETE_TASK,
   DELETE_TASK,
@@ -18,6 +19,13 @@ export function login(token) {
 export function logout() {
   return {
     type: LOGOUT,
+  };
+}
+
+export function getProfile(profile) {
+  return {
+    type: GET_PROFILE,
+    profile,
   };
 }
 

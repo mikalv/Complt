@@ -7,6 +7,7 @@ import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
 import auth from './redux/auth';
 import items from './redux/items';
+import profile from './redux/profile';
 import OakRouter from './OakRouter';
 import db from './db';
 import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './redux/actionTypes';
@@ -53,6 +54,7 @@ const store = createStore(
     routing: routerReducer,
     items,
     auth,
+    profile,
   }),
   enhancer
 );
