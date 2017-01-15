@@ -22,6 +22,12 @@ jest:
   script:
     - npm run codecov
 
+web/source-map:
+  stage: deploy
+  script:
+    - 'npm run build:sentry'
+  only:
+    - master
 
 web/deploy/staging:
   stage: deploy

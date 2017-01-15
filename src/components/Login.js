@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Button from 'react-md/lib/Buttons/Button';
 import Auth0 from 'auth0-js';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
+import logException from '../utils/logException';
 
 export class Login extends Component {
   constructor(props) {
@@ -21,7 +22,10 @@ export class Login extends Component {
       setTimeout(() => {
         this.props.login(result.idToken);
         this.auth0.getProfile(result.idToken, (error, profile) => {
-          if (error) return;
+          if (error) {
+            logException(error);
+            return;
+          }
           this.props.getProfile(profile);
           this.props.router.push('/');
         });
