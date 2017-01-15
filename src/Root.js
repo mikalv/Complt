@@ -40,7 +40,7 @@ const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
 let middleware = applyMiddleware(pouchMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware(), pouchMiddleware); // eslint-disable-line new-cap
+  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), pouchMiddleware); // eslint-disable-line new-cap
 }
 
 let enhancer;
