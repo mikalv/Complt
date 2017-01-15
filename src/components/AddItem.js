@@ -10,7 +10,7 @@ class AddItem extends Component {
     super(props);
     this.state = {
       value: '',
-      type: props.initialType || 'Task',
+      isProject: props.initialIsProject,
     };
     this.valueChange = this.valueChange.bind(this);
     this.ActionLabelTap = this.ActionLabelTap.bind(this);
@@ -28,38 +28,34 @@ class AddItem extends Component {
   }
   submitItem(e) {
     e.preventDefault();
-    const item = processItem(this.state.value, this.state.type);
+    const item = processItem(this.state.value, this.state.isProject);
     if (!item) return;
     this.setState({ value: '' });
     this.props.onAddItem(item);
   }
   switchType() {
-    if (this.state.type === 'Project') {
-      this.setState({ type: 'Task' });
-    } else {
-      this.setState({ type: 'Project' });
-    }
+    this.setState({ isProject: !this.state.isProject });
   }
   render() {
     return (
       <form onSubmit={this.submitItem}>
-        <Paper zDepth={2} style={{ padding: 10, 'background-color': '#fff' }} className="md-drawer-relative">
+        <Paper zDepth={2} style={{ padding: 10, backgroundColor: '#fff' }} className="md-drawer-relative">
           <div className="flex column">
             <TextField
-              placeholder={this.state.type === 'Project' ? 'e.g. Report' : 'e.g. Finish Report @work'}
+              placeholder={this.state.isProject ? 'e.g. Report' : 'e.g. Finish Report @work'}
               value={this.state.value}
               onChange={this.valueChange}
               ref={input => (this.valueInput = input)}
             />
             <div className="flex row space-between">
               <div>
-                {this.state.type === 'Project' ? null : <Button icon onClick={this.ActionLabelTap}>
+                {this.state.isProject ? null : <Button icon onClick={this.ActionLabelTap}>
                   label
                 </Button>}
               </div>
               <div>
                 {this.props.canChangeType ? <Button icon onClick={this.switchType}>
-                  {this.state.type === 'Project' ? 'done' : 'assignment'}
+                  {this.state.isProject ? 'done' : 'assignment'}
                 </Button> : null}
                 <Button icon primary type="submit">
                   send
@@ -76,7 +72,7 @@ class AddItem extends Component {
 
 AddItem.propTypes = {
   onAddItem: React.PropTypes.func.isRequired,
-  initialType: React.PropTypes.oneOf(['Project', 'Task']),
+  initialIsProject: React.PropTypes.bool,
   canChangeType: React.PropTypes.bool,
 };
 

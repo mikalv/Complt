@@ -45,6 +45,16 @@ exports[`App component renders correctly when the pathname does not match a rout
         "primaryText": "Account",
         "to": "/account",
       },
+      Object {
+        "component": [Function],
+        "key": "settings",
+        "leftIcon": <FontIcon
+          iconClassName="material-icons">
+          settings
+    </FontIcon>,
+        "primaryText": "Settings",
+        "to": "/settings",
+      },
     ]
   }
   persistentIconChildren="arrow_back"
@@ -57,6 +67,13 @@ exports[`App component renders correctly when the pathname does not match a rout
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
   <div />
+  <SnackbarContainer
+    autohide={true}
+    autohideTimeout={3000}
+    toasts={Array []}
+    transitionEnterTimeout={300}
+    transitionLeaveTimeout={300}
+    transitionName="md-snackbar" />
 </NavigationDrawer>
 `;
 
@@ -108,6 +125,16 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "primaryText": "Account",
         "to": "/account",
       },
+      Object {
+        "component": [Function],
+        "key": "settings",
+        "leftIcon": <FontIcon
+          iconClassName="material-icons">
+          settings
+    </FontIcon>,
+        "primaryText": "Settings",
+        "to": "/settings",
+      },
     ]
   }
   persistentIconChildren="arrow_back"
@@ -120,5 +147,12 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
   <div />
+  <SnackbarContainer
+    autohide={true}
+    autohideTimeout={3000}
+    toasts={Array []}
+    transitionEnterTimeout={300}
+    transitionLeaveTimeout={300}
+    transitionName="md-snackbar" />
 </NavigationDrawer>
 `;

@@ -3,19 +3,15 @@ import Avatar from 'react-md/lib/Avatars';
 import Button from 'react-md/lib/Buttons/Button';
 import FontIcon from 'react-md/lib/FontIcons';
 import Auth0 from 'auth0-js';
-import { graphql, compose } from 'react-apollo';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../redux/actions';
-import UserQuery from '../graphql/user.gql';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 
 export const Account = props => (
-  <div className="flex center column text-center" style={{ 'padding-top': '100px' }}>
-    {props.data.user ? <h1>{props.data.user.name}</h1> : ''}
-    {props.data.loading ? <h1>Loading...</h1> : ''}
-    <p>{props.data.user ? props.data.user.email : ''}</p>
+  <div className="flex center column text-center" style={{ paddingTop: '100px' }}>
+    <h1>{props.user.name}</h1>
+    <p>{props.user.email}</p>
     <div>
-      <Avatar src={props.data.user ? props.data.user.picture : ''} icon={<FontIcon>person</FontIcon>} style={{ height: '150px', width: '150px' }} />
+      <Avatar alt="User Profile Photo" src={props.user.picture} icon={<FontIcon>person</FontIcon>} style={{ height: '150px', width: '150px' }} />
     </div>
     <div><Button
       label="Sign Out"
@@ -34,21 +30,17 @@ export const Account = props => (
 
 Account.propTypes = {
   logout: React.PropTypes.func,
-  data: React.PropTypes.shape({
-    loading: React.PropTypes.bool,
-    user: React.PropTypes.shape({
-      picture: React.PropTypes.string,
-      name: React.PropTypes.string,
-      email: React.PropTypes.string,
-    }),
+  user: React.PropTypes.shape({
+    picture: React.PropTypes.string,
+    name: React.PropTypes.string,
+    email: React.PropTypes.string,
   }),
 };
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
+function mapStateToProps(state) {
+  return {
+    user: state.profile,
+  };
 }
 
-export default compose(
-  graphql(UserQuery),
-  connect(undefined, mapDispatchToProps)
-)(Account);
+export default connect(mapStateToProps, mapDispatchToProps)(Account);

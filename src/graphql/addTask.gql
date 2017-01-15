@@ -1,8 +1,0 @@
-mutation addTask($task: TaskInput!, $projectId: ID!) {
-  createTask(task: $task, projectId: $projectId) {
-    id
-    name
-    isCompleted
-    tags
-  }
-}

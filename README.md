@@ -24,10 +24,7 @@ The app is tested and deployed using [GitLab CI](https://about.gitlab.com/gitlab
 * ```npm run build``` packages the front-end, ready for deployment
 * ```npm test``` runs the jest tests once
 * ```npm run test:watch``` watches for changes to files and runs affected tests
-* ```npm run deploy:api:dev``` deploys the api to the development endpoint, this requires AWS credentials to be set up
-* ```npm run deploy:api:prod``` deploys the api to the production endpoint, this requires AWS credentials to be set up and should **not** be run locally
 * ```npm run deploy:web:staging``` deploys the front-end to the [staging environment](https://staging.oak.mitchellhamilton.me/), this requires the ```NETLIFY_TOKEN``` environment variable to be set with a valid [Netlify](https://www.netlify.com/) Personal Access Token and should **not** be run locally
 * ```npm run deploy:web:prod``` deploys the front-end to the [production environment](https://oak.mitchellhamilton.me/), this requires the ```NETLIFY_TOKEN``` environment variable to be set with a valid [Netlify](https://www.netlify.com/) Personal Access Token and should **not** be run locally
-* ```npm run graphiql``` starts an [express](http://expressjs.com/) server on http://localhost:8080/graphql with GraphQL and the [GraphiQL IDE](https://github.com/graphql/graphiql) for writing queries
 * ```npm run coverage``` runs the tests once and generates a coverage report
 * ```npm run codecov``` runs the tests once, generates a coverage report and uploads the report to [Codecov](https://codecov.io/), this should **not** be run locally

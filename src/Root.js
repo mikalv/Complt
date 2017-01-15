@@ -1,42 +1,37 @@
-/* eslint-disable no-param-reassign */
 import React from 'react';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
-import ApolloClient, { createNetworkInterface, applyAfterware } from 'apollo-client'; // eslint-disable-line no-unused-vars
-import { ApolloProvider } from 'react-apollo';
+import PouchMiddleware from 'pouch-redux-middleware';
 import auth from './redux/auth';
+import items from './redux/items';
+import profile from './redux/profile';
+import toasts from './redux/toasts';
 import OakRouter from './OakRouter';
+import db from './db';
+import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './redux/actionTypes';
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker.register('/service-worker.js');
 }
 
-const networkInterface = createNetworkInterface({ uri: process.env.REACT_APP_API_URL });
+global.db = db;
 
-networkInterface.use([{
-  applyMiddleware(req, next) {
-    if (!req.options.headers) req.options.headers = {};
-    const token = JSON.parse(localStorage.getItem('reduxPersist:auth')) || null;
-    req.options.headers.authorization = token ? `Bearer ${token}` : null;
-    next();
+const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
+  path: '/items',
+  db,
+  actions: {
+    remove: doc => ({ type: DELETE_ITEM_POUCH, id: doc._id }),
+    insert: doc => ({ type: INSERT_ITEM_POUCH, item: doc }),
+    update: doc => ({ type: UPDATE_ITEM_POUCH, item: doc }),
   },
-}]).useAfter([{
-  applyAfterware({ response }, next) {
-    if (response.status === 401) browserHistory.push('/login');
-    next();
-  },
-}]);
-
-
-const client = new ApolloClient({
-  networkInterface,
-  dataIdFromObject(result) {
-    if (result.id) {
-      return result.id;
+  handleResponse: (error, data, cb) => {
+    if (error) {
+      console.error('A PouchDB error occured', error, data); // eslint-disable-line no-console
     }
-    return null;
+    cb(error);
   },
 });
 
@@ -45,34 +40,36 @@ let enhancer;
 if (window.__REDUX_DEVTOOLS_EXTENSION__) {
   enhancer = compose(
       autoRehydrate(),
-      applyMiddleware(client.middleware()),
+      applyMiddleware(pouchMiddleware),
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 } else {
   enhancer = compose(
     autoRehydrate(),
-    applyMiddleware(client.middleware())
+    applyMiddleware(pouchMiddleware)
     );
 }
 
 const store = createStore(
   combineReducers({
     routing: routerReducer,
+    items,
     auth,
-    apollo: client.reducer(),
+    profile,
+    toasts,
   }),
   enhancer
 );
 
 persistStore(store, {
-  whitelist: ['auth'],
+  whitelist: ['auth', 'profile'],
 });
 const history = syncHistoryWithStore(browserHistory, store);
 
 const Root = (
-  <ApolloProvider store={store} client={client}>
+  <Provider store={store}>
     <OakRouter history={history} />
-  </ApolloProvider>
+  </Provider>
 );
 
 export default Root;

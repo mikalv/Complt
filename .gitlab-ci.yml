@@ -45,15 +45,3 @@ web/deploy/production:
     name: web/production
     url: https://oak.mitchellhamilton.me
   when: manual
-
-
-api/deploy:
-  stage: deploy
-  script:
-    - 'npm run deploy:api:prod'
-  only:
-    - master
-  environment:
-    name: api/production
-    url: https://5yt9wld04i.execute-api.us-east-1.amazonaws.com/production/graphql
-  when: manual

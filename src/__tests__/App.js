@@ -1,17 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App, { navItemsWithActive } from '../App';
+import { App, navItemsWithActive } from '../App';
 
 describe('App component', () => {
   it('renders without crashing', () => {
-    shallow(<App location={{ pathname: '/inbox' }}><div /></App>);
+    shallow(<App location={{ pathname: '/inbox' }} toasts={[]}><div /></App>);
   });
   it('renders correctly when the pathname matches a route', () => {
-    const component = shallow(<App location={{ pathname: '/inbox' }}><div /></App>);
+    const component = shallow(<App location={{ pathname: '/inbox' }} toasts={[]}><div /></App>);
     expect(component).toMatchSnapshot();
   });
   it('renders correctly when the pathname does not match a route', () => {
-    const component = shallow(<App location={{ pathname: '/some/path/that/does/not/exist' }}><div /></App>);
+    const component = shallow(<App location={{ pathname: '/some/path/that/does/not/exist' }} toasts={[]}><div /></App>);
     expect(component).toMatchSnapshot();
   });
   describe('navItemsWithActive()', () => {

@@ -7,6 +7,7 @@ import Account from './components/Account';
 import Login from './components/Login';
 import RootProject from './components/RootProject';
 import Project from './components/Project';
+import Settings from './components/Settings';
 import isTokenExpired from './utils/auth';
 
 class OakRouter extends Component {
@@ -28,12 +29,13 @@ class OakRouter extends Component {
       <Router history={this.props.history}>
         <Route path="login" component={Login} />
         <Route path="/" component={App}>
+          <IndexRedirect to="inbox" />
+          <Route path="inbox" component={Inbox} />
+          <Route path="projects" component={RootProject} />
+          <Route path="project/:projectId" component={Project} />
           <Route onEnter={this.isAuthenticated}>
-            <IndexRedirect to="inbox" />
-            <Route path="inbox" component={Inbox} />
+            <Route path="settings" component={Settings} />
             <Route path="account" component={Account} />
-            <Route path="projects" component={RootProject} />
-            <Route path="project/:projectId" component={Project} />
           </Route>
         </Route>
       </Router>

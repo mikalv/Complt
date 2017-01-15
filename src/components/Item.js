@@ -9,11 +9,10 @@ import './Item.css';
 
 
 const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap }) => (
-
   <ListItem
     leftAvatar={<Avatar
       onClick={onAvatarTouchTap}
-      icon={<FontIcon style={{ color: item.isCompleted ? '#00E676' : undefined }}>{item.__typename === 'Project' ? 'assignment' : 'done'}</FontIcon>}
+      icon={<FontIcon style={{ color: item.isCompleted ? '#00E676' : undefined }}>{item.isProject === true ? 'assignment' : 'done'}</FontIcon>}
     />}
     onClick={onItemTap}
     threeLines

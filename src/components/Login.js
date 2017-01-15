@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Button from 'react-md/lib/Buttons/Button';
 import Auth0 from 'auth0-js';
-import * as actions from '../redux/actions';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 
 export class Login extends Component {
   constructor(props) {
@@ -21,7 +20,11 @@ export class Login extends Component {
     if (result && result.idToken) {
       setTimeout(() => {
         this.props.login(result.idToken);
-        this.props.router.push('/');
+        this.auth0.getProfile(result.idToken, (error, profile) => {
+          if (error) return;
+          this.props.getProfile(profile);
+          this.props.router.push('/');
+        });
       }, 100);
     }
   }
@@ -43,13 +46,10 @@ export class Login extends Component {
 
 Login.propTypes = {
   login: React.PropTypes.func,
+  getProfile: React.PropTypes.func,
   router: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
-}
 
 export default connect(undefined, mapDispatchToProps)(Login);

@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import ItemList from '../ItemList';
 
-const task = { name: 'Task', __typename: 'Task', isCompleted: false };
-const project = { name: 'Project', __typename: 'Project' };
+const task = { name: 'Task', isProject: false, isCompleted: false };
+const project = { name: 'Project', isProject: true };
 
 describe('ItemList component', () => {
   it('renders without crashing with no items', () => {

@@ -1,187 +1,48 @@
 import React from 'react';
-import { graphql, compose } from 'react-apollo';
+import { connect } from 'react-redux';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 import Projects from './Projects';
 import OakPropTypes from '../PropTypes';
-import rootItemsQuery from '../graphql/rootItems.gql';
-import addProjectMutation from '../graphql/addProject.gql';
-import GraphQLCompleteTask from '../graphql/completeTask';
-import addTaskMutation from '../graphql/addTask.gql';
-import deleteTaskMutation from '../graphql/deleteTask.gql';
-import deleteProjectMutation from '../graphql/deleteProject.gql';
 
 export const RootProject = props => (
   <Projects
-    onCreateProject={props.createProject}
-    onCreateTask={props.createTask}
+    onCreateProject={project => props.createProject('root', project)}
+    onCreateTask={task => props.createTask('root', task)}
     onDelete={(index) => {
-      const item = props.data.root[index];
-      if (item.__typename === 'Task') props.deleteTask(item.id);
-      if (item.__typename === 'Project') props.deleteProject(item.id);
+      const item = props.root[index];
+      if (item.isProject) props.deleteProject('root', item._id);
+      else props.deleteTask('root', item._id);
     }}
     onAvatarTap={(index) => {
-      if (props.data.root[index].__typename === 'Task') {
-        props.completeTask(props.data.root[index].id, !props.data.root[index].isCompleted);
+      if (!props.root[index].isProject) {
+        props.completeTask(props.root[index]._id, !props.root[index].isCompleted);
       }
     }}
     onItemTap={(i) => {
-      if (props.data.root[i].__typename === 'Project') {
-        props.router.push(`/project/${props.data.root[i].id}`);
+      if (props.root[i].isProject) {
+        props.router.push(`/project/${props.root[i]._id}`);
       }
     }}
-    projectChildren={props.data.root}
-    loading={props.data.loading}
+    projectChildren={props.root}
   />
 );
 RootProject.propTypes = {
-  data: React.PropTypes.shape({
-    root: React.PropTypes.arrayOf(OakPropTypes.item),
-    loading: React.PropTypes.bool,
-  }),
-  createProject: React.PropTypes.func,
-  createTask: React.PropTypes.func,
+  root: React.PropTypes.arrayOf(OakPropTypes.item),
+  createProject: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  createTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   deleteTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  deleteProject: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   completeTask: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   router: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };
-export default compose(
-  graphql(rootItemsQuery),
-  graphql(deleteProjectMutation, {
-    props({ mutate }) {
-      return {
-        deleteProject(projectId) {
-          mutate({
-            variables: {
-              parentProjectId: 'root',
-              projectId,
-            },
-            updateQueries: {
-              Root(prev) {
-                const projectIndex = prev.root.findIndex(item => item.id === projectId);
-                return {
-                  ...prev,
-                  root: [
-                    ...prev.root.slice(0, projectIndex),
-                    ...prev.root.slice(projectIndex + 1),
-                  ],
-                };
-              },
-            },
-          });
-        },
-      };
-    },
-  }),
-  graphql(deleteTaskMutation, {
-    props({ mutate }) {
-      return {
-        deleteTask(taskId) {
-          mutate({
-            variables: {
-              parentProjectId: 'root',
-              taskId,
-            },
-            optimisticResponse: {
-              __typename: 'Mutation',
-              deleteTask: {
-                id: taskId,
-                __typename: 'Task',
-              },
-            },
-            updateQueries: {
-              Root(prev) {
-                const taskIndex = prev.root.findIndex(item => item.id === taskId);
-                return {
-                  ...prev,
-                  root: [
-                    ...prev.root.slice(0, taskIndex),
-                    ...prev.root.slice(taskIndex + 1),
-                  ],
-                };
-              },
-            },
-          });
-        },
-      };
-    },
-  }),
-  GraphQLCompleteTask,
-  graphql(addTaskMutation, {
-    props({ mutate }) {
-      return {
-        createTask(task) {
-          mutate({
-            variables: {
-              task: {
-                name: task.name,
-                isCompleted: task.isCompleted || false,
-                tags: task.tags || [],
-              },
-              projectId: 'root',
-            },
-            optimisticResponse: {
-              __typename: 'Mutation',
-              createTask: {
-                id: task.name + new Date().toString(),
-                name: task.name,
-                isCompleted: task.isCompleted || false,
-                tags: task.tags || [],
-                isOptimistic: true,
-                __typename: 'Task',
-              },
-            },
-            updateQueries: {
-              Root(prev, { mutationResult }) {
-                return {
-                  ...prev,
-                  root: [
-                    ...prev.root,
-                    mutationResult.data.createTask,
-                  ],
-                };
-              },
-            },
-          });
-        },
-      };
-    },
-  }),
-  graphql(addProjectMutation, {
-    props({ mutate }) {
-      return {
-        createProject(name) {
-          mutate({
-            variables: {
-              project: {
-                name,
-                isSequential: false,
-              },
-              projectId: 'root',
-            },
-            optimisticResponse: {
-              __typename: 'Mutation',
-              createProject: {
-                id: name + new Date().toString(),
-                name,
-                isSequential: false,
-                __typename: 'Project',
-              },
-            },
-            updateQueries: {
-              Root(prev, { mutationResult }) {
-                return {
-                  ...prev,
-                  root: [
-                    ...prev.root,
-                    mutationResult.data.createProject,
-                  ],
-                };
-              },
-            },
-          });
-        },
-      };
-    },
-  }),
-)(RootProject);
+
+function mapStateToProps(state) {
+  const rootProject = state.items.find(item => item._id === 'root');
+  if (rootProject === undefined) return { root: [] };
+  const rootChildren = rootProject.children.map(id => state.items.find(item => item._id === id));
+  return { root: rootChildren };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RootProject);

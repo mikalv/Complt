@@ -1,7 +1,10 @@
 import React from 'react';
 import NavigationDrawer from 'react-md/lib/NavigationDrawers';
+import Snackbar from 'react-md/lib/Snackbars';
 import FontIcon from 'react-md/lib/FontIcons';
 import Link from 'react-router/lib/Link';
+import { connect } from 'react-redux';
+import mapDispatchToProps from './utils/mapDispatchToProps';
 
 const navItems = [{
   to: '/inbox',
@@ -21,6 +24,12 @@ const navItems = [{
   primaryText: 'Account',
   component: Link,
   leftIcon: <FontIcon>person</FontIcon>,
+}, {
+  to: '/settings',
+  key: 'settings',
+  primaryText: 'Settings',
+  component: Link,
+  leftIcon: <FontIcon>settings</FontIcon>,
 }];
 
 export function navItemsWithActive(items, route) {
@@ -35,7 +44,7 @@ export function navItemsWithActive(items, route) {
   });
 }
 
-const App = props => (
+export const App = props => (
   <NavigationDrawer
     header={<div />}
     navItems={navItemsWithActive(navItems, props.location.pathname)}
@@ -45,6 +54,7 @@ const App = props => (
     toolbarTitle="Oak"
   >
     {props.children}
+    <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
   </NavigationDrawer>
 );
 
@@ -53,6 +63,23 @@ App.propTypes = {
   location: React.PropTypes.shape({
     pathname: React.PropTypes.string.isRequired,
   }),
+  dismissToast: React.PropTypes.func,
+  /* eslint-disable react/no-unused-prop-types */
+  toasts: React.PropTypes.arrayOf(React.PropTypes.shape({
+    text: React.PropTypes.string.isRequired,
+    action: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.shape({
+        onClick: React.PropTypes.func,
+        label: React.PropTypes.string.isRequired,
+      }),
+    ]),
+  })).isRequired,
+  /* eslint-enable react/no-unused-prop-types */
 };
 
-export default App;
+function mapStateToProps({ toasts }) {
+  return { toasts };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

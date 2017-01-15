@@ -1,14 +1,16 @@
-export default function processItem(value, type) {
+export default function processItem(value, isProject) {
   let item;
-  if (type === 'Project') {
+  if (isProject) {
     item = {
-      __typename: 'Project',
+      isProject: true,
       name: '',
+      children: [],
     };
   } else {
     item = {
-      __typename: 'Task',
+      isProject: false,
       name: '',
+      isCompleted: false,
       tags: [],
     };
   }

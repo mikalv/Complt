@@ -1,32 +1,25 @@
 import React from 'react';
-import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
 import OakPropTypes from '../PropTypes';
 
 const Projects = props => (
   <div>
-    {props.loading ? <div className="flex center row">
-      <div className="loading-padding">
-        <CircularProgress scale={2} />
-      </div>
-    </div> : <div>
-      <ItemList
-        onDelete={i => props.onDelete(i)}
-        canDeleteTask
-        canDeleteProject
-        onItemAvatarTap={props.onAvatarTap}
-        items={props.projectChildren || []}
-        onItemTap={i => props.onItemTap(i)}
-        style={{ marginBottom: '116px', height: '100%' }}
-      />
-    </div>}
+    <ItemList
+      onDelete={i => props.onDelete(i)}
+      canDeleteTask
+      canDeleteProject
+      onItemAvatarTap={props.onAvatarTap}
+      items={props.projectChildren}
+      onItemTap={i => props.onItemTap(i)}
+      style={{ marginBottom: '116px', height: '100%' }}
+    />
     <div className="AddItem-fixed">
       <AddItem
-        initialType="Project"
+        initialIsProject
         canChangeType
         onAddItem={(item) => {
-          if (item.__typename === 'Project') props.onCreateProject(item.name);
+          if (item.isProject) props.onCreateProject(item);
           else props.onCreateTask(item);
         }}
       />
@@ -35,7 +28,6 @@ const Projects = props => (
 );
 Projects.propTypes = {
   projectChildren: React.PropTypes.arrayOf(OakPropTypes.item),
-  loading: React.PropTypes.bool,
   onCreateProject: React.PropTypes.func,
   onCreateTask: React.PropTypes.func,
   onAvatarTap: React.PropTypes.func,

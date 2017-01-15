@@ -3,8 +3,8 @@ exports[`ItemList component renders an item correctly 1`] = `
   items={
     Array [
       Object {
-        "__typename": "Task",
         "isCompleted": false,
+        "isProject": false,
         "name": "Task",
       },
     ]
@@ -15,8 +15,8 @@ exports[`ItemList component renders an item correctly 1`] = `
       <Component
         item={
           Object {
-            "__typename": "Task",
             "isCompleted": false,
+            "isProject": false,
             "name": "Task",
           }
         }
