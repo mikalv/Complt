@@ -5431,6 +5431,12 @@ range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
+raven-js@^3.1.1, raven-js@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.9.1.tgz#d0482100849ea0ab91058308dfa1ec97bc073bac"
+  dependencies:
+    json-stringify-safe "^5.0.1"
+
 raw-body@~2.1.7:
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.1.7.tgz#adfeace2e4fb3098058014d08c072dcc59758774"
@@ -5733,6 +5739,12 @@ redux-persist@^4.0.0-alpha7:
     json-stringify-safe "^5.0.1"
     lodash "^4.11.1"
     lodash-es "^4.16.0"
+
+redux-raven-middleware@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/redux-raven-middleware/-/redux-raven-middleware-1.2.0.tgz#50d02dd653cf93d2df18c4652149f1009bbbe33d"
+  dependencies:
+    raven-js "^3.1.1"
 
 regenerate@^1.2.1:
   version "1.3.2"

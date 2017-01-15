@@ -5,11 +5,13 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
+import RavenMiddleware from 'redux-raven-middleware';
 import auth from './redux/auth';
 import items from './redux/items';
 import profile from './redux/profile';
 import toasts from './redux/toasts';
 import OakRouter from './OakRouter';
+import logException from './utils/logException';
 import db from './db';
 import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './redux/actionTypes';
 
@@ -29,24 +31,30 @@ const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
   },
   handleResponse: (error, data, cb) => {
     if (error) {
-      console.error('A PouchDB error occured', error, data); // eslint-disable-line no-console
+      logException(new Error('An error occured in pouch-redux-middleware', { error, data }));
     }
     cb(error);
   },
 });
+
+let middleware = applyMiddleware(pouchMiddleware);
+
+if (process.env.NODE_ENV === 'production') {
+  middleware = applyMiddleware(RavenMiddleware(), pouchMiddleware); // eslint-disable-line new-cap
+}
 
 let enhancer;
 
 if (window.__REDUX_DEVTOOLS_EXTENSION__) {
   enhancer = compose(
       autoRehydrate(),
-      applyMiddleware(pouchMiddleware),
+      middleware,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 } else {
   enhancer = compose(
     autoRehydrate(),
-    applyMiddleware(pouchMiddleware)
+    middleware
     );
 }
 

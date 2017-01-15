@@ -3,6 +3,7 @@ import Button from 'react-md/lib/Buttons/Button';
 import { connect } from 'react-redux';
 import PouchDB from 'pouchdb/lib/index-browser';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
+import logException from '../utils/logException';
 import db from '../db';
 
 export const Settings = props => (
@@ -31,7 +32,7 @@ export const Settings = props => (
                 },
               });
             }
-            console.error(error); // eslint-disable-line no-console
+            logException(new Error('An error occured while syncing'), error);
             props.showToast({ text: 'An error occured while syncing, please try again later' });
           }).on('complete', () => {
             props.showToast({ text: 'Syncing finished' });
