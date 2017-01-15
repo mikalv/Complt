@@ -8,6 +8,7 @@ var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+var SentryPlugin = require('webpack-sentry-plugin');
 
 function ensureSlash(path, needsSlash) {
   var hasSlash = path.endsWith('/');
@@ -46,7 +47,7 @@ if (env['process.env.NODE_ENV'] !== '"production"') {
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
-module.exports = {
+var config = {
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
@@ -244,3 +245,14 @@ module.exports = {
     tls: 'empty'
   }
 };
+
+if (process.env.SENTRY) {
+  config.devTool = 'source-map';
+  config.plugins.push(new SentryPlugin({
+    organisation: 'mitchell-hamilton',
+    project: 'oak',
+    apiKey: process.env.SENTRY_API_KEY,
+    release: process.env.REACT_APP_GIT_REF,
+  }));
+}
+module.exports = config;

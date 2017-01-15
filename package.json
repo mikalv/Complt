@@ -59,6 +59,7 @@
     "url-loader": "0.5.7",
     "webpack": "1.13.2",
     "webpack-dev-server": "1.16.1",
+    "webpack-sentry-plugin": "^1.5.0",
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
@@ -87,6 +88,7 @@
     "start": "node scripts/start.js",
     "lint": "eslint . --ext .js --ext .gql",
     "build": "node scripts/build.js",
+    "build:sentry": "SENTRY=true node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom --verbose",
     "test:watch": "node scripts/test.js --env=jsdom --verbose --watch",
     "deploy:web:staging": "netlify deploy -e staging -t $NETLIFY_TOKEN",
