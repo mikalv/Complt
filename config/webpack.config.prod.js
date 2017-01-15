@@ -247,7 +247,7 @@ var config = {
 };
 
 if (process.env.SENTRY) {
-  config.devTool = 'source-map';
+  config.devtool = 'source-map';
   config.plugins.push(new SentryPlugin({
     organisation: 'mitchell-hamilton',
     project: 'oak',
