@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
 import RavenMiddleware from 'redux-raven-middleware';
+import thunk from 'redux-thunk';
 import auth from './redux/auth';
 import items from './redux/items';
 import profile from './redux/profile';
@@ -37,10 +38,10 @@ const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
   },
 });
 
-let middleware = applyMiddleware(pouchMiddleware);
+let middleware = applyMiddleware(pouchMiddleware, thunk);
 
 if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), pouchMiddleware); // eslint-disable-line new-cap
+  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware); // eslint-disable-line new-cap
 }
 
 let enhancer;
