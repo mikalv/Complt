@@ -1,6 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
@@ -38,10 +38,10 @@ const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
   },
 });
 
-let middleware = applyMiddleware(pouchMiddleware, thunk);
+let middleware = applyMiddleware(thunk, pouchMiddleware, routerMiddleware(browserHistory));
 
 if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware); // eslint-disable-line new-cap
+  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware, routerMiddleware(browserHistory)); // eslint-disable-line new-cap
 }
 
 let enhancer;
