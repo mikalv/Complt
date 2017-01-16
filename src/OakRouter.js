@@ -7,7 +7,6 @@ import Account from './components/Account';
 import Login from './components/Login';
 import RootProject from './components/RootProject';
 import Project from './components/Project';
-import Settings from './components/Settings';
 import isTokenExpired from './utils/auth';
 
 class OakRouter extends Component {
