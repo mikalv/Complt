@@ -3,6 +3,7 @@ import NavigationDrawer from 'react-md/lib/NavigationDrawers';
 import Snackbar from 'react-md/lib/Snackbars';
 import FontIcon from 'react-md/lib/FontIcons';
 import Link from 'react-router/lib/Link';
+import Button from 'react-md/lib/Buttons';
 import { connect } from 'react-redux';
 import mapDispatchToProps from './utils/mapDispatchToProps';
 
@@ -46,6 +47,9 @@ export const App = props => (
     tabletDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
     desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
     toolbarTitle="Oak"
+    toolbarActions={[
+      <Button icon onClick={props.sync}>sync</Button>,
+    ]}
   >
     {props.children}
     <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
@@ -58,6 +62,7 @@ App.propTypes = {
     pathname: React.PropTypes.string.isRequired,
   }),
   dismissToast: React.PropTypes.func,
+  sync: React.PropTypes.func,
   /* eslint-disable react/no-unused-prop-types */
   toasts: React.PropTypes.arrayOf(React.PropTypes.shape({
     text: React.PropTypes.string.isRequired,
