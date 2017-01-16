@@ -11,6 +11,7 @@ import auth from './redux/auth';
 import items from './redux/items';
 import profile from './redux/profile';
 import toasts from './redux/toasts';
+import syncState from './redux/syncState';
 import OakRouter from './OakRouter';
 import logException from './utils/logException';
 import db from './db';
@@ -66,6 +67,7 @@ const store = createStore(
     auth,
     profile,
     toasts,
+    syncState,
   }),
   enhancer
 );
