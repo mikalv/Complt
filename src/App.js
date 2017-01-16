@@ -24,12 +24,6 @@ const navItems = [{
   primaryText: 'Account',
   component: Link,
   leftIcon: <FontIcon>person</FontIcon>,
-}, {
-  to: '/settings',
-  key: 'settings',
-  primaryText: 'Settings',
-  component: Link,
-  leftIcon: <FontIcon>settings</FontIcon>,
 }];
 
 export function navItemsWithActive(items, route) {

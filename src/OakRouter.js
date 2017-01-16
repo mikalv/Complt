@@ -34,7 +34,6 @@ class OakRouter extends Component {
           <Route path="projects" component={RootProject} />
           <Route path="project/:projectId" component={Project} />
           <Route onEnter={this.isAuthenticated}>
-            <Route path="settings" component={Settings} />
             <Route path="account" component={Account} />
           </Route>
         </Route>
