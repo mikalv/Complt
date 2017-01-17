@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
 import Projects from '../components/Projects';
 
-export const RootProject = props => (
+const RootProject = props => (
   <Projects
     initialIsProject
     canChangeType

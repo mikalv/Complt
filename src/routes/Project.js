@@ -1,7 +1,7 @@
 import React from 'react';
 import Projects from '../components/Projects';
 
-export const Project = props => (
+const Project = props => (
   <Projects
     initialIsProject
     canChangeType
