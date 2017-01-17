@@ -45,16 +45,6 @@ exports[`App component renders correctly when the pathname does not match a rout
         "primaryText": "Account",
         "to": "/account",
       },
-      Object {
-        "component": [Function],
-        "key": "settings",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          settings
-    </FontIcon>,
-        "primaryText": "Settings",
-        "to": "/settings",
-      },
     ]
   }
   persistentIconChildren="arrow_back"
@@ -62,6 +52,17 @@ exports[`App component renders correctly when the pathname does not match a rout
   tabletDrawerType="full-height"
   tabletMinWidth={768}
   temporaryIconChildren="menu"
+  toolbarActions={
+    Array [
+      <ButtonTooltipedInked
+        icon={true}
+        inkTransitionEnterTimeout={450}
+        inkTransitionLeaveTimeout={300}
+        inkTransitionOverlap={150}>
+        sync
+    </ButtonTooltipedInked>,
+    ]
+  }
   toolbarThemeType="colored"
   toolbarTitle="Oak"
   transitionEnterTimeout={300}
@@ -125,16 +126,6 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "primaryText": "Account",
         "to": "/account",
       },
-      Object {
-        "component": [Function],
-        "key": "settings",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          settings
-    </FontIcon>,
-        "primaryText": "Settings",
-        "to": "/settings",
-      },
     ]
   }
   persistentIconChildren="arrow_back"
@@ -142,6 +133,17 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   tabletDrawerType="full-height"
   tabletMinWidth={768}
   temporaryIconChildren="menu"
+  toolbarActions={
+    Array [
+      <ButtonTooltipedInked
+        icon={true}
+        inkTransitionEnterTimeout={450}
+        inkTransitionLeaveTimeout={300}
+        inkTransitionOverlap={150}>
+        sync
+    </ButtonTooltipedInked>,
+    ]
+  }
   toolbarThemeType="colored"
   toolbarTitle="Oak"
   transitionEnterTimeout={300}

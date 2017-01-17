@@ -1,4 +1,9 @@
 import uuid from 'uuid';
+import { push } from 'react-router-redux';
+import PouchDB from 'pouchdb/lib/index-browser';
+import db from '../db';
+import isTokenExpired from '../utils/auth';
+import logException from '../utils/logException';
 import {
   LOGIN,
   LOGOUT,
@@ -9,6 +14,9 @@ import {
   DELETE_PROJECT,
   SHOW_TOAST,
   DISMISS_TOAST,
+  SYNC_STARTED,
+  SYNC_SUCCEDED,
+  SYNC_FAILED,
 } from './actionTypes';
 
 export function login(token) {
@@ -89,5 +97,65 @@ export function showToast(toast) {
 export function dismissToast() {
   return {
     type: DISMISS_TOAST,
+  };
+}
+
+export function showSignInToast() {
+  return (dispatch) => {
+    dispatch(showToast({
+      text: 'Please sign in to sync',
+      action: {
+        label: 'SIGN IN',
+        onClick: () => dispatch(push('/login')),
+      } }));
+  };
+}
+
+export function syncStarted() {
+  return {
+    type: SYNC_STARTED,
+  };
+}
+export function syncFailed() {
+  return {
+    type: SYNC_FAILED,
+  };
+}
+export function syncSucceded() {
+  return {
+    type: SYNC_SUCCEDED,
+  };
+}
+
+export const syncOnError = dispatch => (error) => {
+  if (error.status === 401) {
+    dispatch(showSignInToast());
+  } else {
+    logException(new Error('An error occured while syncing'), error);
+    dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
+  }
+  dispatch(syncFailed());
+};
+
+export const syncOnComplete = dispatch => () => {
+  dispatch(showToast({ text: 'Syncing finished' }));
+  dispatch(syncSucceded());
+};
+
+export function sync() {
+  return (dispatch, getState) => {
+    if (isTokenExpired(getState().auth)) {
+      dispatch(showSignInToast());
+      dispatch(syncFailed());
+    } else {
+      dispatch(syncStarted());
+      dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
+      const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
+        ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
+      });
+      PouchDB.sync(db, remoteDB)
+      .on('error', syncOnError(dispatch))
+      .on('complete', syncOnComplete(dispatch));
+    }
   };
 }
