@@ -1,4 +1,3 @@
-import PouchDB from 'pouchdb-memory';
 import reducer, { initialState } from '../syncState';
 import { syncStarted, syncFailed, syncSucceded, sync, syncOnError, syncOnComplete } from '../actions';
 import { SYNC_STARTED, SYNC_FAILED, SYNC_SUCCEDED, SHOW_TOAST } from '../actionTypes';
@@ -7,8 +6,6 @@ import isTokenExpired from '../../utils/auth';
 import mockStore from '../mockStore';
 
 jest.mock('../../db').mock('../../utils/auth').mock('../../utils/logException');
-
-PouchDB.preferredAdapters = ['memory'];
 
 isTokenExpired.mockReturnValue(true);
 
