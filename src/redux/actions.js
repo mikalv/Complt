@@ -127,6 +127,21 @@ export function syncSucceded() {
   };
 }
 
+export const syncOnError = dispatch => (error) => {
+  if (error.status === 401) {
+    dispatch(showSignInToast());
+  } else {
+    logException(new Error('An error occured while syncing'), error);
+    dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
+  }
+  dispatch(syncFailed());
+};
+
+export const syncOnComplete = dispatch => () => {
+  dispatch(showToast({ text: 'Syncing finished' }));
+  dispatch(syncSucceded());
+};
+
 export function sync() {
   return (dispatch, getState) => {
     if (isTokenExpired(getState().auth)) {
@@ -135,21 +150,12 @@ export function sync() {
     } else {
       dispatch(syncStarted());
       dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
-      const remoteDB = new PouchDB('https://oak-envoy.herokuapp.com/envoy', {
+      const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
         ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
       });
-      PouchDB.sync(db, remoteDB).on('error', (error) => {
-        if (error.status === 401) {
-          dispatch(showSignInToast());
-        } else {
-          logException(new Error('An error occured while syncing'), error);
-          dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
-        }
-        dispatch(syncFailed());
-      }).on('complete', () => {
-        dispatch(showToast({ text: 'Syncing finished' }));
-        dispatch(syncSucceded());
-      });
+      PouchDB.sync(db, remoteDB)
+      .on('error', syncOnError(dispatch))
+      .on('complete', syncOnComplete(dispatch));
     }
   };
 }
