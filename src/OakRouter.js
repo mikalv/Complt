@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, IndexRedirect } from 'react-router';
-import App from './App';
-import Inbox from './components/Inbox';
-import Account from './components/Account';
-import Login from './components/Login';
-import RootProject from './components/RootProject';
-import Project from './components/Project';
+import App from './routes/App';
+import Inbox from './routes/Inbox';
+import Account from './routes/Account';
+import Login from './routes/Login';
+import RootProject from './routes/RootProject';
+import Project from './routes/Project';
 import isTokenExpired from './utils/auth';
 
 class OakRouter extends Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
-import Projects from './Projects';
+import Projects from '../components/Projects';
 import OakPropTypes from '../PropTypes';
 
 export const RootProject = props => (

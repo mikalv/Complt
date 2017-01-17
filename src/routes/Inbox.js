@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddItem from './AddItem';
-import ItemList from './ItemList';
+import AddItem from '../components/AddItem';
+import ItemList from '../components/ItemList';
 import OakPropTypes from '../PropTypes';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
 

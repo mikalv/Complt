@@ -5,7 +5,7 @@ import FontIcon from 'react-md/lib/FontIcons';
 import Link from 'react-router/lib/Link';
 import Button from 'react-md/lib/Buttons';
 import { connect } from 'react-redux';
-import mapDispatchToProps from './utils/mapDispatchToProps';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 
 const navItems = [{
   to: '/inbox',
