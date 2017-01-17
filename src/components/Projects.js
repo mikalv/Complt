@@ -10,8 +10,8 @@ const Projects = props => (
     <ItemList
       onDelete={(i) => {
         const item = props.projectChildren[i];
-        if (item.isProject) props.deleteProject('root', item._id);
-        else props.deleteTask('root', item._id);
+        if (item.isProject) props.deleteProject(props.projectId, item._id);
+        else props.deleteTask(props.projectId, item._id);
       }}
       canDeleteTask
       canDeleteProject
