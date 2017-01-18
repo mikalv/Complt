@@ -1,9 +1,11 @@
 import React from 'react';
+import Assignment from 'react-icons/lib/md/assignment';
+import Done from 'react-icons/lib/md/done';
+import Delete from 'react-icons/lib/md/delete';
 import ListItem from 'react-md/lib/Lists/ListItem';
 import Avatar from 'react-md/lib/Avatars';
 import Chip from 'react-md/lib/Chips';
 import Button from 'react-md/lib/Buttons';
-import FontIcon from 'react-md/lib/FontIcons';
 import OakPropTypes from '../PropTypes';
 import './Item.css';
 
@@ -12,7 +14,7 @@ const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap }) =
   <ListItem
     leftAvatar={<Avatar
       onClick={onAvatarTouchTap}
-      icon={<FontIcon style={{ color: item.isCompleted ? '#00E676' : undefined }}>{item.isProject === true ? 'assignment' : 'done'}</FontIcon>}
+      icon={item.isProject === true ? <Assignment /> : <Done color={item.isCompleted ? '#00E676' : undefined} />}
     />}
     onClick={onItemTap}
     threeLines
@@ -28,7 +30,7 @@ const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap }) =
         e.stopPropagation();
         onDelete(e);
       }}
-    >delete</Button> : undefined}</ListItem>
+    ><Delete /></Button> : undefined}</ListItem>
 );
 
 Item.propTypes = {
