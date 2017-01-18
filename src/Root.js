@@ -17,10 +17,6 @@ import logException from './utils/logException';
 import db from './db';
 import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './redux/actionTypes';
 
-if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-  navigator.serviceWorker.register('/service-worker.js');
-}
-
 global.db = db;
 
 const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
