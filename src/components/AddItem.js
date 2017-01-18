@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Assignment from 'react-icons/lib/md/assignment';
+import Done from 'react-icons/lib/md/done';
+import Label from 'react-icons/lib/md/label';
+import Send from 'react-icons/lib/md/send';
 import TextField from 'react-md/lib/TextFields';
 import Paper from 'react-md/lib/Papers';
 import Button from 'react-md/lib/Buttons';
@@ -50,15 +54,15 @@ class AddItem extends Component {
             <div className="flex row space-between">
               <div>
                 {this.state.isProject ? null : <Button icon onClick={this.ActionLabelTap}>
-                  label
+                  <Label />
                 </Button>}
               </div>
               <div>
                 {this.props.canChangeType ? <Button icon onClick={this.switchType}>
-                  {this.state.isProject ? 'done' : 'assignment'}
+                  {this.state.isProject ? <Done /> : <Assignment />}
                 </Button> : null}
                 <Button icon primary type="submit">
-                  send
+                  <Send />
                 </Button>
               </div>
             </div>

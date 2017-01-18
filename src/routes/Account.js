@@ -1,7 +1,7 @@
 import React from 'react';
+import Person from 'react-icons/lib/md/person';
 import Avatar from 'react-md/lib/Avatars';
 import Button from 'react-md/lib/Buttons/Button';
-import FontIcon from 'react-md/lib/FontIcons';
 import Auth0 from 'auth0-js';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
@@ -11,7 +11,7 @@ export const Account = props => (
     <h1>{props.user.name}</h1>
     <p>{props.user.email}</p>
     <div>
-      <Avatar alt="User Profile Photo" src={props.user.picture} icon={<FontIcon>person</FontIcon>} style={{ height: '150px', width: '150px' }} />
+      <Avatar alt="User Profile Photo" src={props.user.picture} icon={<Person size={100} />} style={{ height: '150px', width: '150px' }} />
     </div>
     <div><Button
       label="Sign Out"

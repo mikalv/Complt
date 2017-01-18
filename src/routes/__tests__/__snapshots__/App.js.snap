@@ -18,30 +18,21 @@ exports[`App component renders correctly when the pathname does not match a rout
       Object {
         "component": [Function],
         "key": "inbox",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          inbox
-    </FontIcon>,
+        "leftIcon": <MdInbox />,
         "primaryText": "Inbox",
         "to": "/inbox",
       },
       Object {
         "component": [Function],
         "key": "projects",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          assignment
-    </FontIcon>,
+        "leftIcon": <MdAssignment />,
         "primaryText": "Projects",
         "to": "/projects",
       },
       Object {
         "component": [Function],
         "key": "account",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          person
-    </FontIcon>,
+        "leftIcon": <MdPerson />,
         "primaryText": "Account",
         "to": "/account",
       },
@@ -51,7 +42,7 @@ exports[`App component renders correctly when the pathname does not match a rout
   position="left"
   tabletDrawerType="full-height"
   tabletMinWidth={768}
-  temporaryIconChildren="menu"
+  temporaryIconChildren={<MdMenu />}
   toolbarActions={
     Array [
       <ButtonTooltipedInked
@@ -59,7 +50,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         inkTransitionEnterTimeout={450}
         inkTransitionLeaveTimeout={300}
         inkTransitionOverlap={150}>
-        sync
+        <MdSync />
     </ButtonTooltipedInked>,
     ]
   }
@@ -99,30 +90,21 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "active": true,
         "component": [Function],
         "key": "inbox",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          inbox
-    </FontIcon>,
+        "leftIcon": <MdInbox />,
         "primaryText": "Inbox",
         "to": "/inbox",
       },
       Object {
         "component": [Function],
         "key": "projects",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          assignment
-    </FontIcon>,
+        "leftIcon": <MdAssignment />,
         "primaryText": "Projects",
         "to": "/projects",
       },
       Object {
         "component": [Function],
         "key": "account",
-        "leftIcon": <FontIcon
-          iconClassName="material-icons">
-          person
-    </FontIcon>,
+        "leftIcon": <MdPerson />,
         "primaryText": "Account",
         "to": "/account",
       },
@@ -132,7 +114,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   position="left"
   tabletDrawerType="full-height"
   tabletMinWidth={768}
-  temporaryIconChildren="menu"
+  temporaryIconChildren={<MdMenu />}
   toolbarActions={
     Array [
       <ButtonTooltipedInked
@@ -140,7 +122,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         inkTransitionEnterTimeout={450}
         inkTransitionLeaveTimeout={300}
         inkTransitionOverlap={150}>
-        sync
+        <MdSync />
     </ButtonTooltipedInked>,
     ]
   }
