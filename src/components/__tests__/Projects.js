@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Projects from '../Projects';
+import { Projects } from '../Projects';
 
 describe('Projects component', () => {
   it('renders without crashing', () => {

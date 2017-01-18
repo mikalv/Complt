@@ -1,26 +1,40 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import mapDispatchToProps from '../utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
 import OakPropTypes from '../PropTypes';
 
-const Projects = props => (
+export const Projects = props => (
   <div>
     <ItemList
-      onDelete={i => props.onDelete(i)}
+      onDelete={(i) => {
+        const item = props.projectChildren[i];
+        if (item.isProject) props.deleteProject(props.projectId, item._id);
+        else props.deleteTask(props.projectId, item._id);
+      }}
       canDeleteTask
       canDeleteProject
-      onItemAvatarTap={props.onAvatarTap}
+      onItemAvatarTap={(i) => {
+        if (!props.projectChildren[i].isProject) {
+          props.completeTask(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted);
+        }
+      }}
       items={props.projectChildren}
-      onItemTap={i => props.onItemTap(i)}
+      onItemTap={(i) => {
+        if (props.projectChildren[i].isProject) {
+          props.routerPush(`/project/${props.projectChildren[i]._id}`);
+        }
+      }}
       style={{ marginBottom: '116px', height: '100%' }}
     />
     <div className="AddItem-fixed">
       <AddItem
-        initialIsProject
-        canChangeType
+        initialIsProject={props.initialIsProject}
+        canChangeType={props.canChangeType}
         onAddItem={(item) => {
-          if (item.isProject) props.onCreateProject(item);
-          else props.onCreateTask(item);
+          if (item.isProject) props.createProject(props.projectId, item);
+          else props.createTask(props.projectId, item);
         }}
       />
     </div>
@@ -28,10 +42,20 @@ const Projects = props => (
 );
 Projects.propTypes = {
   projectChildren: React.PropTypes.arrayOf(OakPropTypes.item),
-  onCreateProject: React.PropTypes.func,
-  onCreateTask: React.PropTypes.func,
-  onAvatarTap: React.PropTypes.func,
-  onDelete: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  createProject: React.PropTypes.func,
+  createTask: React.PropTypes.func,
+  projectId: React.PropTypes.string,
+  routerPush: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  initialIsProject: React.PropTypes.bool,
+  canChangeType: React.PropTypes.bool,
 };
 
-export default Projects;
+function mapStateToProps(state, ownProps) {
+  const project = state.items.find(item => item._id === ownProps.projectId);
+  if (project === undefined) return { project: [] };
+  const projectChildren = project.children.map(id =>
+    state.items.find(item => item._id === id));
+  return { projectChildren };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Projects);
