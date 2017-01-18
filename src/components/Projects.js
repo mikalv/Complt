@@ -5,7 +5,7 @@ import ItemList from './ItemList';
 import AddItem from './AddItem';
 import OakPropTypes from '../PropTypes';
 
-const Projects = props => (
+export const Projects = props => (
   <div>
     <ItemList
       onDelete={(i) => {
