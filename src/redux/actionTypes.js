@@ -13,3 +13,4 @@ export const DISMISS_TOAST = 'DISMISS_TOAST';
 export const SYNC_STARTED = 'SYNC_STARTED';
 export const SYNC_SUCCEDED = 'SYNC_SUCCEDED';
 export const SYNC_FAILED = 'SYNC_FAILED';
+export const UPDATE_ITEM = 'UPDATE_ITEM';

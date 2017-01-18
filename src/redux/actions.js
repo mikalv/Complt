@@ -17,6 +17,7 @@ import {
   SYNC_STARTED,
   SYNC_SUCCEDED,
   SYNC_FAILED,
+  UPDATE_ITEM,
 } from './actionTypes';
 
 export function login(token) {
@@ -157,5 +158,11 @@ export function sync() {
       .on('error', syncOnError(dispatch))
       .on('complete', syncOnComplete(dispatch));
     }
+  };
+}
+export function updateItem(item) {
+  return {
+    type: UPDATE_ITEM,
+    item,
   };
 }
