@@ -12,7 +12,7 @@ import toasts from './toasts';
 import syncState from './syncState';
 import logException from '../utils/logException';
 import db from '../db';
-import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './redux/actionTypes';
+import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './actionTypes';
 
 const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
   path: '/items',
