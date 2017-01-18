@@ -225,29 +225,18 @@ var config = {
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
-    // sw-precache for offline and caching with ServiceWorker
-    new SWPrecacheWebpackPlugin(
-          {
-            cacheId: 'oak',
-            filename: 'service-worker.js',
-            navigateFallback: '/index.html',
-            runtimeCaching: [{
-              urlPattern: /^https:\/\/fonts.(?:googleapis|gstatic).com\/.*/,
-              handler: 'cacheFirst'
-            }]
-          }
-        ),
-        new OfflinePlugin({
-	      ServiceWorker: {
-	        navigateFallbackURL: '/',
-          output: 'service-worker.js',
-	      },
-	      AppCache: {
-	        FALLBACK: {
-	          '/': '/index.html'
-	        }
-	      }
-	    })
+    // offline-plugin for offline and caching with ServiceWorker with an AppCache fallback
+    new OfflinePlugin({
+      ServiceWorker: {
+        navigateFallbackURL: '/',
+        output: 'service-worker.js',
+      },
+      AppCache: {
+        FALLBACK: {
+          '/': '/index.html'
+        }
+      }
+  })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
