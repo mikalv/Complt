@@ -24,10 +24,10 @@ describe('AddItem component', () => {
   });
   it('correctly changes between types when the button is clicked', () => {
     const component = mount(<AddItem onAddItem={jest.fn()} canChangeType />);
-    const changeTypeButton = component.find({ children: 'assignment' });
-    expect(changeTypeButton.text()).toEqual('assignment');
+    const changeTypeButton = component.find('MdAssignment');
+    expect(changeTypeButton.is('MdAssignment')).toEqual(true);
     changeTypeButton.simulate('click');
-    expect(changeTypeButton.text()).toEqual('done');
+    expect(changeTypeButton.is('MdAssignment')).toEqual(false);
   });
   it('correctly updates the value when the input changes', () => {
     const component = mount(<AddItem onAddItem={jest.fn()} canChangeType />);
@@ -41,7 +41,7 @@ describe('AddItem component', () => {
     const TextField = component.find('TextField');
     const input = component.find('input').first();
     input.simulate('change', { target: { value: 'Task' } });
-    component.find({ children: 'label' }).simulate('click');
+    component.find('MdLabel').simulate('click');
     expect(TextField.props().value).toEqual('Task @');
   });
   it('correctly calls onAddItem when the form is submitted', () => {

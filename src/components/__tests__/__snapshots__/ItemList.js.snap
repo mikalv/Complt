@@ -28,15 +28,8 @@ exports[`ItemList component renders an item correctly 1`] = `
           leftAvatar={
             <Avatar
               icon={
-                <FontIcon
-                  iconClassName="material-icons"
-                  style={
-                    Object {
-                      "color": undefined,
-                    }
-                  }>
-                  done
-                </FontIcon>
+                <MdDone
+                  color={undefined} />
               }
               onClick={undefined}
               suffixes={
@@ -138,15 +131,8 @@ exports[`ItemList component renders an item correctly 1`] = `
                     avatar={
                       <Avatar
                         icon={
-                          <FontIcon
-                            iconClassName="material-icons"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }>
-                            done
-                          </FontIcon>
+                          <MdDone
+                            color={undefined} />
                         }
                         onClick={undefined}
                         suffixes={
@@ -177,15 +163,8 @@ exports[`ItemList component renders an item correctly 1`] = `
                       className="md-tile-addon md-tile-addon--avatar">
                       <Avatar
                         icon={
-                          <FontIcon
-                            iconClassName="material-icons"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }>
-                            done
-                          </FontIcon>
+                          <MdDone
+                            color={undefined} />
                         }
                         suffixes={
                           Array [
@@ -214,23 +193,28 @@ exports[`ItemList component renders an item correctly 1`] = `
                           className="md-inline-block md-avatar md-avatar--default">
                           <div
                             className="md-avatar-content">
-                            <FontIcon
-                              iconClassName="material-icons"
-                              style={
-                                Object {
-                                  "color": undefined,
-                                }
-                              }>
-                              <i
-                                className="md-icon material-icons"
-                                style={
-                                  Object {
-                                    "color": undefined,
+                            <MdDone>
+                              <IconBase
+                                viewBox="0 0 40 40">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                      "verticalAlign": "middle",
+                                    }
                                   }
-                                }>
-                                done
-                              </i>
-                            </FontIcon>
+                                  viewBox="0 0 40 40"
+                                  width="1em">
+                                  <g>
+                                    <path
+                                      d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                                  </g>
+                                </svg>
+                              </IconBase>
+                            </MdDone>
                           </div>
                         </div>
                       </Avatar>

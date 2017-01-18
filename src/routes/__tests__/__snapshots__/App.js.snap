@@ -18,21 +18,24 @@ exports[`App component renders correctly when the pathname does not match a rout
       Object {
         "component": [Function],
         "key": "inbox",
-        "leftIcon": <MdInbox />,
+        "leftIcon": <MdInbox
+          size={24} />,
         "primaryText": "Inbox",
         "to": "/inbox",
       },
       Object {
         "component": [Function],
         "key": "projects",
-        "leftIcon": <MdAssignment />,
+        "leftIcon": <MdAssignment
+          size={24} />,
         "primaryText": "Projects",
         "to": "/projects",
       },
       Object {
         "component": [Function],
         "key": "account",
-        "leftIcon": <MdPerson />,
+        "leftIcon": <MdPerson
+          size={24} />,
         "primaryText": "Account",
         "to": "/account",
       },
@@ -90,21 +93,24 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "active": true,
         "component": [Function],
         "key": "inbox",
-        "leftIcon": <MdInbox />,
+        "leftIcon": <MdInbox
+          size={24} />,
         "primaryText": "Inbox",
         "to": "/inbox",
       },
       Object {
         "component": [Function],
         "key": "projects",
-        "leftIcon": <MdAssignment />,
+        "leftIcon": <MdAssignment
+          size={24} />,
         "primaryText": "Projects",
         "to": "/projects",
       },
       Object {
         "component": [Function],
         "key": "account",
-        "leftIcon": <MdPerson />,
+        "leftIcon": <MdPerson
+          size={24} />,
         "primaryText": "Account",
         "to": "/account",
       },

@@ -14,15 +14,8 @@ exports[`Item component renders a completed task correctly 1`] = `
     leftAvatar={
       <Avatar
         icon={
-          <FontIcon
-            iconClassName="material-icons"
-            style={
-              Object {
-                "color": "#00E676",
-              }
-            }>
-            done
-          </FontIcon>
+          <MdDone
+            color="#00E676" />
         }
         onClick={undefined}
         suffixes={
@@ -124,15 +117,8 @@ exports[`Item component renders a completed task correctly 1`] = `
               avatar={
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": "#00E676",
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color="#00E676" />
                   }
                   onClick={undefined}
                   suffixes={
@@ -163,15 +149,8 @@ exports[`Item component renders a completed task correctly 1`] = `
                 className="md-tile-addon md-tile-addon--avatar">
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": "#00E676",
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color="#00E676" />
                   }
                   suffixes={
                     Array [
@@ -200,23 +179,30 @@ exports[`Item component renders a completed task correctly 1`] = `
                     className="md-inline-block md-avatar md-avatar--default">
                     <div
                       className="md-avatar-content">
-                      <FontIcon
-                        iconClassName="material-icons"
-                        style={
-                          Object {
-                            "color": "#00E676",
-                          }
-                        }>
-                        <i
-                          className="md-icon material-icons"
-                          style={
-                            Object {
-                              "color": "#00E676",
+                      <MdDone
+                        color="#00E676">
+                        <IconBase
+                          color="#00E676"
+                          viewBox="0 0 40 40">
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "color": "#00E676",
+                                "verticalAlign": "middle",
+                              }
                             }
-                          }>
-                          done
-                        </i>
-                      </FontIcon>
+                            viewBox="0 0 40 40"
+                            width="1em">
+                            <g>
+                              <path
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                            </g>
+                          </svg>
+                        </IconBase>
+                      </MdDone>
                     </div>
                   </div>
                 </Avatar>
@@ -259,17 +245,7 @@ exports[`Item component renders a project correctly 1`] = `
     expanderIconChildren="keyboard_arrow_down"
     leftAvatar={
       <Avatar
-        icon={
-          <FontIcon
-            iconClassName="material-icons"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }>
-            assignment
-          </FontIcon>
-        }
+        icon={<MdAssignment />}
         onClick={undefined}
         suffixes={
           Array [
@@ -369,17 +345,7 @@ exports[`Item component renders a project correctly 1`] = `
               activeClassName="md-text--theme-primary"
               avatar={
                 <Avatar
-                  icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      assignment
-                    </FontIcon>
-                  }
+                  icon={<MdAssignment />}
                   onClick={undefined}
                   suffixes={
                     Array [
@@ -408,17 +374,7 @@ exports[`Item component renders a project correctly 1`] = `
               <div
                 className="md-tile-addon md-tile-addon--avatar">
                 <Avatar
-                  icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      assignment
-                    </FontIcon>
-                  }
+                  icon={<MdAssignment />}
                   suffixes={
                     Array [
                       "red",
@@ -446,23 +402,28 @@ exports[`Item component renders a project correctly 1`] = `
                     className="md-inline-block md-avatar md-avatar--default">
                     <div
                       className="md-avatar-content">
-                      <FontIcon
-                        iconClassName="material-icons"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }>
-                        <i
-                          className="md-icon material-icons"
-                          style={
-                            Object {
-                              "color": undefined,
+                      <MdAssignment>
+                        <IconBase
+                          viewBox="0 0 40 40">
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "color": undefined,
+                                "verticalAlign": "middle",
+                              }
                             }
-                          }>
-                          assignment
-                        </i>
-                      </FontIcon>
+                            viewBox="0 0 40 40"
+                            width="1em">
+                            <g>
+                              <path
+                                d="m28.4 15v-3.4h-16.8v3.4h16.8z m0 6.6v-3.2h-16.8v3.2h16.8z m-5 6.8v-3.4h-11.8v3.4h11.8z m-3.4-23.4c-0.9 0-1.6 0.7-1.6 1.6s0.7 1.8 1.6 1.8 1.6-0.8 1.6-1.8-0.7-1.6-1.6-1.6z m11.6 0c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h6.9c0.7-2 2.5-3.4 4.7-3.4s4 1.4 4.7 3.4h6.9z" />
+                            </g>
+                          </svg>
+                        </IconBase>
+                      </MdAssignment>
                     </div>
                   </div>
                 </Avatar>
@@ -511,15 +472,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
     leftAvatar={
       <Avatar
         icon={
-          <FontIcon
-            iconClassName="material-icons"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }>
-            done
-          </FontIcon>
+          <MdDone
+            color={undefined} />
         }
         onClick={undefined}
         suffixes={
@@ -648,15 +602,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
               avatar={
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color={undefined} />
                   }
                   onClick={undefined}
                   suffixes={
@@ -687,15 +634,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
                 className="md-tile-addon md-tile-addon--avatar">
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color={undefined} />
                   }
                   suffixes={
                     Array [
@@ -724,23 +664,28 @@ exports[`Item component renders a task with tags correctly 1`] = `
                     className="md-inline-block md-avatar md-avatar--default">
                     <div
                       className="md-avatar-content">
-                      <FontIcon
-                        iconClassName="material-icons"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }>
-                        <i
-                          className="md-icon material-icons"
-                          style={
-                            Object {
-                              "color": undefined,
+                      <MdDone>
+                        <IconBase
+                          viewBox="0 0 40 40">
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "color": undefined,
+                                "verticalAlign": "middle",
+                              }
                             }
-                          }>
-                          done
-                        </i>
-                      </FontIcon>
+                            viewBox="0 0 40 40"
+                            width="1em">
+                            <g>
+                              <path
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                            </g>
+                          </svg>
+                        </IconBase>
+                      </MdDone>
                     </div>
                   </div>
                 </Avatar>
@@ -870,15 +815,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
     leftAvatar={
       <Avatar
         icon={
-          <FontIcon
-            iconClassName="material-icons"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }>
-            done
-          </FontIcon>
+          <MdDone
+            color={undefined} />
         }
         onClick={undefined}
         suffixes={
@@ -980,15 +918,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
               avatar={
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color={undefined} />
                   }
                   onClick={undefined}
                   suffixes={
@@ -1019,15 +950,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                 className="md-tile-addon md-tile-addon--avatar">
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color={undefined} />
                   }
                   suffixes={
                     Array [
@@ -1056,23 +980,28 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                     className="md-inline-block md-avatar md-avatar--default">
                     <div
                       className="md-avatar-content">
-                      <FontIcon
-                        iconClassName="material-icons"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }>
-                        <i
-                          className="md-icon material-icons"
-                          style={
-                            Object {
-                              "color": undefined,
+                      <MdDone>
+                        <IconBase
+                          viewBox="0 0 40 40">
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "color": undefined,
+                                "verticalAlign": "middle",
+                              }
                             }
-                          }>
-                          done
-                        </i>
-                      </FontIcon>
+                            viewBox="0 0 40 40"
+                            width="1em">
+                            <g>
+                              <path
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                            </g>
+                          </svg>
+                        </IconBase>
+                      </MdDone>
                     </div>
                   </div>
                 </Avatar>
@@ -1118,15 +1047,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
     leftAvatar={
       <Avatar
         icon={
-          <FontIcon
-            iconClassName="material-icons"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }>
-            done
-          </FontIcon>
+          <MdDone
+            color={undefined} />
         }
         onClick={undefined}
         suffixes={
@@ -1228,15 +1150,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
               avatar={
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color={undefined} />
                   }
                   onClick={undefined}
                   suffixes={
@@ -1267,15 +1182,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
                 className="md-tile-addon md-tile-addon--avatar">
                 <Avatar
                   icon={
-                    <FontIcon
-                      iconClassName="material-icons"
-                      style={
-                        Object {
-                          "color": undefined,
-                        }
-                      }>
-                      done
-                    </FontIcon>
+                    <MdDone
+                      color={undefined} />
                   }
                   suffixes={
                     Array [
@@ -1304,23 +1212,28 @@ exports[`Item component renders the delete button when it has the canDelete prop
                     className="md-inline-block md-avatar md-avatar--default">
                     <div
                       className="md-avatar-content">
-                      <FontIcon
-                        iconClassName="material-icons"
-                        style={
-                          Object {
-                            "color": undefined,
-                          }
-                        }>
-                        <i
-                          className="md-icon material-icons"
-                          style={
-                            Object {
-                              "color": undefined,
+                      <MdDone>
+                        <IconBase
+                          viewBox="0 0 40 40">
+                          <svg
+                            fill="currentColor"
+                            height="1em"
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "color": undefined,
+                                "verticalAlign": "middle",
+                              }
                             }
-                          }>
-                          done
-                        </i>
-                      </FontIcon>
+                            viewBox="0 0 40 40"
+                            width="1em">
+                            <g>
+                              <path
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                            </g>
+                          </svg>
+                        </IconBase>
+                      </MdDone>
                     </div>
                   </div>
                 </Avatar>
@@ -1412,7 +1325,28 @@ exports[`Item component renders the delete button when it has the canDelete prop
                       iconClassName="material-icons">
                       <i
                         className="md-icon material-icons">
-                        delete
+                        <MdDelete>
+                          <IconBase
+                            viewBox="0 0 40 40">
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              preserveAspectRatio="xMidYMid meet"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                  "verticalAlign": "middle",
+                                }
+                              }
+                              viewBox="0 0 40 40"
+                              width="1em">
+                              <g>
+                                <path
+                                  d="m31.6 6.6v3.4h-23.2v-3.4h5.7l1.8-1.6h8.2l1.8 1.6h5.7z m-21.6 25v-20h20v20c0 1.8-1.6 3.4-3.4 3.4h-13.2c-1.8 0-3.4-1.6-3.4-3.4z" />
+                              </g>
+                            </svg>
+                          </IconBase>
+                        </MdDelete>
                       </i>
                     </FontIcon>
                   </button>
