@@ -27,7 +27,7 @@ describe('Item component', () => {
     const onItemTap = jest.fn();
     const onDelete = jest.fn();
     const component = mount(<Item canDelete onItemTap={onItemTap} onDelete={onDelete} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
-    component.find('Button').simulate('click');
+    component.find('MdDelete').simulate('click');
     expect(onItemTap).not.toBeCalled();
     expect(onDelete).toBeCalled();
   });
