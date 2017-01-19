@@ -251,7 +251,7 @@ if (process.env.SENTRY) {
   config.devtool = 'source-map';
   config.plugins.push(new SentryPlugin({
     organisation: 'mitchell-hamilton',
-    project: 'oak',
+    project: 'Complt',
     apiKey: process.env.SENTRY_API_KEY,
     release: process.env.REACT_APP_GIT_REF,
   }));

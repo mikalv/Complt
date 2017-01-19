@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OakPropTypes = {
+const CompltPropTypes = {
   item: React.PropTypes.shape({
     isProject: React.PropTypes.bool.isRequired,
     name: React.PropTypes.string.isRequired,
@@ -14,4 +14,4 @@ const OakPropTypes = {
   }),
 };
 
-export default OakPropTypes;
+export default CompltPropTypes;

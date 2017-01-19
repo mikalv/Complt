@@ -38,7 +38,7 @@ web/deploy/staging:
     - master
   environment:
     name: web/staging
-    url: https://staging.oak.mitchellhamilton.me
+    url: https://staging.app.complt.xyz
 
 web/deploy/production:
   stage: deploy
@@ -49,5 +49,5 @@ web/deploy/production:
     - master
   environment:
     name: web/production
-    url: https://oak.mitchellhamilton.me
+    url: https://app.complt.xyz
   when: manual

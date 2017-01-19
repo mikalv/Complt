@@ -58,7 +58,7 @@ exports[`App component renders correctly when the pathname does not match a rout
     ]
   }
   toolbarThemeType="colored"
-  toolbarTitle="Oak"
+  toolbarTitle="Complt"
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
   <div />
@@ -133,7 +133,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
     ]
   }
   toolbarThemeType="colored"
-  toolbarTitle="Oak"
+  toolbarTitle="Complt"
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
   <div />
