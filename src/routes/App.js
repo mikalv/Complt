@@ -10,6 +10,7 @@ import Link from 'react-router/lib/Link';
 import Button from 'react-md/lib/Buttons';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
+import UpdateItemDialog from '../components/UpdateItemDialog';
 
 const navItems = [{
   to: '/inbox',
@@ -58,6 +59,7 @@ export const App = props => (
   >
     {props.children}
     <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
+    {props.dialogs.updateItem.visible ? <UpdateItemDialog /> : null}
   </NavigationDrawer>
 );
 
@@ -79,11 +81,16 @@ App.propTypes = {
       }),
     ]),
   })).isRequired,
+  dialogs: React.PropTypes.shape({
+    updateItem: React.PropTypes.shape({
+      visible: React.PropTypes.bool,
+    }),
+  }),
   /* eslint-enable react/no-unused-prop-types */
 };
 
-function mapStateToProps({ toasts }) {
-  return { toasts };
+function mapStateToProps({ toasts, dialogs }) {
+  return { toasts, dialogs };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

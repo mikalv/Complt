@@ -4,11 +4,13 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
 import RavenMiddleware from 'redux-raven-middleware';
+import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import auth from './auth';
 import items from './items';
 import profile from './profile';
 import toasts from './toasts';
+import dialogs from './dialogs';
 import syncState from './syncState';
 import logException from '../utils/logException';
 import db from '../db';
@@ -59,6 +61,8 @@ const store = createStore(
     profile,
     toasts,
     syncState,
+    dialogs,
+    form: formReducer,
   }),
   enhancer
 );

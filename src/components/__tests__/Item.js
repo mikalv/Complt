@@ -3,6 +3,10 @@ import { mount } from 'enzyme';
 import Item from '../Item';
 
 describe('Item component', () => {
+  it('renders correctly if it does not have an item', () => {
+    const component = mount(<Item />);
+    expect(component).toMatchSnapshot();
+  });
   it('renders an uncompleted task correctly', () => {
     const component = mount(<Item item={{ name: 'Task', isProject: false, isCompleted: false }} />);
     expect(component).toMatchSnapshot();
@@ -27,8 +31,16 @@ describe('Item component', () => {
     const onItemTap = jest.fn();
     const onDelete = jest.fn();
     const component = mount(<Item canDelete onItemTap={onItemTap} onDelete={onDelete} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
-    component.find('Button').simulate('click');
+    component.find('MdDelete').simulate('click');
     expect(onItemTap).not.toBeCalled();
     expect(onDelete).toBeCalled();
+  });
+  it('only calls onItemUpdate when the update button is pressed', () => {
+    const onItemTap = jest.fn();
+    const onItemUpdate = jest.fn();
+    const component = mount(<Item canDelete onItemTap={onItemTap} onItemUpdate={onItemUpdate} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
+    component.find('MdCreate').simulate('click');
+    expect(onItemTap).not.toBeCalled();
+    expect(onItemUpdate).toBeCalled();
   });
 });

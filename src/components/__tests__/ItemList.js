@@ -23,7 +23,7 @@ describe('ItemList component', () => {
       onDelete={onDelete}
       items={[project, task, project]}
     />);
-    component.childAt(1).find('Button').simulate('click');
+    component.childAt(1).find('MdDelete').simulate('click');
     expect(onDelete).toBeCalledWith(1);
   });
   it('calls onDelete correctly with a project', () => {
@@ -33,7 +33,7 @@ describe('ItemList component', () => {
       onDelete={onDelete}
       items={[project, task, project]}
     />);
-    component.childAt(2).find('Button').simulate('click');
+    component.childAt(2).find('MdDelete').simulate('click');
     expect(onDelete).toBeCalledWith(2);
   });
   it('calls onItemTap correctly', () => {
@@ -53,5 +53,14 @@ describe('ItemList component', () => {
     />);
     component.childAt(2).find('Avatar').simulate('click');
     expect(onItemAvatarTap).toBeCalledWith(2);
+  });
+  it('calls onItemUpdate correctly', () => {
+    const onItemUpdate = jest.fn();
+    const component = mount(<ItemList
+      onItemUpdate={onItemUpdate}
+      items={[project, task, project]}
+    />);
+    component.childAt(2).find('MdCreate').simulate('click');
+    expect(onItemUpdate).toBeCalledWith(2);
   });
 });

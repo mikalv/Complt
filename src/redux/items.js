@@ -6,6 +6,7 @@ import {
   COMPLETE_TASK,
   DELETE_TASK,
   DELETE_PROJECT,
+  UPDATE_ITEM,
 } from './actionTypes';
 
 export const initialState = [];
@@ -120,6 +121,28 @@ export default function itemsReducer(state = initialState, action) {
             ...parentProject.children.slice(childIndexInParent + 1),
           ] },
         ...stateWithoutTask.slice(parentProjectIndex + 1),
+      ];
+    }
+    case UPDATE_ITEM: {
+      const indexOfOldItem = state.findIndex(item => item._id === action.item._id);
+      const oldItem = state[indexOfOldItem];
+      let newItem;
+      if (oldItem.isProject) {
+        newItem = {
+          ...oldItem,
+          name: action.item.name,
+        };
+      } else {
+        newItem = {
+          ...oldItem,
+          name: action.item.name,
+          tags: action.item.tags,
+        };
+      }
+      return [
+        ...state.slice(0, indexOfOldItem),
+        newItem,
+        ...state.slice(indexOfOldItem + 1),
       ];
     }
     default: {

@@ -148,4 +148,20 @@ describe('itemsReducer', () => {
   it('handles DELETE_PROJECT correctly if the project to delete has children', () => {
     expect(reducer(itemsWithProjectWithChildren, actions.deleteProject('root', 'item4'))).toEqual(itemsWithProjectWithChildren);
   });
+  it('handles UPDATE_ITEM correctly with a task', () => {
+    expect(reducer(items, actions.updateItem({ _id: 'item2', isCompleted: true, tags: ['@tag'], name: 'Some Task' }))).toEqual([
+      { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item2', isProject: false, isCompleted: true, tags: ['@tag'], name: 'Some Task' },
+      { _id: 'item3', isProject: false, isCompleted: false, tags: [] },
+      { _id: 'item4', isProject: true, children: ['item1', 'item2', 'item3'] },
+    ]);
+  });
+  it('handles UPDATE_ITEM correctly with a project', () => {
+    expect(reducer(items, actions.updateItem({ _id: 'item4', name: 'Some Project' }))).toEqual([
+      { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item3', isProject: false, isCompleted: false, tags: [] },
+      { _id: 'item4', isProject: true, children: ['item1', 'item2', 'item3'], name: 'Some Project' },
+    ]);
+  });
 });
