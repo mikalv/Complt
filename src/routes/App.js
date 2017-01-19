@@ -51,7 +51,7 @@ export const App = props => (
     mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
     tabletDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
     desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
-    toolbarTitle="Oak"
+    toolbarTitle="Complt"
     toolbarActions={[
       <Button icon onClick={props.sync}><Sync /></Button>,
     ]}
