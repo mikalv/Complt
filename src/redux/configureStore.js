@@ -14,15 +14,15 @@ import dialogs from './dialogs';
 import syncState from './syncState';
 import logException from '../utils/logException';
 import db from '../db';
-import { DELETE_ITEM_POUCH, INSERT_ITEM_POUCH, UPDATE_ITEM_POUCH } from './actionTypes';
+import { removeItemPouch, insertItemPouch, updateItemPouch } from './actions';
 
 const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
   path: '/items',
   db,
   actions: {
-    remove: doc => ({ type: DELETE_ITEM_POUCH, id: doc._id }),
-    insert: doc => ({ type: INSERT_ITEM_POUCH, item: doc }),
-    update: doc => ({ type: UPDATE_ITEM_POUCH, item: doc }),
+    remove: removeItemPouch,
+    insert: insertItemPouch,
+    update: updateItemPouch,
   },
   handleResponse: (error, data, cb) => {
     if (error) {
