@@ -54,4 +54,13 @@ describe('ItemList component', () => {
     component.childAt(2).find('Avatar').simulate('click');
     expect(onItemAvatarTap).toBeCalledWith(2);
   });
+  it('calls onItemUpdate correctly', () => {
+    const onItemUpdate = jest.fn();
+    const component = mount(<ItemList
+      onItemUpdate={onItemUpdate}
+      items={[project, task, project]}
+    />);
+    component.childAt(2).find('MdCreate').simulate('click');
+    expect(onItemUpdate).toBeCalledWith(2);
+  });
 });
