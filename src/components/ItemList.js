@@ -1,7 +1,7 @@
 import React from 'react';
 import List from 'react-md/lib/Lists/List';
 import Item from './Item';
-import OakPropTypes from '../PropTypes';
+import PropTypes from '../PropTypes';
 
 const ItemList = (
   { items = [], onItemAvatarTap, style, onDelete, canDeleteTask, canDeleteProject, onItemTap }
@@ -24,7 +24,7 @@ const ItemList = (
 );
 
 ItemList.propTypes = {
-  items: React.PropTypes.arrayOf(OakPropTypes.item),
+  items: React.PropTypes.arrayOf(PropTypes.item),
   onItemAvatarTap: React.PropTypes.func,
   canDeleteProject: React.PropTypes.bool,
   canDeleteTask: React.PropTypes.bool,

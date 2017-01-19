@@ -1,9 +1,9 @@
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.NODE_ENV = 'production';
-process.env.REACT_APP_AUTH0_DOMAIN = 'oakapp.auth0.com';
-process.env.REACT_APP_AUTH0_CLIENT_ID = 'GfMoEkzkCGYB9p1cyQ042XyVshskXt8p';
+process.env.REACT_APP_AUTH0_DOMAIN = 'complt.auth0.com';
+process.env.REACT_APP_AUTH0_CLIENT_ID = 'SlKB0j8GVBIfYVzJicd63jSIO9oeY3q7';
 process.env.REACT_APP_GIT_REF = process.env.CI_BUILD_REF;
-process.env.REACT_APP_COUCH_URL = 'https://oak-envoy.herokuapp.com/envoy';
+process.env.REACT_APP_COUCH_URL = 'https://complt.herokuapp.com/envoy';
 
 // Load environment variables from .env file. Surpress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables

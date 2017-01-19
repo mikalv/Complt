@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
-import OakPropTypes from '../PropTypes';
+import PropTypes from '../PropTypes';
 
 export const Projects = props => (
   <div>
@@ -41,7 +41,7 @@ export const Projects = props => (
   </div>
 );
 Projects.propTypes = {
-  projectChildren: React.PropTypes.arrayOf(OakPropTypes.item),
+  projectChildren: React.PropTypes.arrayOf(PropTypes.item),
   createProject: React.PropTypes.func,
   createTask: React.PropTypes.func,
   projectId: React.PropTypes.string,

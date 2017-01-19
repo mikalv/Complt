@@ -9,7 +9,7 @@ import RootProject from './routes/RootProject';
 import Project from './routes/Project';
 import isTokenExpired from './utils/auth';
 
-class OakRouter extends Component {
+class CompltRouter extends Component {
   constructor(props) {
     super(props);
     this.isAuthenticated = this.isAuthenticated.bind(this);
@@ -41,7 +41,7 @@ class OakRouter extends Component {
   }
 }
 
-OakRouter.propTypes = {
+CompltRouter.propTypes = {
   idToken: React.PropTypes.string,
   history: React.PropTypes.shape({
     push: React.PropTypes.func,
@@ -54,4 +54,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(OakRouter);
+export default connect(mapStateToProps)(CompltRouter);

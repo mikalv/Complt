@@ -6,7 +6,7 @@ import ListItem from 'react-md/lib/Lists/ListItem';
 import Avatar from 'react-md/lib/Avatars';
 import Chip from 'react-md/lib/Chips';
 import Button from 'react-md/lib/Buttons';
-import OakPropTypes from '../PropTypes';
+import PropTypes from '../PropTypes';
 import './Item.css';
 
 
@@ -34,7 +34,7 @@ const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap }) =
 );
 
 Item.propTypes = {
-  item: OakPropTypes.item,
+  item: PropTypes.item,
   onAvatarTouchTap: React.PropTypes.func,
   canDelete: React.PropTypes.bool,
   onDelete: React.PropTypes.func,

@@ -2,12 +2,12 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store, { history } from './redux/configureStore';
 import IconContext from './components/IconContext';
-import OakRouter from './OakRouter';
+import CompltRouter from './CompltRouter';
 
 const Root = (
   <Provider store={store}>
     <IconContext>
-      <OakRouter history={history} />
+      <CompltRouter history={history} />
     </IconContext>
   </Provider>
 );
