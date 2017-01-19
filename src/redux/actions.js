@@ -4,6 +4,7 @@ import PouchDB from 'pouchdb/lib/index-browser';
 import db from '../db';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
+import processItem from '../utils/processItem';
 import {
   LOGIN,
   LOGOUT,
@@ -18,6 +19,8 @@ import {
   SYNC_SUCCEDED,
   SYNC_FAILED,
   UPDATE_ITEM,
+  SHOW_UPDATE_ITEM_DIALOG,
+  HIDE_UPDATE_ITEM_DIALOG,
 } from './actionTypes';
 
 export function login(token) {
@@ -164,5 +167,39 @@ export function updateItem(item) {
   return {
     type: UPDATE_ITEM,
     item,
+  };
+}
+
+export function showUpdateItemDialog(id) {
+  return {
+    type: SHOW_UPDATE_ITEM_DIALOG,
+    id,
+  };
+}
+
+export function hideUpdateItemDialog() {
+  return {
+    type: HIDE_UPDATE_ITEM_DIALOG,
+  };
+}
+
+export function handleUpdateItem(updatedItemInput, item) {
+  return (dispatch) => {
+    const processedItem = processItem(updatedItemInput, item.isProject);
+    let newItem;
+    if (item.isProject) {
+      newItem = {
+        ...item,
+        name: processedItem.name,
+      };
+    } else {
+      newItem = {
+        ...item,
+        name: processedItem.name,
+        tags: processedItem.tags,
+      };
+    }
+    dispatch(updateItem(newItem));
+    dispatch(hideUpdateItemDialog());
   };
 }

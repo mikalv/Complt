@@ -15,6 +15,7 @@ export const Projects = props => (
       }}
       canDeleteTask
       canDeleteProject
+      onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
       onItemAvatarTap={(i) => {
         if (!props.projectChildren[i].isProject) {
           props.completeTask(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted);
