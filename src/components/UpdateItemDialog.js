@@ -8,11 +8,11 @@ import mapDispatchToProps from '../utils/mapDispatchToProps';
 import PropTypes from '../PropTypes';
 
 
-/* eslint-disable react/prop-types */
-const renderTextField = ({ input, meta: { touched, error }, ...others }) => (
+export const renderTextField = ({
+  input, meta: { touched, error }, ...others  // eslint-disable-line react/prop-types
+}) => (
   <TextField {...input} {...others} error={touched && !!error} errorText={error} />
 );
-/* eslint-enable react/prop-types */
 
 export const UpdateItemDialog = props => (
   <Dialog
@@ -40,7 +40,7 @@ UpdateItemDialog.propTypes = {
   hideUpdateItemDialog: React.PropTypes.func,
 };
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
     const item = state.items.find(({ _id }) => _id === state.dialogs.updateItem.id);
     let defaultInputValue = item.name;
@@ -57,6 +57,9 @@ function mapStateToProps(state) {
   return { visible: false };
 }
 
+export const onSubmit = ({ itemInput }, dispatch, props) =>
+props.handleUpdateItem(itemInput, props.item);
+
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  onSubmit: ({ itemInput }, dispatch, props) => props.handleUpdateItem(itemInput, props.item),
+  onSubmit,
 })(UpdateItemDialog));
