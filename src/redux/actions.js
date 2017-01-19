@@ -9,6 +9,9 @@ import {
   LOGIN,
   LOGOUT,
   GET_PROFILE,
+  DELETE_ITEM_POUCH,
+  INSERT_ITEM_POUCH,
+  UPDATE_ITEM_POUCH,
   CREATE_ITEM,
   COMPLETE_TASK,
   DELETE_TASK,
@@ -23,113 +26,71 @@ import {
   HIDE_UPDATE_ITEM_DIALOG,
 } from './actionTypes';
 
-export function login(token) {
-  return {
-    type: LOGIN,
-    token,
-  };
-}
+export const login = token => ({ type: LOGIN, token });
 
-export function logout() {
-  return {
-    type: LOGOUT,
-  };
-}
+export const logout = () => ({ type: LOGOUT });
 
-export function getProfile(profile) {
-  return {
-    type: GET_PROFILE,
-    profile,
-  };
-}
+export const getProfile = profile => ({ type: GET_PROFILE, profile });
 
-export function createTask(parentProjectId, item) {
-  return {
-    type: CREATE_ITEM,
-    parentProjectId,
-    item: {
-      _id: uuid.v4(),
-      isProject: false,
-      ...item,
-    },
-  };
-}
+export const removeItemPouch = doc => ({ type: DELETE_ITEM_POUCH, id: doc._id });
 
-export function createProject(parentProjectId, item) {
-  return {
-    type: CREATE_ITEM,
-    parentProjectId,
-    item: {
-      _id: uuid.v4(),
-      isProject: true,
-      ...item,
-    },
-  };
-}
+export const insertItemPouch = doc => ({ type: INSERT_ITEM_POUCH, item: doc });
 
-export function completeTask(id, isCompleted) {
-  return {
-    type: COMPLETE_TASK,
-    id,
-    isCompleted,
-  };
-}
+export const updateItemPouch = doc => ({ type: UPDATE_ITEM_POUCH, item: doc });
 
-export function deleteTask(parentProjectId, id) {
-  return {
-    type: DELETE_TASK,
-    parentProjectId,
-    id,
-  };
-}
+export const createTask = (parentProjectId, item) => ({
+  type: CREATE_ITEM,
+  parentProjectId,
+  item: { _id: uuid.v4(), isProject: false, ...item },
+});
 
-export function deleteProject(parentProjectId, id) {
-  return {
-    type: DELETE_PROJECT,
-    parentProjectId,
-    id,
-  };
-}
+export const createProject = (parentProjectId, item) => ({
+  type: CREATE_ITEM,
+  parentProjectId,
+  item: { _id: uuid.v4(), isProject: true, ...item },
+});
 
-export function showToast(toast) {
-  return {
-    type: SHOW_TOAST,
-    toast,
-  };
-}
+export const completeTask = (id, isCompleted) => ({ type: COMPLETE_TASK, id, isCompleted });
 
-export function dismissToast() {
-  return {
-    type: DISMISS_TOAST,
-  };
-}
+export const deleteTask = (parentProjectId, id) => ({
+  type: DELETE_TASK,
+  parentProjectId,
+  id,
+});
 
-export function showSignInToast() {
-  return (dispatch) => {
-    dispatch(showToast({
-      text: 'Please sign in to sync',
-      action: {
-        label: 'SIGN IN',
-        onClick: () => dispatch(push('/login')),
-      } }));
-  };
-}
+export const deleteProject = (parentProjectId, id) => ({
+  type: DELETE_PROJECT,
+  parentProjectId,
+  id,
+});
 
-export function syncStarted() {
-  return {
-    type: SYNC_STARTED,
-  };
-}
-export function syncFailed() {
-  return {
-    type: SYNC_FAILED,
-  };
-}
-export function syncSucceded() {
-  return {
-    type: SYNC_SUCCEDED,
-  };
-}
+export const showToast = toast => ({
+  type: SHOW_TOAST,
+  toast,
+});
+
+export const dismissToast = () => ({
+  type: DISMISS_TOAST,
+});
+
+export const showSignInToast = () => (dispatch) => {
+  dispatch(showToast({
+    text: 'Please sign in to sync',
+    action: {
+      label: 'SIGN IN',
+      onClick: () => dispatch(push('/login')),
+    } }));
+};
+
+export const syncStarted = () => ({
+  type: SYNC_STARTED,
+});
+export const syncFailed = () => ({
+  type: SYNC_FAILED,
+});
+export const syncSucceded = () => ({
+  type: SYNC_SUCCEDED,
+});
 
 export const syncOnError = dispatch => (error) => {
   if (error.status === 401) {
@@ -146,60 +107,50 @@ export const syncOnComplete = dispatch => () => {
   dispatch(syncSucceded());
 };
 
-export function sync() {
-  return (dispatch, getState) => {
-    if (isTokenExpired(getState().auth)) {
-      dispatch(showSignInToast());
-      dispatch(syncFailed());
-    } else {
-      dispatch(syncStarted());
-      dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
-      const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
-        ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
-      });
-      PouchDB.sync(db, remoteDB)
+export const sync = () => (dispatch, getState) => {
+  if (isTokenExpired(getState().auth)) {
+    dispatch(showSignInToast());
+    dispatch(syncFailed());
+  } else {
+    dispatch(syncStarted());
+    dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
+    const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
+      ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
+    });
+    PouchDB.sync(db, remoteDB)
       .on('error', syncOnError(dispatch))
       .on('complete', syncOnComplete(dispatch));
-    }
-  };
-}
-export function updateItem(item) {
-  return {
-    type: UPDATE_ITEM,
-    item,
-  };
-}
+  }
+};
+export const updateItem = item => ({
+  type: UPDATE_ITEM,
+  item,
+});
 
-export function showUpdateItemDialog(id) {
-  return {
-    type: SHOW_UPDATE_ITEM_DIALOG,
-    id,
-  };
-}
+export const showUpdateItemDialog = id => ({
+  type: SHOW_UPDATE_ITEM_DIALOG,
+  id,
+});
 
-export function hideUpdateItemDialog() {
-  return {
-    type: HIDE_UPDATE_ITEM_DIALOG,
-  };
-}
+export const hideUpdateItemDialog = () => ({
+  type: HIDE_UPDATE_ITEM_DIALOG,
+});
 
-export function handleUpdateItem(updatedItemInput, item) {
-  return (dispatch) => {
-    const processedItem = processItem(updatedItemInput, item.isProject);
-    let newItem;
-    if (item.isProject) {
-      newItem = {
-        ...item,
-        name: processedItem.name,
-      };
-    } else {
-      newItem = {
-        ...item,
-        name: processedItem.name,
-        tags: processedItem.tags,
-      };
-    }
-    dispatch(updateItem(newItem));
-    dispatch(hideUpdateItemDialog());
-  };
-}
+export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
+  const processedItem = processItem(updatedItemInput, item.isProject);
+  let newItem;
+  if (item.isProject) {
+    newItem = {
+      ...item,
+      name: processedItem.name,
+    };
+  } else {
+    newItem = {
+      ...item,
+      name: processedItem.name,
+      tags: processedItem.tags,
+    };
+  }
+  dispatch(updateItem(newItem));
+  dispatch(hideUpdateItemDialog());
+};
