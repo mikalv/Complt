@@ -51,9 +51,9 @@ Projects.propTypes = {
   canChangeType: React.PropTypes.bool,
 };
 
-function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
   const project = state.items.find(item => item._id === ownProps.projectId);
-  if (project === undefined) return { project: [] };
+  if (project === undefined) return { projectChildren: [] };
   const projectChildren = project.children.map(id =>
     state.items.find(item => item._id === id));
   return { projectChildren };
