@@ -3,6 +3,7 @@ import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Delete from 'react-icons/lib/md/delete';
 import Create from 'react-icons/lib/md/create';
+import MoreVert from 'react-icons/lib/md/more-vert';
 import ListItem from 'react-md/lib/Lists/ListItem';
 import Avatar from 'react-md/lib/Avatars';
 import Chip from 'react-md/lib/Chips';
@@ -10,7 +11,15 @@ import Button from 'react-md/lib/Buttons';
 import PropTypes from '../PropTypes';
 import './Item.css';
 
-const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap, onItemUpdate }) => (
+const Item = ({
+  item = {},
+  onAvatarTouchTap,
+  onDelete,
+  canDelete,
+  onItemTap,
+  onItemUpdate,
+  onItemMove,
+}) => (
   <ListItem
     leftAvatar={<Avatar
       onClick={onAvatarTouchTap}
@@ -31,6 +40,13 @@ const Item = ({ item = {}, onAvatarTouchTap, onDelete, canDelete, onItemTap, onI
         onItemUpdate(e);
       }}
     ><Create /></Button>
+    <Button
+      icon
+      onClick={(e) => {
+        e.stopPropagation();
+        onItemMove(e);
+      }}
+    ><MoreVert /></Button>
     {canDelete ?
       <Button
         icon
@@ -48,6 +64,7 @@ Item.propTypes = {
   onDelete: React.PropTypes.func,
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,
+  onItemMove: React.PropTypes.func,
 };
 
 export default Item;

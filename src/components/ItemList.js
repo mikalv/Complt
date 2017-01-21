@@ -12,6 +12,7 @@ const ItemList = ({
     canDeleteProject,
     onItemTap,
     onItemUpdate,
+    onItemMove,
 }) => (
   <List style={style}>
     {items.map((item, i) => {
@@ -25,6 +26,7 @@ const ItemList = ({
         onAvatarTouchTap={onItemAvatarTap !== undefined ? () => onItemAvatarTap(i) : undefined}
         onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
         onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
+        onItemMove={onItemMove !== undefined ? () => onItemMove(i) : undefined}
         onDelete={() => onDelete(i)}
       />);
     })}
@@ -39,6 +41,7 @@ ItemList.propTypes = {
   onDelete: React.PropTypes.func,
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,
+  onItemMove: React.PropTypes.func,
   style: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 

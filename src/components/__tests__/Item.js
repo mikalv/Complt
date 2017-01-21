@@ -43,4 +43,12 @@ describe('Item component', () => {
     expect(onItemTap).not.toBeCalled();
     expect(onItemUpdate).toBeCalled();
   });
+  it('only calls onItemMove when the move button is pressed', () => {
+    const onItemTap = jest.fn();
+    const onItemMove = jest.fn();
+    const component = mount(<Item canDelete onItemTap={onItemTap} onItemMove={onItemMove} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
+    component.find('MdMoreVert').simulate('click');
+    expect(onItemTap).not.toBeCalled();
+    expect(onItemMove).toBeCalled();
+  });
 });
