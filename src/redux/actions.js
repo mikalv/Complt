@@ -24,6 +24,8 @@ import {
   UPDATE_ITEM,
   SHOW_UPDATE_ITEM_DIALOG,
   HIDE_UPDATE_ITEM_DIALOG,
+  SHOW_MOVE_ITEM_DIALOG,
+  HIDE_MOVE_ITEM_DIALOG,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
@@ -154,3 +156,12 @@ export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
   dispatch(updateItem(newItem));
   dispatch(hideUpdateItemDialog());
 };
+
+export const showMoveItemDialog = id => ({
+  type: SHOW_MOVE_ITEM_DIALOG,
+  id,
+});
+
+export const hideMoveItemDialog = () => ({
+  type: HIDE_MOVE_ITEM_DIALOG,
+});

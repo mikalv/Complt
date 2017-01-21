@@ -1,5 +1,5 @@
 import reducer, { initialState } from '../dialogs';
-import { showUpdateItemDialog, hideUpdateItemDialog, handleUpdateItem } from '../actions';
+import { showUpdateItemDialog, hideUpdateItemDialog, handleUpdateItem, showMoveItemDialog, hideMoveItemDialog } from '../actions';
 import { HIDE_UPDATE_ITEM_DIALOG, UPDATE_ITEM } from '../actionTypes';
 import mockStore from '../mockStore';
 
@@ -13,6 +13,10 @@ describe('dialogsReducer', () => {
         visible: true,
         id: 'someItemId',
       },
+      moveItem: {
+        visible: false,
+        id: '',
+      },
     });
   });
   it('handles HIDE_UPDATE_ITEM_DIALOG correctly', () => {
@@ -21,7 +25,35 @@ describe('dialogsReducer', () => {
         visible: true,
         id: 'someItemId',
       },
+      moveItem: {
+        visible: false,
+        id: '',
+      },
     }, hideUpdateItemDialog())).toEqual(initialState);
+  });
+  it('handles SHOW_MOVE_ITEM_DIALOG correctly', () => {
+    expect(reducer(undefined, showMoveItemDialog('someItemId'))).toEqual({
+      moveItem: {
+        visible: true,
+        id: 'someItemId',
+      },
+      updateItem: {
+        visible: false,
+        id: '',
+      },
+    });
+  });
+  it('handles HIDE_MOVE_ITEM_DIALOG correctly', () => {
+    expect(reducer({
+      moveItem: {
+        visible: true,
+        id: 'someItemId',
+      },
+      updateItem: {
+        visible: false,
+        id: '',
+      },
+    }, hideMoveItemDialog())).toEqual(initialState);
   });
 });
 
