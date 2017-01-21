@@ -1,5 +1,5 @@
 {
-  "name": "Complt",
+  "name": "Complt-electron",
   "version": "0.1.0",
   "dependencies": {
     "menubar": "^5.2.0"
