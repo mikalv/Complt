@@ -190,7 +190,7 @@ describe('itemsReducer', () => {
       { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item3', isProject: false, isCompleted: false, tags: [] },
       { _id: 'item4', isProject: true, children: ['item1', 'item3'] },
-      { _id: 'root', isProject: true, children: ['item2'] }
+      { _id: 'root', isProject: true, children: ['item2'] },
     ]);
   });
 });
