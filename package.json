@@ -65,7 +65,9 @@
   },
   "dependencies": {
     "auth0-js": "^7.6.0",
+    "electron": "^1.4.15",
     "jwt-decode": "^2.1.0",
+    "menubar": "^5.2.0",
     "mockdate": "^2.0.1",
     "pouch-redux-middleware": "^0.5.0",
     "pouchdb": "^6.1.1",
@@ -93,6 +95,7 @@
     "start": "node scripts/start.js",
     "lint": "eslint . --ext .js --ext .gql",
     "build": "node scripts/build.js",
+    "build:electron": "REACT_APP_ELECTRON=true node scripts/build.js",
     "build:sentry": "SENTRY=true node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom --verbose",
     "test:watch": "node scripts/test.js --env=jsdom --verbose --watch",
