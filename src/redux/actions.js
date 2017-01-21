@@ -26,6 +26,7 @@ import {
   HIDE_UPDATE_ITEM_DIALOG,
   SHOW_MOVE_ITEM_DIALOG,
   HIDE_MOVE_ITEM_DIALOG,
+  MOVE_ITEM,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
@@ -164,4 +165,8 @@ export const showMoveItemDialog = id => ({
 
 export const hideMoveItemDialog = () => ({
   type: HIDE_MOVE_ITEM_DIALOG,
+});
+
+export const moveItem = (id, previousParent, newParent) => ({
+  type: MOVE_ITEM, id, previousParent, newParent,
 });

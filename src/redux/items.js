@@ -7,6 +7,7 @@ import {
   DELETE_TASK,
   DELETE_PROJECT,
   UPDATE_ITEM,
+  MOVE_ITEM,
 } from './actionTypes';
 
 export const initialState = [];
@@ -143,6 +144,31 @@ export default function itemsReducer(state = initialState, action) {
         ...state.slice(0, indexOfOldItem),
         newItem,
         ...state.slice(indexOfOldItem + 1),
+      ];
+    }
+    case MOVE_ITEM: {
+      const itemIndex = state.findIndex(item => item._id === action.id);
+      const previousParentIndex = state.findIndex(item => item._id === action.previousParent);
+      const newParentIndex = state.findIndex(item => item._id === action.newParent);
+      if (itemIndex === -1 || previousParentIndex === -1 || newParentIndex === -1) return state;
+      if (!state[newParentIndex].isProject || !state[previousParentIndex].isProject) return state;
+      const previousParent = state[previousParentIndex];
+      const childIndexInPreviousParent = previousParent.children.indexOf(action.id);
+      if (childIndexInPreviousParent === -1) return state;
+      const stateWithoutItemInPreviousParent = [
+        ...state.slice(0, previousParentIndex),
+        { ...previousParent,
+          children: [
+            ...previousParent.children.slice(0, childIndexInPreviousParent),
+            ...previousParent.children.slice(childIndexInPreviousParent + 1),
+          ] },
+        ...state.slice(previousParentIndex + 1),
+      ];
+      const newParent = state[newParentIndex];
+      return [
+        ...stateWithoutItemInPreviousParent.slice(0, newParentIndex),
+        { ...newParent, children: [...newParent.children, action.id] },
+        ...stateWithoutItemInPreviousParent.slice(newParentIndex + 1),
       ];
     }
     default: {
