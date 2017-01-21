@@ -26,12 +26,12 @@ class CompltRouter extends Component {
   render() {
     return (
       <Router history={this.props.history}>
-        <Route path="login" component={Login} />
         <Route path="/" component={App}>
           <IndexRedirect to="inbox" />
           <Route path="inbox" component={Inbox} />
           <Route path="projects" component={RootProject} />
           <Route path="project/:projectId" component={Project} />
+          <Route path="login" component={Login} />
           <Route onEnter={this.isAuthenticated}>
             <Route path="account" component={Account} />
           </Route>

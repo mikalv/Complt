@@ -20,26 +20,36 @@ export class Login extends Component {
     const result = this.auth0.parseHash(window.location.hash);
     if (result && result.idToken) {
       setTimeout(() => {
-        this.props.login(result.idToken);
-        this.auth0.getProfile(result.idToken, (error, profile) => {
-          if (error) {
-            logException(error);
-            return;
-          }
-          this.props.getProfile(profile);
-          this.props.router.push('/');
-        });
+        this.loginCallback(result);
       }, 100);
     }
   }
   loginWithGoogle() {
     this.auth0.login({
       connection: 'google-oauth2',
+      popup: process.env.REACT_APP_ELECTRON,
+    }, (error, result) => {
+      if (error) {
+        logException(error);
+        return;
+      }
+      this.loginCallback(result);
+    });
+  }
+  loginCallback(result) {
+    this.props.login(result.idToken);
+    this.auth0.getProfile(result.idToken, (profileError, profile) => {
+      if (profileError) {
+        logException(profileError);
+        return;
+      }
+      this.props.getProfile(profile);
+      this.props.router.push('/');
     });
   }
   render() {
     return (
-      <div className="flex row full center">
+      <div className="flex row center" style={{ paddingTop: '100px' }}>
         <div className="flex column center">
           <Button raised label="Login With Google" onClick={this.loginWithGoogle} />
         </div>

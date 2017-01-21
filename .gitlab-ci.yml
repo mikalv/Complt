@@ -51,3 +51,11 @@ web/deploy/production:
     name: web/production
     url: https://app.complt.xyz
   when: manual
+
+electron/build:
+  stage: deploy
+  script:
+    - 'npm run build:electron'
+  artifacts:
+    paths:
+      - dist/
