@@ -1,4 +1,3 @@
-import { browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
@@ -6,6 +5,7 @@ import PouchMiddleware from 'pouch-redux-middleware';
 import RavenMiddleware from 'redux-raven-middleware';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
+import browserHistory from '../history';
 import auth from './auth';
 import items from './items';
 import profile from './profile';
