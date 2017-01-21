@@ -1,4 +1,4 @@
-import itemsToTree from '../itemsToTree'
+import itemsToTree from '../itemsToTree';
 
 const items = [
   { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
