@@ -8,6 +8,9 @@ import itemsToTree from '../utils/itemsToTree';
 import MoveItemList from './MoveItemList';
 import PropTypes from '../PropTypes';
 
+export const moveItem = (handleMoveItem, id, parentProject) => newParent =>
+handleMoveItem(id, parentProject, newParent);
+
 export const MoveItemDialog = props => (
   <Dialog
     id="Move Item Dialog"
@@ -19,8 +22,7 @@ export const MoveItemDialog = props => (
     <MoveItemList
       itemTree={props.itemTree}
       itemToMove={props.dialog.id}
-      onChooseItem={newParent =>
-        props.handleMoveItem(props.dialog.id, props.dialog.parentProject, newParent)}
+      onChooseItem={moveItem(props.handleMoveItem, props.dialog.id, props.dialog.parentProject)}
     />
   </Dialog>
 );
