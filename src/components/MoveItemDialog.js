@@ -8,7 +8,7 @@ import itemsToTree from '../utils/itemsToTree';
 import MoveItemList from './MoveItemList';
 import PropTypes from '../PropTypes';
 
-export const UpdateItemDialog = props => (
+export const MoveItemDialog = props => (
   <Dialog
     id="Move Item Dialog"
     visible={props.dialog.visible}
@@ -25,7 +25,7 @@ export const UpdateItemDialog = props => (
   </Dialog>
 );
 
-UpdateItemDialog.propTypes = {
+MoveItemDialog.propTypes = {
   itemTree: PropTypes.item,
   hideMoveItemDialog: React.PropTypes.func,
   handleMoveItem: React.PropTypes.func,
@@ -41,4 +41,4 @@ export function mapStateToProps(state) {
   return { dialog: state.dialogs.moveItem, itemTree };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UpdateItemDialog);
+export default connect(mapStateToProps, mapDispatchToProps)(MoveItemDialog);
