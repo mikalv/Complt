@@ -16,6 +16,7 @@ const Item = ({
   onAvatarTouchTap,
   onDelete,
   canDelete,
+  canMove,
   onItemTap,
   onItemUpdate,
   onItemMove,
@@ -40,13 +41,13 @@ const Item = ({
         onItemUpdate(e);
       }}
     ><Create /></Button>
-    <Button
+    {canMove ? <Button
       icon
       onClick={(e) => {
         e.stopPropagation();
         onItemMove(e);
       }}
-    ><MoreVert /></Button>
+    ><MoreVert /></Button> : undefined}
     {canDelete ?
       <Button
         icon

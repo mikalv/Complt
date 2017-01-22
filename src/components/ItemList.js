@@ -10,6 +10,7 @@ const ItemList = ({
     onDelete,
     canDeleteTask,
     canDeleteProject,
+    canMove,
     onItemTap,
     onItemUpdate,
     onItemMove,
@@ -23,6 +24,7 @@ const ItemList = ({
         canDelete={
           (canDeleteTask && item.isProject === false) ||
           (canDeleteProject && item.isProject === true)}
+        canMove={canMove}
         onAvatarTouchTap={onItemAvatarTap !== undefined ? () => onItemAvatarTap(i) : undefined}
         onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
         onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
@@ -38,6 +40,7 @@ ItemList.propTypes = {
   onItemAvatarTap: React.PropTypes.func,
   canDeleteProject: React.PropTypes.bool,
   canDeleteTask: React.PropTypes.bool,
+  canMove: React.PropTypes.bool,
   onDelete: React.PropTypes.func,
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,
