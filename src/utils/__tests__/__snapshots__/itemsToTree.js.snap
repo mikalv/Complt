@@ -1,0 +1,75 @@
+exports[`itemsToTree returns an object with all the children properties being the actual children instead of their ids 1`] = `
+Object {
+  "_id": "root",
+  "children": Array [
+    Object {
+      "_id": "item1",
+      "isCompleted": true,
+      "isProject": false,
+      "tags": Array [],
+    },
+    Object {
+      "_id": "item2",
+      "isCompleted": true,
+      "isProject": false,
+      "tags": Array [],
+    },
+    Object {
+      "_id": "item12",
+      "children": Array [
+        Object {
+          "_id": "item3",
+          "isCompleted": false,
+          "isProject": false,
+          "tags": Array [],
+        },
+        Object {
+          "_id": "item11",
+          "children": Array [
+            Object {
+              "_id": "item4",
+              "isCompleted": true,
+              "isProject": false,
+              "tags": Array [],
+            },
+            Object {
+              "_id": "item5",
+              "isCompleted": true,
+              "isProject": false,
+              "tags": Array [],
+            },
+            Object {
+              "_id": "item6",
+              "isCompleted": false,
+              "isProject": false,
+              "tags": Array [],
+            },
+            Object {
+              "_id": "item8",
+              "isCompleted": true,
+              "isProject": false,
+              "tags": Array [],
+            },
+          ],
+          "isProject": true,
+        },
+        null,
+        Object {
+          "_id": "item7",
+          "isCompleted": true,
+          "isProject": false,
+          "tags": Array [],
+        },
+      ],
+      "isProject": true,
+    },
+    Object {
+      "_id": "item9",
+      "isCompleted": false,
+      "isProject": false,
+      "tags": Array [],
+    },
+  ],
+  "isProject": true,
+}
+`;

@@ -163,4 +163,37 @@ describe('itemsReducer', () => {
       { _id: 'item4', isProject: true, children: ['item1', 'item2', 'item3'], name: 'Some Project' },
     ]);
   });
+  it('handles MOVE_ITEM correctly if the item to do move does not exist', () => {
+    expect(reducer(items, actions.moveItem('item20', 'item1', 'item2'))).toEqual(items);
+  });
+  it('handles MOVE_ITEM correctly if the previousParent does not exist', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'item21', 'item2'))).toEqual(itemsWithRoot);
+  });
+  it('handles MOVE_ITEM correctly if the newParent does not exist', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'item2', 'item22'))).toEqual(itemsWithRoot);
+  });
+  it('handles MOVE_ITEM correctly if the newParent does not exist', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'item2', 'item22'))).toEqual(itemsWithRoot);
+  });
+  it('handles MOVE_ITEM correctly if the newParent is not a project', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'item4', 'item2'))).toEqual(itemsWithRoot);
+  });
+  it('handles MOVE_ITEM correctly if the previousParent is not a project', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'item2', 'item4'))).toEqual(itemsWithRoot);
+  });
+  it('handles MOVE_ITEM correctly if the id is not a child of previousParent', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'root', 'item4'))).toEqual(itemsWithRoot);
+  });
+  it('handles MOVE_ITEM correctly if the previousParent is the same as the newParent', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'root', 'root'))).toEqual(itemsWithRoot);
+  });
+  it('handles MOVE_ITEM correctly if the id is a child of previousParent and the newParent is a project', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item2', 'item4', 'root'))).toEqual([
+      { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item3', isProject: false, isCompleted: false, tags: [] },
+      { _id: 'item4', isProject: true, children: ['item1', 'item3'] },
+      { _id: 'root', isProject: true, children: ['item2'] },
+    ]);
+  });
 });

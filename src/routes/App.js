@@ -11,6 +11,7 @@ import Button from 'react-md/lib/Buttons';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
 import UpdateItemDialog from '../components/UpdateItemDialog';
+import MoveItemDialog from '../components/MoveItemDialog';
 
 const navItems = [{
   to: '/inbox',
@@ -60,6 +61,7 @@ export const App = props => (
     {props.children}
     <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
     {props.dialogs.updateItem.visible ? <UpdateItemDialog /> : null}
+    {props.dialogs.moveItem.visible ? <MoveItemDialog /> : null}
   </NavigationDrawer>
 );
 
@@ -83,6 +85,9 @@ App.propTypes = {
   })).isRequired,
   dialogs: React.PropTypes.shape({
     updateItem: React.PropTypes.shape({
+      visible: React.PropTypes.bool,
+    }),
+    moveItem: React.PropTypes.shape({
       visible: React.PropTypes.bool,
     }),
   }),

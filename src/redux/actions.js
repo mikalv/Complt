@@ -24,6 +24,9 @@ import {
   UPDATE_ITEM,
   SHOW_UPDATE_ITEM_DIALOG,
   HIDE_UPDATE_ITEM_DIALOG,
+  SHOW_MOVE_ITEM_DIALOG,
+  HIDE_MOVE_ITEM_DIALOG,
+  MOVE_ITEM,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
@@ -153,4 +156,23 @@ export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
   }
   dispatch(updateItem(newItem));
   dispatch(hideUpdateItemDialog());
+};
+
+export const showMoveItemDialog = (id, parentProject) => ({
+  type: SHOW_MOVE_ITEM_DIALOG,
+  id,
+  parentProject,
+});
+
+export const hideMoveItemDialog = () => ({
+  type: HIDE_MOVE_ITEM_DIALOG,
+});
+
+export const moveItem = (id, previousParent, newParent) => ({
+  type: MOVE_ITEM, id, previousParent, newParent,
+});
+
+export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
+  dispatch(hideMoveItemDialog());
+  dispatch(moveItem(id, previousParent, newParent));
 };
