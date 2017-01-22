@@ -62,6 +62,7 @@ Item.propTypes = {
   item: PropTypes.item,
   onAvatarTouchTap: React.PropTypes.func,
   canDelete: React.PropTypes.bool,
+  canMove: React.PropTypes.bool,
   onDelete: React.PropTypes.func,
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,
