@@ -31,6 +31,7 @@ exports[`Projects component renders correctly with some items 1`] = `
     <Component
       canDeleteProject={true}
       canDeleteTask={true}
+      canMove={true}
       items={
         Array [
           Object {
@@ -86,6 +87,7 @@ exports[`Projects component renders correctly with some items 1`] = `
           }>
           <Component
             canDelete={true}
+            canMove={true}
             item={
               Object {
                 "_id": "item1",
@@ -688,6 +690,7 @@ exports[`Projects component renders correctly with some items 1`] = `
           </Component>
           <Component
             canDelete={true}
+            canMove={true}
             item={
               Object {
                 "_id": "item2",
@@ -1213,6 +1216,7 @@ exports[`Projects component renders correctly with some items 1`] = `
           </Component>
           <Component
             canDelete={true}
+            canMove={true}
             item={
               Object {
                 "_id": "item3",

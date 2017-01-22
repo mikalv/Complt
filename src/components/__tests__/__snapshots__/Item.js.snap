@@ -1,5 +1,6 @@
 exports[`Item component renders a completed task correctly 1`] = `
 <Component
+  canMove={true}
   item={
     Object {
       "isCompleted": true,
@@ -431,6 +432,7 @@ exports[`Item component renders a completed task correctly 1`] = `
 
 exports[`Item component renders a project correctly 1`] = `
 <Component
+  canMove={true}
   item={
     Object {
       "isProject": true,
@@ -850,6 +852,7 @@ exports[`Item component renders a project correctly 1`] = `
 
 exports[`Item component renders a task with tags correctly 1`] = `
 <Component
+  canMove={true}
   item={
     Object {
       "isCompleted": false,
@@ -1395,6 +1398,7 @@ exports[`Item component renders a task with tags correctly 1`] = `
 
 exports[`Item component renders an uncompleted task correctly 1`] = `
 <Component
+  canMove={true}
   item={
     Object {
       "isCompleted": false,
@@ -1823,7 +1827,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
 `;
 
 exports[`Item component renders correctly if it does not have an item 1`] = `
-<Component>
+<Component
+  canMove={true}>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -2243,6 +2248,7 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
 exports[`Item component renders the delete button when it has the canDelete prop 1`] = `
 <Component
   canDelete={true}
+  canMove={true}
   item={
     Object {
       "isCompleted": false,

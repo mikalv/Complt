@@ -1,5 +1,6 @@
 exports[`ItemList component renders an item correctly 1`] = `
 <Component
+  canMove={true}
   items={
     Array [
       Object {
@@ -13,6 +14,7 @@ exports[`ItemList component renders an item correctly 1`] = `
     <ul
       className="md-list">
       <Component
+        canMove={true}
         item={
           Object {
             "isCompleted": false,

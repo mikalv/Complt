@@ -15,6 +15,7 @@ export const Projects = props => (
       }}
       canDeleteTask
       canDeleteProject
+      canMove
       onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
       onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
       onItemAvatarTap={(i) => {

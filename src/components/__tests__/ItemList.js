@@ -13,7 +13,7 @@ describe('ItemList component', () => {
     mount(<ItemList items={[null]} />);
   });
   it('renders an item correctly', () => {
-    const component = mount(<ItemList items={[task]} />);
+    const component = mount(<ItemList canMove items={[task]} />);
     expect(component).toMatchSnapshot();
   });
   it('calls onDelete correctly with a task', () => {
@@ -67,6 +67,7 @@ describe('ItemList component', () => {
     const onItemMove = jest.fn();
     const component = mount(<ItemList
       onItemMove={onItemMove}
+      canMove
       items={[project, task, project]}
     />);
     component.childAt(2).find('MdMoreVert').simulate('click');

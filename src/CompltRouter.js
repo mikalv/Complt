@@ -7,6 +7,7 @@ import Account from './routes/Account';
 import Login from './routes/Login';
 import RootProject from './routes/RootProject';
 import Project from './routes/Project';
+import All from './routes/All';
 import isTokenExpired from './utils/auth';
 
 class CompltRouter extends Component {
@@ -28,6 +29,7 @@ class CompltRouter extends Component {
       <Router history={this.props.history}>
         <Route path="/" component={App}>
           <IndexRedirect to="inbox" />
+          <Route path="all" component={All} />
           <Route path="inbox" component={Inbox} />
           <Route path="projects" component={RootProject} />
           <Route path="project/:projectId" component={Project} />

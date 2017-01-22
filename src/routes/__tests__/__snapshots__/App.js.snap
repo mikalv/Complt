@@ -17,6 +17,14 @@ exports[`App component renders correctly when the pathname does not match a rout
     Array [
       Object {
         "component": [Function],
+        "key": "all",
+        "leftIcon": <MdApps
+          size={24} />,
+        "primaryText": "All",
+        "to": "/all",
+      },
+      Object {
+        "component": [Function],
         "key": "inbox",
         "leftIcon": <MdInbox
           size={24} />,
@@ -89,6 +97,14 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   mobileMinWidth={320}
   navItems={
     Array [
+      Object {
+        "component": [Function],
+        "key": "all",
+        "leftIcon": <MdApps
+          size={24} />,
+        "primaryText": "All",
+        "to": "/all",
+      },
       Object {
         "active": true,
         "component": [Function],
