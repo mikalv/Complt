@@ -3,7 +3,7 @@
 > A GTD SPA Made With React, Redux, PouchDB and CouchDB
 
 
-[![build status](https://gitlab.com/mitchellhamilton/Oak/badges/master/build.svg)](https://gitlab.com/mitchellhamilton/Oak/commits/master)
+[![build status](https://gitlab.com/mitchellhamilton/Complt/badges/master/build.svg)](https://gitlab.com/mitchellhamilton/Complt/commits/master)
 [![codecov](https://codecov.io/gl/mitchellhamilton/Oak/branch/master/graph/badge.svg?token=jYe8LvuGPu)](https://codecov.io/gl/mitchellhamilton/Oak)
 [![Airbnb JavaScript Style Guide](https://img.shields.io/badge/code%20style-airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 
