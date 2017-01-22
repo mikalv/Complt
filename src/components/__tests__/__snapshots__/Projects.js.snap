@@ -60,6 +60,7 @@ exports[`Projects component renders correctly with some items 1`] = `
       }
       onDelete={[Function]}
       onItemAvatarTap={[Function]}
+      onItemMove={[Function]}
       onItemTap={[Function]}
       onItemUpdate={[Function]}
       style={
@@ -98,6 +99,7 @@ exports[`Projects component renders correctly with some items 1`] = `
             }
             onAvatarTouchTap={[Function]}
             onDelete={[Function]}
+            onItemMove={[Function]}
             onItemTap={[Function]}
             onItemUpdate={[Function]}>
             <ListItem
@@ -695,6 +697,7 @@ exports[`Projects component renders correctly with some items 1`] = `
             }
             onAvatarTouchTap={[Function]}
             onDelete={[Function]}
+            onItemMove={[Function]}
             onItemTap={[Function]}
             onItemUpdate={[Function]}>
             <ListItem
@@ -1223,6 +1226,7 @@ exports[`Projects component renders correctly with some items 1`] = `
             }
             onAvatarTouchTap={[Function]}
             onDelete={[Function]}
+            onItemMove={[Function]}
             onItemTap={[Function]}
             onItemUpdate={[Function]}>
             <ListItem

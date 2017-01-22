@@ -6,6 +6,9 @@ const dialogs = {
   updateItem: {
     visible: false,
   },
+  moveItem: {
+    visible: false,
+  },
 };
 
 describe('App component', () => {

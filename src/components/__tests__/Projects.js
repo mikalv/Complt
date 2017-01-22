@@ -37,6 +37,12 @@ describe('Projects component', () => {
     component.childAt(0).childAt(2).find('MdCreate').simulate('click');
     expect(showUpdateItemDialog).toBeCalledWith('item3');
   });
+  it('calls showUpdateItemDialog when an item is updated', () => {
+    const showMoveItemDialog = jest.fn();
+    const component = mount(<Projects projectChildren={items} showMoveItemDialog={showMoveItemDialog} projectId="root" />);
+    component.childAt(0).childAt(2).find('MdMoreVert').simulate('click');
+    expect(showMoveItemDialog).toBeCalledWith('item3', 'root');
+  });
   it('calls completeTask correctly when a task is completed', () => {
     const completeTask = jest.fn();
     const component = mount(<Projects projectChildren={items} completeTask={completeTask} projectId="root" />);
