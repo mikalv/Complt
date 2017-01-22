@@ -19,8 +19,8 @@ export function renderListItem(item, onChooseItem, itemToMove, key) {
 }
 
 const MoveItemList = props => (
-  <div style={{ overflow: 'scroll', width: '500px' }}>
-    <List style={{ overflow: 'scroll', width: '500px' }}>
+  <div>
+    <List>
       {renderListItem(props.itemTree, props.onChooseItem, props.itemToMove, 1)}
     </List>
   </div>
@@ -28,7 +28,7 @@ const MoveItemList = props => (
 );
 
 MoveItemList.propTypes = {
-  itemTree: React.PropTypes.arrayOf(PropTypes.item),
+  itemTree: PropTypes.item,
   itemToMove: React.PropTypes.string,
   onChooseItem: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
 };
