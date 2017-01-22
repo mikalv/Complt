@@ -158,9 +158,10 @@ export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
   dispatch(hideUpdateItemDialog());
 };
 
-export const showMoveItemDialog = id => ({
+export const showMoveItemDialog = (id, parentProject) => ({
   type: SHOW_MOVE_ITEM_DIALOG,
   id,
+  parentProject,
 });
 
 export const hideMoveItemDialog = () => ({
@@ -170,3 +171,8 @@ export const hideMoveItemDialog = () => ({
 export const moveItem = (id, previousParent, newParent) => ({
   type: MOVE_ITEM, id, previousParent, newParent,
 });
+
+export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
+  dispatch(hideMoveItemDialog());
+  dispatch(moveItem(id, previousParent, newParent));
+};

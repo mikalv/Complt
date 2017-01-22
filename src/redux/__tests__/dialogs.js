@@ -16,6 +16,7 @@ describe('dialogsReducer', () => {
       moveItem: {
         visible: false,
         id: '',
+        parentProject: '',
       },
     });
   });
@@ -28,14 +29,16 @@ describe('dialogsReducer', () => {
       moveItem: {
         visible: false,
         id: '',
+        parentProject: '',
       },
     }, hideUpdateItemDialog())).toEqual(initialState);
   });
   it('handles SHOW_MOVE_ITEM_DIALOG correctly', () => {
-    expect(reducer(undefined, showMoveItemDialog('someItemId'))).toEqual({
+    expect(reducer(undefined, showMoveItemDialog('someItemId', 'someParentId'))).toEqual({
       moveItem: {
         visible: true,
         id: 'someItemId',
+        parentProject: 'someParentId',
       },
       updateItem: {
         visible: false,
@@ -48,6 +51,7 @@ describe('dialogsReducer', () => {
       moveItem: {
         visible: true,
         id: 'someItemId',
+        parentProject: 'someParentId',
       },
       updateItem: {
         visible: false,

@@ -8,6 +8,7 @@ export const initialState = {
   moveItem: {
     visible: false,
     id: '',
+    parentProject: '',
   },
 };
 
@@ -35,6 +36,7 @@ export default function authReducer(state = initialState, action) {
         moveItem: {
           visible: true,
           id: action.id,
+          parentProject: action.parentProject,
         },
       };
     case HIDE_MOVE_ITEM_DIALOG:
@@ -43,6 +45,7 @@ export default function authReducer(state = initialState, action) {
         moveItem: {
           visible: false,
           id: '',
+          parentProject: '',
         },
       };
     default:
