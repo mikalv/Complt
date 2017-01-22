@@ -4,6 +4,7 @@ import Sync from 'react-icons/lib/md/sync';
 import Inbox from 'react-icons/lib/md/inbox';
 import Assignment from 'react-icons/lib/md/assignment';
 import Person from 'react-icons/lib/md/person';
+import Apps from 'react-icons/lib/md/apps';
 import NavigationDrawer from 'react-md/lib/NavigationDrawers';
 import Snackbar from 'react-md/lib/Snackbars';
 import Link from 'react-router/lib/Link';
@@ -14,6 +15,12 @@ import UpdateItemDialog from '../components/UpdateItemDialog';
 import MoveItemDialog from '../components/MoveItemDialog';
 
 const navItems = [{
+  to: '/all',
+  key: 'all',
+  primaryText: 'All',
+  component: Link,
+  leftIcon: <Apps size={24} />,
+}, {
   to: '/inbox',
   key: 'inbox',
   primaryText: 'Inbox',
