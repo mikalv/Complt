@@ -184,6 +184,9 @@ describe('itemsReducer', () => {
   it('handles MOVE_ITEM correctly if the id is not a child of previousParent', () => {
     expect(reducer(itemsWithRoot, actions.moveItem('item1', 'root', 'item4'))).toEqual(itemsWithRoot);
   });
+  it('handles MOVE_ITEM correctly if the previousParent is the same as the newParent', () => {
+    expect(reducer(itemsWithRoot, actions.moveItem('item1', 'root', 'root'))).toEqual(itemsWithRoot);
+  });
   it('handles MOVE_ITEM correctly if the id is a child of previousParent and the newParent is a project', () => {
     expect(reducer(itemsWithRoot, actions.moveItem('item2', 'item4', 'root'))).toEqual([
       { _id: 'item1', isProject: false, isCompleted: true, tags: [] },

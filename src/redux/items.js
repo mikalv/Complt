@@ -147,6 +147,7 @@ export default function itemsReducer(state = initialState, action) {
       ];
     }
     case MOVE_ITEM: {
+      if (action.previousParent === action.newParent) return state;
       const itemIndex = state.findIndex(item => item._id === action.id);
       const previousParentIndex = state.findIndex(item => item._id === action.previousParent);
       const newParentIndex = state.findIndex(item => item._id === action.newParent);
