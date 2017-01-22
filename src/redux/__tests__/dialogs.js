@@ -1,6 +1,6 @@
 import reducer, { initialState } from '../dialogs';
-import { showUpdateItemDialog, hideUpdateItemDialog, handleUpdateItem, showMoveItemDialog, hideMoveItemDialog } from '../actions';
-import { HIDE_UPDATE_ITEM_DIALOG, UPDATE_ITEM } from '../actionTypes';
+import { showUpdateItemDialog, hideUpdateItemDialog, handleUpdateItem, showMoveItemDialog, hideMoveItemDialog, handleMoveItem } from '../actions';
+import { HIDE_UPDATE_ITEM_DIALOG, UPDATE_ITEM, HIDE_MOVE_ITEM_DIALOG, MOVE_ITEM } from '../actionTypes';
 import mockStore from '../mockStore';
 
 describe('dialogsReducer', () => {
@@ -90,5 +90,16 @@ describe('handleUpdateItem action creator', () => {
         children: ['someOtherTask', 'oneMoreTask'],
       },
     });
+  });
+});
+
+describe('handleMoveItem action creator', () => {
+  it('dispatches the actions correctly', () => {
+    const store = mockStore();
+    store.dispatch(handleMoveItem('itemToMove', 'previousParent', 'newParent'));
+    expect(store.getActions()).toEqual([
+      { type: HIDE_MOVE_ITEM_DIALOG },
+      { type: MOVE_ITEM, id: 'itemToMove', newParent: 'newParent', previousParent: 'previousParent' },
+    ]);
   });
 });
