@@ -2,7 +2,7 @@ import React from 'react';
 import Person from 'react-icons/lib/md/person';
 import Avatar from 'react-md/lib/Avatars';
 import Button from 'react-md/lib/Buttons/Button';
-import Auth0 from 'auth0-js';
+import WebAuth from 'auth0-js/src/web-auth';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../utils/mapDispatchToProps';
 
@@ -18,7 +18,7 @@ export const Account = props => (
       flat
       onClick={() => {
         props.logout();
-        const auth0 = new Auth0({
+        const auth0 = new WebAuth({
           domain: process.env.REACT_APP_AUTH0_DOMAIN,
           clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
         });
