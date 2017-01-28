@@ -100,8 +100,7 @@ module.exports = {
         include: paths.appSrc,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react', 'stage-3'],
-          plugins: ['react-hot-loader/babel'],
+
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
           // directory for faster rebuilds. We use findCacheDir() because of:

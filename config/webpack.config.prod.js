@@ -104,10 +104,6 @@ var config = {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
         loader: 'babel',
-        query: {
-          presets: ['es2015', 'react', 'stage-3'],
-          plugins: ['react-hot-loader/babel'],
-        },
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
