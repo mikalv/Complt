@@ -6,7 +6,7 @@ import {
   View,
   Platform,
 } from 'react-native';
-import Tabs from './native/tabs';
+import Tabs from './src/native/tabs';
 
 const AppContainer = () => (
   <View style={styles.container}>
