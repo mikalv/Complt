@@ -6,13 +6,13 @@ import {
   View,
   Platform,
 } from 'react-native';
-import Tabs from './src/native/tabs';
+import RootNavigation from './src/native/RootNavigation';
 
 const AppContainer = () => (
   <View style={styles.container}>
     {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
     {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-    <Tabs />
+    <RootNavigation />
   </View>
 );
 

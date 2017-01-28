@@ -6,10 +6,17 @@ import { MaterialIcons } from 'react-native-vector-icons';
 
 class Inbox extends Component {
   static navigationOptions = {
-    tabBar: {
+    title: 'Inbox',
+    drawer: () => ({
       label: 'Inbox',
-      icon: () => <MaterialIcons icon="inbox" />,
-    },
+      icon: ({ tintColor }) => (
+        <MaterialIcons
+          name="inbox"
+          size={24}
+          style={[{ color: tintColor }]}
+        />
+      ),
+    }),
   }
   render() {
     return <Text>Thing</Text>;

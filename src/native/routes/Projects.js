@@ -6,10 +6,17 @@ import { MaterialIcons } from 'react-native-vector-icons';
 
 class Projects extends Component {
   static navigationOptions = {
-    tabBar: {
+    title: 'Projects',
+    drawer: () => ({
       label: 'Projects',
-      icon: () => <MaterialIcons icon="assignment" />,
-    },
+      icon: ({ tintColor }) => (
+        <MaterialIcons
+          name="assignment"
+          size={24}
+          style={{ color: tintColor }}
+        />
+      ),
+    }),
   }
   render() {
     return <Text>Other Thing</Text>;
