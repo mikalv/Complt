@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
-import PropTypes from '../PropTypes';
+import PropTypes from '../../common/PropTypes';
 
 export const Projects = props => (
   <div>

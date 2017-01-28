@@ -4,8 +4,8 @@ import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
-import PropTypes from '../PropTypes';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
+import PropTypes from '../../common/PropTypes';
 
 
 export const renderTextField = ({

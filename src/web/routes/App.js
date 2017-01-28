@@ -10,7 +10,7 @@ import Snackbar from 'react-md/lib/Snackbars';
 import Link from 'react-router/lib/Link';
 import Button from 'react-md/lib/Buttons';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import UpdateItemDialog from '../components/UpdateItemDialog';
 import MoveItemDialog from '../components/MoveItemDialog';
 

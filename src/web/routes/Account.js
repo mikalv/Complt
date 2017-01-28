@@ -4,7 +4,7 @@ import Avatar from 'react-md/lib/Avatars';
 import Button from 'react-md/lib/Buttons/Button';
 import WebAuth from 'auth0-js/src/web-auth';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 
 export const Account = props => (
   <div className="flex center column text-center" style={{ paddingTop: '100px' }}>

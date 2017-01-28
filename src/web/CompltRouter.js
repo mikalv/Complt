@@ -8,7 +8,7 @@ import Login from './routes/Login';
 import RootProject from './routes/RootProject';
 import Project from './routes/Project';
 import All from './routes/All';
-import isTokenExpired from './utils/auth';
+import isTokenExpired from './../common/utils/auth';
 
 class CompltRouter extends Component {
   constructor(props) {

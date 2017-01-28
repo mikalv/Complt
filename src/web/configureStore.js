@@ -5,18 +5,18 @@ import PouchMiddleware from 'pouch-redux-middleware';
 import RavenMiddleware from 'redux-raven-middleware';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
-import browserHistory from '../history';
-import auth from './auth';
-import items from './items';
-import profile from './profile';
-import toasts from './toasts';
-import dialogs from './dialogs';
-import syncState from './syncState';
-import logException from '../utils/logException';
-import db from '../db';
-import { removeItemPouch, insertItemPouch, updateItemPouch } from './actions';
+import browserHistory from './history';
+import auth from '../common/redux/auth';
+import items from '../common/redux/items';
+import profile from '../common/redux/profile';
+import toasts from '../common/redux/toasts';
+import dialogs from '../common/redux/dialogs';
+import syncState from '../common/redux/syncState';
+import logException from '../common/utils/logException';
+import db from '../common/db';
+import { removeItemPouch, insertItemPouch, updateItemPouch } from '../common/redux/actions';
 
-const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
+const pouchMiddleware = PouchMiddleware({
   path: '/items',
   db,
   actions: {
@@ -35,7 +35,7 @@ const pouchMiddleware = PouchMiddleware({ // eslint-disable-line new-cap
 let middleware = applyMiddleware(thunk, pouchMiddleware, routerMiddleware(browserHistory));
 
 if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware, routerMiddleware(browserHistory)); // eslint-disable-line new-cap
+  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware, routerMiddleware(browserHistory));
 }
 
 let enhancer;

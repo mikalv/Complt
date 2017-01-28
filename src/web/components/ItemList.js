@@ -1,7 +1,7 @@
 import React from 'react';
 import List from 'react-md/lib/Lists/List';
 import Item from './Item';
-import PropTypes from '../PropTypes';
+import PropTypes from '../../common/PropTypes';
 
 const ItemList = ({
     items = [],

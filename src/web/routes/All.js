@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from '../components/ItemList';
-import PropTypes from '../PropTypes';
+import PropTypes from '../../common/PropTypes';
 
 export const All = props => (<ItemList
   onItemAvatarTap={(i) => {

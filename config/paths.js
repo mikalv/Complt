@@ -29,7 +29,7 @@ module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp(process.env.REACT_APP_ELECTRON ? 'electron' : 'public'),
   appHtml: resolveApp(process.env.REACT_APP_ELECTRON ? 'electron/index.html' : 'public/index.html'),
-  appIndexJs: resolveApp('src/index.js'),
+  appIndexJs: resolveApp('src/web/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   testsSetup: resolveApp('src/setupTests.js'),

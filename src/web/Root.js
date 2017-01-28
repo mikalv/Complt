@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import store, { history } from './redux/configureStore';
+import store, { history } from './configureStore';
 import IconContext from './components/IconContext';
 import CompltRouter from './CompltRouter';
 

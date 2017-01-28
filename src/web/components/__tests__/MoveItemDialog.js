@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { MoveItemDialog, mapStateToProps, moveItem } from '../MoveItemDialog';
-import itemsToTree from '../../utils/itemsToTree';
+import itemsToTree from '../../../common/utils/itemsToTree';
 
 jest.mock('../../utils/itemsToTree');
 

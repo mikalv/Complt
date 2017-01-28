@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 import { push } from 'react-router-redux';
-import PouchDB from 'pouchdb/lib/index-browser';
+import PouchDB from '../PouchDB';
 import db from '../db';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
