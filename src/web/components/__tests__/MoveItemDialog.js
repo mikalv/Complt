@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { MoveItemDialog, mapStateToProps, moveItem } from '../MoveItemDialog';
 import itemsToTree from '../../../common/utils/itemsToTree';
 
-jest.mock('../../utils/itemsToTree');
+jest.mock('../../../common/utils/itemsToTree');
 
 const items = [
   { isProject: true, _id: 'root', children: ['item1', 'item2'] },
