@@ -1,5 +1,6 @@
 import Exponent from 'exponent';
 import React from 'react';
+import { Provider } from 'react-redux';
 import {
   StatusBar,
   StyleSheet,
@@ -7,13 +8,17 @@ import {
   Platform,
 } from 'react-native';
 import RootNavigation from './src/native/RootNavigation';
+import store from './src/native/configureStore';
 
 const AppContainer = () => (
-  <View style={styles.container}>
-    {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-    {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-    <RootNavigation />
-  </View>
+  <Provider store={store}>
+    <View style={styles.container}>
+      {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+      {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+      <RootNavigation />
+    </View>
+  </Provider>
+
 );
 
 const styles = StyleSheet.create({
