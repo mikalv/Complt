@@ -6,6 +6,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'no-underscore-dangle': 0,
     'import/no-named-as-default': 0,
+    'no-use-before-define': 0,
+    'new-cap': 0,
   },
   env: {
     jest: true,
