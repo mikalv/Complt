@@ -7,18 +7,27 @@ import {
   View,
   Platform,
 } from 'react-native';
+import { ThemeProvider } from 'react-native-material-ui';
 import RootNavigation from './src/native/RootNavigation';
 import store from './src/native/configureStore';
+import colors from './src/common/colors';
+
+const uiTheme = {
+  palette: {
+    primaryColor: colors.primary,
+  },
+};
 
 const AppContainer = () => (
-  <Provider store={store}>
-    <View style={styles.container}>
-      {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-      {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-      <RootNavigation />
-    </View>
-  </Provider>
-
+  <ThemeProvider uiTheme={uiTheme}>
+    <Provider store={store}>
+      <View style={styles.container}>
+        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+        <RootNavigation />
+      </View>
+    </Provider>
+  </ThemeProvider>
 );
 
 const styles = StyleSheet.create({

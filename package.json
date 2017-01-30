@@ -87,6 +87,7 @@
     "react-icons": "^2.2.3",
     "react-md": "^1.0.0",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-13.0.3.tar.gz",
+    "react-native-material-ui": "^1.6.0",
     "react-navigation": "^1.0.0-beta.1",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
