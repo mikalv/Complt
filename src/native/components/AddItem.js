@@ -57,7 +57,7 @@ class AddItem extends Component {
             {!this.state.isProject ? <IconToggle name="label" onPress={this.ActionLabelTap} /> : null}
           </View>
           <View style={styles.flexEnd}>
-            <IconToggle onPress={this.switchType} name={this.state.isProject ? 'assignment' : 'done'} />
+            {this.props.canChangeType ? <IconToggle onPress={this.switchType} name={this.state.isProject ? 'assignment' : 'done'} /> : null}
             <IconToggle onPress={this.submitItem} name="send" />
           </View>
         </View>
@@ -68,6 +68,7 @@ class AddItem extends Component {
 AddItem.propTypes = {
   onAddItem: React.PropTypes.func,
   initialIsProject: React.PropTypes.bool,
+  canChangeType: React.PropTypes.bool,
 };
 
 const styles = StyleSheet.create({
