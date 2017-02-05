@@ -1,49 +1,43 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
-import PropTypes from '../PropTypes';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
+import PropTypes from '../../common/PropTypes';
 
-export const Projects = props => (
-  <div>
-    <ItemList
-      onDelete={(i) => {
+const ProjectView = props => (
+  <View style={styles.container}>
+    <View style={styles.itemList}><ItemList
+      onDeletePress={(i) => {
         const item = props.projectChildren[i];
         if (item.isProject) props.deleteProject(props.projectId, item._id);
         else props.deleteTask(props.projectId, item._id);
       }}
-      canDeleteTask
-      canDeleteProject
-      canMove
-      onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
-      onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
-      onItemAvatarTap={(i) => {
+      onAvatarPress={(i) => {
         if (!props.projectChildren[i].isProject) {
           props.completeTask(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted);
         }
       }}
       items={props.projectChildren}
-      onItemTap={(i) => {
+      onItemPress={(i) => {
         if (props.projectChildren[i].isProject) {
           props.routerPush(`/project/${props.projectChildren[i]._id}`);
         }
       }}
-      style={{ marginBottom: '116px', height: '100%' }}
-    />
-    <div className="AddItem-fixed">
-      <AddItem
-        initialIsProject={props.initialIsProject}
-        canChangeType={props.canChangeType}
-        onAddItem={(item) => {
-          if (item.isProject) props.createProject(props.projectId, item);
-          else props.createTask(props.projectId, item);
-        }}
-      />
-    </div>
-  </div>
+    /></View>
+    <View style={styles.addItem}><AddItem
+      initialIsProject={props.initialIsProject}
+      canChangeType={props.canChangeType}
+      onAddItem={(item) => {
+        if (item.isProject) props.createProject(props.projectId, item);
+        else props.createTask(props.projectId, item);
+      }}
+    /></View>
+  </View>
 );
-Projects.propTypes = {
+
+ProjectView.propTypes = {
   projectChildren: React.PropTypes.arrayOf(PropTypes.item),
   createProject: React.PropTypes.func,
   createTask: React.PropTypes.func,
@@ -53,6 +47,18 @@ Projects.propTypes = {
   canChangeType: React.PropTypes.bool,
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  itemList: {
+    flex: 3,
+  },
+  addItem: {
+    flex: 1,
+  },
+});
+
 export function mapStateToProps(state, ownProps) {
   const project = state.items.find(item => item._id === ownProps.projectId);
   if (project === undefined) return { projectChildren: [] };
@@ -61,4 +67,4 @@ export function mapStateToProps(state, ownProps) {
   return { projectChildren };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectView);

@@ -6,7 +6,7 @@ import Send from 'react-icons/lib/md/send';
 import TextField from 'react-md/lib/TextFields';
 import Paper from 'react-md/lib/Papers';
 import Button from 'react-md/lib/Buttons';
-import processItem from '../utils/processItem';
+import processItem from '../../common/utils/processItem';
 import './AddItem.css';
 
 class AddItem extends Component {

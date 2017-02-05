@@ -3,10 +3,10 @@ import Dialog from 'react-md/lib/Dialogs';
 import Button from 'react-md/lib/Buttons';
 import Toolbar from 'react-md/lib/Toolbars';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
-import itemsToTree from '../utils/itemsToTree';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
+import itemsToTree from '../../common/utils/itemsToTree';
 import MoveItemList from './MoveItemList';
-import PropTypes from '../PropTypes';
+import PropTypes from '../../common/PropTypes';
 
 export const moveItem = (handleMoveItem, id, parentProject) => newParent =>
 handleMoveItem(id, parentProject, newParent);

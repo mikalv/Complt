@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-md/lib/Buttons/Button';
 import WebAuth from 'auth0-js/src/web-auth';
-import mapDispatchToProps from '../utils/mapDispatchToProps';
-import logException from '../utils/logException';
+import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
+import logException from '../../common/utils/logException';
 
 export class Login extends Component {
   constructor(props) {

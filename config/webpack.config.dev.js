@@ -47,7 +47,7 @@ module.exports = {
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Finally, this is your app's code:
-    require.resolve('../src/index-dev.js'),
+    require.resolve('../src/web/index-dev.js'),
     // We include the app code last so that if there is a runtime error during
     // initialization, it doesn't blow up the WebpackDevServer client, and
     // changing JS code would still trigger a refresh.
@@ -100,7 +100,8 @@ module.exports = {
         include: paths.appSrc,
         loader: 'babel',
         query: {
-
+          presets: ['es2015', 'react', 'stage-3'],
+          plugins: ['react-hot-loader/babel'],
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
           // directory for faster rebuilds. We use findCacheDir() because of:
