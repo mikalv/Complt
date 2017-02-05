@@ -9,6 +9,7 @@ import Avatar from 'react-md/lib/Avatars';
 import Chip from 'react-md/lib/Chips';
 import Button from 'react-md/lib/Buttons';
 import PropTypes from '../../common/PropTypes';
+import colors from '../../common/colors';
 import './Item.css';
 
 const Item = ({
@@ -24,7 +25,7 @@ const Item = ({
   <ListItem
     leftAvatar={<Avatar
       onClick={onAvatarTouchTap}
-      icon={item.isProject === true ? <Assignment /> : <Done color={item.isCompleted ? '#00E676' : undefined} />}
+      icon={item.isProject === true ? <Assignment /> : <Done color={item.isCompleted ? colors.completedItem : undefined} />}
     />}
     onClick={onItemTap}
     threeLines
