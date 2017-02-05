@@ -1,8 +1,8 @@
 import { DrawerNavigator } from 'react-navigation';
 import Inbox from './routes/Inbox';
-import Projects from './routes/Projects';
+import RootProject from './routes/RootProject';
 
 export default DrawerNavigator({
   Inbox: { screen: Inbox },
-  Projects: { screen: Projects },
+  RootProject: { screen: RootProject },
 });
