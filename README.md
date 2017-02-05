@@ -9,9 +9,11 @@
 
 [app.complt.xyz](https://app.complt.xyz/)
 
+The canonical source for this project is on [GitLab](https://gitlab.com/mitchellhamilton/Complt) but it is also mirrored to [GitHub](https://github.com/mitchellhamilton/Complt)
+
 The front-end of this project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) but then ejected. The front-end uses [Redux](http://redux.js.org/) along with PouchDB to store user data locally
 
-The client communicates to a [Cloudant Envoy](https://github.com/cloudant-labs/envoy), a CouchDB replciation target which makes it look to clients as if they have their own database but stores the data in one CouchDB database.
+The client communicates to [Cloudant Envoy](https://github.com/cloudant-labs/envoy), a CouchDB replication target which makes it look to clients as if they have their own database but stores the data in one CouchDB database.
 
 The front-end is written in ES6, transpiled using [babel](https://babeljs.io/), bundled using [Webpack](https://webpack.github.io/) and follows [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript) with a few small exceptions.
 
