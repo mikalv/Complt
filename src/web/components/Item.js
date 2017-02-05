@@ -25,7 +25,10 @@ const Item = ({
   <ListItem
     leftAvatar={<Avatar
       onClick={onAvatarTouchTap}
-      icon={item.isProject === true ? <Assignment /> : <Done color={item.isCompleted ? colors.completedItem : undefined} />}
+      icon={item.isProject === true ?
+        <Assignment /> :
+        <Done color={item.isCompleted ? colors.completedItem : undefined} />
+      }
     />}
     onClick={onItemTap}
     threeLines
