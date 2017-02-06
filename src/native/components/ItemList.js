@@ -9,7 +9,7 @@ const List = props => (
     {props.items.map((item, i) => {
       if (!item) return null;
       return (<Item
-        key={i}
+        key={item._id}
         item={item}
         onAvatarPress={props.onAvatarPress !== undefined ? () => props.onAvatarPress(i) : undefined}
         onItemPress={props.onAvatarPress !== undefined ? () => props.onAvatarPress(i) : undefined}

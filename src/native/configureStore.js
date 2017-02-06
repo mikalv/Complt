@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const enhancer = compose(
   autoRehydrate(),
-  middleware
+  middleware,
 );
 
 
@@ -51,7 +51,7 @@ const store = createStore(
     dialogs,
     form: formReducer,
   }),
-  enhancer
+  enhancer,
 );
 
 persistStore(store, {

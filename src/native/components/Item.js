@@ -24,7 +24,7 @@ const Item = props => (
       <View style={styles.centerContainer}>
         <Text style={styles.name}>{props.item.name}</Text>
         {props.item.tags ? <View style={styles.tagContainer}>
-          {props.item.tags.map((tag, i) => <Chip key={i} text={tag} />)}
+          {props.item.tags.map(tag => <Chip key={tag} text={tag} />)}
         </View> : null}
       </View>
       <View><IconToggle name="delete" onPress={props.onDeletePress} /></View>

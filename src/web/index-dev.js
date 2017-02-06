@@ -12,7 +12,7 @@ ReactDOM.render(
   <AppContainer>
     {Root}
   </AppContainer>,
-  rootEl
+  rootEl,
 );
 
 if (module.hot) {
@@ -23,7 +23,7 @@ if (module.hot) {
       <AppContainer>
         {NextApp}
       </AppContainer>,
-      rootEl
+      rootEl,
     );
   });
 }

@@ -19,7 +19,7 @@ const ItemList = ({
     {items.map((item, i) => {
       if (!item) return null;
       return (<Item
-        key={i}
+        key={item._id}
         item={item}
         canDelete={
           (canDeleteTask && item.isProject === false) ||

@@ -11,5 +11,5 @@ Raven.config('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { rele
 
 ReactDOM.render(
   Root,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

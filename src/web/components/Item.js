@@ -35,7 +35,7 @@ const Item = ({
     primaryText={item.name}
     secondaryText={!item.tags || item.tags.length === 0 ? undefined : <div className="Item-chip-container">
       {item.tags.map(
-        (tag, i) => <Chip key={i} style={{ marginRight: 5, marginTop: 3 }} label={tag} />)}
+        tag => <Chip key={tag} style={{ marginRight: 5, marginTop: 3 }} label={tag} />)}
     </div>}
   >
     <Button

@@ -44,12 +44,12 @@ if (window.__REDUX_DEVTOOLS_EXTENSION__) {
   enhancer = compose(
       autoRehydrate(),
       middleware,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
 } else {
   enhancer = compose(
     autoRehydrate(),
-    middleware
+    middleware,
     );
 }
 
@@ -64,7 +64,7 @@ const store = createStore(
     dialogs,
     form: formReducer,
   }),
-  enhancer
+  enhancer,
 );
 
 persistStore(store, {
