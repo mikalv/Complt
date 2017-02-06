@@ -8,6 +8,7 @@ module.exports = {
     'import/no-named-as-default': 0,
     'no-use-before-define': 0,
     'new-cap': 0,
+    'react/require-default-props': 0, // <- This rule should be made to error later
   },
   env: {
     jest: true,
