@@ -5,6 +5,7 @@ import db from '../db';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
 import processItem from '../utils/processItem';
+import renewAuth from '../../web/renewAuth';
 import {
   LOGIN,
   LOGOUT,
@@ -110,20 +111,28 @@ export const syncOnComplete = dispatch => () => {
   dispatch(syncSucceded());
 };
 
-export const sync = () => (dispatch, getState) => {
+export const attemptSync = () => (dispatch, getState) => {
   if (isTokenExpired(getState().auth)) {
-    dispatch(showSignInToast());
-    dispatch(syncFailed());
-  } else {
-    dispatch(syncStarted());
-    dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
-    const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
-      ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
+    renewAuth().then((idToken) => {
+      dispatch(login(idToken));
+      dispatch(sync());
+    }).catch(() => {
+      dispatch(showSignInToast());
+      dispatch(syncFailed());
     });
-    PouchDB.sync(db, remoteDB)
-      .on('error', syncOnError(dispatch))
-      .on('complete', syncOnComplete(dispatch));
-  }
+  } else dispatch(sync());
+};
+
+export const sync = () => (dispatch, getState) => {
+  dispatch(syncStarted());
+  dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
+  const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
+    ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
+    skipSetup: true,
+  });
+  PouchDB.sync(db, remoteDB)
+    .on('error', syncOnError(dispatch))
+    .on('complete', syncOnComplete(dispatch));
 };
 export const updateItem = item => ({
   type: UPDATE_ITEM,

@@ -62,7 +62,7 @@ export const App = props => (
     desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
     toolbarTitle="Complt"
     toolbarActions={[
-      <Button icon onClick={props.sync}><Sync /></Button>,
+      <Button icon onClick={props.attemptSync}><Sync /></Button>,
     ]}
   >
     {props.children}
@@ -78,7 +78,7 @@ App.propTypes = {
     pathname: React.PropTypes.string.isRequired,
   }),
   dismissToast: React.PropTypes.func,
-  sync: React.PropTypes.func,
+  attemptSync: React.PropTypes.func,
   /* eslint-disable react/no-unused-prop-types */
   toasts: React.PropTypes.arrayOf(React.PropTypes.shape({
     text: React.PropTypes.string.isRequired,
