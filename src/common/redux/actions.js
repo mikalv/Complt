@@ -99,17 +99,18 @@ export const attemptSync = () => (dispatch, getState) => {
   dispatch(syncStarted());
   dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
   if (isTokenExpired(getState().auth)) {
-    renewAuth().then((idToken) => {
+    return renewAuth().then((idToken) => {
       dispatch(login(idToken));
-      dispatch(sync());
+      return sync(dispatch, getState)();
     }).catch(() => {
       dispatch(showSignInToast());
       dispatch(syncFailed());
     });
-  } else dispatch(sync());
+  }
+  return sync(dispatch, getState)();
 };
 
-export const sync = () => (dispatch, getState) => {
+export const sync = (dispatch, getState) => () =>
   pouchDBSync(getState().auth, process.env.REACT_APP_COUCH_URL)
   .then(() => {
     dispatch(showToast({ text: 'Syncing finished' }));
@@ -124,7 +125,6 @@ export const sync = () => (dispatch, getState) => {
     }
     dispatch(syncFailed());
   });
-};
 
 export const updateItem = item => ({
   type: UPDATE_ITEM,
