@@ -112,6 +112,8 @@ export const syncOnComplete = dispatch => () => {
 };
 
 export const attemptSync = () => (dispatch, getState) => {
+  dispatch(syncStarted());
+  dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
   if (isTokenExpired(getState().auth)) {
     renewAuth().then((idToken) => {
       dispatch(login(idToken));
@@ -124,8 +126,6 @@ export const attemptSync = () => (dispatch, getState) => {
 };
 
 export const sync = () => (dispatch, getState) => {
-  dispatch(syncStarted());
-  dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
   const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
     ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
     skipSetup: true,
@@ -134,6 +134,7 @@ export const sync = () => (dispatch, getState) => {
     .on('error', syncOnError(dispatch))
     .on('complete', syncOnComplete(dispatch));
 };
+
 export const updateItem = item => ({
   type: UPDATE_ITEM,
   item,
