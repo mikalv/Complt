@@ -52,7 +52,7 @@ var config = {
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
-  // devtool: 'source-map',
+  devtool: 'source-map',
   // In production, we only want to load the polyfills and the app code.
   entry: [
     require.resolve('./polyfills'),
@@ -252,7 +252,6 @@ var config = {
 };
 
 if (process.env.SENTRY) {
-  config.devtool = 'source-map';
   config.plugins.push(new SentryPlugin({
     organisation: 'mitchell-hamilton',
     project: 'Complt',
