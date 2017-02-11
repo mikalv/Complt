@@ -241,8 +241,7 @@ exports[`ItemList component renders an item correctly 1`] = `
                     icon={true}
                     inkTransitionEnterTimeout={450}
                     inkTransitionLeaveTimeout={300}
-                    inkTransitionOverlap={150}
-                    onClick={[Function]}>
+                    inkTransitionOverlap={150}>
                     <ButtonTooltiped
                       icon={true}
                       ink={
@@ -257,7 +256,6 @@ exports[`ItemList component renders an item correctly 1`] = `
                           transitionOverlap={150}
                           waitForInkTransition={undefined} />
                       }
-                      onClick={[Function]}
                       tooltipDelay={0}
                       tooltipPosition="bottom"
                       tooltipTransitionEnterTimeout={150}
@@ -278,11 +276,9 @@ exports[`ItemList component renders an item correctly 1`] = `
                             transitionOverlap={150}
                             waitForInkTransition={undefined} />
                         }
-                        onClick={[Function]}
                         type="button">
                         <button
                           className="md-inline-block md-btn md-btn--icon md-pointer--hover"
-                          onClick={[Function]}
                           onKeyDown={[Function]}
                           onKeyUp={[Function]}
                           onMouseDown={[Function]}
@@ -340,8 +336,7 @@ exports[`ItemList component renders an item correctly 1`] = `
                     icon={true}
                     inkTransitionEnterTimeout={450}
                     inkTransitionLeaveTimeout={300}
-                    inkTransitionOverlap={150}
-                    onClick={[Function]}>
+                    inkTransitionOverlap={150}>
                     <ButtonTooltiped
                       icon={true}
                       ink={
@@ -356,7 +351,6 @@ exports[`ItemList component renders an item correctly 1`] = `
                           transitionOverlap={150}
                           waitForInkTransition={undefined} />
                       }
-                      onClick={[Function]}
                       tooltipDelay={0}
                       tooltipPosition="bottom"
                       tooltipTransitionEnterTimeout={150}
@@ -377,11 +371,9 @@ exports[`ItemList component renders an item correctly 1`] = `
                             transitionOverlap={150}
                             waitForInkTransition={undefined} />
                         }
-                        onClick={[Function]}
                         type="button">
                         <button
                           className="md-inline-block md-btn md-btn--icon md-pointer--hover"
-                          onClick={[Function]}
                           onKeyDown={[Function]}
                           onKeyUp={[Function]}
                           onMouseDown={[Function]}

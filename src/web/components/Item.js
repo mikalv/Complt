@@ -12,6 +12,16 @@ import PropTypes from '../../common/PropTypes';
 import colors from '../../common/colors';
 import './Item.css';
 
+const stopPropagation = (callback) => {
+  if (typeof callback === 'function') {
+    return (e) => {
+      e.stopPropagation();
+      callback(e);
+    };
+  }
+  return callback;
+};
+
 const Item = ({
   item = {},
   onAvatarTouchTap,
@@ -24,13 +34,13 @@ const Item = ({
 }) => (
   <ListItem
     leftAvatar={<Avatar
-      onClick={onAvatarTouchTap}
+      onClick={stopPropagation(onAvatarTouchTap)}
       icon={item.isProject === true ?
         <Assignment /> :
         <Done color={item.isCompleted ? colors.completedItem : undefined} />
       }
     />}
-    onClick={onItemTap}
+    onClick={stopPropagation(onItemTap)}
     threeLines
     primaryText={item.name}
     secondaryText={!item.tags || item.tags.length === 0 ? undefined : <div className="Item-chip-container">
@@ -38,28 +48,10 @@ const Item = ({
         tag => <Chip key={tag} style={{ marginRight: 5, marginTop: 3 }} label={tag} />)}
     </div>}
   >
-    <Button
-      icon
-      onClick={(e) => {
-        e.stopPropagation();
-        onItemUpdate(e);
-      }}
-    ><Create /></Button>
-    {canMove ? <Button
-      icon
-      onClick={(e) => {
-        e.stopPropagation();
-        onItemMove(e);
-      }}
-    ><MoreVert /></Button> : undefined}
+    <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
+    {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button> : undefined}
     {canDelete ?
-      <Button
-        icon
-        onClick={(e) => {
-          e.stopPropagation();
-          onDelete(e);
-        }}
-      ><Delete /></Button> : undefined}
+      <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
   </ListItem>);
 
 Item.propTypes = {

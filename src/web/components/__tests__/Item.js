@@ -51,4 +51,13 @@ describe('Item component', () => {
     expect(onItemTap).not.toBeCalled();
     expect(onItemMove).toBeCalled();
   });
+  it('only calls onAvatarTouchTap when the avatar is pressed', () => {
+    const onItemTap = jest.fn();
+    const onAvatarTouchTap = jest.fn();
+    const component = mount(<Item canMove onItemTap={onItemTap} onAvatarTouchTap={onAvatarTouchTap} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
+    expect(component).toMatchSnapshot();
+    component.find('Avatar').simulate('click');
+    expect(onItemTap).not.toBeCalled();
+    expect(onAvatarTouchTap).toBeCalled();
+  });
 });
