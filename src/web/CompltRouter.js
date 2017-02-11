@@ -38,6 +38,7 @@ class CompltRouter extends Component {
             <Route path="account" component={Account} />
           </Route>
         </Route>
+        <Route path="callback" />
       </Router>
     );
   }
