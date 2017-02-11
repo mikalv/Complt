@@ -1,7 +1,6 @@
 import uuid from 'uuid';
 import { push } from 'react-router-redux';
-import PouchDB from '../PouchDB';
-import db from '../db';
+import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
 import processItem from '../utils/processItem';
@@ -96,21 +95,6 @@ export const syncSucceded = () => ({
   type: SYNC_SUCCEDED,
 });
 
-export const syncOnError = dispatch => (error) => {
-  if (error.status === 401) {
-    dispatch(showSignInToast());
-  } else {
-    logException(new Error('An error occured while syncing'), error);
-    dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
-  }
-  dispatch(syncFailed());
-};
-
-export const syncOnComplete = dispatch => () => {
-  dispatch(showToast({ text: 'Syncing finished' }));
-  dispatch(syncSucceded());
-};
-
 export const attemptSync = () => (dispatch, getState) => {
   dispatch(syncStarted());
   dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
@@ -126,13 +110,20 @@ export const attemptSync = () => (dispatch, getState) => {
 };
 
 export const sync = () => (dispatch, getState) => {
-  const remoteDB = new PouchDB(process.env.REACT_APP_COUCH_URL, {
-    ajax: { headers: { Authorization: `Bearer ${getState().auth}` } },
-    skipSetup: true,
+  pouchDBSync(getState().auth, process.env.REACT_APP_COUCH_URL)
+  .then(() => {
+    dispatch(showToast({ text: 'Syncing finished' }));
+    dispatch(syncSucceded());
+  })
+  .catch((error) => {
+    if (error.status === 401) {
+      dispatch(showSignInToast());
+    } else {
+      logException(new Error('An error occured while syncing'), error);
+      dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
+    }
+    dispatch(syncFailed());
   });
-  PouchDB.sync(db, remoteDB)
-    .on('error', syncOnError(dispatch))
-    .on('complete', syncOnComplete(dispatch));
 };
 
 export const updateItem = item => ({
