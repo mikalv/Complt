@@ -9,12 +9,14 @@ export class Login extends Component {
   constructor(props) {
     super(props);
     this.loginWithGoogle = this.loginWithGoogle.bind(this);
+    const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
     this.auth0 = new WebAuth({
       domain: process.env.REACT_APP_AUTH0_DOMAIN,
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
       redirectUri: window.location.href,
       responseType: 'id_token',
       scope: 'openid',
+      audience,
     });
     this.loginCallback = this.loginCallback.bind(this);
   }
