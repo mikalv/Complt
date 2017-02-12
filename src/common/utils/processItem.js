@@ -5,6 +5,8 @@ export default function processItem(value, isProject) {
       isProject: true,
       name: '',
       children: [],
+      isCompleted: false,
+      tags: [],
     };
   } else {
     item = {

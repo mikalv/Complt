@@ -3,7 +3,7 @@ import {
   INSERT_ITEM_POUCH,
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
-  COMPLETE_TASK,
+  COMPLETE_ITEM,
   DELETE_TASK,
   DELETE_PROJECT,
   UPDATE_ITEM,
@@ -69,7 +69,7 @@ export default function itemsReducer(state = initialState, action) {
         action.item,
       ];
     }
-    case COMPLETE_TASK: {
+    case COMPLETE_ITEM: {
       const indexOfId = state.findIndex(item => item._id === action.id);
       if (indexOfId === -1) return state;
       return [
@@ -127,22 +127,13 @@ export default function itemsReducer(state = initialState, action) {
     case UPDATE_ITEM: {
       const indexOfOldItem = state.findIndex(item => item._id === action.item._id);
       const oldItem = state[indexOfOldItem];
-      let newItem;
-      if (oldItem.isProject) {
-        newItem = {
-          ...oldItem,
-          name: action.item.name,
-        };
-      } else {
-        newItem = {
+      return [
+        ...state.slice(0, indexOfOldItem),
+        {
           ...oldItem,
           name: action.item.name,
           tags: action.item.tags,
-        };
-      }
-      return [
-        ...state.slice(0, indexOfOldItem),
-        newItem,
+        },
         ...state.slice(indexOfOldItem + 1),
       ];
     }

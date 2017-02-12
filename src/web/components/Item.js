@@ -36,7 +36,7 @@ const Item = ({
     leftAvatar={<Avatar
       onClick={stopPropagation(onAvatarTouchTap)}
       icon={item.isProject === true ?
-        <Assignment /> :
+        <Assignment color={item.isCompleted ? colors.completedItem : undefined} /> :
         <Done color={item.isCompleted ? colors.completedItem : undefined} />
       }
     />}

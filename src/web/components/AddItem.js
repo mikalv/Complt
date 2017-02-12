@@ -53,9 +53,9 @@ class AddItem extends Component {
             />
             <div className="flex row space-between">
               <div>
-                {this.state.isProject ? null : <Button icon onClick={this.ActionLabelTap}>
+                <Button icon onClick={this.ActionLabelTap}>
                   <Label />
-                </Button>}
+                </Button>
               </div>
               <div>
                 {this.props.canChangeType ? <Button icon onClick={this.switchType}>
