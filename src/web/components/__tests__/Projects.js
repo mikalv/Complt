@@ -43,11 +43,11 @@ describe('Projects component', () => {
     component.childAt(0).childAt(2).find('MdMoreVert').simulate('click');
     expect(showMoveItemDialog).toBeCalledWith('item3', 'root');
   });
-  it('calls completeTask correctly when a task is completed', () => {
-    const completeTask = jest.fn();
-    const component = mount(<Projects projectChildren={items} completeTask={completeTask} projectId="root" />);
+  it('calls completeItem correctly when an item is completed', () => {
+    const completeItem = jest.fn();
+    const component = mount(<Projects projectChildren={items} completeItem={completeItem} projectId="root" />);
     component.childAt(0).childAt(2).find('Avatar').simulate('click');
-    expect(completeTask).toBeCalledWith('item3', true);
+    expect(completeItem).toBeCalledWith('item3', true);
   });
   it('calls routerPush correctly when a project is clicked', () => {
     const routerPush = jest.fn();
@@ -60,9 +60,9 @@ describe('Projects component', () => {
     const createProject = jest.fn();
     const component = mount(<Projects projectChildren={items} initialIsProject createProject={createProject} projectId="root" />);
     const input = component.find('input').first();
-    input.simulate('change', { target: { value: 'Some Project' } });
+    input.simulate('change', { target: { value: 'Some Project @tag' } });
     component.find({ type: 'submit' }).simulate('submit');
-    expect(createProject).toBeCalledWith('root', { name: 'Some Project', isProject: true, children: [] });
+    expect(createProject).toBeCalledWith('root', { name: 'Some Project', isProject: true, children: [], isCompleted: false, tags: ['@tag'] });
   });
   it('calls createTask when a task is created', () => {
     const createTask = jest.fn();
