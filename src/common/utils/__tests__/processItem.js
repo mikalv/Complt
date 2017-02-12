@@ -10,7 +10,6 @@ describe('processItem(value, type)', () => {
   it('returns null if the value only contains tags', () => {
     expect(processItem('@tag @tag2', false)).toEqual(null);
   });
-  
   it('returns a object with isProject === true if the isProject value passed is false', () => {
     expect(processItem('Some Task', false).isProject).toEqual(false);
   });
