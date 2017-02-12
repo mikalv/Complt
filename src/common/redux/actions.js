@@ -13,7 +13,7 @@ import {
   INSERT_ITEM_POUCH,
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
-  COMPLETE_TASK,
+  COMPLETE_ITEM,
   DELETE_TASK,
   DELETE_PROJECT,
   SHOW_TOAST,
@@ -53,7 +53,7 @@ export const createProject = (parentProjectId, item) => ({
   item: { _id: uuid.v4(), isProject: true, ...item },
 });
 
-export const completeTask = (id, isCompleted) => ({ type: COMPLETE_TASK, id, isCompleted });
+export const completeItem = (id, isCompleted) => ({ type: COMPLETE_ITEM, id, isCompleted });
 
 export const deleteTask = (parentProjectId, id) => ({
   type: DELETE_TASK,

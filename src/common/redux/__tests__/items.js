@@ -111,16 +111,16 @@ describe('itemsReducer', () => {
       { _id: 'item5', isProject: false, isCompleted: false, tags: [], name: 'A Task' },
     ]);
   });
-  it('handles COMPLETE_TASK correctly', () => {
-    expect(reducer(items, actions.completeTask('item3', true))).toEqual([
+  it('handles COMPLETE_ITEM correctly', () => {
+    expect(reducer(items, actions.completeItem('item3', true))).toEqual([
       { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item3', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item4', isProject: true, children: ['item1', 'item2', 'item3'] },
     ]);
   });
-  it('handles COMPLETE_TASK correctly if the id doesn\'t exist', () => {
-    expect(reducer(items, actions.completeTask('item30', true))).toEqual(items);
+  it('handles COMPLETE_ITEM correctly if the id doesn\'t exist', () => {
+    expect(reducer(items, actions.completeItem('item30', true))).toEqual(items);
   });
   it('handles DELETE_TASK correctly', () => {
     expect(reducer(items, actions.deleteTask('item4', 'item3'))).toEqual([

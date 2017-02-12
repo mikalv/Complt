@@ -864,7 +864,10 @@ exports[`Item component renders a project correctly 1`] = `
     expanderIconChildren="keyboard_arrow_down"
     leftAvatar={
       <Avatar
-        icon={<MdAssignment />}
+        icon={
+          <MdAssignment
+            color={undefined} />
+        }
         onClick={undefined}
         suffixes={
           Array [
@@ -964,7 +967,10 @@ exports[`Item component renders a project correctly 1`] = `
               activeClassName="md-text--theme-primary"
               avatar={
                 <Avatar
-                  icon={<MdAssignment />}
+                  icon={
+                    <MdAssignment
+                      color={undefined} />
+                  }
                   onClick={undefined}
                   suffixes={
                     Array [
@@ -993,7 +999,10 @@ exports[`Item component renders a project correctly 1`] = `
               <div
                 className="md-tile-addon md-tile-addon--avatar">
                 <Avatar
-                  icon={<MdAssignment />}
+                  icon={
+                    <MdAssignment
+                      color={undefined} />
+                  }
                   suffixes={
                     Array [
                       "red",

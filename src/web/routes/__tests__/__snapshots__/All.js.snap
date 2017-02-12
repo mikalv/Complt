@@ -481,7 +481,10 @@ exports[`All component renders correctly 1`] = `
             expanderIconChildren="keyboard_arrow_down"
             leftAvatar={
               <Avatar
-                icon={<MdAssignment />}
+                icon={
+                  <MdAssignment
+                    color={undefined} />
+                }
                 onClick={[Function]}
                 suffixes={
                   Array [
@@ -582,7 +585,10 @@ exports[`All component renders correctly 1`] = `
                       activeClassName="md-text--theme-primary"
                       avatar={
                         <Avatar
-                          icon={<MdAssignment />}
+                          icon={
+                            <MdAssignment
+                              color={undefined} />
+                          }
                           onClick={[Function]}
                           suffixes={
                             Array [
@@ -611,7 +617,10 @@ exports[`All component renders correctly 1`] = `
                       <div
                         className="md-tile-addon md-tile-addon--avatar">
                         <Avatar
-                          icon={<MdAssignment />}
+                          icon={
+                            <MdAssignment
+                              color={undefined} />
+                          }
                           onClick={[Function]}
                           suffixes={
                             Array [
