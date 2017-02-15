@@ -27,6 +27,7 @@ import {
   SHOW_MOVE_ITEM_DIALOG,
   HIDE_MOVE_ITEM_DIALOG,
   MOVE_ITEM,
+  CHANGE_ITEMS_TO_SHOW,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
@@ -177,3 +178,5 @@ export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
   dispatch(hideMoveItemDialog());
   dispatch(moveItem(id, previousParent, newParent));
 };
+
+export const changeItemsToShow = option => ({ type: CHANGE_ITEMS_TO_SHOW, option });
