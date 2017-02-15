@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
+import getFilteredItems from '../../common/utils/getFilteredItems';
 import PropTypes from '../../common/PropTypes';
 
 export const Projects = props => (
@@ -55,7 +56,7 @@ export function mapStateToProps(state, ownProps) {
   if (project === undefined) return { projectChildren: [] };
   const projectChildren = project.children.map(id =>
     state.items.find(item => item._id === id));
-  return { projectChildren };
+  return { projectChildren: getFilteredItems(projectChildren, state.itemsToShow) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);

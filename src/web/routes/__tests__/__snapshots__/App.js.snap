@@ -4,7 +4,7 @@ exports[`App component renders correctly when the pathname does not match a rout
   contentComponent="main"
   contentId="main-content"
   defaultMedia="mobile"
-  desktopDrawerType="full-height"
+  desktopDrawerType="clipped"
   desktopMinWidth={1025}
   drawerTransitionDuration={300}
   extractMini={true}
@@ -51,7 +51,7 @@ exports[`App component renders correctly when the pathname does not match a rout
   }
   persistentIconChildren="arrow_back"
   position="left"
-  tabletDrawerType="full-height"
+  tabletDrawerType="clipped"
   tabletMinWidth={768}
   temporaryIconChildren={<MdMenu />}
   toolbarActions={
@@ -66,7 +66,28 @@ exports[`App component renders correctly when the pathname does not match a rout
     ]
   }
   toolbarThemeType="colored"
-  toolbarTitle="Complt"
+  toolbarTitleMenu={
+    <SelectField
+      defaultValue=""
+      iconChildren={
+        <MdArrowDropDown
+          size={24} />
+      }
+      id="items-to-show-selection"
+      itemLabel="label"
+      itemValue="value"
+      keyboardMatchingTimeout={1000}
+      lineDirection="left"
+      menuItems={
+        Array [
+          "All",
+          "Not Completed",
+          "Completed",
+        ]
+      }
+      position="tl"
+      stretchList={true} />
+  }
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
   <div />
@@ -86,7 +107,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   contentComponent="main"
   contentId="main-content"
   defaultMedia="mobile"
-  desktopDrawerType="full-height"
+  desktopDrawerType="clipped"
   desktopMinWidth={1025}
   drawerTransitionDuration={300}
   extractMini={true}
@@ -134,7 +155,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   }
   persistentIconChildren="arrow_back"
   position="left"
-  tabletDrawerType="full-height"
+  tabletDrawerType="clipped"
   tabletMinWidth={768}
   temporaryIconChildren={<MdMenu />}
   toolbarActions={
@@ -149,7 +170,28 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
     ]
   }
   toolbarThemeType="colored"
-  toolbarTitle="Complt"
+  toolbarTitleMenu={
+    <SelectField
+      defaultValue=""
+      iconChildren={
+        <MdArrowDropDown
+          size={24} />
+      }
+      id="items-to-show-selection"
+      itemLabel="label"
+      itemValue="value"
+      keyboardMatchingTimeout={1000}
+      lineDirection="left"
+      menuItems={
+        Array [
+          "All",
+          "Not Completed",
+          "Completed",
+        ]
+      }
+      position="tl"
+      stretchList={true} />
+  }
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
   <div />

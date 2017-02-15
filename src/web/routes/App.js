@@ -3,13 +3,16 @@ import Menu from 'react-icons/lib/md/menu';
 import Sync from 'react-icons/lib/md/sync';
 import Inbox from 'react-icons/lib/md/inbox';
 import Assignment from 'react-icons/lib/md/assignment';
+import ArrowDropDown from 'react-icons/lib/md/arrow-drop-down';
 import Person from 'react-icons/lib/md/person';
 import Apps from 'react-icons/lib/md/apps';
 import NavigationDrawer from 'react-md/lib/NavigationDrawers';
+import SelectField from 'react-md/lib/SelectFields';
 import Snackbar from 'react-md/lib/Snackbars';
 import Link from 'react-router/lib/Link';
 import Button from 'react-md/lib/Buttons';
 import { connect } from 'react-redux';
+import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import UpdateItemDialog from '../components/UpdateItemDialog';
 import MoveItemDialog from '../components/MoveItemDialog';
@@ -58,9 +61,16 @@ export const App = props => (
     temporaryIconChildren={<Menu />}
     navItems={navItemsWithActive(navItems, props.location.pathname)}
     mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
-    tabletDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
-    desktopDrawerType={NavigationDrawer.DrawerTypes.FULL_HEIGHT}
-    toolbarTitle="Complt"
+    tabletDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
+    desktopDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
+    toolbarTitleMenu={
+      <SelectField
+        id="items-to-show-selection"
+        menuItems={itemsToShowValues}
+        iconChildren={<ArrowDropDown size={24} />}
+        value={props.itemsToShow}
+        onChange={props.changeItemsToShow}
+      />}
     toolbarActions={[
       <Button icon onClick={props.attemptSync}><Sync /></Button>,
     ]}
@@ -79,6 +89,8 @@ App.propTypes = {
   }),
   dismissToast: React.PropTypes.func,
   attemptSync: React.PropTypes.func,
+  itemsToShow: React.PropTypes.string,
+  changeItemsToShow: React.PropTypes.func,
   /* eslint-disable react/no-unused-prop-types */
   toasts: React.PropTypes.arrayOf(React.PropTypes.shape({
     text: React.PropTypes.string.isRequired,
@@ -101,8 +113,8 @@ App.propTypes = {
   /* eslint-enable react/no-unused-prop-types */
 };
 
-function mapStateToProps({ toasts, dialogs }) {
-  return { toasts, dialogs };
+function mapStateToProps({ toasts, dialogs, itemsToShow }) {
+  return { toasts, dialogs, itemsToShow };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

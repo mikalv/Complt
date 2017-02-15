@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from '../components/ItemList';
+import getFilteredItems from '../../common/utils/getFilteredItems';
 import PropTypes from '../../common/PropTypes';
 
 export const All = props => (<ItemList
@@ -27,7 +28,7 @@ All.propTypes = {
 };
 
 export function mapStateToProps(state) {
-  return { projectChildren: state.items.filter(({ _id }) => _id !== 'inbox' && _id !== 'root') };
+  return { projectChildren: getFilteredItems(state.items.filter(({ _id }) => _id !== 'inbox' && _id !== 'root'), state.itemsToShow) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(All);
