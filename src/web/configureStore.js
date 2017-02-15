@@ -12,6 +12,7 @@ import profile from '../common/redux/profile';
 import toasts from '../common/redux/toasts';
 import dialogs from '../common/redux/dialogs';
 import syncState from '../common/redux/syncState';
+import itemsToShow from '../common/redux/itemsToShow';
 import logException from '../common/utils/logException';
 import db from '../common/db';
 import { removeItemPouch, insertItemPouch, updateItemPouch } from '../common/redux/actions';
@@ -62,6 +63,7 @@ const store = createStore(
     toasts,
     syncState,
     dialogs,
+    itemsToShow,
     form: formReducer,
   }),
   enhancer,
