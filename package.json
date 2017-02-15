@@ -85,7 +85,7 @@
     "react-addons-transition-group": "^15.4.1",
     "react-dom": "^15.4.0",
     "react-icons": "^2.2.3",
-    "react-md": "^1.0.0",
+    "react-md": "^1.0.5",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-13.0.3.tar.gz",
     "react-native-material-ui": "^1.6.0",
     "react-navigation": "^1.0.0-beta.1",

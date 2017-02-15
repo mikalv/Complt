@@ -391,7 +391,7 @@ aws4@^1.2.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.5.0.tgz#0a29ffb79c31c9e712eeb087e8e7a64b4a56d755"
 
-babel-code-frame@^6.11.0, babel-code-frame@^6.20.0, babel-code-frame@^6.8.0:
+babel-code-frame@^6.11.0, babel-code-frame@^6.16.0, babel-code-frame@^6.20.0, babel-code-frame@^6.8.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.20.0.tgz#b968f839090f9a8bc6d41938fb96cb84f7387b26"
   dependencies:
@@ -399,7 +399,7 @@ babel-code-frame@^6.11.0, babel-code-frame@^6.20.0, babel-code-frame@^6.8.0:
     esutils "^2.0.2"
     js-tokens "^2.0.0"
 
-babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
+babel-code-frame@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.22.0.tgz#027620bee567a88c32561574e7fd0801d33118e4"
   dependencies:
@@ -7196,9 +7196,9 @@ react-icons@^2.2.3:
   dependencies:
     react-icon-base "2.0.4"
 
-react-md:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-md/-/react-md-1.0.0.tgz#aa05eac19fa752be4f663c6dff741c5b276f3180"
+react-md@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-md/-/react-md-1.0.5.tgz#25b2e4213b450e1587de145ce5afa2d6bf0e4856"
   dependencies:
     classnames "^2.2.5"
     invariant "^2.2.1"
