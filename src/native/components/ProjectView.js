@@ -14,11 +14,8 @@ const ProjectView = props => (
         if (item.isProject) props.deleteProject(props.projectId, item._id);
         else props.deleteTask(props.projectId, item._id);
       }}
-      onAvatarPress={(i) => {
-        if (!props.projectChildren[i].isProject) {
-          props.completeTask(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted);
-        }
-      }}
+      onAvatarPress={i =>
+        props.completeItem(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted)}
       items={props.projectChildren}
       onItemPress={(i) => {
         if (props.projectChildren[i].isProject) {

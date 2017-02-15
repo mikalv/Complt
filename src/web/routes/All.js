@@ -6,11 +6,8 @@ import getFilteredItems from '../../common/utils/getFilteredItems';
 import PropTypes from '../../common/PropTypes';
 
 export const All = props => (<ItemList
-  onItemAvatarTap={(i) => {
-    if (!props.projectChildren[i].isProject) {
-      props.completeTask(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted);
-    }
-  }}
+  onItemAvatarTap={i =>
+      props.completeItem(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted)}
   onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
   items={props.projectChildren}
   onItemTap={(i) => {

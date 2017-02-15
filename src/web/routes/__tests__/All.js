@@ -25,11 +25,11 @@ describe('All component', () => {
     const component = mount(<All projectChildren={items} />);
     expect(component).toMatchSnapshot();
   });
-  it('calls completeTask correctly when a task is completed', () => {
-    const completeTask = jest.fn();
-    const component = mount(<All projectChildren={items} completeTask={completeTask} />);
+  it('calls completeItem correctly when an item is completed', () => {
+    const completeItem = jest.fn();
+    const component = mount(<All projectChildren={items} completeItem={completeItem} />);
     component.childAt(2).find('Avatar').simulate('click');
-    expect(completeTask).toBeCalledWith('item3', true);
+    expect(completeItem).toBeCalledWith('item3', true);
   });
   it('calls routerPush correctly when a project is clicked', () => {
     const routerPush = jest.fn();
