@@ -110,6 +110,7 @@
     "test:watch": "node scripts/test.js --env=jsdom --verbose --watch",
     "deploy:web:staging": "netlify deploy -e staging -t $NETLIFY_TOKEN",
     "deploy:web:prod": "netlify deploy -e production -t $NETLIFY_TOKEN",
+    "deploy:exponent": "exp login -u $EXPONENT_USERNAME -p $EXPONENT_PASSWORD && exp publish",
     "coverage": "npm test -- --coverage",
     "codecov": "npm run coverage && codecov"
   },
