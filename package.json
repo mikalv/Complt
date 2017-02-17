@@ -114,6 +114,7 @@
     "coverage": "npm test -- --coverage",
     "codecov": "npm run coverage && codecov"
   },
+  "proxy": "https://api.complt.xyz",
   "jest": {
     "moduleFileExtensions": [
       "jsx",

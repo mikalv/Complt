@@ -112,7 +112,7 @@ export const attemptSync = () => (dispatch, getState) => {
 };
 
 export const sync = (dispatch, getState) => () =>
-  pouchDBSync(getState().auth, process.env.REACT_APP_COUCH_URL)
+  pouchDBSync(getState().auth, window.location.origin + process.env.REACT_APP_COUCH_URL)
   .then(() => {
     dispatch(showToast({ text: 'Syncing finished' }));
     dispatch(syncSucceded());

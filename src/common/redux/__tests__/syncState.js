@@ -67,7 +67,7 @@ describe('attemptSync()', () => {
         { type: SHOW_TOAST, toast: { text: 'Syncing Started, Please Wait...' } },
         { type: LOGIN, token: 'some.valid.token' },
       ]);
-      expect(pouchDBSync).toBeCalledWith('some.valid.token', process.env.REACT_APP_COUCH_URL);
+      expect(pouchDBSync).toBeCalledWith('some.valid.token', window.location.origin + process.env.REACT_APP_COUCH_URL);
     });
   });
   it('dispatches the correct actions when renewAuth rejects', () => {
@@ -131,7 +131,7 @@ describe('sync() action creator', () => {
     const store = mockStore({ auth: 'some.auth.token' });
     pouchDBSync.mockReturnValueOnce(Promise.resolve());
     return sync(store.dispatch, store.getState)().then(() => {
-      expect(pouchDBSync).toBeCalledWith('some.auth.token', process.env.REACT_APP_COUCH_URL);
+      expect(pouchDBSync).toBeCalledWith('some.auth.token', window.location.origin + process.env.REACT_APP_COUCH_URL);
     });
   });
 });
