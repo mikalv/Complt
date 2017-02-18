@@ -3,7 +3,7 @@ process.env.REACT_APP_AUTH0_DOMAIN = 'complt.auth0.com';
 process.env.REACT_APP_AUTH0_CLIENT_ID = 'SlKB0j8GVBIfYVzJicd63jSIO9oeY3q7';
 process.env.REACT_APP_COUCH_URL = 'https://api.complt.xyz/envoy';
 
-// Load environment variables from .env file. Surpress warnings using silent
+// Load environment variables from .env file. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables
 // that have already been set.
 // https://github.com/motdotla/dotenv
@@ -18,9 +18,16 @@ var detect = require('detect-port');
 var clearConsole = require('react-dev-utils/clearConsole');
 var checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 var formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+var getProcessForPort = require('react-dev-utils/getProcessForPort');
+var openBrowser = require('react-dev-utils/openBrowser');
 var prompt = require('react-dev-utils/prompt');
+var fs = require('fs');
 var config = require('../config/webpack.config.dev');
 var paths = require('../config/paths');
+
+var useYarn = fs.existsSync(paths.yarnLockFile);
+var cli = useYarn ? 'yarn' : 'npm';
+var isInteractive = process.stdout.isTTY;
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -43,29 +50,42 @@ function setupCompiler(host, port, protocol) {
   // bundle, so if you refresh, it'll wait instead of serving the old one.
   // "invalid" is short for "bundle invalidated", it doesn't imply any errors.
   compiler.plugin('invalid', function() {
-    clearConsole();
+    if (isInteractive) {
+      clearConsole();
+    }
     console.log('Compiling...');
   });
+
+  var isFirstCompile = true;
 
   // "done" event fires when Webpack has finished recompiling the bundle.
   // Whether or not you have warnings or errors, you will get this event.
   compiler.plugin('done', function(stats) {
-    clearConsole();
+    if (isInteractive) {
+      clearConsole();
+    }
 
     // We have switched off the default Webpack output in WebpackDevServer
     // options so we are going to "massage" the warnings and errors and present
     // them in a readable focused way.
     var messages = formatWebpackMessages(stats.toJson({}, true));
-    if (!messages.errors.length && !messages.warnings.length) {
+    var isSuccessful = !messages.errors.length && !messages.warnings.length;
+    var showInstructions = isSuccessful && (isInteractive || isFirstCompile);
+
+    if (isSuccessful) {
       console.log(chalk.green('Compiled successfully!'));
+    }
+
+    if (showInstructions) {
       console.log();
       console.log('The app is running at:');
       console.log();
       console.log('  ' + chalk.cyan(protocol + '://' + host + ':' + port + '/'));
       console.log();
       console.log('Note that the development build is not optimized.');
-      console.log('To create a production build, use ' + chalk.cyan('npm run build') + '.');
+      console.log('To create a production build, use ' + chalk.cyan(cli + ' run build') + '.');
       console.log();
+      isFirstCompile = false;
     }
 
     // If errors exist, only show errors.
@@ -155,18 +175,33 @@ function addMiddleware(devServer) {
     // - /sockjs-node/* (WebpackDevServer uses this for hot reloading)
     // Tip: use https://jex.im/regulex/ to visualize the regex
     var mayProxy = /^(?!\/(index\.html$|.*\.hot-update\.json$|sockjs-node\/)).*$/;
-    devServer.use(mayProxy,
-      // Pass the scope regex both to Express and to the middleware for proxying
-      // of both HTTP and WebSockets to work without false positives.
-      httpProxyMiddleware(pathname => mayProxy.test(pathname), {
-        target: proxy,
-        logLevel: 'silent',
-        onError: onProxyError(proxy),
-        secure: false,
-        changeOrigin: true
-      })
-    );
+
+    // Pass the scope regex both to Express and to the middleware for proxying
+    // of both HTTP and WebSockets to work without false positives.
+    var hpm = httpProxyMiddleware(pathname => mayProxy.test(pathname), {
+      target: proxy,
+      logLevel: 'silent',
+      onProxyReq: function(proxyReq, req, res) {
+        // Browers may send Origin headers even with same-origin
+        // requests. To prevent CORS issues, we have to change
+        // the Origin to match the target URL.
+        if (proxyReq.getHeader('origin')) {
+          proxyReq.setHeader('origin', proxy);
+        }
+      },
+      onError: onProxyError(proxy),
+      secure: false,
+      changeOrigin: true,
+      ws: true
+    });
+    devServer.use(mayProxy, hpm);
+
+    // Listen for the websocket 'upgrade' event and upgrade the connection.
+    // If this is not done, httpProxyMiddleware will not try to upgrade until
+    // an initial plain HTTP request is made.
+    devServer.listeningApp.on('upgrade', hpm.upgrade);
   }
+
   // Finally, by now we have certainly resolved the URL.
   // It may be /index.html, so let the dev server try serving it again.
   devServer.use(devServer.middleware);
@@ -174,6 +209,8 @@ function addMiddleware(devServer) {
 
 function runDevServer(host, port, protocol) {
   var devServer = new WebpackDevServer(compiler, {
+    // Enable gzip compression of generated files.
+    compress: true,
     // Silence WebpackDevServer's own logs since they're generally not useful.
     // It will still show compile warnings and errors with this setting.
     clientLogLevel: 'none',
@@ -184,7 +221,7 @@ function runDevServer(host, port, protocol) {
     // project directory is dangerous because we may expose sensitive files.
     // Instead, we establish a convention that only files in `public` directory
     // get served. Our build script will copy `public` into the `build` folder.
-    // In `index.html`, you can get URL of `public` folder with %PUBLIC_PATH%:
+    // In `index.html`, you can get URL of `public` folder with %PUBLIC_URL%:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In JavaScript code, you can access it with `process.env.PUBLIC_URL`.
     // Note that we only recommend to use `public` folder as an escape hatch
@@ -192,6 +229,8 @@ function runDevServer(host, port, protocol) {
     // for some reason broken when imported through Webpack. If you just want to
     // use an image, put it in `src` and `import` it from JavaScript instead.
     contentBase: paths.appPublic,
+    // By default files from `contentBase` will not trigger a page reload.
+    watchContentBase: true,
     // Enable hot reloading server. It will provide /sockjs-node/ endpoint
     // for the WebpackDevServer client so it can learn when the files were
     // updated. The WebpackDevServer client is included as an entry point
@@ -211,7 +250,8 @@ function runDevServer(host, port, protocol) {
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === "https",
-    host: host
+    host: host,
+    overlay: false,
   });
 
   // Our custom middleware proxies requests to /index.html or a remote API.
@@ -223,9 +263,13 @@ function runDevServer(host, port, protocol) {
       return console.log(err);
     }
 
-    clearConsole();
+    if (isInteractive) {
+      clearConsole();
+    }
     console.log(chalk.cyan('Starting the development server...'));
     console.log();
+
+    openBrowser(protocol + '://' + host + ':' + port + '/');
   });
 }
 
@@ -244,14 +288,20 @@ detect(DEFAULT_PORT).then(port => {
     return;
   }
 
-  clearConsole();
-  var question =
-    chalk.yellow('Something is already running on port ' + DEFAULT_PORT + '.') +
-    '\n\nWould you like to run the app on another port instead?';
+  if (isInteractive) {
+    clearConsole();
+    var existingProcess = getProcessForPort(DEFAULT_PORT);
+    var question =
+      chalk.yellow('Something is already running on port ' + DEFAULT_PORT + '.' +
+        ((existingProcess) ? ' Probably:\n  ' + existingProcess : '')) +
+        '\n\nWould you like to run the app on another port instead?';
 
-  prompt(question, true).then(shouldChangePort => {
-    if (shouldChangePort) {
-      run(port);
-    }
-  });
+    prompt(question, true).then(shouldChangePort => {
+      if (shouldChangePort) {
+        run(port);
+      }
+    });
+  } else {
+    console.log(chalk.red('Something is already running on port ' + DEFAULT_PORT + '.'));
+  }
 });

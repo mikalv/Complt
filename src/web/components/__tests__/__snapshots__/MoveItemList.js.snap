@@ -170,21 +170,37 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
               <Motion
                 defaultStyle={
                   Object {
-                    "height": undefined,
+                    "height": 0,
                     "paddingBottom": NaN,
                     "paddingTop": NaN,
                   }
                 }
                 style={
                   Object {
-                    "height": NaN,
+                    "height": 0,
                     "paddingBottom": NaN,
                     "paddingTop": NaN,
                   }
                 }>
-                <List>
+                <List
+                  style={
+                    Object {
+                      "height": undefined,
+                      "overflow": "hidden",
+                      "paddingBottom": undefined,
+                      "paddingTop": undefined,
+                    }
+                  }>
                   <ul
-                    className="md-list md-list--nested-1">
+                    className="md-list md-list--nested-1"
+                    style={
+                      Object {
+                        "height": undefined,
+                        "overflow": "hidden",
+                        "paddingBottom": undefined,
+                        "paddingTop": undefined,
+                      }
+                    }>
                     <ListItem
                       activeClassName="md-text--theme-primary"
                       component="div"
@@ -308,21 +324,37 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                           <Motion
                             defaultStyle={
                               Object {
-                                "height": undefined,
+                                "height": 0,
                                 "paddingBottom": NaN,
                                 "paddingTop": NaN,
                               }
                             }
                             style={
                               Object {
-                                "height": NaN,
+                                "height": 0,
                                 "paddingBottom": NaN,
                                 "paddingTop": NaN,
                               }
                             }>
-                            <List>
+                            <List
+                              style={
+                                Object {
+                                  "height": undefined,
+                                  "overflow": "hidden",
+                                  "paddingBottom": undefined,
+                                  "paddingTop": undefined,
+                                }
+                              }>
                               <ul
-                                className="md-list md-list--nested-2" />
+                                className="md-list md-list--nested-2"
+                                style={
+                                  Object {
+                                    "height": undefined,
+                                    "overflow": "hidden",
+                                    "paddingBottom": undefined,
+                                    "paddingTop": undefined,
+                                  }
+                                } />
                             </List>
                           </Motion>
                         </Collapse>
