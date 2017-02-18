@@ -95,7 +95,6 @@ App.propTypes = {
   syncState: React.PropTypes.shape({
     syncing: React.PropTypes.bool.isRequired,
   }),
-  /* eslint-disable react/no-unused-prop-types */
   toasts: React.PropTypes.arrayOf(React.PropTypes.shape({
     text: React.PropTypes.string.isRequired,
     action: React.PropTypes.oneOfType([
@@ -114,7 +113,6 @@ App.propTypes = {
       visible: React.PropTypes.bool,
     }),
   }),
-  /* eslint-enable react/no-unused-prop-types */
 };
 
 function mapStateToProps({ toasts, dialogs, itemsToShow, syncState }) {
