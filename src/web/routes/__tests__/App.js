@@ -11,16 +11,20 @@ const dialogs = {
   },
 };
 
+const syncState = {
+  syncing: false,
+};
+
 describe('App component', () => {
   it('renders without crashing', () => {
-    shallow(<App location={{ pathname: '/inbox' }} toasts={[]} dialogs={dialogs}><div /></App>);
+    shallow(<App location={{ pathname: '/inbox' }} toasts={[]} dialogs={dialogs} syncState={syncState}><div /></App>);
   });
   it('renders correctly when the pathname matches a route', () => {
-    const component = shallow(<App location={{ pathname: '/inbox' }} toasts={[]} dialogs={dialogs}><div /></App>);
+    const component = shallow(<App location={{ pathname: '/inbox' }} toasts={[]} dialogs={dialogs} syncState={syncState}><div /></App>);
     expect(component).toMatchSnapshot();
   });
   it('renders correctly when the pathname does not match a route', () => {
-    const component = shallow(<App location={{ pathname: '/some/path/that/does/not/exist' }} toasts={[]} dialogs={dialogs}><div /></App>);
+    const component = shallow(<App location={{ pathname: '/some/path/that/does/not/exist' }} toasts={[]} dialogs={dialogs} syncState={syncState}><div /></App>);
     expect(component).toMatchSnapshot();
   });
   describe('navItemsWithActive()', () => {
