@@ -4,7 +4,7 @@ import renewAuth from '../renewAuth';
 
 jest.mock('auth0-js/src/web-auth').mock('../../common/utils/logException');
 
-const redirectUri = 'null/callback';
+const redirectUri = 'http://localhost/callback';
 const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
 
 describe('renewAuth', () => {
