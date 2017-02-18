@@ -9,6 +9,7 @@ var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var OfflinePlugin = require('offline-plugin');
 var SentryPlugin = require('webpack-sentry-plugin');
+var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -240,6 +241,7 @@ var config = {
         }
       }
     }),
+    new LodashModuleReplacementPlugin(),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
       filename: cssFilename
