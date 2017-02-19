@@ -5053,6 +5053,14 @@ jest-environment-node@^18.1.0:
     jest-mock "^18.0.0"
     jest-util "^18.1.0"
 
+jest-exponent@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/jest-exponent/-/jest-exponent-0.2.1.tgz#4cb3bc167167daf0f9f5e06989100e97c76f9e88"
+  dependencies:
+    babel-jest "^18.0.0"
+    jest "^18.0.0"
+    react-test-renderer "^15.3.2"
+
 jest-file-exists@^17.0.0:
   version "17.0.0"
   resolved "https://registry.yarnpkg.com/jest-file-exists/-/jest-file-exists-17.0.0.tgz#7f63eb73a1c43a13f461be261768b45af2cdd169"
@@ -5165,7 +5173,7 @@ jest-util@^18.1.0:
     jest-mock "^18.0.0"
     mkdirp "^0.5.1"
 
-jest@18.1.0:
+jest@18.1.0, jest@^18.0.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-18.1.0.tgz#bcebf1e203dee5c2ad2091c805300a343d9e6c7d"
   dependencies:
@@ -7891,7 +7899,7 @@ react-swipeable-views@^0.7.10:
     react-event-listener "^0.4.0"
     warning "^3.0.0"
 
-react-test-renderer@^15.4.2:
+react-test-renderer@^15.3.2, react-test-renderer@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.4.2.tgz#27e1dff5d26d0e830f99614c487622bc831416f3"
   dependencies:

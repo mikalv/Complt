@@ -45,6 +45,7 @@
     "html-webpack-plugin": "2.28.0",
     "http-proxy-middleware": "0.17.3",
     "jest": "18.1.0",
+    "jest-exponent": "^0.2.1",
     "json-loader": "0.5.4",
     "lodash-webpack-plugin": "^0.11.0",
     "netlify-cli": "^1.1.0",
@@ -130,10 +131,11 @@
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|exponent|@exponent/*|react-navigation)"
     ],
     "moduleNameMapper": {
-      "pouchdb/lib/index-browser": "pouchdb-memory"
+      "pouchdb/lib/index-browser": "pouchdb-memory",
+      "react-native": "react-native-mock"
     },
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
@@ -149,6 +151,17 @@
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
-    ]
+    ],
+    "haste": {
+      "defaultPlatform": "ios",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "providesModuleNodeModules": [
+        "react",
+        "react-native"
+      ]
+    }
   }
 }
