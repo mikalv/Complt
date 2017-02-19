@@ -3,8 +3,8 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableNativeFeedback,
 } from 'react-native';
+import { ListItem, Body, Left, Right } from 'native-base';
 import { IconToggle } from 'react-native-material-ui';
 import PropTypes from '../../common/PropTypes';
 import colors from '../../common/colors';
@@ -12,24 +12,24 @@ import Chip from './Chip';
 
 
 const Item = props => (
-  <TouchableNativeFeedback onPress={props.onItemPress}>
-    <View style={styles.container}>
-      <View style={styles.leftContainer}>
-        <IconToggle
-          name={props.item.isProject ? 'assignment' : 'done'}
-          color={props.item.isCompleted ? colors.completedItem : undefined}
-          onPress={props.onAvatarPress}
-        />
-      </View>
-      <View style={styles.centerContainer}>
-        <Text style={styles.name}>{props.item.name}</Text>
-        {props.item.tags ? <View style={styles.tagContainer}>
-          {props.item.tags.map(tag => <Chip key={tag} text={tag} />)}
-        </View> : null}
-      </View>
-      <View><IconToggle name="delete" onPress={props.onDeletePress} /></View>
-    </View>
-  </TouchableNativeFeedback>
+  <ListItem thumbnail onPress={props.onItemPress}>
+    <Left>
+      <IconToggle
+        name={props.item.isProject ? 'assignment' : 'done'}
+        color={props.item.isCompleted ? colors.completedItem : undefined}
+        onPress={props.onAvatarPress}
+      />
+    </Left>
+    <Body>
+      <Text style={styles.name}>{props.item.name}</Text>
+      {props.item.tags ? <View style={styles.tagContainer}>
+        {props.item.tags.map(tag => <Chip key={tag} text={tag} />)}
+      </View> : null}
+    </Body>
+    <Right>
+      <IconToggle name="delete" onPress={props.onDeletePress} />
+    </Right>
+  </ListItem>
 );
 
 

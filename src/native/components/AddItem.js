@@ -54,7 +54,7 @@ class AddItem extends Component {
         </View>
         <View style={styles.row}>
           <View style={styles.flex}>
-            {!this.state.isProject ? <IconToggle name="label" onPress={this.ActionLabelTap} /> : null}
+            <IconToggle name="label" onPress={this.ActionLabelTap} />
           </View>
           <View style={styles.flexEnd}>
             {this.props.canChangeType ? <IconToggle onPress={this.switchType} name={this.state.isProject ? 'assignment' : 'done'} /> : null}
