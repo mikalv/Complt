@@ -22,6 +22,10 @@ jest:
   script:
     - npm run codecov
 
+e2e:
+  script:
+    - 'npm run test:e2e'
+
 web/source-map:
   stage: deploy
   script:
