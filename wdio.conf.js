@@ -59,13 +59,6 @@ exports.config = {
   }, {
     browserName: 'safari',
     platform: 'mac',
-  }, {
-    browserName: 'Safari',
-    appiumVersion: '1.6.3',
-    deviceName: 'iPhone 7 Simulator',
-    deviceOrientation: 'portrait',
-    platformVersion: '10.0',
-    platformName: 'iOS',
   }],
     //
     // ===================
