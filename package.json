@@ -148,21 +148,11 @@
     "testURL": "http://localhost",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$",
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "src/web/**/*.{js,jsx}",
+      "src/common/**/*.{js,jsx}"
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
-    ],
-    "haste": {
-      "defaultPlatform": "ios",
-      "platforms": [
-        "android",
-        "ios"
-      ],
-      "providesModuleNodeModules": [
-        "react",
-        "react-native"
-      ]
-    }
+    ]
   }
 }
