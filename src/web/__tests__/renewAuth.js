@@ -42,7 +42,7 @@ describe('renewAuth', () => {
     return renewAuthPromise.then(() => {
       expect(true).toEqual(false);
     }).catch((error) => {
-      expect(logException).toBeCalledWith(new Error('There was an error renewing the auth token', { error: true, thing: 'something' }));
+      expect(logException).toBeCalledWith(new Error('There was an error renewing the auth token'), { error: true, thing: 'something' });
       expect(error).toEqual({ error: true, thing: 'something' });
     });
   });
