@@ -70,7 +70,7 @@ const store = createStore(
 );
 
 persistStore(store, {
-  whitelist: ['auth', 'profile'],
+  whitelist: ['auth', 'profile', 'itemsToShow'],
 });
 const history = syncHistoryWithStore(browserHistory, store);
 
