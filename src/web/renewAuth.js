@@ -17,7 +17,7 @@ const renewAuth = () => new Promise((resolve, reject) => {
     redirectUri,
   }, (err, result) => {
     if (err) {
-      logException(new Error('There was an error renewing the auth token', err));
+      logException(new Error('There was an error renewing the auth token'), err);
       reject(err);
       return;
     }
