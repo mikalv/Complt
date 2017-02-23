@@ -6,6 +6,7 @@ import Assignment from 'react-icons/lib/md/assignment';
 import ArrowDropDown from 'react-icons/lib/md/arrow-drop-down';
 import Person from 'react-icons/lib/md/person';
 import Apps from 'react-icons/lib/md/apps';
+import Label from 'react-icons/lib/md/label';
 import NavigationDrawer from 'react-md/lib/NavigationDrawers';
 import SelectField from 'react-md/lib/SelectFields';
 import Snackbar from 'react-md/lib/Snackbars';
@@ -36,6 +37,12 @@ const navItems = [{
   primaryText: 'Projects',
   component: Link,
   leftIcon: <Assignment size={24} />,
+}, {
+  to: '/tags',
+  key: 'tags',
+  primaryText: 'Tags',
+  component: Link,
+  leftIcon: <Label size={24} />,
 }, {
   to: '/account',
   key: 'account',
