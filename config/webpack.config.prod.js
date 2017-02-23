@@ -8,7 +8,6 @@ var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var OfflinePlugin = require('offline-plugin');
-var SentryPlugin = require('webpack-sentry-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -261,15 +260,6 @@ var config = {
     tls: 'empty'
   }
 };
-
-if (process.env.SENTRY) {
-  config.plugins.push(new SentryPlugin({
-    organisation: 'mitchell-hamilton',
-    project: 'Complt',
-    apiKey: process.env.SENTRY_API_KEY,
-    release: process.env.REACT_APP_GIT_REF,
-  }));
-}
 
 if (process.env.REACT_APP_ELECTRON) {
   config.resolve.extensions.unshift('.electron.js')

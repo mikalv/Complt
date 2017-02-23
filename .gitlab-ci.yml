@@ -26,13 +26,6 @@ e2e:
   script:
     - 'npm run test:e2e'
 
-web/source-map:
-  stage: deploy
-  script:
-    - 'npm run build:sentry'
-  only:
-    - master
-
 web/deploy/staging:
   stage: deploy
   script:

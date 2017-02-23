@@ -73,7 +73,6 @@
     "webpack": "2.2.1",
     "webpack-dev-server": "2.3.0",
     "webpack-manifest-plugin": "1.1.0",
-    "webpack-sentry-plugin": "^1.5.0",
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
@@ -116,7 +115,6 @@
     "lint": "eslint . --ext .js --ext .gql",
     "build": "node scripts/build.js",
     "build:electron": "REACT_APP_ELECTRON=true node scripts/build.js && cd build && yarn && cd .. && electron-packager build/ Complt --platform=darwin --arch=x64 --icon=build/Icon.icns --out=dist/macos",
-    "build:sentry": "SENTRY=true node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom --verbose",
     "test:watch": "node scripts/test.js --env=jsdom --verbose --watch",
     "test:e2e": "wdio",
