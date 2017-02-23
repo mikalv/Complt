@@ -5,6 +5,9 @@ const Project = props => (
   <Projects
     initialIsProject
     canChangeType
+    canMove
+    canDeleteTask
+    canDeleteProject
     projectId={props.routeParams.projectId}
     routerPush={props.router.push}
   />
