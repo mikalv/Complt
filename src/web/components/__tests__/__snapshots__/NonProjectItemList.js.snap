@@ -1,6 +1,6 @@
-exports[`All component renders correctly 1`] = `
+exports[`NonProjectItemList component renders correctly 1`] = `
 <Component
-  projectChildren={
+  items={
     Array [
       Object {
         "_id": "item1",
