@@ -43,8 +43,7 @@ UpdateItemDialog.propTypes = {
 export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
     const item = state.items.find(({ _id }) => _id === state.dialogs.updateItem.id);
-    let defaultInputValue = item.name;
-    if (!item.isProject) defaultInputValue = `${item.name} ${item.tags.join(' ')}`;
+    const defaultInputValue = `${item.name} ${item.tags.join(' ')}`;
     return {
       visible: true,
       item,
