@@ -22,7 +22,7 @@ describe('mapStateToProps', () => {
   });
   it('returns an object with the correct properties if state.dialogs.updateItem.visible is true and the id of the item is update is a task', () => {
     expect(mapStateToProps({
-      items: [{ _id: 'item1', isProject: true, name: 'item 1' }, { _id: 'item2', isProject: false, name: 'item 2', tags: ['@tag'] }, { _id: 'item3', isProject: true, name: 'item 3' }],
+      items: [{ _id: 'item1', isProject: true, name: 'item 1' }, { _id: 'item2', isProject: false, name: 'item 2', tags: ['@tag'] }, { _id: 'item3', isProject: true, name: 'item 3', tags: [] }],
       dialogs: { updateItem: { visible: true, id: 'item2' } },
     })).toEqual({
       form: 'updateItem:item2',
@@ -35,14 +35,14 @@ describe('mapStateToProps', () => {
   });
   it('returns an object with the correct properties if state.dialogs.updateItem.visible is true and the id of the item is update is a task', () => {
     expect(mapStateToProps({
-      items: [{ _id: 'item1', isProject: true, name: 'item 1' }, { _id: 'item2', isProject: false, name: 'item 2', tags: ['@tag'] }, { _id: 'item3', isProject: true, name: 'item 3' }],
+      items: [{ _id: 'item1', isProject: true, name: 'item 1' }, { _id: 'item2', isProject: false, name: 'item 2', tags: ['@tag'] }, { _id: 'item3', isProject: true, name: 'item 3', tags: ['@tag'] }],
       dialogs: { updateItem: { visible: true, id: 'item3' } },
     })).toEqual({
       form: 'updateItem:item3',
       initialValues: {
-        itemInput: 'item 3',
+        itemInput: 'item 3 @tag',
       },
-      item: { _id: 'item3', isProject: true, name: 'item 3' },
+      item: { _id: 'item3', isProject: true, name: 'item 3', tags: ['@tag'] },
       visible: true,
     });
   });
