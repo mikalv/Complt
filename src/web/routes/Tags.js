@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { List, ListItem } from 'react-md/lib/Lists';
+import getFilteredItems from '../../common/utils/getFilteredItems';
 
 export const Tags = props => (
   <List>
@@ -20,10 +21,10 @@ Tags.propTypes = {
   tags: React.PropTypes.arrayOf(React.PropTypes.string),
 };
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   const tags = [];
-  state.items.forEach((item) => {
-    if (!item.tags) return;
+  getFilteredItems(state.items, state.itemsToShow).forEach((item) => {
+    if (!Array.isArray(item.tags)) return;
     item.tags.forEach((tag) => {
       if (!tags.includes(tag)) tags.push(tag);
     });

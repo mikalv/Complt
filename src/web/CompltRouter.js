@@ -9,6 +9,7 @@ import RootProject from './routes/RootProject';
 import Project from './routes/Project';
 import All from './routes/All';
 import Tags from './routes/Tags';
+import Tag from './routes/Tag';
 import isTokenExpired from './../common/utils/auth';
 
 class CompltRouter extends Component {
@@ -35,7 +36,7 @@ class CompltRouter extends Component {
           <Route path="projects" component={RootProject} />
           <Route path="project/:projectId" component={Project} />
           <Route path="tags" component={Tags} />
-          <Route path="tag/:tag" component={() => <div />} />
+          <Route path="tag/:tag" component={Tag} />
           <Route path="login" component={Login} />
           <Route onEnter={this.isAuthenticated}>
             <Route path="account" component={Account} />
