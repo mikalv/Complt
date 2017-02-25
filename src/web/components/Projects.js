@@ -14,9 +14,9 @@ export const Projects = props => (
         if (item.isProject) props.deleteProject(props.projectId, item._id);
         else props.deleteTask(props.projectId, item._id);
       }}
-      canDeleteTask={props.canDeleteTask}
-      canDeleteProject={props.canDeleteProject}
-      canMove={props.canMove}
+      canDeleteTask
+      canDeleteProject
+      canMove
       onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
       onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
       onItemAvatarTap={i =>
@@ -49,9 +49,6 @@ Projects.propTypes = {
   routerPush: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   initialIsProject: React.PropTypes.bool,
   canChangeType: React.PropTypes.bool,
-  canDeleteTask: React.PropTypes.bool,
-  canDeleteProject: React.PropTypes.bool,
-  canMove: React.PropTypes.bool,
 };
 
 export function mapStateToProps(state, ownProps) {
