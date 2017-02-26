@@ -9,6 +9,7 @@ var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var OfflinePlugin = require('offline-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -208,6 +209,10 @@ var config = {
         minifyCSS: true,
         minifyURLs: true
       }
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      generateStatsFile: true,
     }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
