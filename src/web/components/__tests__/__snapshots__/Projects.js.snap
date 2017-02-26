@@ -1857,6 +1857,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                 className="flex column">
                 <TextField
                   fullWidth={true}
+                  id="add-item-input"
                   leftIconStateful={true}
                   lineDirection="left"
                   onChange={[Function]}
@@ -1877,9 +1878,11 @@ exports[`Projects component renders correctly with some items 1`] = `
                       active={false}
                       error={false}
                       floating={false}
+                      htmlFor="add-item-input"
                       iconOffset={false} />
                     <InputField
                       fullWidth={true}
+                      id="add-item-input"
                       inlineIndicator={false}
                       onChange={[Function]}
                       onFocus={[Function]}
@@ -1890,6 +1893,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                       value="">
                       <input
                         className="md-text-field md-text md-full-width md-text-field--margin"
+                        id="add-item-input"
                         onChange={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
@@ -1920,12 +1924,14 @@ exports[`Projects component renders correctly with some items 1`] = `
                   <div>
                     <ButtonTooltipedInked
                       icon={true}
+                      id="add-tag"
                       inkTransitionEnterTimeout={450}
                       inkTransitionLeaveTimeout={300}
                       inkTransitionOverlap={150}
                       onClick={[Function]}>
                       <ButtonTooltiped
                         icon={true}
+                        id="add-tag"
                         ink={
                           <InkContainer
                             className={undefined}
@@ -1947,6 +1953,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                           fixedPosition="br"
                           icon={true}
                           iconBefore={true}
+                          id="add-tag"
                           ink={
                             <InkContainer
                               className={undefined}
@@ -1963,6 +1970,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                           type="button">
                           <button
                             className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                            id="add-tag"
                             onClick={[Function]}
                             onKeyDown={[Function]}
                             onKeyUp={[Function]}
@@ -2021,6 +2029,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                   <div>
                     <ButtonTooltipedInked
                       icon={true}
+                      id="add-item-submit"
                       inkTransitionEnterTimeout={450}
                       inkTransitionLeaveTimeout={300}
                       inkTransitionOverlap={150}
@@ -2028,6 +2037,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                       type="submit">
                       <ButtonTooltiped
                         icon={true}
+                        id="add-item-submit"
                         ink={
                           <InkContainer
                             className={undefined}
@@ -2050,6 +2060,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                           fixedPosition="br"
                           icon={true}
                           iconBefore={true}
+                          id="add-item-submit"
                           ink={
                             <InkContainer
                               className={undefined}
@@ -2066,6 +2077,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                           type="submit">
                           <button
                             className="md-inline-block md-btn md-btn--icon md-text--theme-primary md-ink--primary md-pointer--hover"
+                            id="add-item-submit"
                             onKeyDown={[Function]}
                             onKeyUp={[Function]}
                             onMouseDown={[Function]}
