@@ -1,4 +1,7 @@
 /* eslint-disable max-len */
+const server = require('pushstate-server');
+const path = require('path');
+
 exports.config = {
 
     //
@@ -11,7 +14,7 @@ exports.config = {
     //
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
-  // sauceConnect: true,
+  sauceConnect: true,
     //
     // ==================
     // Specify Test Files
@@ -86,7 +89,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-  baseUrl: 'https://app.complt.xyz',
+  baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -138,6 +141,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
+    timeout: 40000,
   },
     //
     // =====
@@ -149,8 +153,12 @@ exports.config = {
     // resolved to continue.
     //
     // Gets executed once before all workers get launched.
-    // onPrepare: function (config, capabilities) {
-    // },
+  onPrepare() {
+    server.start({
+      port: 8080,
+      directory: path.join(__dirname, 'build'),
+    });
+  },
     //
     // Gets executed just before initialising the webdriver session and test framework. It allows you
     // to manipulate configurations depending on the capability or spec.
