@@ -62,6 +62,10 @@ exports.config = {
   }, {
     browserName: 'safari',
     platform: 'mac',
+  }, {
+    browserName: 'MicrosoftEdge',
+    platform: 'Windows 10',
+    version: '14.14393',
   }],
     //
     // ===================
