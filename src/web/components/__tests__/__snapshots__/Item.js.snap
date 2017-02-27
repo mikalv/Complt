@@ -1,5 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1`] = `
-<Component
+<Item
   canMove={true}
   item={
     Object {
@@ -9,7 +11,8 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
     }
   }
   onAvatarTouchTap={[Function]}
-  onItemTap={[Function]}>
+  onItemTap={[Function]}
+>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -18,7 +21,8 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
       <Avatar
         icon={
           <MdDone
-            color={undefined} />
+            color={undefined}
+          />
         }
         onClick={[Function]}
         suffixes={
@@ -43,13 +47,16 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
             "grey",
             "blue-grey",
           ]
-        } />
+        }
+      />
     }
     onClick={[Function]}
     primaryText="Task"
-    threeLines={true}>
+    threeLines={true}
+  >
     <li
-      className="md-list-item">
+      className="md-list-item"
+    >
       <AccessibleFakeButtonInked
         __SUPER_SECRET_REF__={[Function]}
         aria-expanded={null}
@@ -64,7 +71,8 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
+        onTouchStart={[Function]}
+      >
         <AccessibleFakeButton
           aria-expanded={null}
           className="md-list-tile md-text md-list-tile--avatar"
@@ -79,7 +87,8 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
               transitionOverlap={150}
-              waitForInkTransition={undefined} />
+              waitForInkTransition={undefined}
+            />
           }
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -89,7 +98,8 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <div
             aria-expanded={null}
             aria-pressed={false}
@@ -103,17 +113,21 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}>
+            tabIndex={0}
+          >
             <InkContainer
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
-              transitionOverlap={150}>
+              transitionOverlap={150}
+            >
               <ReactTransitionGroup
                 childFactory={[Function]}
                 className="md-ink-container"
-                component="div">
+                component="div"
+              >
                 <div
-                  className="md-ink-container" />
+                  className="md-ink-container"
+                />
               </ReactTransitionGroup>
             </InkContainer>
             <TileAddon
@@ -122,7 +136,8 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   onClick={[Function]}
                   suffixes={
@@ -147,14 +162,18 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                       "grey",
                       "blue-grey",
                     ]
-                  } />
-              }>
+                  }
+                />
+              }
+            >
               <div
-                className="md-tile-addon md-tile-addon--avatar">
+                className="md-tile-addon md-tile-addon--avatar"
+              >
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   onClick={[Function]}
                   suffixes={
@@ -179,15 +198,19 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                       "grey",
                       "blue-grey",
                     ]
-                  }>
+                  }
+                >
                   <div
                     className="md-inline-block md-avatar md-avatar--default"
-                    onClick={[Function]}>
+                    onClick={[Function]}
+                  >
                     <div
-                      className="md-avatar-content">
+                      className="md-avatar-content"
+                    >
                       <MdDone>
                         <IconBase
-                          viewBox="0 0 40 40">
+                          viewBox="0 0 40 40"
+                        >
                           <svg
                             fill="currentColor"
                             height="1em"
@@ -199,10 +222,12 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                               }
                             }
                             viewBox="0 0 40 40"
-                            width="1em">
+                            width="1em"
+                          >
                             <g>
                               <path
-                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"
+                              />
                             </g>
                           </svg>
                         </IconBase>
@@ -216,22 +241,27 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
               activeClassName="md-text--theme-primary"
               className="md-tile-content--left-avatar"
               primaryText="Task"
-              threeLines={true}>
+              threeLines={true}
+            >
               <div
-                className="md-tile-content md-tile-content--left-avatar">
+                className="md-tile-content md-tile-content--left-avatar"
+              >
                 <div
-                  className="md-tile-text--primary md-text">
+                  className="md-tile-text--primary md-text"
+                >
                   Task
                 </div>
               </div>
             </ListItemText>
             <TileAddon
-              activeClassName="md-text--theme-primary" />
+              activeClassName="md-text--theme-primary"
+            />
             <ButtonTooltipedInked
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -244,12 +274,14 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -264,9 +296,11 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -277,26 +311,33 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdCreate>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -308,10 +349,12 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
+                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -326,7 +369,8 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -339,12 +383,14 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -359,9 +405,11 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -372,26 +420,33 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdMoreVert>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -403,10 +458,12 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -422,11 +479,11 @@ exports[`Item component only calls onAvatarTouchTap when the avatar is pressed 1
       </AccessibleFakeButtonInked>
     </li>
   </ListItem>
-</Component>
+</Item>
 `;
 
 exports[`Item component renders a completed task correctly 1`] = `
-<Component
+<Item
   canMove={true}
   item={
     Object {
@@ -434,7 +491,8 @@ exports[`Item component renders a completed task correctly 1`] = `
       "isProject": false,
       "name": "Task",
     }
-  }>
+  }
+>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -443,7 +501,8 @@ exports[`Item component renders a completed task correctly 1`] = `
       <Avatar
         icon={
           <MdDone
-            color="#00E676" />
+            color="#00E676"
+          />
         }
         onClick={undefined}
         suffixes={
@@ -468,12 +527,15 @@ exports[`Item component renders a completed task correctly 1`] = `
             "grey",
             "blue-grey",
           ]
-        } />
+        }
+      />
     }
     primaryText="Task"
-    threeLines={true}>
+    threeLines={true}
+  >
     <li
-      className="md-list-item">
+      className="md-list-item"
+    >
       <AccessibleFakeButtonInked
         __SUPER_SECRET_REF__={[Function]}
         aria-expanded={null}
@@ -488,7 +550,8 @@ exports[`Item component renders a completed task correctly 1`] = `
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
+        onTouchStart={[Function]}
+      >
         <AccessibleFakeButton
           aria-expanded={null}
           className="md-list-tile md-text md-list-tile--avatar"
@@ -503,7 +566,8 @@ exports[`Item component renders a completed task correctly 1`] = `
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
               transitionOverlap={150}
-              waitForInkTransition={undefined} />
+              waitForInkTransition={undefined}
+            />
           }
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -513,7 +577,8 @@ exports[`Item component renders a completed task correctly 1`] = `
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <div
             aria-expanded={null}
             aria-pressed={false}
@@ -527,17 +592,21 @@ exports[`Item component renders a completed task correctly 1`] = `
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}>
+            tabIndex={0}
+          >
             <InkContainer
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
-              transitionOverlap={150}>
+              transitionOverlap={150}
+            >
               <ReactTransitionGroup
                 childFactory={[Function]}
                 className="md-ink-container"
-                component="div">
+                component="div"
+              >
                 <div
-                  className="md-ink-container" />
+                  className="md-ink-container"
+                />
               </ReactTransitionGroup>
             </InkContainer>
             <TileAddon
@@ -546,7 +615,8 @@ exports[`Item component renders a completed task correctly 1`] = `
                 <Avatar
                   icon={
                     <MdDone
-                      color="#00E676" />
+                      color="#00E676"
+                    />
                   }
                   onClick={undefined}
                   suffixes={
@@ -571,14 +641,18 @@ exports[`Item component renders a completed task correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  } />
-              }>
+                  }
+                />
+              }
+            >
               <div
-                className="md-tile-addon md-tile-addon--avatar">
+                className="md-tile-addon md-tile-addon--avatar"
+              >
                 <Avatar
                   icon={
                     <MdDone
-                      color="#00E676" />
+                      color="#00E676"
+                    />
                   }
                   suffixes={
                     Array [
@@ -602,16 +676,21 @@ exports[`Item component renders a completed task correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  }>
+                  }
+                >
                   <div
-                    className="md-inline-block md-avatar md-avatar--default">
+                    className="md-inline-block md-avatar md-avatar--default"
+                  >
                     <div
-                      className="md-avatar-content">
+                      className="md-avatar-content"
+                    >
                       <MdDone
-                        color="#00E676">
+                        color="#00E676"
+                      >
                         <IconBase
                           color="#00E676"
-                          viewBox="0 0 40 40">
+                          viewBox="0 0 40 40"
+                        >
                           <svg
                             fill="currentColor"
                             height="1em"
@@ -623,10 +702,12 @@ exports[`Item component renders a completed task correctly 1`] = `
                               }
                             }
                             viewBox="0 0 40 40"
-                            width="1em">
+                            width="1em"
+                          >
                             <g>
                               <path
-                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"
+                              />
                             </g>
                           </svg>
                         </IconBase>
@@ -640,22 +721,27 @@ exports[`Item component renders a completed task correctly 1`] = `
               activeClassName="md-text--theme-primary"
               className="md-tile-content--left-avatar"
               primaryText="Task"
-              threeLines={true}>
+              threeLines={true}
+            >
               <div
-                className="md-tile-content md-tile-content--left-avatar">
+                className="md-tile-content md-tile-content--left-avatar"
+              >
                 <div
-                  className="md-tile-text--primary md-text">
+                  className="md-tile-text--primary md-text"
+                >
                   Task
                 </div>
               </div>
             </ListItemText>
             <TileAddon
-              activeClassName="md-text--theme-primary" />
+              activeClassName="md-text--theme-primary"
+            />
             <ButtonTooltipedInked
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -668,12 +754,14 @@ exports[`Item component renders a completed task correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -688,9 +776,11 @@ exports[`Item component renders a completed task correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -701,26 +791,33 @@ exports[`Item component renders a completed task correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdCreate>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -732,10 +829,12 @@ exports[`Item component renders a completed task correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
+                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -750,7 +849,8 @@ exports[`Item component renders a completed task correctly 1`] = `
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -763,12 +863,14 @@ exports[`Item component renders a completed task correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -783,9 +885,11 @@ exports[`Item component renders a completed task correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -796,26 +900,33 @@ exports[`Item component renders a completed task correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdMoreVert>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -827,10 +938,12 @@ exports[`Item component renders a completed task correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -846,18 +959,19 @@ exports[`Item component renders a completed task correctly 1`] = `
       </AccessibleFakeButtonInked>
     </li>
   </ListItem>
-</Component>
+</Item>
 `;
 
 exports[`Item component renders a project correctly 1`] = `
-<Component
+<Item
   canMove={true}
   item={
     Object {
       "isProject": true,
       "name": "Project",
     }
-  }>
+  }
+>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -866,7 +980,8 @@ exports[`Item component renders a project correctly 1`] = `
       <Avatar
         icon={
           <MdAssignment
-            color={undefined} />
+            color={undefined}
+          />
         }
         onClick={undefined}
         suffixes={
@@ -891,12 +1006,15 @@ exports[`Item component renders a project correctly 1`] = `
             "grey",
             "blue-grey",
           ]
-        } />
+        }
+      />
     }
     primaryText="Project"
-    threeLines={true}>
+    threeLines={true}
+  >
     <li
-      className="md-list-item">
+      className="md-list-item"
+    >
       <AccessibleFakeButtonInked
         __SUPER_SECRET_REF__={[Function]}
         aria-expanded={null}
@@ -911,7 +1029,8 @@ exports[`Item component renders a project correctly 1`] = `
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
+        onTouchStart={[Function]}
+      >
         <AccessibleFakeButton
           aria-expanded={null}
           className="md-list-tile md-text md-list-tile--avatar"
@@ -926,7 +1045,8 @@ exports[`Item component renders a project correctly 1`] = `
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
               transitionOverlap={150}
-              waitForInkTransition={undefined} />
+              waitForInkTransition={undefined}
+            />
           }
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -936,7 +1056,8 @@ exports[`Item component renders a project correctly 1`] = `
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <div
             aria-expanded={null}
             aria-pressed={false}
@@ -950,17 +1071,21 @@ exports[`Item component renders a project correctly 1`] = `
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}>
+            tabIndex={0}
+          >
             <InkContainer
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
-              transitionOverlap={150}>
+              transitionOverlap={150}
+            >
               <ReactTransitionGroup
                 childFactory={[Function]}
                 className="md-ink-container"
-                component="div">
+                component="div"
+              >
                 <div
-                  className="md-ink-container" />
+                  className="md-ink-container"
+                />
               </ReactTransitionGroup>
             </InkContainer>
             <TileAddon
@@ -969,7 +1094,8 @@ exports[`Item component renders a project correctly 1`] = `
                 <Avatar
                   icon={
                     <MdAssignment
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   onClick={undefined}
                   suffixes={
@@ -994,14 +1120,18 @@ exports[`Item component renders a project correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  } />
-              }>
+                  }
+                />
+              }
+            >
               <div
-                className="md-tile-addon md-tile-addon--avatar">
+                className="md-tile-addon md-tile-addon--avatar"
+              >
                 <Avatar
                   icon={
                     <MdAssignment
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   suffixes={
                     Array [
@@ -1025,14 +1155,18 @@ exports[`Item component renders a project correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  }>
+                  }
+                >
                   <div
-                    className="md-inline-block md-avatar md-avatar--default">
+                    className="md-inline-block md-avatar md-avatar--default"
+                  >
                     <div
-                      className="md-avatar-content">
+                      className="md-avatar-content"
+                    >
                       <MdAssignment>
                         <IconBase
-                          viewBox="0 0 40 40">
+                          viewBox="0 0 40 40"
+                        >
                           <svg
                             fill="currentColor"
                             height="1em"
@@ -1044,10 +1178,12 @@ exports[`Item component renders a project correctly 1`] = `
                               }
                             }
                             viewBox="0 0 40 40"
-                            width="1em">
+                            width="1em"
+                          >
                             <g>
                               <path
-                                d="m28.4 15v-3.4h-16.8v3.4h16.8z m0 6.6v-3.2h-16.8v3.2h16.8z m-5 6.8v-3.4h-11.8v3.4h11.8z m-3.4-23.4c-0.9 0-1.6 0.7-1.6 1.6s0.7 1.8 1.6 1.8 1.6-0.8 1.6-1.8-0.7-1.6-1.6-1.6z m11.6 0c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h6.9c0.7-2 2.5-3.4 4.7-3.4s4 1.4 4.7 3.4h6.9z" />
+                                d="m28.4 15v-3.4h-16.8v3.4h16.8z m0 6.6v-3.2h-16.8v3.2h16.8z m-5 6.8v-3.4h-11.8v3.4h11.8z m-3.4-23.4c-0.9 0-1.6 0.7-1.6 1.6s0.7 1.8 1.6 1.8 1.6-0.8 1.6-1.8-0.7-1.6-1.6-1.6z m11.6 0c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h6.9c0.7-2 2.5-3.4 4.7-3.4s4 1.4 4.7 3.4h6.9z"
+                              />
                             </g>
                           </svg>
                         </IconBase>
@@ -1061,22 +1197,27 @@ exports[`Item component renders a project correctly 1`] = `
               activeClassName="md-text--theme-primary"
               className="md-tile-content--left-avatar"
               primaryText="Project"
-              threeLines={true}>
+              threeLines={true}
+            >
               <div
-                className="md-tile-content md-tile-content--left-avatar">
+                className="md-tile-content md-tile-content--left-avatar"
+              >
                 <div
-                  className="md-tile-text--primary md-text">
+                  className="md-tile-text--primary md-text"
+                >
                   Project
                 </div>
               </div>
             </ListItemText>
             <TileAddon
-              activeClassName="md-text--theme-primary" />
+              activeClassName="md-text--theme-primary"
+            />
             <ButtonTooltipedInked
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -1089,12 +1230,14 @@ exports[`Item component renders a project correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -1109,9 +1252,11 @@ exports[`Item component renders a project correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -1122,26 +1267,33 @@ exports[`Item component renders a project correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdCreate>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -1153,10 +1305,12 @@ exports[`Item component renders a project correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
+                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -1171,7 +1325,8 @@ exports[`Item component renders a project correctly 1`] = `
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -1184,12 +1339,14 @@ exports[`Item component renders a project correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -1204,9 +1361,11 @@ exports[`Item component renders a project correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -1217,26 +1376,33 @@ exports[`Item component renders a project correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdMoreVert>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -1248,10 +1414,12 @@ exports[`Item component renders a project correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -1267,11 +1435,11 @@ exports[`Item component renders a project correctly 1`] = `
       </AccessibleFakeButtonInked>
     </li>
   </ListItem>
-</Component>
+</Item>
 `;
 
 exports[`Item component renders a task with tags correctly 1`] = `
-<Component
+<Item
   canMove={true}
   item={
     Object {
@@ -1283,7 +1451,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
         "@another-tag",
       ],
     }
-  }>
+  }
+>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -1292,7 +1461,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
       <Avatar
         icon={
           <MdDone
-            color={undefined} />
+            color={undefined}
+          />
         }
         onClick={undefined}
         suffixes={
@@ -1317,12 +1487,14 @@ exports[`Item component renders a task with tags correctly 1`] = `
             "grey",
             "blue-grey",
           ]
-        } />
+        }
+      />
     }
     primaryText="Task"
     secondaryText={
       <div
-        className="Item-chip-container">
+        className="Item-chip-container"
+      >
         <Chip
           label="@tag"
           rotateIcon={true}
@@ -1331,7 +1503,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
               "marginRight": 5,
               "marginTop": 3,
             }
-          }>
+          }
+        >
           add_circle
         </Chip>
         <Chip
@@ -1342,14 +1515,17 @@ exports[`Item component renders a task with tags correctly 1`] = `
               "marginRight": 5,
               "marginTop": 3,
             }
-          }>
+          }
+        >
           add_circle
         </Chip>
       </div>
     }
-    threeLines={true}>
+    threeLines={true}
+  >
     <li
-      className="md-list-item">
+      className="md-list-item"
+    >
       <AccessibleFakeButtonInked
         __SUPER_SECRET_REF__={[Function]}
         aria-expanded={null}
@@ -1364,7 +1540,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
+        onTouchStart={[Function]}
+      >
         <AccessibleFakeButton
           aria-expanded={null}
           className="md-list-tile md-text md-list-tile--three-lines"
@@ -1379,7 +1556,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
               transitionOverlap={150}
-              waitForInkTransition={undefined} />
+              waitForInkTransition={undefined}
+            />
           }
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1389,7 +1567,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <div
             aria-expanded={null}
             aria-pressed={false}
@@ -1403,17 +1582,21 @@ exports[`Item component renders a task with tags correctly 1`] = `
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}>
+            tabIndex={0}
+          >
             <InkContainer
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
-              transitionOverlap={150}>
+              transitionOverlap={150}
+            >
               <ReactTransitionGroup
                 childFactory={[Function]}
                 className="md-ink-container"
-                component="div">
+                component="div"
+              >
                 <div
-                  className="md-ink-container" />
+                  className="md-ink-container"
+                />
               </ReactTransitionGroup>
             </InkContainer>
             <TileAddon
@@ -1422,7 +1605,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   onClick={undefined}
                   suffixes={
@@ -1447,14 +1631,18 @@ exports[`Item component renders a task with tags correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  } />
-              }>
+                  }
+                />
+              }
+            >
               <div
-                className="md-tile-addon md-tile-addon--avatar">
+                className="md-tile-addon md-tile-addon--avatar"
+              >
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   suffixes={
                     Array [
@@ -1478,14 +1666,18 @@ exports[`Item component renders a task with tags correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  }>
+                  }
+                >
                   <div
-                    className="md-inline-block md-avatar md-avatar--default">
+                    className="md-inline-block md-avatar md-avatar--default"
+                  >
                     <div
-                      className="md-avatar-content">
+                      className="md-avatar-content"
+                    >
                       <MdDone>
                         <IconBase
-                          viewBox="0 0 40 40">
+                          viewBox="0 0 40 40"
+                        >
                           <svg
                             fill="currentColor"
                             height="1em"
@@ -1497,10 +1689,12 @@ exports[`Item component renders a task with tags correctly 1`] = `
                               }
                             }
                             viewBox="0 0 40 40"
-                            width="1em">
+                            width="1em"
+                          >
                             <g>
                               <path
-                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"
+                              />
                             </g>
                           </svg>
                         </IconBase>
@@ -1516,7 +1710,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
               primaryText="Task"
               secondaryText={
                 <div
-                  className="Item-chip-container">
+                  className="Item-chip-container"
+                >
                   <Chip
                     label="@tag"
                     rotateIcon={true}
@@ -1525,7 +1720,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
                         "marginRight": 5,
                         "marginTop": 3,
                       }
-                    }>
+                    }
+                  >
                     add_circle
                   </Chip>
                   <Chip
@@ -1536,22 +1732,28 @@ exports[`Item component renders a task with tags correctly 1`] = `
                         "marginRight": 5,
                         "marginTop": 3,
                       }
-                    }>
+                    }
+                  >
                     add_circle
                   </Chip>
                 </div>
               }
-              threeLines={true}>
+              threeLines={true}
+            >
               <div
-                className="md-tile-content md-tile-content--left-avatar">
+                className="md-tile-content md-tile-content--left-avatar"
+              >
                 <div
-                  className="md-tile-text--primary md-text">
+                  className="md-tile-text--primary md-text"
+                >
                   Task
                 </div>
                 <div
-                  className="md-tile-text--secondary md-text--secondary md-tile-text--three-lines">
+                  className="md-tile-text--secondary md-text--secondary md-tile-text--three-lines"
+                >
                   <div
-                    className="Item-chip-container">
+                    className="Item-chip-container"
+                  >
                     <Chip
                       label="@tag"
                       rotateIcon={true}
@@ -1560,7 +1762,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
                           "marginRight": 5,
                           "marginTop": 3,
                         }
-                      }>
+                      }
+                    >
                       <button
                         className="md-chip"
                         onMouseLeave={[Function]}
@@ -1571,9 +1774,11 @@ exports[`Item component renders a task with tags correctly 1`] = `
                             "marginTop": 3,
                           }
                         }
-                        type="button">
+                        type="button"
+                      >
                         <span
-                          className="md-chip-text">
+                          className="md-chip-text"
+                        >
                           @tag
                         </span>
                       </button>
@@ -1586,7 +1791,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
                           "marginRight": 5,
                           "marginTop": 3,
                         }
-                      }>
+                      }
+                    >
                       <button
                         className="md-chip"
                         onMouseLeave={[Function]}
@@ -1597,9 +1803,11 @@ exports[`Item component renders a task with tags correctly 1`] = `
                             "marginTop": 3,
                           }
                         }
-                        type="button">
+                        type="button"
+                      >
                         <span
-                          className="md-chip-text">
+                          className="md-chip-text"
+                        >
                           @another-tag
                         </span>
                       </button>
@@ -1609,12 +1817,14 @@ exports[`Item component renders a task with tags correctly 1`] = `
               </div>
             </ListItemText>
             <TileAddon
-              activeClassName="md-text--theme-primary" />
+              activeClassName="md-text--theme-primary"
+            />
             <ButtonTooltipedInked
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -1627,12 +1837,14 @@ exports[`Item component renders a task with tags correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -1647,9 +1859,11 @@ exports[`Item component renders a task with tags correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -1660,26 +1874,33 @@ exports[`Item component renders a task with tags correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdCreate>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -1691,10 +1912,12 @@ exports[`Item component renders a task with tags correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
+                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -1709,7 +1932,8 @@ exports[`Item component renders a task with tags correctly 1`] = `
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -1722,12 +1946,14 @@ exports[`Item component renders a task with tags correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -1742,9 +1968,11 @@ exports[`Item component renders a task with tags correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -1755,26 +1983,33 @@ exports[`Item component renders a task with tags correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdMoreVert>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -1786,10 +2021,12 @@ exports[`Item component renders a task with tags correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -1805,11 +2042,11 @@ exports[`Item component renders a task with tags correctly 1`] = `
       </AccessibleFakeButtonInked>
     </li>
   </ListItem>
-</Component>
+</Item>
 `;
 
 exports[`Item component renders an uncompleted task correctly 1`] = `
-<Component
+<Item
   canMove={true}
   item={
     Object {
@@ -1817,7 +2054,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
       "isProject": false,
       "name": "Task",
     }
-  }>
+  }
+>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -1826,7 +2064,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
       <Avatar
         icon={
           <MdDone
-            color={undefined} />
+            color={undefined}
+          />
         }
         onClick={undefined}
         suffixes={
@@ -1851,12 +2090,15 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
             "grey",
             "blue-grey",
           ]
-        } />
+        }
+      />
     }
     primaryText="Task"
-    threeLines={true}>
+    threeLines={true}
+  >
     <li
-      className="md-list-item">
+      className="md-list-item"
+    >
       <AccessibleFakeButtonInked
         __SUPER_SECRET_REF__={[Function]}
         aria-expanded={null}
@@ -1871,7 +2113,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
+        onTouchStart={[Function]}
+      >
         <AccessibleFakeButton
           aria-expanded={null}
           className="md-list-tile md-text md-list-tile--avatar"
@@ -1886,7 +2129,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
               transitionOverlap={150}
-              waitForInkTransition={undefined} />
+              waitForInkTransition={undefined}
+            />
           }
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1896,7 +2140,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <div
             aria-expanded={null}
             aria-pressed={false}
@@ -1910,17 +2155,21 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}>
+            tabIndex={0}
+          >
             <InkContainer
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
-              transitionOverlap={150}>
+              transitionOverlap={150}
+            >
               <ReactTransitionGroup
                 childFactory={[Function]}
                 className="md-ink-container"
-                component="div">
+                component="div"
+              >
                 <div
-                  className="md-ink-container" />
+                  className="md-ink-container"
+                />
               </ReactTransitionGroup>
             </InkContainer>
             <TileAddon
@@ -1929,7 +2178,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   onClick={undefined}
                   suffixes={
@@ -1954,14 +2204,18 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  } />
-              }>
+                  }
+                />
+              }
+            >
               <div
-                className="md-tile-addon md-tile-addon--avatar">
+                className="md-tile-addon md-tile-addon--avatar"
+              >
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   suffixes={
                     Array [
@@ -1985,14 +2239,18 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  }>
+                  }
+                >
                   <div
-                    className="md-inline-block md-avatar md-avatar--default">
+                    className="md-inline-block md-avatar md-avatar--default"
+                  >
                     <div
-                      className="md-avatar-content">
+                      className="md-avatar-content"
+                    >
                       <MdDone>
                         <IconBase
-                          viewBox="0 0 40 40">
+                          viewBox="0 0 40 40"
+                        >
                           <svg
                             fill="currentColor"
                             height="1em"
@@ -2004,10 +2262,12 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                               }
                             }
                             viewBox="0 0 40 40"
-                            width="1em">
+                            width="1em"
+                          >
                             <g>
                               <path
-                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"
+                              />
                             </g>
                           </svg>
                         </IconBase>
@@ -2021,22 +2281,27 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
               activeClassName="md-text--theme-primary"
               className="md-tile-content--left-avatar"
               primaryText="Task"
-              threeLines={true}>
+              threeLines={true}
+            >
               <div
-                className="md-tile-content md-tile-content--left-avatar">
+                className="md-tile-content md-tile-content--left-avatar"
+              >
                 <div
-                  className="md-tile-text--primary md-text">
+                  className="md-tile-text--primary md-text"
+                >
                   Task
                 </div>
               </div>
             </ListItemText>
             <TileAddon
-              activeClassName="md-text--theme-primary" />
+              activeClassName="md-text--theme-primary"
+            />
             <ButtonTooltipedInked
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -2049,12 +2314,14 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -2069,9 +2336,11 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -2082,26 +2351,33 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdCreate>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -2113,10 +2389,12 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
+                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -2131,7 +2409,8 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -2144,12 +2423,14 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -2164,9 +2445,11 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -2177,26 +2460,33 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdMoreVert>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -2208,10 +2498,12 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -2227,12 +2519,13 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
       </AccessibleFakeButtonInked>
     </li>
   </ListItem>
-</Component>
+</Item>
 `;
 
 exports[`Item component renders correctly if it does not have an item 1`] = `
-<Component
-  canMove={true}>
+<Item
+  canMove={true}
+>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -2241,7 +2534,8 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
       <Avatar
         icon={
           <MdDone
-            color={undefined} />
+            color={undefined}
+          />
         }
         onClick={undefined}
         suffixes={
@@ -2266,11 +2560,14 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
             "grey",
             "blue-grey",
           ]
-        } />
+        }
+      />
     }
-    threeLines={true}>
+    threeLines={true}
+  >
     <li
-      className="md-list-item">
+      className="md-list-item"
+    >
       <AccessibleFakeButtonInked
         __SUPER_SECRET_REF__={[Function]}
         aria-expanded={null}
@@ -2285,7 +2582,8 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
+        onTouchStart={[Function]}
+      >
         <AccessibleFakeButton
           aria-expanded={null}
           className="md-list-tile md-text md-list-tile--avatar"
@@ -2300,7 +2598,8 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
               transitionOverlap={150}
-              waitForInkTransition={undefined} />
+              waitForInkTransition={undefined}
+            />
           }
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -2310,7 +2609,8 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <div
             aria-expanded={null}
             aria-pressed={false}
@@ -2324,17 +2624,21 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}>
+            tabIndex={0}
+          >
             <InkContainer
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
-              transitionOverlap={150}>
+              transitionOverlap={150}
+            >
               <ReactTransitionGroup
                 childFactory={[Function]}
                 className="md-ink-container"
-                component="div">
+                component="div"
+              >
                 <div
-                  className="md-ink-container" />
+                  className="md-ink-container"
+                />
               </ReactTransitionGroup>
             </InkContainer>
             <TileAddon
@@ -2343,7 +2647,8 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   onClick={undefined}
                   suffixes={
@@ -2368,14 +2673,18 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  } />
-              }>
+                  }
+                />
+              }
+            >
               <div
-                className="md-tile-addon md-tile-addon--avatar">
+                className="md-tile-addon md-tile-addon--avatar"
+              >
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   suffixes={
                     Array [
@@ -2399,14 +2708,18 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                       "grey",
                       "blue-grey",
                     ]
-                  }>
+                  }
+                >
                   <div
-                    className="md-inline-block md-avatar md-avatar--default">
+                    className="md-inline-block md-avatar md-avatar--default"
+                  >
                     <div
-                      className="md-avatar-content">
+                      className="md-avatar-content"
+                    >
                       <MdDone>
                         <IconBase
-                          viewBox="0 0 40 40">
+                          viewBox="0 0 40 40"
+                        >
                           <svg
                             fill="currentColor"
                             height="1em"
@@ -2418,10 +2731,12 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                               }
                             }
                             viewBox="0 0 40 40"
-                            width="1em">
+                            width="1em"
+                          >
                             <g>
                               <path
-                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"
+                              />
                             </g>
                           </svg>
                         </IconBase>
@@ -2434,20 +2749,25 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
             <ListItemText
               activeClassName="md-text--theme-primary"
               className="md-tile-content--left-avatar"
-              threeLines={true}>
+              threeLines={true}
+            >
               <div
-                className="md-tile-content md-tile-content--left-avatar">
+                className="md-tile-content md-tile-content--left-avatar"
+              >
                 <div
-                  className="md-tile-text--primary md-text" />
+                  className="md-tile-text--primary md-text"
+                />
               </div>
             </ListItemText>
             <TileAddon
-              activeClassName="md-text--theme-primary" />
+              activeClassName="md-text--theme-primary"
+            />
             <ButtonTooltipedInked
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -2460,12 +2780,14 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -2480,9 +2802,11 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -2493,26 +2817,33 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdCreate>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -2524,10 +2855,12 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
+                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -2542,7 +2875,8 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -2555,12 +2889,14 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -2575,9 +2911,11 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -2588,26 +2926,33 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdMoreVert>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -2619,10 +2964,12 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -2638,11 +2985,11 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
       </AccessibleFakeButtonInked>
     </li>
   </ListItem>
-</Component>
+</Item>
 `;
 
 exports[`Item component renders the delete button when it has the canDelete prop 1`] = `
-<Component
+<Item
   canDelete={true}
   canMove={true}
   item={
@@ -2651,7 +2998,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
       "isProject": false,
       "name": "Task",
     }
-  }>
+  }
+>
   <ListItem
     activeClassName="md-text--theme-primary"
     component="div"
@@ -2660,7 +3008,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
       <Avatar
         icon={
           <MdDone
-            color={undefined} />
+            color={undefined}
+          />
         }
         onClick={undefined}
         suffixes={
@@ -2685,12 +3034,15 @@ exports[`Item component renders the delete button when it has the canDelete prop
             "grey",
             "blue-grey",
           ]
-        } />
+        }
+      />
     }
     primaryText="Task"
-    threeLines={true}>
+    threeLines={true}
+  >
     <li
-      className="md-list-item">
+      className="md-list-item"
+    >
       <AccessibleFakeButtonInked
         __SUPER_SECRET_REF__={[Function]}
         aria-expanded={null}
@@ -2705,7 +3057,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         onTouchEnd={[Function]}
-        onTouchStart={[Function]}>
+        onTouchStart={[Function]}
+      >
         <AccessibleFakeButton
           aria-expanded={null}
           className="md-list-tile md-text md-list-tile--avatar"
@@ -2720,7 +3073,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
               transitionOverlap={150}
-              waitForInkTransition={undefined} />
+              waitForInkTransition={undefined}
+            />
           }
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -2730,7 +3084,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
           onTouchEnd={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}>
+          tabIndex={0}
+        >
           <div
             aria-expanded={null}
             aria-pressed={false}
@@ -2744,17 +3099,21 @@ exports[`Item component renders the delete button when it has the canDelete prop
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}>
+            tabIndex={0}
+          >
             <InkContainer
               transitionEnterTimeout={450}
               transitionLeaveTimeout={300}
-              transitionOverlap={150}>
+              transitionOverlap={150}
+            >
               <ReactTransitionGroup
                 childFactory={[Function]}
                 className="md-ink-container"
-                component="div">
+                component="div"
+              >
                 <div
-                  className="md-ink-container" />
+                  className="md-ink-container"
+                />
               </ReactTransitionGroup>
             </InkContainer>
             <TileAddon
@@ -2763,7 +3122,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   onClick={undefined}
                   suffixes={
@@ -2788,14 +3148,18 @@ exports[`Item component renders the delete button when it has the canDelete prop
                       "grey",
                       "blue-grey",
                     ]
-                  } />
-              }>
+                  }
+                />
+              }
+            >
               <div
-                className="md-tile-addon md-tile-addon--avatar">
+                className="md-tile-addon md-tile-addon--avatar"
+              >
                 <Avatar
                   icon={
                     <MdDone
-                      color={undefined} />
+                      color={undefined}
+                    />
                   }
                   suffixes={
                     Array [
@@ -2819,14 +3183,18 @@ exports[`Item component renders the delete button when it has the canDelete prop
                       "grey",
                       "blue-grey",
                     ]
-                  }>
+                  }
+                >
                   <div
-                    className="md-inline-block md-avatar md-avatar--default">
+                    className="md-inline-block md-avatar md-avatar--default"
+                  >
                     <div
-                      className="md-avatar-content">
+                      className="md-avatar-content"
+                    >
                       <MdDone>
                         <IconBase
-                          viewBox="0 0 40 40">
+                          viewBox="0 0 40 40"
+                        >
                           <svg
                             fill="currentColor"
                             height="1em"
@@ -2838,10 +3206,12 @@ exports[`Item component renders the delete button when it has the canDelete prop
                               }
                             }
                             viewBox="0 0 40 40"
-                            width="1em">
+                            width="1em"
+                          >
                             <g>
                               <path
-                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
+                                d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"
+                              />
                             </g>
                           </svg>
                         </IconBase>
@@ -2855,22 +3225,27 @@ exports[`Item component renders the delete button when it has the canDelete prop
               activeClassName="md-text--theme-primary"
               className="md-tile-content--left-avatar"
               primaryText="Task"
-              threeLines={true}>
+              threeLines={true}
+            >
               <div
-                className="md-tile-content md-tile-content--left-avatar">
+                className="md-tile-content md-tile-content--left-avatar"
+              >
                 <div
-                  className="md-tile-text--primary md-text">
+                  className="md-tile-text--primary md-text"
+                >
                   Task
                 </div>
               </div>
             </ListItemText>
             <TileAddon
-              activeClassName="md-text--theme-primary" />
+              activeClassName="md-text--theme-primary"
+            />
             <ButtonTooltipedInked
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -2883,12 +3258,14 @@ exports[`Item component renders the delete button when it has the canDelete prop
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -2903,9 +3280,11 @@ exports[`Item component renders the delete button when it has the canDelete prop
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -2916,26 +3295,33 @@ exports[`Item component renders the delete button when it has the canDelete prop
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdCreate>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -2947,10 +3333,12 @@ exports[`Item component renders the delete button when it has the canDelete prop
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
+                                  d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -2965,7 +3353,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -2978,12 +3367,14 @@ exports[`Item component renders the delete button when it has the canDelete prop
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -2998,9 +3389,11 @@ exports[`Item component renders the delete button when it has the canDelete prop
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -3011,26 +3404,33 @@ exports[`Item component renders the delete button when it has the canDelete prop
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdMoreVert>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -3042,10 +3442,12 @@ exports[`Item component renders the delete button when it has the canDelete prop
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -3060,7 +3462,8 @@ exports[`Item component renders the delete button when it has the canDelete prop
               icon={true}
               inkTransitionEnterTimeout={450}
               inkTransitionLeaveTimeout={300}
-              inkTransitionOverlap={150}>
+              inkTransitionOverlap={150}
+            >
               <ButtonTooltiped
                 icon={true}
                 ink={
@@ -3073,12 +3476,14 @@ exports[`Item component renders the delete button when it has the canDelete prop
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined} />
+                    waitForInkTransition={undefined}
+                  />
                 }
                 tooltipDelay={0}
                 tooltipPosition="bottom"
                 tooltipTransitionEnterTimeout={150}
-                tooltipTransitionLeaveTimeout={150}>
+                tooltipTransitionLeaveTimeout={150}
+              >
                 <Button
                   fixedPosition="br"
                   icon={true}
@@ -3093,9 +3498,11 @@ exports[`Item component renders the delete button when it has the canDelete prop
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined} />
+                      waitForInkTransition={undefined}
+                    />
                   }
-                  type="button">
+                  type="button"
+                >
                   <button
                     className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                     onKeyDown={[Function]}
@@ -3106,26 +3513,33 @@ exports[`Item component renders the delete button when it has the canDelete prop
                     onMouseUp={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    type="button">
+                    type="button"
+                  >
                     <InkContainer
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
-                      transitionOverlap={150}>
+                      transitionOverlap={150}
+                    >
                       <ReactTransitionGroup
                         childFactory={[Function]}
                         className="md-ink-container"
-                        component="div">
+                        component="div"
+                      >
                         <div
-                          className="md-ink-container" />
+                          className="md-ink-container"
+                        />
                       </ReactTransitionGroup>
                     </InkContainer>
                     <FontIcon
-                      iconClassName="material-icons">
+                      iconClassName="material-icons"
+                    >
                       <i
-                        className="md-icon material-icons">
+                        className="md-icon material-icons"
+                      >
                         <MdDelete>
                           <IconBase
-                            viewBox="0 0 40 40">
+                            viewBox="0 0 40 40"
+                          >
                             <svg
                               fill="currentColor"
                               height="1em"
@@ -3137,10 +3551,12 @@ exports[`Item component renders the delete button when it has the canDelete prop
                                 }
                               }
                               viewBox="0 0 40 40"
-                              width="1em">
+                              width="1em"
+                            >
                               <g>
                                 <path
-                                  d="m31.6 6.6v3.4h-23.2v-3.4h5.7l1.8-1.6h8.2l1.8 1.6h5.7z m-21.6 25v-20h20v20c0 1.8-1.6 3.4-3.4 3.4h-13.2c-1.8 0-3.4-1.6-3.4-3.4z" />
+                                  d="m31.6 6.6v3.4h-23.2v-3.4h5.7l1.8-1.6h8.2l1.8 1.6h5.7z m-21.6 25v-20h20v20c0 1.8-1.6 3.4-3.4 3.4h-13.2c-1.8 0-3.4-1.6-3.4-3.4z"
+                                />
                               </g>
                             </svg>
                           </IconBase>
@@ -3156,5 +3572,5 @@ exports[`Item component renders the delete button when it has the canDelete prop
       </AccessibleFakeButtonInked>
     </li>
   </ListItem>
-</Component>
+</Item>
 `;

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`itemsToTree returns an object with all the children properties being the actual children instead of their ids 1`] = `
 Object {
   "_id": "root",
