@@ -14,8 +14,9 @@ const ItemList = ({
     onItemTap,
     onItemUpdate,
     onItemMove,
+    className,
 }) => (
-  <List style={style}>
+  <List style={style} className={className}>
     {items.map((item, i) => {
       if (!item) return null;
       return (<Item
@@ -46,6 +47,7 @@ ItemList.propTypes = {
   onItemUpdate: React.PropTypes.func,
   onItemMove: React.PropTypes.func,
   style: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  className: React.PropTypes.string,
 };
 
 export default ItemList;

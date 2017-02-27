@@ -5,6 +5,7 @@ import ItemList from './ItemList';
 import AddItem from './AddItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import PropTypes from '../../common/PropTypes';
+import './Projects.css';
 
 export const Projects = props => (
   <div>
@@ -27,7 +28,7 @@ export const Projects = props => (
           props.routerPush(`/project/${props.projectChildren[i]._id}`);
         }
       }}
-      style={{ marginBottom: '116px', height: '100%' }}
+      className="Projects-item-list"
     />
     <div className="AddItem-fixed">
       <AddItem
