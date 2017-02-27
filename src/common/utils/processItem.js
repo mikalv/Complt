@@ -16,16 +16,13 @@ export default function processItem(value, isProject) {
       tags: [],
     };
   }
-  if (item.tags) {
-    const valueParts = value.split(' ');
-    valueParts.forEach((part) => {
-      if (part.startsWith('@')) {
-        item.tags.push(part);
-        return;
-      }
-      item.name += ` ${part}`;
-    });
-  } else item.name = value;
+  value.split(' ').forEach((part) => {
+    if (part.split('')[0] === '@') {
+      item.tags.push(part);
+      return;
+    }
+    item.name += ` ${part}`;
+  });
   item.name = item.name.trim();
   if (!item.name) return null;
   return item;
