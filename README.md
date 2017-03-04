@@ -17,7 +17,7 @@ The client communicates to [Cloudant Envoy](https://github.com/cloudant-labs/env
 
 The front-end is written in ES6, transpiled using [babel](https://babeljs.io/), bundled using [Webpack](https://webpack.github.io/) and follows [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript) with a few small exceptions.
 
-The app is tested and deployed using [GitLab CI](https://about.gitlab.com/gitlab-ci/). On all branches the tests are run with [Jest](https://facebook.github.io/jest/), the coverage is uploaded to [Codecov](https://codecov.io/) and the code is linted with [ESLint](http://eslint.org/). On master, the front-end is also deployed to a [staging environment](https://staging.app.complt.xyz/) after the tests and linting pass, the front-end can also be deployed to [production](https://app.complt.xyz/) by starting the job manually.
+The app is tested and deployed using [GitLab CI](https://about.gitlab.com/gitlab-ci/). On all branches the unit tests are run with [Jest](https://facebook.github.io/jest/), the e2e tests are run with [WebdriverIO](http://webdriver.io) on [Sauce Labs](https://saucelabs.com), the coverage is uploaded to [Codecov](https://codecov.io/) and the code is linted with [ESLint](http://eslint.org/). On master, the front-end is also deployed to a [staging environment](https://staging.app.complt.xyz/) after the tests and linting pass, the front-end can also be deployed to [production](https://app.complt.xyz/) by starting the job manually.
 
 ## npm scripts
 
