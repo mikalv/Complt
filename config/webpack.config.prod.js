@@ -221,6 +221,13 @@ var config = {
         return context && context.indexOf('node_modules') !== -1;
       },
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'react-md',
+      minChunks(module, count) {
+        var context = module.context;
+        return context && context.indexOf('react-md') !== -1;
+      },
+    }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
