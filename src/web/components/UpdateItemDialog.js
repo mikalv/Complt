@@ -43,7 +43,8 @@ UpdateItemDialog.propTypes = {
 export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
     const item = state.items.find(({ _id }) => _id === state.dialogs.updateItem.id);
-    const defaultInputValue = `${item.name} ${item.tags.join(' ')}`;
+    const tags = item.tags || [];
+    const defaultInputValue = `${item.name} ${tags.join(' ')}`;
     return {
       visible: true,
       item,
@@ -53,7 +54,7 @@ export function mapStateToProps(state) {
       form: `updateItem:${item._id}`,
     };
   }
-  return { visible: false };
+  return { visible: false, form: 'updateItem' };
 }
 
 export const onSubmit = ({ itemInput }, dispatch, props) =>
