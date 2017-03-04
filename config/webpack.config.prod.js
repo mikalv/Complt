@@ -214,6 +214,13 @@ var config = {
       analyzerMode: 'static',
       generateStatsFile: true,
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks(module, count) {
+        var context = module.context;
+        return context && context.indexOf('node_modules') !== -1;
+      },
+    }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
