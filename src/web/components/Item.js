@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Delete from 'react-icons/lib/md/delete';
@@ -15,6 +16,7 @@ import './Item.css';
 const stopPropagation = (callback) => {
   if (typeof callback === 'function') {
     return (e) => {
+      e.preventDefault();
       e.stopPropagation();
       callback(e);
     };
@@ -41,6 +43,8 @@ const Item = ({
       }
     />}
     onClick={stopPropagation(onItemTap)}
+    component={item.isProject ? Link : undefined}
+    to={item.isProject ? `project/${item._id}` : undefined}
     threeLines
     primaryText={item.name}
     secondaryText={!item.tags || item.tags.length === 0 ? undefined : <div className="Item-chip-container">
