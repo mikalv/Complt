@@ -3,7 +3,6 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
 import RavenMiddleware from 'redux-raven-middleware';
-import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import auth from '../common/redux/auth';
 import items from '../common/redux/items';
@@ -49,7 +48,6 @@ const store = createStore(
     profile,
     syncState,
     dialogs,
-    form: formReducer,
   }),
   enhancer,
 );

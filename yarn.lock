@@ -375,10 +375,6 @@ array-find-index@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
 
-array-findindex-polyfill@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/array-findindex-polyfill/-/array-findindex-polyfill-0.1.0.tgz#c362665bec7645f22d7a3c3aac9793f71c3622ef"
-
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
@@ -612,7 +608,7 @@ babel-code-frame@^6.11.0, babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-babel-core@6.22.1, babel-core@^6.18.0, babel-core@^6.21.0, babel-core@^6.7.2:
+babel-core@6.22.1, babel-core@^6.0.0, babel-core@^6.18.0, babel-core@^6.21.0, babel-core@^6.7.2:
   version "6.22.1"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.22.1.tgz#9c5fd658ba1772d28d721f6d25d968fc7ae21648"
   dependencies:
@@ -636,7 +632,7 @@ babel-core@6.22.1, babel-core@^6.18.0, babel-core@^6.21.0, babel-core@^6.7.2:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-core@^6.0.0, babel-core@^6.23.0:
+babel-core@^6.23.0:
   version "6.23.1"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.23.1.tgz#c143cb621bb2f621710c220c5d579d15b8a442df"
   dependencies:
@@ -5864,7 +5860,7 @@ jest-changed-files@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-17.0.2.tgz#f5657758736996f590a51b87e5c9369d904ba7b7"
 
-jest-cli@^18.0.0, jest-cli@^18.1.0:
+jest-cli@^18.0.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/jest-cli/-/jest-cli-18.1.0.tgz#5ead36ecad420817c2c9baa2aa7574f63257b3d6"
   dependencies:
@@ -6054,17 +6050,11 @@ jest-util@^18.1.0:
     jest-mock "^18.0.0"
     mkdirp "^0.5.1"
 
-jest@18.0.0:
+jest@18.0.0, jest@^18.0.0:
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-18.0.0.tgz#ef12f70befe0fcb30f1c61c0ae58748706267d4b"
   dependencies:
     jest-cli "^18.0.0"
-
-jest@^18.0.0:
-  version "18.1.0"
-  resolved "https://registry.yarnpkg.com/jest/-/jest-18.1.0.tgz#bcebf1e203dee5c2ad2091c805300a343d9e6c7d"
-  dependencies:
-    jest-cli "^18.1.0"
 
 jodid25519@^1.0.0:
   version "1.0.2"
@@ -6447,11 +6437,7 @@ lock@^0.1.2:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/lock/-/lock-0.1.3.tgz#f66c1caa0c41956e1426608039ed59b71bdf1854"
 
-lodash-es@^4.16.0, lodash-es@^4.17.3:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
-
-lodash-es@^4.2.0, lodash-es@^4.2.1:
+lodash-es@^4.16.0, lodash-es@^4.2.0, lodash-es@^4.2.1:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.2.tgz#59011b585166e613eb9dd5fc256b2cd1a30f3712"
 
@@ -6628,7 +6614,7 @@ lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
 
-lodash.keys@^3.0.0, lodash.keys@^3.1.2:
+lodash.keys@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
   dependencies:
@@ -8960,6 +8946,12 @@ react-event-listener@^0.4.0:
     react-addons-shallow-compare "^0.14.0 || ^15.0.0"
     warning "^3.0.0"
 
+react-form@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/react-form/-/react-form-1.2.6.tgz#17c619c9f2544eb28d4219dde9a723671e8e584c"
+  dependencies:
+    classnames "^2.2.5"
+
 react-hot-loader@^3.0.0-beta.6:
   version "3.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-3.0.0-beta.6.tgz#463fac0bfc8b63a8385258af20c91636abce75f4"
@@ -9484,20 +9476,6 @@ redux, redux@^3.6.0:
     lodash-es "^4.2.1"
     loose-envify "^1.1.0"
     symbol-observable "^1.0.2"
-
-redux-form@^6.4.3:
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-6.4.3.tgz#bd83a77770d9805f7b595a4ff18f00fe4267d3c8"
-  dependencies:
-    array-findindex-polyfill "^0.1.0"
-    deep-equal "^1.0.1"
-    es6-error "^4.0.0"
-    hoist-non-react-statics "^1.2.0"
-    invariant "^2.2.2"
-    is-promise "^2.1.0"
-    lodash "^4.17.3"
-    lodash-es "^4.17.3"
-    shallowequal "^0.2.2"
 
 redux-logger@^2.7.4:
   version "2.8.1"
@@ -10097,12 +10075,6 @@ sha.js@^2.3.6:
   resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.4.8.tgz#37068c2c476b6baf402d14a49c67f597921f634f"
   dependencies:
     inherits "^2.0.1"
-
-shallowequal@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-0.2.2.tgz#1e32fd5bcab6ad688a4812cb0cc04efc75c7014e"
-  dependencies:
-    lodash.keys "^3.1.2"
 
 shell-quote@1.6.1:
   version "1.6.1"

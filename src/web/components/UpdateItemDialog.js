@@ -1,18 +1,63 @@
 import React from 'react';
 import Dialog from 'react-md/lib/Dialogs';
+import DialogFooter from 'react-md/lib/Dialogs/DialogFooter';
 import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons';
-import { Field, reduxForm } from 'redux-form';
+import { Form, FormInput } from 'react-form';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import PropTypes from '../../common/PropTypes';
 
-
-export const renderTextField = ({
-  input, meta: { touched, error }, ...others  // eslint-disable-line react/prop-types
-}) => (
-  <TextField {...input} {...others} error={touched && !!error} errorText={error} />
+export const FormTextField = ({ field, ...rest }) => (
+  <FormInput field={field}>
+    {({ setValue, getValue, setTouched }) => (
+      <TextField
+        {...rest}
+        value={getValue()}
+        onChange={val => setValue(val)}
+        onBlur={() => setTouched()}
+      />)}
+  </FormInput>
 );
+
+
+FormTextField.propTypes = { field: React.PropTypes.string };
+
+export const onSubmit = (item, handleUpdateItem) => ({ input }) => handleUpdateItem(input, item);
+
+export const UpdateItemForm = props => (
+  <Form
+    defaultValues={{
+      input: props.defaultInputValue,
+    }}
+    onSubmit={onSubmit}
+  >
+    {({ values, submitForm, setValue }) => (
+
+      <form onSubmit={submitForm}>
+        <TextField
+          placeholder={props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work'}
+          value={values.input}
+          onChange={value => setValue('input', value)}
+        />
+        <DialogFooter
+          style={{ paddingRight: 0 }}
+          actions={[
+            <Button flat label="Cancel" onClick={props.hideUpdateItemDialog} />,
+            <Button flat label="Update" onClick={submitForm} />,
+          ]}
+        />
+      </form>
+    )}
+  </Form>
+);
+
+UpdateItemForm.propTypes = {
+  item: PropTypes.item,
+  defaultInputValue: React.PropTypes.string,
+  handleUpdateItem: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  hideUpdateItemDialog: React.PropTypes.func,
+};
 
 export const UpdateItemDialog = props => (
   <Dialog
@@ -20,23 +65,14 @@ export const UpdateItemDialog = props => (
     visible={props.visible}
     title="Update your Item"
     onHide={props.hideUpdateItemDialog}
-    actions={[
-      <Button flat label="Cancel" onClick={props.hideUpdateItemDialog} />,
-      <Button flat label="Update" onClick={props.handleSubmit} />,
-    ]}
+    contentStyle={{ paddingBottom: 0 }}
   >
-    {props.item ?
-      <form onSubmit={props.handleSubmit}>
-        <Field name="itemInput" component={renderTextField} type="text" placeholder={props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work'} />
-      </form>
-      : null}
+    <UpdateItemForm {...props} />
   </Dialog>
 );
 
 UpdateItemDialog.propTypes = {
-  item: PropTypes.item,
   visible: React.PropTypes.bool,
-  handleSubmit: React.PropTypes.func,
   hideUpdateItemDialog: React.PropTypes.func,
 };
 
@@ -48,18 +84,10 @@ export function mapStateToProps(state) {
     return {
       visible: true,
       item,
-      initialValues: {
-        itemInput: defaultInputValue,
-      },
-      form: `updateItem:${item._id}`,
+      defaultInputValue,
     };
   }
-  return { visible: false, form: 'updateItem' };
+  return { visible: false, defaultInputValue: '', item: {} };
 }
 
-export const onSubmit = ({ itemInput }, dispatch, props) =>
-props.handleUpdateItem(itemInput, props.item);
-
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  onSubmit,
-})(UpdateItemDialog));
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateItemDialog);

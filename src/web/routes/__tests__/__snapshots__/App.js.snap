@@ -106,7 +106,7 @@ exports[`App component renders correctly when the pathname does not match a rout
     transitionEnterTimeout={300}
     transitionLeaveTimeout={300}
     transitionName="md-snackbar" />
-  <Connect(ReduxForm) />
+  <Connect(Component) />
   <Connect(Component) />
 </NavigationDrawer>
 `;
@@ -220,7 +220,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
     transitionEnterTimeout={300}
     transitionLeaveTimeout={300}
     transitionName="md-snackbar" />
-  <Connect(ReduxForm) />
+  <Connect(Component) />
   <Connect(Component) />
 </NavigationDrawer>
 `;
