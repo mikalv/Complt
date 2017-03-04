@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Router, Route, IndexRedirect } from 'react-router';
+import { Router, Route, IndexRedirect, Redirect } from 'react-router';
 import App from './routes/App';
 import Inbox from './routes/Inbox';
 import Account from './routes/Account';
@@ -31,6 +31,8 @@ class CompltRouter extends Component {
       <Router history={this.props.history}>
         <Route path="/" component={App}>
           <IndexRedirect to="inbox" />
+          <Redirect from="project/inbox" to="inbox" />
+          <Redirect from="project/root" to="projects" />
           <Route path="all" component={All} />
           <Route path="inbox" component={Inbox} />
           <Route path="projects" component={RootProject} />
