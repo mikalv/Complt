@@ -1,4 +1,4 @@
-image: kkarczmarczyk/node-yarn:latest
+image: kkarczmarczyk/node-yarn:6.9
 
 stages:
   - test
