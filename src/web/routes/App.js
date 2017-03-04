@@ -85,8 +85,8 @@ export const App = props => (
   >
     {props.children}
     <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
-    {props.dialogs.updateItem.visible ? <UpdateItemDialog /> : null}
-    {props.dialogs.moveItem.visible ? <MoveItemDialog /> : null}
+    <UpdateItemDialog />
+    <MoveItemDialog />
   </NavigationDrawer>
 );
 
@@ -112,18 +112,10 @@ App.propTypes = {
       }),
     ]),
   })).isRequired,
-  dialogs: React.PropTypes.shape({
-    updateItem: React.PropTypes.shape({
-      visible: React.PropTypes.bool,
-    }),
-    moveItem: React.PropTypes.shape({
-      visible: React.PropTypes.bool,
-    }),
-  }),
 };
 
-function mapStateToProps({ toasts, dialogs, itemsToShow, syncState }) {
-  return { toasts, dialogs, itemsToShow, syncState };
+function mapStateToProps({ toasts, itemsToShow, syncState }) {
+  return { toasts, itemsToShow, syncState };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
