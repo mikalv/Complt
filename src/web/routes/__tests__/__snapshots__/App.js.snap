@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`App component renders correctly when the pathname does not match a route 1`] = `
 <NavigationDrawer
   autoclose={true}
@@ -21,8 +19,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "component": [Function],
         "key": "all",
         "leftIcon": <MdApps
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "All",
         "to": "/all",
       },
@@ -30,8 +27,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "component": [Function],
         "key": "inbox",
         "leftIcon": <MdInbox
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Inbox",
         "to": "/inbox",
       },
@@ -39,8 +35,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "component": [Function],
         "key": "projects",
         "leftIcon": <MdAssignment
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Projects",
         "to": "/projects",
       },
@@ -48,8 +43,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "component": [Function],
         "key": "tags",
         "leftIcon": <MdLabel
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Tags",
         "to": "/tags",
       },
@@ -57,8 +51,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "component": [Function],
         "key": "account",
         "leftIcon": <MdPerson
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Account",
         "to": "/account",
       },
@@ -75,8 +68,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         icon={true}
         inkTransitionEnterTimeout={450}
         inkTransitionLeaveTimeout={300}
-        inkTransitionOverlap={150}
-    >
+        inkTransitionOverlap={150}>
         <MdSync />
     </ButtonTooltipedInked>,
     ]
@@ -87,8 +79,7 @@ exports[`App component renders correctly when the pathname does not match a rout
       defaultValue=""
       iconChildren={
         <MdArrowDropDown
-          size={24}
-        />
+          size={24} />
       }
       id="items-to-show-selection"
       itemLabel="label"
@@ -103,12 +94,10 @@ exports[`App component renders correctly when the pathname does not match a rout
         ]
       }
       position="tl"
-      stretchList={true}
-    />
+      stretchList={true} />
   }
   transitionEnterTimeout={300}
-  transitionName="md-cross-fade"
->
+  transitionName="md-cross-fade">
   <div />
   <SnackbarContainer
     autohide={true}
@@ -116,8 +105,9 @@ exports[`App component renders correctly when the pathname does not match a rout
     toasts={Array []}
     transitionEnterTimeout={300}
     transitionLeaveTimeout={300}
-    transitionName="md-snackbar"
-  />
+    transitionName="md-snackbar" />
+  <Connect(ReduxForm) />
+  <Connect(Component) />
 </NavigationDrawer>
 `;
 
@@ -142,8 +132,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "component": [Function],
         "key": "all",
         "leftIcon": <MdApps
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "All",
         "to": "/all",
       },
@@ -152,8 +141,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "component": [Function],
         "key": "inbox",
         "leftIcon": <MdInbox
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Inbox",
         "to": "/inbox",
       },
@@ -161,8 +149,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "component": [Function],
         "key": "projects",
         "leftIcon": <MdAssignment
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Projects",
         "to": "/projects",
       },
@@ -170,8 +157,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "component": [Function],
         "key": "tags",
         "leftIcon": <MdLabel
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Tags",
         "to": "/tags",
       },
@@ -179,8 +165,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "component": [Function],
         "key": "account",
         "leftIcon": <MdPerson
-          size={24}
-    />,
+          size={24} />,
         "primaryText": "Account",
         "to": "/account",
       },
@@ -197,8 +182,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         icon={true}
         inkTransitionEnterTimeout={450}
         inkTransitionLeaveTimeout={300}
-        inkTransitionOverlap={150}
-    >
+        inkTransitionOverlap={150}>
         <MdSync />
     </ButtonTooltipedInked>,
     ]
@@ -209,8 +193,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
       defaultValue=""
       iconChildren={
         <MdArrowDropDown
-          size={24}
-        />
+          size={24} />
       }
       id="items-to-show-selection"
       itemLabel="label"
@@ -225,12 +208,10 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         ]
       }
       position="tl"
-      stretchList={true}
-    />
+      stretchList={true} />
   }
   transitionEnterTimeout={300}
-  transitionName="md-cross-fade"
->
+  transitionName="md-cross-fade">
   <div />
   <SnackbarContainer
     autohide={true}
@@ -238,7 +219,8 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
     toasts={Array []}
     transitionEnterTimeout={300}
     transitionLeaveTimeout={300}
-    transitionName="md-snackbar"
-  />
+    transitionName="md-snackbar" />
+  <Connect(ReduxForm) />
+  <Connect(Component) />
 </NavigationDrawer>
 `;

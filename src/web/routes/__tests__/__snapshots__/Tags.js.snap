@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`Tags component renders some items correctly 1`] = `
 <Component
   tags={
@@ -8,22 +6,18 @@ exports[`Tags component renders some items correctly 1`] = `
       "@tag2",
       "@tag3",
     ]
-  }
->
+  }>
   <List>
     <ul
-      className="md-list"
-    >
+      className="md-list">
       <ListItem
         activeClassName="md-text--theme-primary"
         component={[Function]}
         expanderIconChildren="keyboard_arrow_down"
         primaryText="@tag"
-        to="/tag/@tag"
-      >
+        to="/tag/@tag">
         <li
-          className="md-list-item"
-        >
+          className="md-list-item">
           <AccessibleFakeButtonInked
             __SUPER_SECRET_REF__={[Function]}
             aria-expanded={null}
@@ -39,8 +33,7 @@ exports[`Tags component renders some items correctly 1`] = `
             onMouseOver={[Function]}
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
-            to="/tag/@tag"
-          >
+            to="/tag/@tag">
             <AccessibleFakeButton
               aria-expanded={null}
               className="md-list-tile md-text"
@@ -55,8 +48,7 @@ exports[`Tags component renders some items correctly 1`] = `
                   transitionEnterTimeout={450}
                   transitionLeaveTimeout={300}
                   transitionOverlap={150}
-                  waitForInkTransition={undefined}
-                />
+                  waitForInkTransition={undefined} />
               }
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -67,8 +59,7 @@ exports[`Tags component renders some items correctly 1`] = `
               onTouchStart={[Function]}
               role="button"
               tabIndex={0}
-              to="/tag/@tag"
-            >
+              to="/tag/@tag">
               <Link
                 aria-expanded={null}
                 aria-pressed={false}
@@ -85,8 +76,7 @@ exports[`Tags component renders some items correctly 1`] = `
                 role="button"
                 style={Object {}}
                 tabIndex={0}
-                to="/tag/@tag"
-              >
+                to="/tag/@tag">
                 <a
                   aria-expanded={null}
                   aria-pressed={false}
@@ -101,44 +91,35 @@ exports[`Tags component renders some items correctly 1`] = `
                   onTouchStart={[Function]}
                   role="button"
                   style={Object {}}
-                  tabIndex={0}
-                >
+                  tabIndex={0}>
                   <InkContainer
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
-                    transitionOverlap={150}
-                  >
+                    transitionOverlap={150}>
                     <ReactTransitionGroup
                       childFactory={[Function]}
                       className="md-ink-container"
-                      component="div"
-                    >
+                      component="div">
                       <div
-                        className="md-ink-container"
-                      />
+                        className="md-ink-container" />
                     </ReactTransitionGroup>
                   </InkContainer>
                   <TileAddon
-                    activeClassName="md-text--theme-primary"
-                  />
+                    activeClassName="md-text--theme-primary" />
                   <ListItemText
                     activeClassName="md-text--theme-primary"
                     className=""
-                    primaryText="@tag"
-                  >
+                    primaryText="@tag">
                     <div
-                      className="md-tile-content"
-                    >
+                      className="md-tile-content">
                       <div
-                        className="md-tile-text--primary md-text"
-                      >
+                        className="md-tile-text--primary md-text">
                         @tag
                       </div>
                     </div>
                   </ListItemText>
                   <TileAddon
-                    activeClassName="md-text--theme-primary"
-                  />
+                    activeClassName="md-text--theme-primary" />
                 </a>
               </Link>
             </AccessibleFakeButton>
@@ -150,11 +131,9 @@ exports[`Tags component renders some items correctly 1`] = `
         component={[Function]}
         expanderIconChildren="keyboard_arrow_down"
         primaryText="@tag2"
-        to="/tag/@tag2"
-      >
+        to="/tag/@tag2">
         <li
-          className="md-list-item"
-        >
+          className="md-list-item">
           <AccessibleFakeButtonInked
             __SUPER_SECRET_REF__={[Function]}
             aria-expanded={null}
@@ -170,8 +149,7 @@ exports[`Tags component renders some items correctly 1`] = `
             onMouseOver={[Function]}
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
-            to="/tag/@tag2"
-          >
+            to="/tag/@tag2">
             <AccessibleFakeButton
               aria-expanded={null}
               className="md-list-tile md-text"
@@ -186,8 +164,7 @@ exports[`Tags component renders some items correctly 1`] = `
                   transitionEnterTimeout={450}
                   transitionLeaveTimeout={300}
                   transitionOverlap={150}
-                  waitForInkTransition={undefined}
-                />
+                  waitForInkTransition={undefined} />
               }
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -198,8 +175,7 @@ exports[`Tags component renders some items correctly 1`] = `
               onTouchStart={[Function]}
               role="button"
               tabIndex={0}
-              to="/tag/@tag2"
-            >
+              to="/tag/@tag2">
               <Link
                 aria-expanded={null}
                 aria-pressed={false}
@@ -216,8 +192,7 @@ exports[`Tags component renders some items correctly 1`] = `
                 role="button"
                 style={Object {}}
                 tabIndex={0}
-                to="/tag/@tag2"
-              >
+                to="/tag/@tag2">
                 <a
                   aria-expanded={null}
                   aria-pressed={false}
@@ -232,44 +207,35 @@ exports[`Tags component renders some items correctly 1`] = `
                   onTouchStart={[Function]}
                   role="button"
                   style={Object {}}
-                  tabIndex={0}
-                >
+                  tabIndex={0}>
                   <InkContainer
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
-                    transitionOverlap={150}
-                  >
+                    transitionOverlap={150}>
                     <ReactTransitionGroup
                       childFactory={[Function]}
                       className="md-ink-container"
-                      component="div"
-                    >
+                      component="div">
                       <div
-                        className="md-ink-container"
-                      />
+                        className="md-ink-container" />
                     </ReactTransitionGroup>
                   </InkContainer>
                   <TileAddon
-                    activeClassName="md-text--theme-primary"
-                  />
+                    activeClassName="md-text--theme-primary" />
                   <ListItemText
                     activeClassName="md-text--theme-primary"
                     className=""
-                    primaryText="@tag2"
-                  >
+                    primaryText="@tag2">
                     <div
-                      className="md-tile-content"
-                    >
+                      className="md-tile-content">
                       <div
-                        className="md-tile-text--primary md-text"
-                      >
+                        className="md-tile-text--primary md-text">
                         @tag2
                       </div>
                     </div>
                   </ListItemText>
                   <TileAddon
-                    activeClassName="md-text--theme-primary"
-                  />
+                    activeClassName="md-text--theme-primary" />
                 </a>
               </Link>
             </AccessibleFakeButton>
@@ -281,11 +247,9 @@ exports[`Tags component renders some items correctly 1`] = `
         component={[Function]}
         expanderIconChildren="keyboard_arrow_down"
         primaryText="@tag3"
-        to="/tag/@tag3"
-      >
+        to="/tag/@tag3">
         <li
-          className="md-list-item"
-        >
+          className="md-list-item">
           <AccessibleFakeButtonInked
             __SUPER_SECRET_REF__={[Function]}
             aria-expanded={null}
@@ -301,8 +265,7 @@ exports[`Tags component renders some items correctly 1`] = `
             onMouseOver={[Function]}
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
-            to="/tag/@tag3"
-          >
+            to="/tag/@tag3">
             <AccessibleFakeButton
               aria-expanded={null}
               className="md-list-tile md-text"
@@ -317,8 +280,7 @@ exports[`Tags component renders some items correctly 1`] = `
                   transitionEnterTimeout={450}
                   transitionLeaveTimeout={300}
                   transitionOverlap={150}
-                  waitForInkTransition={undefined}
-                />
+                  waitForInkTransition={undefined} />
               }
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -329,8 +291,7 @@ exports[`Tags component renders some items correctly 1`] = `
               onTouchStart={[Function]}
               role="button"
               tabIndex={0}
-              to="/tag/@tag3"
-            >
+              to="/tag/@tag3">
               <Link
                 aria-expanded={null}
                 aria-pressed={false}
@@ -347,8 +308,7 @@ exports[`Tags component renders some items correctly 1`] = `
                 role="button"
                 style={Object {}}
                 tabIndex={0}
-                to="/tag/@tag3"
-              >
+                to="/tag/@tag3">
                 <a
                   aria-expanded={null}
                   aria-pressed={false}
@@ -363,44 +323,35 @@ exports[`Tags component renders some items correctly 1`] = `
                   onTouchStart={[Function]}
                   role="button"
                   style={Object {}}
-                  tabIndex={0}
-                >
+                  tabIndex={0}>
                   <InkContainer
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
-                    transitionOverlap={150}
-                  >
+                    transitionOverlap={150}>
                     <ReactTransitionGroup
                       childFactory={[Function]}
                       className="md-ink-container"
-                      component="div"
-                    >
+                      component="div">
                       <div
-                        className="md-ink-container"
-                      />
+                        className="md-ink-container" />
                     </ReactTransitionGroup>
                   </InkContainer>
                   <TileAddon
-                    activeClassName="md-text--theme-primary"
-                  />
+                    activeClassName="md-text--theme-primary" />
                   <ListItemText
                     activeClassName="md-text--theme-primary"
                     className=""
-                    primaryText="@tag3"
-                  >
+                    primaryText="@tag3">
                     <div
-                      className="md-tile-content"
-                    >
+                      className="md-tile-content">
                       <div
-                        className="md-tile-text--primary md-text"
-                      >
+                        className="md-tile-text--primary md-text">
                         @tag3
                       </div>
                     </div>
                   </ListItemText>
                   <TileAddon
-                    activeClassName="md-text--theme-primary"
-                  />
+                    activeClassName="md-text--theme-primary" />
                 </a>
               </Link>
             </AccessibleFakeButton>

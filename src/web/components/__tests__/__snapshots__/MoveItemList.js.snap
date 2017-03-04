@@ -1,7 +1,5 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`UpdateItemDialog component renders correctly 1`] = `
-<MoveItemList
+<Component
   itemToMove="item1"
   itemTree={
     Object {
@@ -30,13 +28,11 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
       ],
       "isProject": true,
     }
-  }
->
+  }>
   <div>
     <List>
       <ul
-        className="md-list"
-      >
+        className="md-list">
         <ListItem
           activeClassName="md-text--theme-primary"
           component="div"
@@ -52,18 +48,15 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                 isOpen={true}
                 nestedItems={Array []}
                 onClick={[Function]}
-                primaryText="Some Other Project"
-            />,
+                primaryText="Some Other Project" />,
               null,
               null,
             ]
           }
           onClick={[Function]}
-          primaryText="Projects"
-        >
+          primaryText="Projects">
           <li
-            className="md-list-item md-list-item--nested-container"
-          >
+            className="md-list-item md-list-item--nested-container">
             <AccessibleFakeButtonInked
               __SUPER_SECRET_REF__={[Function]}
               aria-expanded={true}
@@ -78,8 +71,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
               onMouseLeave={[Function]}
               onMouseOver={[Function]}
               onTouchEnd={[Function]}
-              onTouchStart={[Function]}
-            >
+              onTouchStart={[Function]}>
               <AccessibleFakeButton
                 aria-expanded={true}
                 className="md-list-tile md-text"
@@ -94,8 +86,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
                     transitionOverlap={150}
-                    waitForInkTransition={undefined}
-                  />
+                    waitForInkTransition={undefined} />
                 }
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -105,8 +96,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                 onTouchEnd={[Function]}
                 onTouchStart={[Function]}
                 role="button"
-                tabIndex={0}
-              >
+                tabIndex={0}>
                 <div
                   aria-expanded={true}
                   aria-pressed={false}
@@ -120,37 +110,29 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
                   role="button"
-                  tabIndex={0}
-                >
+                  tabIndex={0}>
                   <InkContainer
                     transitionEnterTimeout={450}
                     transitionLeaveTimeout={300}
-                    transitionOverlap={150}
-                  >
+                    transitionOverlap={150}>
                     <ReactTransitionGroup
                       childFactory={[Function]}
                       className="md-ink-container"
-                      component="div"
-                    >
+                      component="div">
                       <div
-                        className="md-ink-container"
-                      />
+                        className="md-ink-container" />
                     </ReactTransitionGroup>
                   </InkContainer>
                   <TileAddon
-                    activeClassName="md-text--theme-primary"
-                  />
+                    activeClassName="md-text--theme-primary" />
                   <ListItemText
                     activeClassName="md-text--theme-primary"
                     className=""
-                    primaryText="Projects"
-                  >
+                    primaryText="Projects">
                     <div
-                      className="md-tile-content"
-                    >
+                      className="md-tile-content">
                       <div
-                        className="md-tile-text--primary md-text"
-                      >
+                        className="md-tile-text--primary md-text">
                         Projects
                       </div>
                     </div>
@@ -160,23 +142,17 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                     icon={
                       <Collapser
                         flipped={true}
-                        iconClassName={undefined}
-                      />
-                    }
-                  >
+                        iconClassName={undefined} />
+                    }>
                     <div
-                      className="md-tile-addon md-tile-addon--icon"
-                    >
+                      className="md-tile-addon md-tile-addon--icon">
                       <Collapser
-                        flipped={true}
-                      >
+                        flipped={true}>
                         <FontIcon
                           className="md-collapser md-collapser--flipped"
-                          iconClassName="material-icons"
-                        >
+                          iconClassName="material-icons">
                           <i
-                            className="md-icon material-icons md-collapser md-collapser--flipped"
-                          />
+                            className="md-icon material-icons md-collapser md-collapser--flipped" />
                         </FontIcon>
                       </Collapser>
                     </div>
@@ -190,8 +166,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                 Object {
                   "precision": 0.5,
                 }
-              }
-            >
+              }>
               <Motion
                 defaultStyle={
                   Object {
@@ -206,8 +181,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                     "paddingBottom": NaN,
                     "paddingTop": NaN,
                   }
-                }
-              >
+                }>
                 <List
                   style={
                     Object {
@@ -216,8 +190,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                       "paddingBottom": undefined,
                       "paddingTop": undefined,
                     }
-                  }
-                >
+                  }>
                   <ul
                     className="md-list md-list--nested-1"
                     style={
@@ -227,8 +200,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                         "paddingBottom": undefined,
                         "paddingTop": undefined,
                       }
-                    }
-                  >
+                    }>
                     <ListItem
                       activeClassName="md-text--theme-primary"
                       component="div"
@@ -236,11 +208,9 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                       isOpen={true}
                       nestedItems={Array []}
                       onClick={[Function]}
-                      primaryText="Some Other Project"
-                    >
+                      primaryText="Some Other Project">
                       <li
-                        className="md-list-item md-list-item--nested-container"
-                      >
+                        className="md-list-item md-list-item--nested-container">
                         <AccessibleFakeButtonInked
                           __SUPER_SECRET_REF__={[Function]}
                           aria-expanded={true}
@@ -255,8 +225,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                           onMouseLeave={[Function]}
                           onMouseOver={[Function]}
                           onTouchEnd={[Function]}
-                          onTouchStart={[Function]}
-                        >
+                          onTouchStart={[Function]}>
                           <AccessibleFakeButton
                             aria-expanded={true}
                             className="md-list-tile md-text"
@@ -271,8 +240,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                                 transitionEnterTimeout={450}
                                 transitionLeaveTimeout={300}
                                 transitionOverlap={150}
-                                waitForInkTransition={undefined}
-                              />
+                                waitForInkTransition={undefined} />
                             }
                             onClick={[Function]}
                             onKeyDown={[Function]}
@@ -282,8 +250,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                             onTouchEnd={[Function]}
                             onTouchStart={[Function]}
                             role="button"
-                            tabIndex={0}
-                          >
+                            tabIndex={0}>
                             <div
                               aria-expanded={true}
                               aria-pressed={false}
@@ -297,37 +264,29 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                               onTouchEnd={[Function]}
                               onTouchStart={[Function]}
                               role="button"
-                              tabIndex={0}
-                            >
+                              tabIndex={0}>
                               <InkContainer
                                 transitionEnterTimeout={450}
                                 transitionLeaveTimeout={300}
-                                transitionOverlap={150}
-                              >
+                                transitionOverlap={150}>
                                 <ReactTransitionGroup
                                   childFactory={[Function]}
                                   className="md-ink-container"
-                                  component="div"
-                                >
+                                  component="div">
                                   <div
-                                    className="md-ink-container"
-                                  />
+                                    className="md-ink-container" />
                                 </ReactTransitionGroup>
                               </InkContainer>
                               <TileAddon
-                                activeClassName="md-text--theme-primary"
-                              />
+                                activeClassName="md-text--theme-primary" />
                               <ListItemText
                                 activeClassName="md-text--theme-primary"
                                 className=""
-                                primaryText="Some Other Project"
-                              >
+                                primaryText="Some Other Project">
                                 <div
-                                  className="md-tile-content"
-                                >
+                                  className="md-tile-content">
                                   <div
-                                    className="md-tile-text--primary md-text"
-                                  >
+                                    className="md-tile-text--primary md-text">
                                     Some Other Project
                                   </div>
                                 </div>
@@ -337,23 +296,17 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                                 icon={
                                   <Collapser
                                     flipped={true}
-                                    iconClassName={undefined}
-                                  />
-                                }
-                              >
+                                    iconClassName={undefined} />
+                                }>
                                 <div
-                                  className="md-tile-addon md-tile-addon--icon"
-                                >
+                                  className="md-tile-addon md-tile-addon--icon">
                                   <Collapser
-                                    flipped={true}
-                                  >
+                                    flipped={true}>
                                     <FontIcon
                                       className="md-collapser md-collapser--flipped"
-                                      iconClassName="material-icons"
-                                    >
+                                      iconClassName="material-icons">
                                       <i
-                                        className="md-icon material-icons md-collapser md-collapser--flipped"
-                                      />
+                                        className="md-icon material-icons md-collapser md-collapser--flipped" />
                                     </FontIcon>
                                   </Collapser>
                                 </div>
@@ -367,8 +320,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                             Object {
                               "precision": 0.5,
                             }
-                          }
-                        >
+                          }>
                           <Motion
                             defaultStyle={
                               Object {
@@ -383,8 +335,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                                 "paddingBottom": NaN,
                                 "paddingTop": NaN,
                               }
-                            }
-                          >
+                            }>
                             <List
                               style={
                                 Object {
@@ -393,8 +344,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                                   "paddingBottom": undefined,
                                   "paddingTop": undefined,
                                 }
-                              }
-                            >
+                              }>
                               <ul
                                 className="md-list md-list--nested-2"
                                 style={
@@ -404,8 +354,7 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
                                     "paddingBottom": undefined,
                                     "paddingTop": undefined,
                                   }
-                                }
-                              />
+                                } />
                             </List>
                           </Motion>
                         </Collapse>
@@ -420,5 +369,5 @@ exports[`UpdateItemDialog component renders correctly 1`] = `
       </ul>
     </List>
   </div>
-</MoveItemList>
+</Component>
 `;

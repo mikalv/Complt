@@ -18,7 +18,7 @@ describe('mapStateToProps', () => {
   it('returns an object with visible === false if state.dialogs.updateItem.visible is false', () => {
     expect(mapStateToProps({
       dialogs: { updateItem: { visible: false } },
-    })).toEqual({ visible: false });
+    })).toEqual({ visible: false, form: 'updateItem' });
   });
   it('returns an object with the correct properties if state.dialogs.updateItem.visible is true and the id of the item is update is a task', () => {
     expect(mapStateToProps({

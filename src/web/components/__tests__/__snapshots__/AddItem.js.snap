@@ -1,13 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`AddItem component renders correctly when canChangeType is true and initialIsProject is false 1`] = `
 <AddItem
   canChangeType={true}
-  onAddItem={[Function]}
->
+  onAddItem={[Function]}>
   <form
-    onSubmit={[Function]}
-  >
+    onSubmit={[Function]}>
     <Paper
       className="md-drawer-relative"
       component="div"
@@ -17,8 +13,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
           "padding": 10,
         }
       }
-      zDepth={2}
-    >
+      zDepth={2}>
       <div
         className="md-paper md-paper--2 md-drawer-relative"
         style={
@@ -26,11 +21,9 @@ exports[`AddItem component renders correctly when canChangeType is true and init
             "backgroundColor": "#fff",
             "padding": 10,
           }
-        }
-      >
+        }>
         <div
-          className="flex column"
-        >
+          className="flex column">
           <TextField
             fullWidth={true}
             id="add-item-input"
@@ -41,8 +34,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
             placeholder="e.g. Finish Report @work"
             rightIconStateful={true}
             type="text"
-            value=""
-          >
+            value="">
             <div
               className="md-text-field-container md-full-width md-text-field-container--input"
               onClick={[Function]}
@@ -50,15 +42,13 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 Object {
                   "height": null,
                 }
-              }
-            >
+              }>
               <FloatingLabel
                 active={false}
                 error={false}
                 floating={false}
                 htmlFor="add-item-input"
-                iconOffset={false}
-              />
+                iconOffset={false} />
               <InputField
                 fullWidth={true}
                 id="add-item-input"
@@ -69,8 +59,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 onKeyDown={[Function]}
                 placeholder="e.g. Finish Report @work"
                 type="text"
-                value=""
-              >
+                value="">
                 <input
                   className="md-text-field md-text md-full-width md-text-field--margin"
                   id="add-item-input"
@@ -79,20 +68,16 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                   onKeyDown={[Function]}
                   placeholder="e.g. Finish Report @work"
                   type="text"
-                  value=""
-                />
+                  value="" />
               </InputField>
               <TextFieldDivider
                 active={false}
                 error={false}
-                lineDirection="left"
-              >
+                lineDirection="left">
                 <Divider
-                  className="md-divider--text-field md-divider--expand-from-left"
-                >
+                  className="md-divider--text-field md-divider--expand-from-left">
                   <hr
-                    className="md-divider md-divider--text-field md-divider--expand-from-left"
-                  />
+                    className="md-divider md-divider--text-field md-divider--expand-from-left" />
                 </Divider>
               </TextFieldDivider>
               <TextFieldMessage
@@ -100,13 +85,11 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 currentLength={0}
                 error={false}
                 leftIcon={false}
-                rightIcon={false}
-              />
+                rightIcon={false} />
             </div>
           </TextField>
           <div
-            className="flex row space-between"
-          >
+            className="flex row space-between">
             <div>
               <ButtonTooltipedInked
                 icon={true}
@@ -114,8 +97,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 inkTransitionEnterTimeout={450}
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
-                onClick={[Function]}
-              >
+                onClick={[Function]}>
                 <ButtonTooltiped
                   icon={true}
                   id="add-tag"
@@ -129,15 +111,13 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   onClick={[Function]}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
-                  tooltipTransitionLeaveTimeout={150}
-                >
+                  tooltipTransitionLeaveTimeout={150}>
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -153,12 +133,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     onClick={[Function]}
-                    type="button"
-                  >
+                    type="button">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                       id="add-tag"
@@ -171,33 +149,26 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="button"
-                    >
+                      type="button">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdLabel>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -209,12 +180,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z"
-                                  />
+                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -232,8 +201,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 inkTransitionEnterTimeout={450}
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
-                onClick={[Function]}
-              >
+                onClick={[Function]}>
                 <ButtonTooltiped
                   icon={true}
                   ink={
@@ -246,15 +214,13 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   onClick={[Function]}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
-                  tooltipTransitionLeaveTimeout={150}
-                >
+                  tooltipTransitionLeaveTimeout={150}>
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -269,12 +235,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     onClick={[Function]}
-                    type="button"
-                  >
+                    type="button">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                       onClick={[Function]}
@@ -286,33 +250,26 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="button"
-                    >
+                      type="button">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdAssignment>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -324,12 +281,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m28.4 15v-3.4h-16.8v3.4h16.8z m0 6.6v-3.2h-16.8v3.2h16.8z m-5 6.8v-3.4h-11.8v3.4h11.8z m-3.4-23.4c-0.9 0-1.6 0.7-1.6 1.6s0.7 1.8 1.6 1.8 1.6-0.8 1.6-1.8-0.7-1.6-1.6-1.6z m11.6 0c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h6.9c0.7-2 2.5-3.4 4.7-3.4s4 1.4 4.7 3.4h6.9z"
-                                  />
+                                    d="m28.4 15v-3.4h-16.8v3.4h16.8z m0 6.6v-3.2h-16.8v3.2h16.8z m-5 6.8v-3.4h-11.8v3.4h11.8z m-3.4-23.4c-0.9 0-1.6 0.7-1.6 1.6s0.7 1.8 1.6 1.8 1.6-0.8 1.6-1.8-0.7-1.6-1.6-1.6z m11.6 0c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h6.9c0.7-2 2.5-3.4 4.7-3.4s4 1.4 4.7 3.4h6.9z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -347,8 +302,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
                 primary={true}
-                type="submit"
-              >
+                type="submit">
                 <ButtonTooltiped
                   icon={true}
                   id="add-item-submit"
@@ -362,16 +316,14 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   primary={true}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
                   tooltipTransitionLeaveTimeout={150}
-                  type="submit"
-                >
+                  type="submit">
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -387,12 +339,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     primary={true}
-                    type="submit"
-                  >
+                    type="submit">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-text--theme-primary md-ink--primary md-pointer--hover"
                       id="add-item-submit"
@@ -404,33 +354,26 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="submit"
-                    >
+                      type="submit">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdSend>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -442,12 +385,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z"
-                                  />
+                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -471,11 +412,9 @@ exports[`AddItem component renders correctly when canChangeType is true and init
 <AddItem
   canChangeType={true}
   initialIsProject={true}
-  onAddItem={[Function]}
->
+  onAddItem={[Function]}>
   <form
-    onSubmit={[Function]}
-  >
+    onSubmit={[Function]}>
     <Paper
       className="md-drawer-relative"
       component="div"
@@ -485,8 +424,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
           "padding": 10,
         }
       }
-      zDepth={2}
-    >
+      zDepth={2}>
       <div
         className="md-paper md-paper--2 md-drawer-relative"
         style={
@@ -494,11 +432,9 @@ exports[`AddItem component renders correctly when canChangeType is true and init
             "backgroundColor": "#fff",
             "padding": 10,
           }
-        }
-      >
+        }>
         <div
-          className="flex column"
-        >
+          className="flex column">
           <TextField
             fullWidth={true}
             id="add-item-input"
@@ -509,8 +445,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
             placeholder="e.g. Report"
             rightIconStateful={true}
             type="text"
-            value=""
-          >
+            value="">
             <div
               className="md-text-field-container md-full-width md-text-field-container--input"
               onClick={[Function]}
@@ -518,15 +453,13 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 Object {
                   "height": null,
                 }
-              }
-            >
+              }>
               <FloatingLabel
                 active={false}
                 error={false}
                 floating={false}
                 htmlFor="add-item-input"
-                iconOffset={false}
-              />
+                iconOffset={false} />
               <InputField
                 fullWidth={true}
                 id="add-item-input"
@@ -537,8 +470,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 onKeyDown={[Function]}
                 placeholder="e.g. Report"
                 type="text"
-                value=""
-              >
+                value="">
                 <input
                   className="md-text-field md-text md-full-width md-text-field--margin"
                   id="add-item-input"
@@ -547,20 +479,16 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                   onKeyDown={[Function]}
                   placeholder="e.g. Report"
                   type="text"
-                  value=""
-                />
+                  value="" />
               </InputField>
               <TextFieldDivider
                 active={false}
                 error={false}
-                lineDirection="left"
-              >
+                lineDirection="left">
                 <Divider
-                  className="md-divider--text-field md-divider--expand-from-left"
-                >
+                  className="md-divider--text-field md-divider--expand-from-left">
                   <hr
-                    className="md-divider md-divider--text-field md-divider--expand-from-left"
-                  />
+                    className="md-divider md-divider--text-field md-divider--expand-from-left" />
                 </Divider>
               </TextFieldDivider>
               <TextFieldMessage
@@ -568,13 +496,11 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 currentLength={0}
                 error={false}
                 leftIcon={false}
-                rightIcon={false}
-              />
+                rightIcon={false} />
             </div>
           </TextField>
           <div
-            className="flex row space-between"
-          >
+            className="flex row space-between">
             <div>
               <ButtonTooltipedInked
                 icon={true}
@@ -582,8 +508,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 inkTransitionEnterTimeout={450}
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
-                onClick={[Function]}
-              >
+                onClick={[Function]}>
                 <ButtonTooltiped
                   icon={true}
                   id="add-tag"
@@ -597,15 +522,13 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   onClick={[Function]}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
-                  tooltipTransitionLeaveTimeout={150}
-                >
+                  tooltipTransitionLeaveTimeout={150}>
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -621,12 +544,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     onClick={[Function]}
-                    type="button"
-                  >
+                    type="button">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                       id="add-tag"
@@ -639,33 +560,26 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="button"
-                    >
+                      type="button">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdLabel>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -677,12 +591,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z"
-                                  />
+                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -700,8 +612,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 inkTransitionEnterTimeout={450}
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
-                onClick={[Function]}
-              >
+                onClick={[Function]}>
                 <ButtonTooltiped
                   icon={true}
                   ink={
@@ -714,15 +625,13 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   onClick={[Function]}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
-                  tooltipTransitionLeaveTimeout={150}
-                >
+                  tooltipTransitionLeaveTimeout={150}>
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -737,12 +646,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     onClick={[Function]}
-                    type="button"
-                  >
+                    type="button">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                       onClick={[Function]}
@@ -754,33 +661,26 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="button"
-                    >
+                      type="button">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdDone>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -792,12 +692,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z"
-                                  />
+                                    d="m15 27l17.7-17.7 2.3 2.3-20 20-9.3-9.3 2.3-2.3z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -815,8 +713,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
                 primary={true}
-                type="submit"
-              >
+                type="submit">
                 <ButtonTooltiped
                   icon={true}
                   id="add-item-submit"
@@ -830,16 +727,14 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   primary={true}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
                   tooltipTransitionLeaveTimeout={150}
-                  type="submit"
-                >
+                  type="submit">
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -855,12 +750,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     primary={true}
-                    type="submit"
-                  >
+                    type="submit">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-text--theme-primary md-ink--primary md-pointer--hover"
                       id="add-item-submit"
@@ -872,33 +765,26 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="submit"
-                    >
+                      type="submit">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdSend>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -910,12 +796,10 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z"
-                                  />
+                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -937,11 +821,9 @@ exports[`AddItem component renders correctly when canChangeType is true and init
 
 exports[`AddItem component renders correctly when initialIsProject is false 1`] = `
 <AddItem
-  onAddItem={[Function]}
->
+  onAddItem={[Function]}>
   <form
-    onSubmit={[Function]}
-  >
+    onSubmit={[Function]}>
     <Paper
       className="md-drawer-relative"
       component="div"
@@ -951,8 +833,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
           "padding": 10,
         }
       }
-      zDepth={2}
-    >
+      zDepth={2}>
       <div
         className="md-paper md-paper--2 md-drawer-relative"
         style={
@@ -960,11 +841,9 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
             "backgroundColor": "#fff",
             "padding": 10,
           }
-        }
-      >
+        }>
         <div
-          className="flex column"
-        >
+          className="flex column">
           <TextField
             fullWidth={true}
             id="add-item-input"
@@ -975,8 +854,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
             placeholder="e.g. Finish Report @work"
             rightIconStateful={true}
             type="text"
-            value=""
-          >
+            value="">
             <div
               className="md-text-field-container md-full-width md-text-field-container--input"
               onClick={[Function]}
@@ -984,15 +862,13 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                 Object {
                   "height": null,
                 }
-              }
-            >
+              }>
               <FloatingLabel
                 active={false}
                 error={false}
                 floating={false}
                 htmlFor="add-item-input"
-                iconOffset={false}
-              />
+                iconOffset={false} />
               <InputField
                 fullWidth={true}
                 id="add-item-input"
@@ -1003,8 +879,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                 onKeyDown={[Function]}
                 placeholder="e.g. Finish Report @work"
                 type="text"
-                value=""
-              >
+                value="">
                 <input
                   className="md-text-field md-text md-full-width md-text-field--margin"
                   id="add-item-input"
@@ -1013,20 +888,16 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                   onKeyDown={[Function]}
                   placeholder="e.g. Finish Report @work"
                   type="text"
-                  value=""
-                />
+                  value="" />
               </InputField>
               <TextFieldDivider
                 active={false}
                 error={false}
-                lineDirection="left"
-              >
+                lineDirection="left">
                 <Divider
-                  className="md-divider--text-field md-divider--expand-from-left"
-                >
+                  className="md-divider--text-field md-divider--expand-from-left">
                   <hr
-                    className="md-divider md-divider--text-field md-divider--expand-from-left"
-                  />
+                    className="md-divider md-divider--text-field md-divider--expand-from-left" />
                 </Divider>
               </TextFieldDivider>
               <TextFieldMessage
@@ -1034,13 +905,11 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                 currentLength={0}
                 error={false}
                 leftIcon={false}
-                rightIcon={false}
-              />
+                rightIcon={false} />
             </div>
           </TextField>
           <div
-            className="flex row space-between"
-          >
+            className="flex row space-between">
             <div>
               <ButtonTooltipedInked
                 icon={true}
@@ -1048,8 +917,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                 inkTransitionEnterTimeout={450}
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
-                onClick={[Function]}
-              >
+                onClick={[Function]}>
                 <ButtonTooltiped
                   icon={true}
                   id="add-tag"
@@ -1063,15 +931,13 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   onClick={[Function]}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
-                  tooltipTransitionLeaveTimeout={150}
-                >
+                  tooltipTransitionLeaveTimeout={150}>
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -1087,12 +953,10 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     onClick={[Function]}
-                    type="button"
-                  >
+                    type="button">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                       id="add-tag"
@@ -1105,33 +969,26 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="button"
-                    >
+                      type="button">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdLabel>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -1143,12 +1000,10 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z"
-                                  />
+                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -1168,8 +1023,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
                 primary={true}
-                type="submit"
-              >
+                type="submit">
                 <ButtonTooltiped
                   icon={true}
                   id="add-item-submit"
@@ -1183,16 +1037,14 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   primary={true}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
                   tooltipTransitionLeaveTimeout={150}
-                  type="submit"
-                >
+                  type="submit">
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -1208,12 +1060,10 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     primary={true}
-                    type="submit"
-                  >
+                    type="submit">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-text--theme-primary md-ink--primary md-pointer--hover"
                       id="add-item-submit"
@@ -1225,33 +1075,26 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="submit"
-                    >
+                      type="submit">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdSend>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -1263,12 +1106,10 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z"
-                                  />
+                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -1291,11 +1132,9 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
 exports[`AddItem component renders correctly when initialIsProject is true 1`] = `
 <AddItem
   initialIsProject={true}
-  onAddItem={[Function]}
->
+  onAddItem={[Function]}>
   <form
-    onSubmit={[Function]}
-  >
+    onSubmit={[Function]}>
     <Paper
       className="md-drawer-relative"
       component="div"
@@ -1305,8 +1144,7 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
           "padding": 10,
         }
       }
-      zDepth={2}
-    >
+      zDepth={2}>
       <div
         className="md-paper md-paper--2 md-drawer-relative"
         style={
@@ -1314,11 +1152,9 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
             "backgroundColor": "#fff",
             "padding": 10,
           }
-        }
-      >
+        }>
         <div
-          className="flex column"
-        >
+          className="flex column">
           <TextField
             fullWidth={true}
             id="add-item-input"
@@ -1329,8 +1165,7 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
             placeholder="e.g. Report"
             rightIconStateful={true}
             type="text"
-            value=""
-          >
+            value="">
             <div
               className="md-text-field-container md-full-width md-text-field-container--input"
               onClick={[Function]}
@@ -1338,15 +1173,13 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                 Object {
                   "height": null,
                 }
-              }
-            >
+              }>
               <FloatingLabel
                 active={false}
                 error={false}
                 floating={false}
                 htmlFor="add-item-input"
-                iconOffset={false}
-              />
+                iconOffset={false} />
               <InputField
                 fullWidth={true}
                 id="add-item-input"
@@ -1357,8 +1190,7 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                 onKeyDown={[Function]}
                 placeholder="e.g. Report"
                 type="text"
-                value=""
-              >
+                value="">
                 <input
                   className="md-text-field md-text md-full-width md-text-field--margin"
                   id="add-item-input"
@@ -1367,20 +1199,16 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                   onKeyDown={[Function]}
                   placeholder="e.g. Report"
                   type="text"
-                  value=""
-                />
+                  value="" />
               </InputField>
               <TextFieldDivider
                 active={false}
                 error={false}
-                lineDirection="left"
-              >
+                lineDirection="left">
                 <Divider
-                  className="md-divider--text-field md-divider--expand-from-left"
-                >
+                  className="md-divider--text-field md-divider--expand-from-left">
                   <hr
-                    className="md-divider md-divider--text-field md-divider--expand-from-left"
-                  />
+                    className="md-divider md-divider--text-field md-divider--expand-from-left" />
                 </Divider>
               </TextFieldDivider>
               <TextFieldMessage
@@ -1388,13 +1216,11 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                 currentLength={0}
                 error={false}
                 leftIcon={false}
-                rightIcon={false}
-              />
+                rightIcon={false} />
             </div>
           </TextField>
           <div
-            className="flex row space-between"
-          >
+            className="flex row space-between">
             <div>
               <ButtonTooltipedInked
                 icon={true}
@@ -1402,8 +1228,7 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                 inkTransitionEnterTimeout={450}
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
-                onClick={[Function]}
-              >
+                onClick={[Function]}>
                 <ButtonTooltiped
                   icon={true}
                   id="add-tag"
@@ -1417,15 +1242,13 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   onClick={[Function]}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
-                  tooltipTransitionLeaveTimeout={150}
-                >
+                  tooltipTransitionLeaveTimeout={150}>
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -1441,12 +1264,10 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     onClick={[Function]}
-                    type="button"
-                  >
+                    type="button">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-pointer--hover"
                       id="add-tag"
@@ -1459,33 +1280,26 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="button"
-                    >
+                      type="button">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdLabel>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -1497,12 +1311,10 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z"
-                                  />
+                                    d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z" />
                                 </g>
                               </svg>
                             </IconBase>
@@ -1522,8 +1334,7 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
                 primary={true}
-                type="submit"
-              >
+                type="submit">
                 <ButtonTooltiped
                   icon={true}
                   id="add-item-submit"
@@ -1537,16 +1348,14 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                       transitionEnterTimeout={450}
                       transitionLeaveTimeout={300}
                       transitionOverlap={150}
-                      waitForInkTransition={undefined}
-                    />
+                      waitForInkTransition={undefined} />
                   }
                   primary={true}
                   tooltipDelay={0}
                   tooltipPosition="bottom"
                   tooltipTransitionEnterTimeout={150}
                   tooltipTransitionLeaveTimeout={150}
-                  type="submit"
-                >
+                  type="submit">
                   <Button
                     fixedPosition="br"
                     icon={true}
@@ -1562,12 +1371,10 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
                         transitionOverlap={150}
-                        waitForInkTransition={undefined}
-                      />
+                        waitForInkTransition={undefined} />
                     }
                     primary={true}
-                    type="submit"
-                  >
+                    type="submit">
                     <button
                       className="md-inline-block md-btn md-btn--icon md-text--theme-primary md-ink--primary md-pointer--hover"
                       id="add-item-submit"
@@ -1579,33 +1386,26 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                       onMouseUp={[Function]}
                       onTouchEnd={[Function]}
                       onTouchStart={[Function]}
-                      type="submit"
-                    >
+                      type="submit">
                       <InkContainer
                         transitionEnterTimeout={450}
                         transitionLeaveTimeout={300}
-                        transitionOverlap={150}
-                      >
+                        transitionOverlap={150}>
                         <ReactTransitionGroup
                           childFactory={[Function]}
                           className="md-ink-container"
-                          component="div"
-                        >
+                          component="div">
                           <div
-                            className="md-ink-container"
-                          />
+                            className="md-ink-container" />
                         </ReactTransitionGroup>
                       </InkContainer>
                       <FontIcon
-                        iconClassName="material-icons"
-                      >
+                        iconClassName="material-icons">
                         <i
-                          className="md-icon material-icons"
-                        >
+                          className="md-icon material-icons">
                           <MdSend>
                             <IconBase
-                              viewBox="0 0 40 40"
-                            >
+                              viewBox="0 0 40 40">
                               <svg
                                 fill="currentColor"
                                 height="1em"
@@ -1617,12 +1417,10 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
                                   }
                                 }
                                 viewBox="0 0 40 40"
-                                width="1em"
-                              >
+                                width="1em">
                                 <g>
                                   <path
-                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z"
-                                  />
+                                    d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z" />
                                 </g>
                               </svg>
                             </IconBase>
