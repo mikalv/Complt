@@ -50,6 +50,17 @@ web/deploy/production:
     url: https://app.complt.xyz
   when: manual
 
+web/deploy/landing:
+  stage: deploy
+  script:
+    - 'npm run deploy:web:landing'
+  only:
+    - master
+  environment:
+    name: web/landing
+    url: https://complt.xyz
+  when: manual
+
 electron/build:
   stage: deploy
   script:
