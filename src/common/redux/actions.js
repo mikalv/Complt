@@ -1,5 +1,5 @@
 import uuid from 'uuid';
-import { push } from 'react-router-redux';
+import history from '../../web/history';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
@@ -82,7 +82,7 @@ export const showSignInToast = () => (dispatch) => {
     text: 'Please sign in to sync',
     action: {
       label: 'SIGN IN',
-      onClick: () => dispatch(push('/login')),
+      onClick: () => history.push('/login'),
     } }));
 };
 

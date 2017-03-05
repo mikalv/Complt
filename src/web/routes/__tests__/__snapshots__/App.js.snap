@@ -16,7 +16,7 @@ exports[`App component renders correctly when the pathname does not match a rout
   navItems={
     Array [
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "all",
         "leftIcon": <MdApps
           size={24} />,
@@ -24,7 +24,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "to": "/all",
       },
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "inbox",
         "leftIcon": <MdInbox
           size={24} />,
@@ -32,7 +32,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "to": "/inbox",
       },
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "projects",
         "leftIcon": <MdAssignment
           size={24} />,
@@ -40,7 +40,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "to": "/projects",
       },
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "tags",
         "leftIcon": <MdLabel
           size={24} />,
@@ -48,7 +48,7 @@ exports[`App component renders correctly when the pathname does not match a rout
         "to": "/tags",
       },
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "account",
         "leftIcon": <MdPerson
           size={24} />,
@@ -98,7 +98,44 @@ exports[`App component renders correctly when the pathname does not match a rout
   }
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
-  <div />
+  <Switch>
+    <Route
+      component={[Function]}
+      path="/all" />
+    <Route
+      component={[Function]}
+      path="/inbox" />
+    <Route
+      component={[Function]}
+      path="/projects" />
+    <Redirect
+      from="/project/inbox"
+      push={false}
+      to="/inbox" />
+    <Redirect
+      from="/project/root"
+      push={false}
+      to="/projects" />
+    <Route
+      component={[Function]}
+      path="/project/:projectId" />
+    <Route
+      component={[Function]}
+      path="/tags" />
+    <Route
+      component={[Function]}
+      path="/tag/:tag" />
+    <Route
+      component={[Function]}
+      path="/login" />
+    <Route
+      component={[Function]}
+      path="/account" />
+    <Redirect
+      from="/"
+      push={false}
+      to="/inbox" />
+  </Switch>
   <SnackbarContainer
     autohide={true}
     autohideTimeout={3000}
@@ -129,7 +166,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   navItems={
     Array [
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "all",
         "leftIcon": <MdApps
           size={24} />,
@@ -138,7 +175,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
       },
       Object {
         "active": true,
-        "component": [Function],
+        "component": "a",
         "key": "inbox",
         "leftIcon": <MdInbox
           size={24} />,
@@ -146,7 +183,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "to": "/inbox",
       },
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "projects",
         "leftIcon": <MdAssignment
           size={24} />,
@@ -154,7 +191,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "to": "/projects",
       },
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "tags",
         "leftIcon": <MdLabel
           size={24} />,
@@ -162,7 +199,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
         "to": "/tags",
       },
       Object {
-        "component": [Function],
+        "component": "a",
         "key": "account",
         "leftIcon": <MdPerson
           size={24} />,
@@ -212,7 +249,44 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   }
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
-  <div />
+  <Switch>
+    <Route
+      component={[Function]}
+      path="/all" />
+    <Route
+      component={[Function]}
+      path="/inbox" />
+    <Route
+      component={[Function]}
+      path="/projects" />
+    <Redirect
+      from="/project/inbox"
+      push={false}
+      to="/inbox" />
+    <Redirect
+      from="/project/root"
+      push={false}
+      to="/projects" />
+    <Route
+      component={[Function]}
+      path="/project/:projectId" />
+    <Route
+      component={[Function]}
+      path="/tags" />
+    <Route
+      component={[Function]}
+      path="/tag/:tag" />
+    <Route
+      component={[Function]}
+      path="/login" />
+    <Route
+      component={[Function]}
+      path="/account" />
+    <Redirect
+      from="/"
+      push={false}
+      to="/inbox" />
+  </Switch>
   <SnackbarContainer
     autohide={true}
     autohideTimeout={3000}

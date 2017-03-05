@@ -6,7 +6,7 @@ import getFilteredItems from '../../common/utils/getFilteredItems';
 export function mapStateToProps(state, ownProps) {
   const items = [];
   state.items.forEach((item) => {
-    if (item && Array.isArray(item.tags) && item.tags.includes(ownProps.routeParams.tag)) {
+    if (item && Array.isArray(item.tags) && item.tags.includes(ownProps.match.params.tag)) {
       items.push(item);
     }
   });

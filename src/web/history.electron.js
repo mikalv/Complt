@@ -1,3 +1,3 @@
-import { hashHistory } from 'react-router';
+import createHistory from 'history/createHashHistory';
 
-export default hashHistory;
+export default createHistory();

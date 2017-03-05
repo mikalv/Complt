@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Link from 'react-router-dom/Link';
 import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Delete from 'react-icons/lib/md/delete';

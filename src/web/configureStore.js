@@ -1,10 +1,8 @@
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
 import RavenMiddleware from 'redux-raven-middleware';
 import thunk from 'redux-thunk';
-import browserHistory from './history';
 import auth from '../common/redux/auth';
 import items from '../common/redux/items';
 import profile from '../common/redux/profile';
@@ -32,10 +30,10 @@ const pouchMiddleware = PouchMiddleware({
   },
 });
 
-let middleware = applyMiddleware(thunk, pouchMiddleware, routerMiddleware(browserHistory));
+let middleware = applyMiddleware(thunk, pouchMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware, routerMiddleware(browserHistory));
+  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware);
 }
 
 let enhancer;
@@ -55,7 +53,6 @@ if (window.__REDUX_DEVTOOLS_EXTENSION__) {
 
 const store = createStore(
   combineReducers({
-    routing: routerReducer,
     items,
     auth,
     profile,
@@ -70,8 +67,6 @@ const store = createStore(
 persistStore(store, {
   whitelist: ['auth', 'profile', 'itemsToShow'],
 });
-const history = syncHistoryWithStore(browserHistory, store);
 
 
 export default store;
-export { history };

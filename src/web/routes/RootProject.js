@@ -6,11 +6,11 @@ const RootProject = props => (
     initialIsProject
     canChangeType
     projectId="root"
-    routerPush={props.router.push}
+    routerPush={props.history.push}
   />
 );
 RootProject.propTypes = {
-  router: React.PropTypes.shape({
+  history: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };

@@ -5,15 +5,17 @@ const Project = props => (
   <Projects
     initialIsProject
     canChangeType
-    projectId={props.routeParams.projectId}
-    routerPush={props.router.push}
+    projectId={props.match.params.projectId}
+    routerPush={props.history.push}
   />
 );
 Project.propTypes = {
-  routeParams: React.PropTypes.shape({
-    projectId: React.PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  match: React.PropTypes.shape({
+    params: React.PropTypes.shape({
+      projectId: React.PropTypes.string,
+    }),
   }),
-  router: React.PropTypes.shape({
+  history: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };

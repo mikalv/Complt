@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from 'react-icons/lib/md/menu';
 import Sync from 'react-icons/lib/md/sync';
-import Inbox from 'react-icons/lib/md/inbox';
+import InboxIcon from 'react-icons/lib/md/inbox';
 import Assignment from 'react-icons/lib/md/assignment';
 import ArrowDropDown from 'react-icons/lib/md/arrow-drop-down';
 import Person from 'react-icons/lib/md/person';
@@ -10,10 +10,21 @@ import Label from 'react-icons/lib/md/label';
 import NavigationDrawer from 'react-md/lib/NavigationDrawers';
 import SelectField from 'react-md/lib/SelectFields';
 import Snackbar from 'react-md/lib/Snackbars';
-import Link from 'react-router/lib/Link';
+import Link from 'react-router-dom/Link';
 import Button from 'react-md/lib/Buttons';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { connect } from 'react-redux';
+import Route from 'react-router-dom/Route';
+import Switch from 'react-router-dom/Switch';
+import Redirect from 'react-router-dom/Redirect';
+import Inbox from './Inbox';
+import Account from './Account';
+import Login from './Login';
+import RootProject from './RootProject';
+import Project from './Project';
+import All from './All';
+import Tags from './Tags';
+import Tag from './Tag';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import UpdateItemDialog from '../components/UpdateItemDialog';
@@ -30,7 +41,7 @@ const navItems = [{
   key: 'inbox',
   primaryText: 'Inbox',
   component: Link,
-  leftIcon: <Inbox size={24} />,
+  leftIcon: <InboxIcon size={24} />,
 }, {
   to: '/projects',
   key: 'projects',
@@ -83,7 +94,19 @@ export const App = props => (
       props.syncState.syncing ? <div style={{ margin: '10px' }}><CircularProgress id="syncing-spinner" /></div> : <Button icon onClick={props.attemptSync}><Sync /></Button>,
     ]}
   >
-    {props.children}
+    <Switch>
+      <Route path="/all" component={All} />
+      <Route path="/inbox" component={Inbox} />
+      <Route path="/projects" component={RootProject} />
+      <Redirect from="/project/inbox" to="/inbox" />
+      <Redirect from="/project/root" to="/projects" />
+      <Route path="/project/:projectId" component={Project} />
+      <Route path="/tags" component={Tags} />
+      <Route path="/tag/:tag" component={Tag} />
+      <Route path="/login" component={Login} />
+      <Route path="/account" component={Account} />
+      <Redirect from="/" to="/inbox" />
+    </Switch>
     <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
     <UpdateItemDialog />
     <MoveItemDialog />
@@ -91,7 +114,6 @@ export const App = props => (
 );
 
 App.propTypes = {
-  children: React.PropTypes.node,
   location: React.PropTypes.shape({
     pathname: React.PropTypes.string.isRequired,
   }),

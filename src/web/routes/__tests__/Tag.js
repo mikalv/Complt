@@ -3,7 +3,7 @@ import items from '../../exampleItems';
 
 describe('mapStateToProps', () => {
   it('returns an array of items that contain the tag from ownProps.routeParams.tag', () => {
-    expect(mapStateToProps({ items }, { routeParams: { tag: '@tag3' } })).toEqual({ items: [{
+    expect(mapStateToProps({ items }, { match: { params: { tag: '@tag3' } } })).toEqual({ items: [{
       isProject: false,
       name: 'task',
       isCompleted: false,

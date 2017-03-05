@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Link from 'react-router-dom/Link';
 import { connect } from 'react-redux';
 import { List, ListItem } from 'react-md/lib/Lists';
 import getFilteredItems from '../../common/utils/getFilteredItems';

@@ -82,6 +82,7 @@
     "auth0-js": "^8.3.0",
     "electron": "^1.4.15",
     "exponent": "^14.0.0",
+    "history": "next",
     "jwt-decode": "^2.1.0",
     "menubar": "^5.2.0",
     "mockdate": "^2.0.1",
@@ -103,8 +104,7 @@
     "react-native-material-ui": "^1.6.0",
     "react-navigation": "^1.0.0-beta.1",
     "react-redux": "^5.0.1",
-    "react-router": "^3.0.0",
-    "react-router-redux": "^4.0.6",
+    "react-router-dom": "next",
     "react-test-renderer": "^15.4.2",
     "redux": "^3.6.0",
     "redux-persist": "^4.0.0-alpha7",
@@ -138,7 +138,8 @@
     ],
     "moduleNameMapper": {
       "pouchdb/lib/index-browser": "pouchdb-memory",
-      "react-native": "react-native-mock"
+      "react-native": "react-native-mock",
+      "react-router-dom/Link": "<rootDir>/src/test/LinkMock.js"
     },
     "setupFiles": [
       "<rootDir>/config/polyfills.js"

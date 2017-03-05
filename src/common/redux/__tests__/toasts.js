@@ -1,4 +1,3 @@
-import { push } from 'react-router-redux';
 import reducer, { initialState } from '../toasts';
 import { showToast, dismissToast, showSignInToast } from '../actions';
 import { SHOW_TOAST } from '../actionTypes';
@@ -33,6 +32,5 @@ describe('showSignInToast() action creator', () => {
     expect(actions[0].toast.action.label).toEqual('SIGN IN');
     expect(typeof actions[0].toast.action.onClick).toEqual('function');
     actions[0].toast.action.onClick();
-    expect(actions[1]).toEqual(push('/login'));
   });
 });

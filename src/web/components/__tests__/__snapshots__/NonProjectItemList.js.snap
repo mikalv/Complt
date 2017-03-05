@@ -477,7 +477,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
           onItemUpdate={[Function]}>
           <ListItem
             activeClassName="md-text--theme-primary"
-            component={[Function]}
+            component="a"
             expanderIconChildren="keyboard_arrow_down"
             leftAvatar={
               <Avatar
@@ -520,7 +520,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                 __SUPER_SECRET_REF__={[Function]}
                 aria-expanded={null}
                 className="md-list-tile md-text md-list-tile--avatar"
-                component={[Function]}
+                component="a"
                 inkTransitionEnterTimeout={450}
                 inkTransitionLeaveTimeout={300}
                 inkTransitionOverlap={150}
@@ -535,7 +535,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                 <AccessibleFakeButton
                   aria-expanded={null}
                   className="md-list-tile md-text md-list-tile--avatar"
-                  component={[Function]}
+                  component="a"
                   ink={
                     <InkContainer
                       className={undefined}
@@ -558,7 +558,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                   role="button"
                   tabIndex={0}
                   to="project/item2">
-                  <Link
+                  <a
                     aria-expanded={null}
                     aria-pressed={false}
                     className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--avatar"
@@ -570,108 +570,204 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                     onMouseOver={[Function]}
                     onTouchEnd={[Function]}
                     onTouchStart={[Function]}
-                    onlyActiveOnIndex={false}
                     role="button"
-                    style={Object {}}
                     tabIndex={0}
                     to="project/item2">
-                    <a
-                      aria-expanded={null}
-                      aria-pressed={false}
-                      className="md-fake-btn md-pointer--hover md-list-tile md-text md-list-tile--avatar"
-                      onBlur={[Function]}
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      onKeyUp={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseOver={[Function]}
-                      onTouchEnd={[Function]}
-                      onTouchStart={[Function]}
-                      role="button"
-                      style={Object {}}
-                      tabIndex={0}>
-                      <InkContainer
-                        transitionEnterTimeout={450}
-                        transitionLeaveTimeout={300}
-                        transitionOverlap={150}>
-                        <ReactTransitionGroup
-                          childFactory={[Function]}
-                          className="md-ink-container"
-                          component="div">
-                          <div
-                            className="md-ink-container" />
-                        </ReactTransitionGroup>
-                      </InkContainer>
-                      <TileAddon
-                        activeClassName="md-text--theme-primary"
-                        avatar={
-                          <Avatar
-                            icon={
-                              <MdAssignment
-                                color={undefined} />
-                            }
-                            onClick={[Function]}
-                            suffixes={
-                              Array [
-                                "red",
-                                "pink",
-                                "purple",
-                                "deep-purple",
-                                "indigo",
-                                "blue",
-                                "light-blue",
-                                "cyan",
-                                "teal",
-                                "green",
-                                "light-green",
-                                "lime",
-                                "yellow",
-                                "amber",
-                                "orange",
-                                "deep-orange",
-                                "brown",
-                                "grey",
-                                "blue-grey",
-                              ]
-                            } />
-                        }>
+                    <InkContainer
+                      transitionEnterTimeout={450}
+                      transitionLeaveTimeout={300}
+                      transitionOverlap={150}>
+                      <ReactTransitionGroup
+                        childFactory={[Function]}
+                        className="md-ink-container"
+                        component="div">
                         <div
-                          className="md-tile-addon md-tile-addon--avatar">
-                          <Avatar
-                            icon={
-                              <MdAssignment
-                                color={undefined} />
-                            }
-                            onClick={[Function]}
-                            suffixes={
-                              Array [
-                                "red",
-                                "pink",
-                                "purple",
-                                "deep-purple",
-                                "indigo",
-                                "blue",
-                                "light-blue",
-                                "cyan",
-                                "teal",
-                                "green",
-                                "light-green",
-                                "lime",
-                                "yellow",
-                                "amber",
-                                "orange",
-                                "deep-orange",
-                                "brown",
-                                "grey",
-                                "blue-grey",
-                              ]
-                            }>
+                          className="md-ink-container" />
+                      </ReactTransitionGroup>
+                    </InkContainer>
+                    <TileAddon
+                      activeClassName="md-text--theme-primary"
+                      avatar={
+                        <Avatar
+                          icon={
+                            <MdAssignment
+                              color={undefined} />
+                          }
+                          onClick={[Function]}
+                          suffixes={
+                            Array [
+                              "red",
+                              "pink",
+                              "purple",
+                              "deep-purple",
+                              "indigo",
+                              "blue",
+                              "light-blue",
+                              "cyan",
+                              "teal",
+                              "green",
+                              "light-green",
+                              "lime",
+                              "yellow",
+                              "amber",
+                              "orange",
+                              "deep-orange",
+                              "brown",
+                              "grey",
+                              "blue-grey",
+                            ]
+                          } />
+                      }>
+                      <div
+                        className="md-tile-addon md-tile-addon--avatar">
+                        <Avatar
+                          icon={
+                            <MdAssignment
+                              color={undefined} />
+                          }
+                          onClick={[Function]}
+                          suffixes={
+                            Array [
+                              "red",
+                              "pink",
+                              "purple",
+                              "deep-purple",
+                              "indigo",
+                              "blue",
+                              "light-blue",
+                              "cyan",
+                              "teal",
+                              "green",
+                              "light-green",
+                              "lime",
+                              "yellow",
+                              "amber",
+                              "orange",
+                              "deep-orange",
+                              "brown",
+                              "grey",
+                              "blue-grey",
+                            ]
+                          }>
+                          <div
+                            className="md-inline-block md-avatar md-avatar--default"
+                            onClick={[Function]}>
                             <div
-                              className="md-inline-block md-avatar md-avatar--default"
-                              onClick={[Function]}>
-                              <div
-                                className="md-avatar-content">
-                                <MdAssignment>
+                              className="md-avatar-content">
+                              <MdAssignment>
+                                <IconBase
+                                  viewBox="0 0 40 40">
+                                  <svg
+                                    fill="currentColor"
+                                    height="1em"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "color": undefined,
+                                        "verticalAlign": "middle",
+                                      }
+                                    }
+                                    viewBox="0 0 40 40"
+                                    width="1em">
+                                    <g>
+                                      <path
+                                        d="m28.4 15v-3.4h-16.8v3.4h16.8z m0 6.6v-3.2h-16.8v3.2h16.8z m-5 6.8v-3.4h-11.8v3.4h11.8z m-3.4-23.4c-0.9 0-1.6 0.7-1.6 1.6s0.7 1.8 1.6 1.8 1.6-0.8 1.6-1.8-0.7-1.6-1.6-1.6z m11.6 0c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h6.9c0.7-2 2.5-3.4 4.7-3.4s4 1.4 4.7 3.4h6.9z" />
+                                    </g>
+                                  </svg>
+                                </IconBase>
+                              </MdAssignment>
+                            </div>
+                          </div>
+                        </Avatar>
+                      </div>
+                    </TileAddon>
+                    <ListItemText
+                      activeClassName="md-text--theme-primary"
+                      className="md-tile-content--left-avatar"
+                      primaryText="Project"
+                      threeLines={true}>
+                      <div
+                        className="md-tile-content md-tile-content--left-avatar">
+                        <div
+                          className="md-tile-text--primary md-text">
+                          Project
+                        </div>
+                      </div>
+                    </ListItemText>
+                    <TileAddon
+                      activeClassName="md-text--theme-primary" />
+                    <ButtonTooltipedInked
+                      icon={true}
+                      inkTransitionEnterTimeout={450}
+                      inkTransitionLeaveTimeout={300}
+                      inkTransitionOverlap={150}
+                      onClick={[Function]}>
+                      <ButtonTooltiped
+                        icon={true}
+                        ink={
+                          <InkContainer
+                            className={undefined}
+                            disabledInteractions={undefined}
+                            inkClassName={undefined}
+                            inkStyle={undefined}
+                            style={undefined}
+                            transitionEnterTimeout={450}
+                            transitionLeaveTimeout={300}
+                            transitionOverlap={150}
+                            waitForInkTransition={undefined} />
+                        }
+                        onClick={[Function]}
+                        tooltipDelay={0}
+                        tooltipPosition="bottom"
+                        tooltipTransitionEnterTimeout={150}
+                        tooltipTransitionLeaveTimeout={150}>
+                        <Button
+                          fixedPosition="br"
+                          icon={true}
+                          iconBefore={true}
+                          ink={
+                            <InkContainer
+                              className={undefined}
+                              disabledInteractions={undefined}
+                              inkClassName={undefined}
+                              inkStyle={undefined}
+                              style={undefined}
+                              transitionEnterTimeout={450}
+                              transitionLeaveTimeout={300}
+                              transitionOverlap={150}
+                              waitForInkTransition={undefined} />
+                          }
+                          onClick={[Function]}
+                          type="button">
+                          <button
+                            className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseOver={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchStart={[Function]}
+                            type="button">
+                            <InkContainer
+                              transitionEnterTimeout={450}
+                              transitionLeaveTimeout={300}
+                              transitionOverlap={150}>
+                              <ReactTransitionGroup
+                                childFactory={[Function]}
+                                className="md-ink-container"
+                                component="div">
+                                <div
+                                  className="md-ink-container" />
+                              </ReactTransitionGroup>
+                            </InkContainer>
+                            <FontIcon
+                              iconClassName="material-icons">
+                              <i
+                                className="md-icon material-icons">
+                                <MdCreate>
                                   <IconBase
                                     viewBox="0 0 40 40">
                                     <svg
@@ -688,132 +784,18 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                                       width="1em">
                                       <g>
                                         <path
-                                          d="m28.4 15v-3.4h-16.8v3.4h16.8z m0 6.6v-3.2h-16.8v3.2h16.8z m-5 6.8v-3.4h-11.8v3.4h11.8z m-3.4-23.4c-0.9 0-1.6 0.7-1.6 1.6s0.7 1.8 1.6 1.8 1.6-0.8 1.6-1.8-0.7-1.6-1.6-1.6z m11.6 0c1.8 0 3.4 1.6 3.4 3.4v23.2c0 1.8-1.6 3.4-3.4 3.4h-23.2c-1.8 0-3.4-1.6-3.4-3.4v-23.2c0-1.8 1.6-3.4 3.4-3.4h6.9c0.7-2 2.5-3.4 4.7-3.4s4 1.4 4.7 3.4h6.9z" />
+                                          d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
                                       </g>
                                     </svg>
                                   </IconBase>
-                                </MdAssignment>
-                              </div>
-                            </div>
-                          </Avatar>
-                        </div>
-                      </TileAddon>
-                      <ListItemText
-                        activeClassName="md-text--theme-primary"
-                        className="md-tile-content--left-avatar"
-                        primaryText="Project"
-                        threeLines={true}>
-                        <div
-                          className="md-tile-content md-tile-content--left-avatar">
-                          <div
-                            className="md-tile-text--primary md-text">
-                            Project
-                          </div>
-                        </div>
-                      </ListItemText>
-                      <TileAddon
-                        activeClassName="md-text--theme-primary" />
-                      <ButtonTooltipedInked
-                        icon={true}
-                        inkTransitionEnterTimeout={450}
-                        inkTransitionLeaveTimeout={300}
-                        inkTransitionOverlap={150}
-                        onClick={[Function]}>
-                        <ButtonTooltiped
-                          icon={true}
-                          ink={
-                            <InkContainer
-                              className={undefined}
-                              disabledInteractions={undefined}
-                              inkClassName={undefined}
-                              inkStyle={undefined}
-                              style={undefined}
-                              transitionEnterTimeout={450}
-                              transitionLeaveTimeout={300}
-                              transitionOverlap={150}
-                              waitForInkTransition={undefined} />
-                          }
-                          onClick={[Function]}
-                          tooltipDelay={0}
-                          tooltipPosition="bottom"
-                          tooltipTransitionEnterTimeout={150}
-                          tooltipTransitionLeaveTimeout={150}>
-                          <Button
-                            fixedPosition="br"
-                            icon={true}
-                            iconBefore={true}
-                            ink={
-                              <InkContainer
-                                className={undefined}
-                                disabledInteractions={undefined}
-                                inkClassName={undefined}
-                                inkStyle={undefined}
-                                style={undefined}
-                                transitionEnterTimeout={450}
-                                transitionLeaveTimeout={300}
-                                transitionOverlap={150}
-                                waitForInkTransition={undefined} />
-                            }
-                            onClick={[Function]}
-                            type="button">
-                            <button
-                              className="md-inline-block md-btn md-btn--icon md-pointer--hover"
-                              onClick={[Function]}
-                              onKeyDown={[Function]}
-                              onKeyUp={[Function]}
-                              onMouseDown={[Function]}
-                              onMouseLeave={[Function]}
-                              onMouseOver={[Function]}
-                              onMouseUp={[Function]}
-                              onTouchEnd={[Function]}
-                              onTouchStart={[Function]}
-                              type="button">
-                              <InkContainer
-                                transitionEnterTimeout={450}
-                                transitionLeaveTimeout={300}
-                                transitionOverlap={150}>
-                                <ReactTransitionGroup
-                                  childFactory={[Function]}
-                                  className="md-ink-container"
-                                  component="div">
-                                  <div
-                                    className="md-ink-container" />
-                                </ReactTransitionGroup>
-                              </InkContainer>
-                              <FontIcon
-                                iconClassName="material-icons">
-                                <i
-                                  className="md-icon material-icons">
-                                  <MdCreate>
-                                    <IconBase
-                                      viewBox="0 0 40 40">
-                                      <svg
-                                        fill="currentColor"
-                                        height="1em"
-                                        preserveAspectRatio="xMidYMid meet"
-                                        style={
-                                          Object {
-                                            "color": undefined,
-                                            "verticalAlign": "middle",
-                                          }
-                                        }
-                                        viewBox="0 0 40 40"
-                                        width="1em">
-                                        <g>
-                                          <path
-                                            d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z" />
-                                        </g>
-                                      </svg>
-                                    </IconBase>
-                                  </MdCreate>
-                                </i>
-                              </FontIcon>
-                            </button>
-                          </Button>
-                        </ButtonTooltiped>
-                      </ButtonTooltipedInked>
-                    </a>
-                  </Link>
+                                </MdCreate>
+                              </i>
+                            </FontIcon>
+                          </button>
+                        </Button>
+                      </ButtonTooltiped>
+                    </ButtonTooltipedInked>
+                  </a>
                 </AccessibleFakeButton>
               </AccessibleFakeButtonInked>
             </li>
