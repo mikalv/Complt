@@ -41,7 +41,7 @@ export class Login extends Component {
     }
     if (!result) return;
     this.props.login(result.idToken);
-    this.props.router.push('/');
+    this.props.history.push('/');
   }
   render() {
     return (
@@ -56,7 +56,7 @@ export class Login extends Component {
 
 Login.propTypes = {
   login: React.PropTypes.func,
-  router: React.PropTypes.shape({
+  history: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };
