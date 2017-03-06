@@ -2,8 +2,9 @@ import React from 'react';
 
 const CompltPropTypes = {
   item: React.PropTypes.shape({
-    isProject: React.PropTypes.bool.isRequired,
-    name: React.PropTypes.string.isRequired,
+    _id: React.PropTypes.string,
+    isProject: React.PropTypes.bool,
+    name: React.PropTypes.string,
     isSequential: React.PropTypes.bool,
     createdAt: React.PropTypes.number,
     modifiedAt: React.PropTypes.number,

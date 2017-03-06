@@ -14,11 +14,12 @@ handleMoveItem(id, parentProject, newParent);
 export const MoveItemDialog = props => (
   <Dialog
     id="Move Item Dialog"
+    aria-describedby="MoveItemDialogToolbar"
     visible={props.dialog.visible}
     onHide={props.hideMoveItemDialog}
     fullPage
   >
-    <Toolbar title="Move to..." actions={[<Button flat label="Cancel" onClick={props.hideMoveItemDialog} />]} />
+    <Toolbar id="MoveItemDialogToolbar" title="Move to..." actions={[<Button flat label="Cancel" onClick={props.hideMoveItemDialog} />]} />
     <MoveItemList
       itemTree={props.itemTree}
       itemToMove={props.dialog.id}
