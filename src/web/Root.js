@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Router from 'react-router-dom/Router';
-import Route from 'react-router-dom/Route';
-import Switch from 'react-router-dom/Switch';
+import Router from 'react-router/Router';
+import Route from 'react-router/Route';
+import Switch from 'react-router/Switch';
 import store from './configureStore';
 import IconContext from './components/IconContext';
 import history from './history';
