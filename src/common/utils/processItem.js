@@ -1,21 +1,11 @@
-export default function processItem(value, isProject) {
-  let item;
-  if (isProject) {
-    item = {
-      isProject: true,
-      name: '',
-      children: [],
-      isCompleted: false,
-      tags: [],
-    };
-  } else {
-    item = {
-      isProject: false,
-      name: '',
-      isCompleted: false,
-      tags: [],
-    };
-  }
+export default function processItem(value, isProject = false) {
+  const item = {
+    isProject,
+    name: '',
+    isCompleted: false,
+    tags: [],
+  };
+  if (isProject) item.children = [];
   value.split(' ').forEach((part) => {
     if (part.split('')[0] === '@') {
       item.tags.push(part);

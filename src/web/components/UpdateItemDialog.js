@@ -31,7 +31,7 @@ export const UpdateItemForm = props => (
     defaultValues={{
       input: props.defaultInputValue,
     }}
-    onSubmit={onSubmit}
+    onSubmit={onSubmit(props.item, props.handleUpdateItem)}
   >
     {({ values, submitForm, setValue }) => (
 
@@ -56,7 +56,7 @@ export const UpdateItemForm = props => (
 UpdateItemForm.propTypes = {
   item: PropTypes.item,
   defaultInputValue: React.PropTypes.string,
-  handleUpdateItem: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  handleUpdateItem: React.PropTypes.func,
   hideUpdateItemDialog: React.PropTypes.func,
 };
 
@@ -81,7 +81,7 @@ export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
     const item = state.items.find(({ _id }) => _id === state.dialogs.updateItem.id);
     const tags = item.tags || [];
-    const defaultInputValue = `${item.name} ${tags.join(' ')}`;
+    const defaultInputValue = `${item.name} ${tags.join(' ')}`.trim();
     return {
       visible: true,
       item,
