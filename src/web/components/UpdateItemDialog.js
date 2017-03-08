@@ -1,28 +1,12 @@
 import React from 'react';
 import Dialog from 'react-md/lib/Dialogs';
 import DialogFooter from 'react-md/lib/Dialogs/DialogFooter';
-import TextField from 'react-md/lib/TextFields';
 import Button from 'react-md/lib/Buttons';
 import Form from 'react-form/lib/form';
-import FormInput from 'react-form/lib/formInput';
 import { connect } from 'react-redux';
+import FormTextField from './FormTextField';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import PropTypes from '../../common/PropTypes';
-
-export const FormTextField = ({ field, ...rest }) => (
-  <FormInput field={field}>
-    {({ setValue, getValue, setTouched }) => (
-      <TextField
-        {...rest}
-        value={getValue()}
-        onChange={val => setValue(val)}
-        onBlur={() => setTouched()}
-      />)}
-  </FormInput>
-);
-
-
-FormTextField.propTypes = { field: React.PropTypes.string };
 
 export const onSubmit = (item, handleUpdateItem) => ({ input }) => handleUpdateItem(input, item);
 
@@ -33,13 +17,11 @@ export const UpdateItemForm = props => (
     }}
     onSubmit={onSubmit(props.item, props.handleUpdateItem)}
   >
-    {({ values, submitForm, setValue }) => (
-
+    {({ submitForm }) => (
       <form onSubmit={submitForm}>
-        <TextField
+        <FormTextField
           placeholder={props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work'}
-          value={values.input}
-          onChange={value => setValue('input', value)}
+          field="input"
         />
         <DialogFooter
           style={{ paddingRight: 0 }}
