@@ -13,6 +13,11 @@ const CompltPropTypes = {
     tags: React.PropTypes.arrayOf(React.PropTypes.string),
     isCompleted: React.PropTypes.bool,
   }),
+  profile: React.PropTypes.shape({
+    picture: React.PropTypes.string,
+    name: React.PropTypes.string,
+    email: React.PropTypes.string,
+  }),
 };
 
 export default CompltPropTypes;

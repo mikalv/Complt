@@ -13,6 +13,7 @@ import Snackbar from 'react-md/lib/Snackbars';
 import Link from 'react-router-dom/Link';
 import Button from 'react-md/lib/Buttons/Button';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
+import Toolbar from 'react-md/lib/Toolbars/Toolbar';
 import { connect } from 'react-redux';
 import Route from 'react-router/Route';
 import Switch from 'react-router/Switch';
@@ -29,6 +30,7 @@ import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import UpdateItemDialog from '../components/UpdateItemDialog';
 import MoveItemDialog from '../components/MoveItemDialog';
+import PropTypes from '../../common/PropTypes';
 
 const navItems = [{
   to: '/all',
@@ -76,7 +78,13 @@ export function navItemsWithActive(items, route) {
 
 export const App = props => (
   <NavigationDrawer
-    header={<div />}
+    drawerHeader={
+      <Toolbar
+        title={props.profile.name}
+        prominentTitle
+        colored
+        style={{ backgroundColor: '#ff4081' }}
+      />}
     temporaryIconChildren={<Menu />}
     navItems={navItemsWithActive(navItems, props.location.pathname)}
     mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
@@ -134,10 +142,11 @@ App.propTypes = {
       }),
     ]),
   })).isRequired,
+  profile: PropTypes.profile,
 };
 
-function mapStateToProps({ toasts, itemsToShow, syncState }) {
-  return { toasts, itemsToShow, syncState };
+function mapStateToProps({ toasts, itemsToShow, syncState, profile }) {
+  return { toasts, itemsToShow, syncState, profile };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
