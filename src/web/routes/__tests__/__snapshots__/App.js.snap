@@ -6,9 +6,20 @@ exports[`App component renders correctly when the pathname does not match a rout
   defaultMedia="mobile"
   desktopDrawerType="clipped"
   desktopMinWidth={1025}
+  drawerHeader={
+    <Toolbar
+      colored={true}
+      component="header"
+      prominentTitle={true}
+      singleColor={true}
+      style={
+        Object {
+          "backgroundColor": "#ff4081",
+        }
+      } />
+  }
   drawerTransitionDuration={300}
   extractMini={true}
-  header={<div />}
   includeDrawerHeader={true}
   jumpLabel="Jump to content"
   mobileDrawerType="temporary"
@@ -98,44 +109,7 @@ exports[`App component renders correctly when the pathname does not match a rout
   }
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
-  <Switch>
-    <Route
-      component={[Function]}
-      path="/all" />
-    <Route
-      component={[Function]}
-      path="/inbox" />
-    <Route
-      component={[Function]}
-      path="/projects" />
-    <Redirect
-      from="/project/inbox"
-      push={false}
-      to="/inbox" />
-    <Redirect
-      from="/project/root"
-      push={false}
-      to="/projects" />
-    <Route
-      component={[Function]}
-      path="/project/:projectId" />
-    <Route
-      component={[Function]}
-      path="/tags" />
-    <Route
-      component={[Function]}
-      path="/tag/:tag" />
-    <Route
-      component={[Function]}
-      path="/login" />
-    <Route
-      component={[Function]}
-      path="/account" />
-    <Redirect
-      from="/"
-      push={false}
-      to="/inbox" />
-  </Switch>
+  <Component />
   <SnackbarContainer
     autohide={true}
     autohideTimeout={3000}
@@ -156,9 +130,20 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   defaultMedia="mobile"
   desktopDrawerType="clipped"
   desktopMinWidth={1025}
+  drawerHeader={
+    <Toolbar
+      colored={true}
+      component="header"
+      prominentTitle={true}
+      singleColor={true}
+      style={
+        Object {
+          "backgroundColor": "#ff4081",
+        }
+      } />
+  }
   drawerTransitionDuration={300}
   extractMini={true}
-  header={<div />}
   includeDrawerHeader={true}
   jumpLabel="Jump to content"
   mobileDrawerType="temporary"
@@ -249,44 +234,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   }
   transitionEnterTimeout={300}
   transitionName="md-cross-fade">
-  <Switch>
-    <Route
-      component={[Function]}
-      path="/all" />
-    <Route
-      component={[Function]}
-      path="/inbox" />
-    <Route
-      component={[Function]}
-      path="/projects" />
-    <Redirect
-      from="/project/inbox"
-      push={false}
-      to="/inbox" />
-    <Redirect
-      from="/project/root"
-      push={false}
-      to="/projects" />
-    <Route
-      component={[Function]}
-      path="/project/:projectId" />
-    <Route
-      component={[Function]}
-      path="/tags" />
-    <Route
-      component={[Function]}
-      path="/tag/:tag" />
-    <Route
-      component={[Function]}
-      path="/login" />
-    <Route
-      component={[Function]}
-      path="/account" />
-    <Redirect
-      from="/"
-      push={false}
-      to="/inbox" />
-  </Switch>
+  <Component />
   <SnackbarContainer
     autohide={true}
     autohideTimeout={3000}
