@@ -47,6 +47,7 @@
     "http-proxy-middleware": "0.17.3",
     "jest": "18.0.0",
     "jest-exponent": "^0.2.1",
+    "jest-fetch-mock": "^1.0.8",
     "json-loader": "0.5.4",
     "lodash-webpack-plugin": "^0.11.0",
     "netlify-cli": "^1.1.0",
@@ -142,7 +143,8 @@
       "react-router-dom/Link": "<rootDir>/src/test/LinkMock.js"
     },
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/config/testSetup.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"

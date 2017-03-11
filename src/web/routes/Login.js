@@ -4,6 +4,7 @@ import Button from 'react-md/lib/Buttons/Button';
 import WebAuth from 'auth0-js/src/web-auth';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import logException from '../../common/utils/logException';
+import getTokenInfo from '../../common/utils/getTokenInfo';
 
 export class Login extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ export class Login extends Component {
     }
     if (!result) return;
     this.props.login(result.idToken);
+    getTokenInfo(result.idToken).then(profile => this.props.getProfile(profile));
     this.props.history.push('/');
   }
   render() {
@@ -56,6 +58,7 @@ export class Login extends Component {
 
 Login.propTypes = {
   login: React.PropTypes.func,
+  getProfile: React.PropTypes.func,
   history: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),

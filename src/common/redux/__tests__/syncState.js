@@ -56,6 +56,7 @@ describe('attemptSync()', () => {
   it('dispatches the correct actions when renewAuth resolves', () => {
     isTokenExpired.mockReturnValueOnce(true);
     renewAuth.mockReturnValueOnce(Promise.resolve('some.valid.token'));
+    fetch.mockResponseOnce(JSON.stringify({ email: 'somePerson@some.domain', name: 'Some Person' }));
     const store = mockStore({ auth: 'some.expired.token' });
     store.dispatch(attemptSync());
     expect(isTokenExpired).toBeCalledWith('some.expired.token');

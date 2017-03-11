@@ -5,6 +5,7 @@ import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
 import processItem from '../utils/processItem';
 import renewAuth from '../../web/renewAuth';
+import getTokenInfo from '../utils/getTokenInfo';
 import {
   LOGIN,
   LOGOUT,
@@ -102,6 +103,7 @@ export const attemptSync = () => (dispatch, getState) => {
   if (isTokenExpired(getState().auth)) {
     return renewAuth().then((idToken) => {
       dispatch(login(idToken));
+      getTokenInfo(idToken).then(profile => dispatch(getProfile(profile)));
       return sync(dispatch, getState)();
     }).catch(() => {
       dispatch(showSignInToast());
