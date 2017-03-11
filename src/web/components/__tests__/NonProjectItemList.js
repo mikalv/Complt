@@ -32,7 +32,7 @@ describe('NonProjectItemList component', () => {
     const routerPush = jest.fn();
     const component = mount(<NonProjectItemList
       items={items}
-      router={{ push: routerPush }}
+      history={{ push: routerPush }}
     />);
     component.childAt(1).find('li').find('AccessibleFakeButtonInked')
     .simulate('click');

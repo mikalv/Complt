@@ -9,14 +9,14 @@ const NonProjectItemList = props => (<ItemList
   items={props.items}
   onItemTap={(i) => {
     if (props.items[i].isProject) {
-      props.router.push(`/project/${props.items[i]._id}`);
+      props.history.push(`/project/${props.items[i]._id}`);
     }
   }}
 />);
 
 NonProjectItemList.propTypes = {
   items: React.PropTypes.arrayOf(PropTypes.item),
-  router: React.PropTypes.shape({
+  history: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
 };
