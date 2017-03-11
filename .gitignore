@@ -18,3 +18,4 @@ npm-debug.log
 .webpack
 dist/
 .exponent
+errorShots/
