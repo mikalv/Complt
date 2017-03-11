@@ -87,7 +87,7 @@
     "menubar": "^5.2.0",
     "mockdate": "^2.0.1",
     "native-base": "^2.0.7",
-    "pouch-redux-middleware": "^0.5.0",
+    "pouch-redux-middleware": "^0.6.0",
     "pouchdb": "^6.1.1",
     "pouchdb-adapter-memory": "^6.1.1",
     "pouchdb-memory": "^6.0.0",
