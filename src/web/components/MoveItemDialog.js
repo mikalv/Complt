@@ -1,7 +1,7 @@
 import React from 'react';
 import Dialog from 'react-md/lib/Dialogs';
-import Button from 'react-md/lib/Buttons';
-import Toolbar from 'react-md/lib/Toolbars';
+import Button from 'react-md/lib/Buttons/Button';
+import Toolbar from 'react-md/lib/Toolbars/Toolbar';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import itemsToTree from '../../common/utils/itemsToTree';

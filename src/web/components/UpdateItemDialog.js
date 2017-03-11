@@ -1,7 +1,7 @@
 import React from 'react';
 import Dialog from 'react-md/lib/Dialogs';
 import DialogFooter from 'react-md/lib/Dialogs/DialogFooter';
-import Button from 'react-md/lib/Buttons';
+import Button from 'react-md/lib/Buttons/Button';
 import Form from 'react-form/lib/form';
 import { connect } from 'react-redux';
 import FormTextField from './FormTextField';

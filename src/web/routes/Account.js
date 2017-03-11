@@ -1,6 +1,6 @@
 import React from 'react';
 import Person from 'react-icons/lib/md/person';
-import Avatar from 'react-md/lib/Avatars';
+import Avatar from 'react-md/lib/Avatars/Avatar';
 import Button from 'react-md/lib/Buttons/Button';
 import WebAuth from 'auth0-js/src/web-auth';
 import { connect } from 'react-redux';

@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'react-router-dom/Link';
 import { connect } from 'react-redux';
-import { List, ListItem } from 'react-md/lib/Lists';
+import List from 'react-md/lib/Lists/List';
+import ListItem from 'react-md/lib/Lists/ListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 
 export const Tags = props => (
