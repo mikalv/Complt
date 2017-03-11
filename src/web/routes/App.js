@@ -7,7 +7,7 @@ import ArrowDropDown from 'react-icons/lib/md/arrow-drop-down';
 import Person from 'react-icons/lib/md/person';
 import Apps from 'react-icons/lib/md/apps';
 import Label from 'react-icons/lib/md/label';
-import NavigationDrawer from 'react-md/lib/NavigationDrawers/NavigationDrawer';
+import NavigationDrawer from 'react-md/lib/NavigationDrawers';
 import SelectField from 'react-md/lib/SelectFields/SelectField';
 import Snackbar from 'react-md/lib/Snackbars';
 import Link from 'react-router-dom/Link';
