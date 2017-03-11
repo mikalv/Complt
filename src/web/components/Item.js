@@ -9,6 +9,7 @@ import ListItem from 'react-md/lib/Lists/ListItem';
 import Avatar from 'react-md/lib/Avatars/Avatar';
 import Chip from 'react-md/lib/Chips/Chip';
 import Button from 'react-md/lib/Buttons/Button';
+import history from '../../web/history';
 import PropTypes from '../../common/PropTypes';
 import colors from '../../common/colors';
 import './Item.css';
@@ -49,7 +50,7 @@ const Item = ({
     primaryText={item.name}
     secondaryText={!item.tags || item.tags.length === 0 ? undefined : <div className="Item-chip-container">
       {item.tags.map(
-        tag => <Chip key={tag} style={{ marginRight: 5, marginTop: 3 }} label={tag} />)}
+        tag => <Link to={`/tag/${tag}`} key={tag} style={{ textDecoration: 'none' }} onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip style={{ marginRight: 5, marginTop: 3 }} label={tag} /></Link>)}
     </div>}
   >
     <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>

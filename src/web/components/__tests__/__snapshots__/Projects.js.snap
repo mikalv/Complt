@@ -128,17 +128,26 @@ exports[`Projects component renders correctly with some items 1`] = `
               secondaryText={
                 <div
                   className="Item-chip-container">
-                  <Chip
-                    label="@tag"
-                    rotateIcon={true}
+                  <a
+                    onClick={[Function]}
                     style={
                       Object {
-                        "marginRight": 5,
-                        "marginTop": 3,
+                        "textDecoration": "none",
                       }
-                    }>
-                    add_circle
-                  </Chip>
+                    }
+                    to="/tag/@tag">
+                    <Chip
+                      label="@tag"
+                      rotateIcon={true}
+                      style={
+                        Object {
+                          "marginRight": 5,
+                          "marginTop": 3,
+                        }
+                      }>
+                      add_circle
+                    </Chip>
+                  </a>
                 </div>
               }
               threeLines={true}>
@@ -313,17 +322,26 @@ exports[`Projects component renders correctly with some items 1`] = `
                         secondaryText={
                           <div
                             className="Item-chip-container">
-                            <Chip
-                              label="@tag"
-                              rotateIcon={true}
+                            <a
+                              onClick={[Function]}
                               style={
                                 Object {
-                                  "marginRight": 5,
-                                  "marginTop": 3,
+                                  "textDecoration": "none",
                                 }
-                              }>
-                              add_circle
-                            </Chip>
+                              }
+                              to="/tag/@tag">
+                              <Chip
+                                label="@tag"
+                                rotateIcon={true}
+                                style={
+                                  Object {
+                                    "marginRight": 5,
+                                    "marginTop": 3,
+                                  }
+                                }>
+                                add_circle
+                              </Chip>
+                            </a>
                           </div>
                         }
                         threeLines={true}>
@@ -337,32 +355,41 @@ exports[`Projects component renders correctly with some items 1`] = `
                             className="md-tile-text--secondary md-text--secondary md-tile-text--three-lines">
                             <div
                               className="Item-chip-container">
-                              <Chip
-                                label="@tag"
-                                rotateIcon={true}
+                              <a
+                                onClick={[Function]}
                                 style={
                                   Object {
-                                    "marginRight": 5,
-                                    "marginTop": 3,
+                                    "textDecoration": "none",
                                   }
-                                }>
-                                <button
-                                  className="md-chip"
-                                  onMouseLeave={[Function]}
-                                  onMouseOver={[Function]}
+                                }
+                                to="/tag/@tag">
+                                <Chip
+                                  label="@tag"
+                                  rotateIcon={true}
                                   style={
                                     Object {
                                       "marginRight": 5,
                                       "marginTop": 3,
                                     }
-                                  }
-                                  type="button">
-                                  <span
-                                    className="md-chip-text">
-                                    @tag
-                                  </span>
-                                </button>
-                              </Chip>
+                                  }>
+                                  <button
+                                    className="md-chip"
+                                    onMouseLeave={[Function]}
+                                    onMouseOver={[Function]}
+                                    style={
+                                      Object {
+                                        "marginRight": 5,
+                                        "marginTop": 3,
+                                      }
+                                    }
+                                    type="button">
+                                    <span
+                                      className="md-chip-text">
+                                      @tag
+                                    </span>
+                                  </button>
+                                </Chip>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -1270,17 +1297,26 @@ exports[`Projects component renders correctly with some items 1`] = `
               secondaryText={
                 <div
                   className="Item-chip-container">
-                  <Chip
-                    label="@tag"
-                    rotateIcon={true}
+                  <a
+                    onClick={[Function]}
                     style={
                       Object {
-                        "marginRight": 5,
-                        "marginTop": 3,
+                        "textDecoration": "none",
                       }
-                    }>
-                    add_circle
-                  </Chip>
+                    }
+                    to="/tag/@tag">
+                    <Chip
+                      label="@tag"
+                      rotateIcon={true}
+                      style={
+                        Object {
+                          "marginRight": 5,
+                          "marginTop": 3,
+                        }
+                      }>
+                      add_circle
+                    </Chip>
+                  </a>
                 </div>
               }
               threeLines={true}>
@@ -1455,17 +1491,26 @@ exports[`Projects component renders correctly with some items 1`] = `
                         secondaryText={
                           <div
                             className="Item-chip-container">
-                            <Chip
-                              label="@tag"
-                              rotateIcon={true}
+                            <a
+                              onClick={[Function]}
                               style={
                                 Object {
-                                  "marginRight": 5,
-                                  "marginTop": 3,
+                                  "textDecoration": "none",
                                 }
-                              }>
-                              add_circle
-                            </Chip>
+                              }
+                              to="/tag/@tag">
+                              <Chip
+                                label="@tag"
+                                rotateIcon={true}
+                                style={
+                                  Object {
+                                    "marginRight": 5,
+                                    "marginTop": 3,
+                                  }
+                                }>
+                                add_circle
+                              </Chip>
+                            </a>
                           </div>
                         }
                         threeLines={true}>
@@ -1479,32 +1524,41 @@ exports[`Projects component renders correctly with some items 1`] = `
                             className="md-tile-text--secondary md-text--secondary md-tile-text--three-lines">
                             <div
                               className="Item-chip-container">
-                              <Chip
-                                label="@tag"
-                                rotateIcon={true}
+                              <a
+                                onClick={[Function]}
                                 style={
                                   Object {
-                                    "marginRight": 5,
-                                    "marginTop": 3,
+                                    "textDecoration": "none",
                                   }
-                                }>
-                                <button
-                                  className="md-chip"
-                                  onMouseLeave={[Function]}
-                                  onMouseOver={[Function]}
+                                }
+                                to="/tag/@tag">
+                                <Chip
+                                  label="@tag"
+                                  rotateIcon={true}
                                   style={
                                     Object {
                                       "marginRight": 5,
                                       "marginTop": 3,
                                     }
-                                  }
-                                  type="button">
-                                  <span
-                                    className="md-chip-text">
-                                    @tag
-                                  </span>
-                                </button>
-                              </Chip>
+                                  }>
+                                  <button
+                                    className="md-chip"
+                                    onMouseLeave={[Function]}
+                                    onMouseOver={[Function]}
+                                    style={
+                                      Object {
+                                        "marginRight": 5,
+                                        "marginTop": 3,
+                                      }
+                                    }
+                                    type="button">
+                                    <span
+                                      className="md-chip-text">
+                                      @tag
+                                    </span>
+                                  </button>
+                                </Chip>
+                              </a>
                             </div>
                           </div>
                         </div>
