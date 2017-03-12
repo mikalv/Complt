@@ -59,6 +59,15 @@ exports.config = {
   }, {
     browserName: 'chrome',
     version: 55,
+    chromeOptions: {
+      perfLoggingPrefs: {
+        traceCategories: ',blink.console,disabled-by-default-devtools.timeline,benchmark',
+      },
+      args: ['--enable-gpu-benchmarking', '--enable-thread-composting'],
+    },
+    loggingPrefs: {
+      performance: 'ALL',
+    },
   }, {
     browserName: 'safari',
     platform: 'mac',

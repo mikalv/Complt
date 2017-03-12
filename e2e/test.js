@@ -1,4 +1,5 @@
 const expect = require('chai').expect;
+const fs = require('fs');
 
 describe('app', function () {
   it('renders without crashing', function () {
@@ -19,5 +20,14 @@ describe('app', function () {
     expect(textElement.getText()).to.equal('Task in inbox');
     expect(chips[0].$('span').getText()).to.equal('@tag');
     expect(chips[1].$('span').getText()).to.equal('@tag2');
+    let performance;
+    try {
+      performance = browser.log('performance');
+    } catch (e) {
+      console.log(e); // eslint-disable-line no-console
+    }
+    if (performance) {
+      fs.writeFileSync(`${new Date().toString()}-${Math.random()}-timeline.json`, performance);
+    }
   });
 });
