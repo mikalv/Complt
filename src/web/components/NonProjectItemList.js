@@ -19,6 +19,8 @@ NonProjectItemList.propTypes = {
   history: React.PropTypes.shape({
     push: React.PropTypes.func,
   }),
+  completeItem: React.PropTypes.func,
+  showUpdateItemDialog: React.PropTypes.func,
 };
 
 export default NonProjectItemList;

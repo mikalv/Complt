@@ -47,9 +47,15 @@ Projects.propTypes = {
   createProject: React.PropTypes.func,
   createTask: React.PropTypes.func,
   projectId: React.PropTypes.string,
-  routerPush: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  routerPush: React.PropTypes.func,
   initialIsProject: React.PropTypes.bool,
   canChangeType: React.PropTypes.bool,
+  deleteTask: React.PropTypes.func,
+  deleteProject: React.PropTypes.func,
+  moveItemDialog: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  completeItem: React.PropTypes.func,
+  showMoveItemDialog: React.PropTypes.func,
+  showUpdateItemDialog: React.PropTypes.func,
 };
 
 export function mapStateToProps(state, ownProps) {
