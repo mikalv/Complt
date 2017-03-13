@@ -39,7 +39,10 @@ ProjectView.propTypes = {
   createProject: React.PropTypes.func,
   createTask: React.PropTypes.func,
   projectId: React.PropTypes.string,
-  routerPush: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  routerPush: React.PropTypes.func,
+  deleteProject: React.PropTypes.func,
+  deleteTask: React.PropTypes.func,
+  completeItem: React.PropTypes.func,
   initialIsProject: React.PropTypes.bool,
   canChangeType: React.PropTypes.bool,
 };
