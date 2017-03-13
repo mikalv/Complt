@@ -2,7 +2,6 @@ import React from 'react';
 import Person from 'react-icons/lib/md/person';
 import Avatar from 'react-md/lib/Avatars/Avatar';
 import Button from 'react-md/lib/Buttons/Button';
-import WebAuth from 'auth0-js/src/web-auth';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import PropTypes from '../../common/PropTypes';
@@ -19,11 +18,13 @@ export const Account = props => (
       flat
       onClick={() => {
         props.logout();
-        const auth0 = new WebAuth({
-          domain: process.env.REACT_APP_AUTH0_DOMAIN,
-          clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
+        import('auth0-js/src/web-auth').then((WebAuth) => {
+          const auth0 = new WebAuth({
+            domain: process.env.REACT_APP_AUTH0_DOMAIN,
+            clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
+          });
+          auth0.logout({ returnTo: window.location.href, client_id: process.env.REACT_APP_AUTH0_CLIENT_ID }, { version: 'v2' });
         });
-        auth0.logout({ returnTo: window.location.href, client_id: process.env.REACT_APP_AUTH0_CLIENT_ID }, { version: 'v2' });
       }}
     /></div>
   </div>

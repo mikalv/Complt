@@ -6,6 +6,7 @@ import logException from '../utils/logException';
 import processItem from '../utils/processItem';
 import renewAuth from '../../web/renewAuth';
 import getTokenInfo from '../utils/getTokenInfo';
+import loginWithGoogle from '../../web/loginWithGoogle';
 import {
   LOGIN,
   LOGOUT,
@@ -32,6 +33,17 @@ import {
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
+
+export const loginCallback = (error, result) => (dispatch) => {
+  if (error) {
+    logException(error);
+    return;
+  }
+  if (!result) return;
+  dispatch(login(result.idToken));
+  getTokenInfo(result.idToken).then(profile => dispatch(getProfile(profile)));
+  history.push('/');
+};
 
 export const logout = () => ({ type: LOGOUT });
 
@@ -83,7 +95,7 @@ export const showSignInToast = () => (dispatch) => {
     text: 'Please sign in to sync',
     action: {
       label: 'SIGN IN',
-      onClick: () => history.push('/login'),
+      onClick: () => loginWithGoogle((err, result) => dispatch(loginCallback(err, result))),
     } }));
 };
 

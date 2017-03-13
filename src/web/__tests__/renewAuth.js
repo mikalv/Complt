@@ -1,6 +1,6 @@
 import WebAuth from 'auth0-js/src/web-auth';
 import logException from '../../common/utils/logException';
-import renewAuth from '../renewAuth';
+import { renewAuth } from '../renewAuth';
 
 jest.mock('auth0-js/src/web-auth').mock('../../common/utils/logException');
 
@@ -9,7 +9,7 @@ const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
 
 describe('renewAuth', () => {
   it('instantiates WebAuth correctly', () => {
-    renewAuth();
+    renewAuth(WebAuth);
     expect(WebAuth).toBeCalledWith({
       domain: process.env.REACT_APP_AUTH0_DOMAIN,
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
@@ -20,7 +20,7 @@ describe('renewAuth', () => {
     });
   });
   it('resolves with the token if webAuth.renewAuth does not return an error', () => {
-    const renewAuthPromise = renewAuth();
+    const renewAuthPromise = renewAuth(WebAuth);
     const renewAuthCall = WebAuth.mock.instances[1].renewAuth.mock.calls[0];
     expect(renewAuthCall[0]).toEqual({
       audience,
@@ -32,7 +32,7 @@ describe('renewAuth', () => {
     });
   });
   it('rejects with the error if webAuth.renewAuth calls the callback with an error', () => {
-    const renewAuthPromise = renewAuth();
+    const renewAuthPromise = renewAuth(WebAuth);
     const renewAuthCall = WebAuth.mock.instances[2].renewAuth.mock.calls[0];
     expect(renewAuthCall[0]).toEqual({
       audience,

@@ -1,7 +1,6 @@
-import WebAuth from 'auth0-js/src/web-auth';
 import logException from '../common/utils/logException';
 
-const renewAuth = () => new Promise((resolve, reject) => {
+export const renewAuth = WebAuth => new Promise((resolve, reject) => {
   const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
   const redirectUri = `${window.location.origin}/callback`;
   const webAuth = new WebAuth({
@@ -25,4 +24,6 @@ const renewAuth = () => new Promise((resolve, reject) => {
   });
 });
 
-export default renewAuth;
+const renewAuthWithImport = () => import('auth0-js/src/web-auth').then(renewAuth);
+
+export default renewAuthWithImport;
