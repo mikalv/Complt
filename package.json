@@ -114,6 +114,7 @@
     "redux-persist": "^4.4.2",
     "redux-raven-middleware": "^1.2.0",
     "redux-thunk": "^2.2.0",
+    "sugar-date": "^2.0.4",
     "uuid": "^3.0.1"
   },
   "scripts": {

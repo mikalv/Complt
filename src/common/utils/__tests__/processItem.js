@@ -17,15 +17,15 @@ describe('processItem(value, type)', () => {
     expect(processItem('Some Project', true).isProject).toEqual(true);
   });
   it('returns an object with a name and tags if it is passed the type Task with a value containing a name and tags', () => {
-    expect(processItem('Some Task @tag', false)).toEqual({ isProject: false, name: 'Some Task', tags: ['@tag'], isCompleted: false });
+    expect(processItem('Some Task @tag', false)).toEqual({ isProject: false, name: 'Some Task', tags: ['@tag'], isCompleted: false, dates: [] });
   });
   it('returns an object with a name and tags if it is passed the type Task with a value containing a name and tags', () => {
-    expect(processItem('Some Project @tag', true)).toEqual({ isProject: true, name: 'Some Project', tags: ['@tag'], isCompleted: false, children: [] });
+    expect(processItem('Some Project @tag', true)).toEqual({ isProject: true, name: 'Some Project', tags: ['@tag'], isCompleted: false, children: [], dates: [] });
   });
   it('returns an object with a name and an empty array for tags if it is passed the type Task with a value containing a name without tags', () => {
-    expect(processItem('Some Task', false)).toEqual({ isProject: false, name: 'Some Task', tags: [], isCompleted: false });
+    expect(processItem('Some Task', false)).toEqual({ isProject: false, name: 'Some Task', tags: [], isCompleted: false, dates: [] });
   });
   it('trims off white space', () => {
-    expect(processItem(' Some Task @tag ', false)).toEqual({ isProject: false, name: 'Some Task', tags: ['@tag'], isCompleted: false });
+    expect(processItem(' Some Task @tag ', false)).toEqual({ isProject: false, name: 'Some Task', tags: ['@tag'], isCompleted: false, dates: [] });
   });
 });

@@ -50,7 +50,7 @@ describe('AddItem component', () => {
     const input = component.find('input').first();
     input.simulate('change', { target: { value: 'Task @tag' } });
     component.find({ type: 'submit' }).simulate('submit');
-    expect(onAddItem).toBeCalledWith({ isProject: false, tags: ['@tag'], name: 'Task', isCompleted: false });
+    expect(onAddItem).toBeCalledWith({ isProject: false, tags: ['@tag'], name: 'Task', isCompleted: false, dates: [] });
   });
   it('does\'t call AddItem if the item returned from processItem is falsy', () => {
     const onAddItem = jest.fn();

@@ -62,7 +62,7 @@ describe('Projects component', () => {
     const input = component.find('input').first();
     input.simulate('change', { target: { value: 'Some Project @tag' } });
     component.find({ type: 'submit' }).simulate('submit');
-    expect(createProject).toBeCalledWith('root', { name: 'Some Project', isProject: true, children: [], isCompleted: false, tags: ['@tag'] });
+    expect(createProject).toBeCalledWith('root', { name: 'Some Project', isProject: true, children: [], isCompleted: false, tags: ['@tag'], dates: [] });
   });
   it('calls createTask when a task is created', () => {
     const createTask = jest.fn();
@@ -70,7 +70,7 @@ describe('Projects component', () => {
     const input = component.find('input').first();
     input.simulate('change', { target: { value: 'Some Task @tag' } });
     component.find({ type: 'submit' }).simulate('submit');
-    expect(createTask).toBeCalledWith('root', { name: 'Some Task', isProject: false, isCompleted: false, tags: ['@tag'] });
+    expect(createTask).toBeCalledWith('root', { name: 'Some Task', isProject: false, isCompleted: false, tags: ['@tag'], dates: [] });
   });
 });
 
