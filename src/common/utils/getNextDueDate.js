@@ -3,7 +3,7 @@ export const DUE_DATE = 'DUE_DATE';
 function getSingleDueDate(date) {
   switch (date.dateType) {
     case DUE_DATE:
-      return date.value;
+      return new Date(date.value).getTime();
     default:
       return undefined;
   }
@@ -11,11 +11,11 @@ function getSingleDueDate(date) {
 
 export default function getNextDueDate(dates = []) {
   if (dates.length === 0) return undefined;
-  let nextDueDate = 0;
+  let nextDueDate = Infinity;
   dates.forEach((date) => {
     const dueDateValue = getSingleDueDate(date);
     if (dueDateValue < nextDueDate) nextDueDate = dueDateValue;
   });
-  if (nextDueDate > 0) return nextDueDate;
+  if (nextDueDate !== Infinity) return nextDueDate;
   return undefined;
 }
