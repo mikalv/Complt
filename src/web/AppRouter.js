@@ -2,6 +2,7 @@ import React from 'react';
 import Route from 'react-router/Route';
 import Switch from 'react-router/Switch';
 import Redirect from 'react-router/Redirect';
+import { Today, Tomorrow, Overdue, Week } from './components/ItemListByDueDate';
 import Inbox from './routes/Inbox';
 import Account from './routes/Account';
 import Login from './routes/Login';
@@ -23,6 +24,10 @@ const AppRouter = () => (
     <Route path="/tag/:tag" component={Tag} />
     <Route path="/login" component={Login} />
     <Route path="/account" component={Account} />
+    <Route path="/today" component={Today} />
+    <Route path="/tomorrow" component={Tomorrow} />
+    <Route path="/overdue" component={Overdue} />
+    <Route path="/week" component={Week} />
     <Redirect from="/" to="/inbox" />
   </Switch>
 );
