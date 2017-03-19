@@ -76,6 +76,7 @@ describe('handleUpdateItem action creator', () => {
         isProject: false,
         name: 'some task with a',
         tags: ['@tag'],
+        dates: [],
       },
     });
   });
@@ -88,6 +89,8 @@ describe('handleUpdateItem action creator', () => {
         isProject: true,
         name: 'some project',
         children: ['someOtherTask', 'oneMoreTask'],
+        dates: [],
+        tags: [],
       },
     });
   });

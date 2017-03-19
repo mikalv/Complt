@@ -157,19 +157,12 @@ export const hideUpdateItemDialog = () => ({
 
 export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
   const processedItem = processItem(updatedItemInput, item.isProject);
-  let newItem;
-  if (item.isProject) {
-    newItem = {
-      ...item,
-      name: processedItem.name,
-    };
-  } else {
-    newItem = {
-      ...item,
-      name: processedItem.name,
-      tags: processedItem.tags,
-    };
-  }
+  const newItem = {
+    ...item,
+    name: processedItem.name,
+    tags: processedItem.tags,
+    dates: processedItem.dates,
+  };
   dispatch(updateItem(newItem));
   dispatch(hideUpdateItemDialog());
 };

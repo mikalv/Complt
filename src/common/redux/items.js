@@ -133,6 +133,7 @@ export default function itemsReducer(state = initialState, action) {
           ...oldItem,
           name: action.item.name,
           tags: action.item.tags,
+          dates: action.item.dates,
         },
         ...state.slice(indexOfOldItem + 1),
       ];
