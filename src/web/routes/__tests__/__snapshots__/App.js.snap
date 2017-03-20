@@ -1,6 +1,7 @@
 exports[`App component renders correctly when the pathname does not match a route 1`] = `
 <NavigationDrawer
   autoclose={true}
+  constantDrawerType={false}
   contentComponent="main"
   contentId="main-content"
   defaultMedia="mobile"
@@ -157,6 +158,7 @@ exports[`App component renders correctly when the pathname does not match a rout
 exports[`App component renders correctly when the pathname matches a route 1`] = `
 <NavigationDrawer
   autoclose={true}
+  constantDrawerType={false}
   contentComponent="main"
   contentId="main-content"
   defaultMedia="mobile"

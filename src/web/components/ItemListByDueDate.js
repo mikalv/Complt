@@ -4,7 +4,7 @@ import getFilteredItems from '../../common/utils/getFilteredItems';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import NonProjectItemList from './NonProjectItemList';
 
-const mapStateToProps = ({ endTime, startTime }) => (state) => {
+export const mapStateToProps = ({ endTime, startTime }) => (state) => {
   const items = [];
   state.items.forEach((item) => {
     if (item && Array.isArray(item.dates)) {
