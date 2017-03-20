@@ -8,6 +8,8 @@
 [![Airbnb JavaScript Style Guide](https://img.shields.io/badge/code%20style-airbnb-brightgreen.svg)](https://github.com/airbnb/javascript) [![dependencies Status](	https://img.shields.io/david/mitchellhamilton/Complt.svg)](https://david-dm.org/mitchellhamilton/Complt)
 [![devDependencies Status](https://img.shields.io/david/dev/mitchellhamilton/Complt.svg)](https://david-dm.org/mitchellhamilton/Complt?type=dev)
 
+[![Build Status](https://saucelabs.com/browser-matrix/mitchellhamilton.svg)](https://saucelabs.com/beta/builds/068ece56c55042109959c8904a97b4de)
+
 [app.complt.xyz](https://app.complt.xyz/)
 
 The canonical source for this project is on [GitLab](https://gitlab.com/mitchellhamilton/Complt) but it is also mirrored to [GitHub](https://github.com/mitchellhamilton/Complt)

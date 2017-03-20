@@ -66,6 +66,7 @@
     "redux-mock-store": "^1.2.2",
     "rimraf": "2.6.1",
     "sass-loader": "^6.0.3",
+    "saucelabs": "^1.4.0",
     "strip-ansi": "3.0.1",
     "style-loader": "0.14.1",
     "url-loader": "0.5.8",
