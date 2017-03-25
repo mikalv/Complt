@@ -13,7 +13,7 @@ export default function processItem(value, isProject = false) {
   const date = value.match(/!([\s\S]+?)!/);
   let valueWithoutDate;
   if (date) {
-    const parsedDate = dateCreate(date[1]);
+    const parsedDate = dateCreate(date[1], { future: true });
     if (parsedDate.toString() === 'Invalid Date') valueWithoutDate = value;
     else {
       valueWithoutDate = `${value.substring(0, date.index).trim()} ${value.substring(date.index + date[0].length).trim()}`;
