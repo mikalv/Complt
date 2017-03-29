@@ -93,9 +93,14 @@
     "native-base": "^2.0.7",
     "pouch-redux-middleware": "^0.6.0",
     "pouchdb": "^6.1.1",
+    "pouchdb-adapter-http": "^6.1.2",
+    "pouchdb-adapter-idb": "^6.1.2",
     "pouchdb-adapter-memory": "^6.1.1",
+    "pouchdb-adapter-websql": "^6.1.2",
+    "pouchdb-core": "^6.1.2",
     "pouchdb-memory": "^6.0.0",
     "pouchdb-react-native": "^6.1.26",
+    "pouchdb-replication": "^6.1.2",
     "raven-js": "^3.12.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.1",
@@ -143,7 +148,7 @@
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|exponent|@exponent/*|react-navigation)"
     ],
     "moduleNameMapper": {
-      "pouchdb/lib/index-browser": "pouchdb-memory",
+      "(.*)PouchDB(.*)": "pouchdb-memory",
       "react-native": "react-native-mock",
       "react-router-dom/Link": "<rootDir>/src/test/LinkMock.js"
     },

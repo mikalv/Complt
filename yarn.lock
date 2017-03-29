@@ -7772,7 +7772,7 @@ pouchdb-adapter-asyncstorage@6.1.26:
     pouchdb-utils "6.1.2"
     spark-md5 "3.0.0"
 
-pouchdb-adapter-http@6.1.2:
+pouchdb-adapter-http@6.1.2, pouchdb-adapter-http@^6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/pouchdb-adapter-http/-/pouchdb-adapter-http-6.1.2.tgz#bd0423d6d8a419533d08ca8d6b4005cd4c0e6017"
   dependencies:
@@ -7795,6 +7795,19 @@ pouchdb-adapter-http@^6.0.3:
     pouchdb-errors "6.1.1"
     pouchdb-promise "6.1.1"
     pouchdb-utils "6.1.1"
+
+pouchdb-adapter-idb@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/pouchdb-adapter-idb/-/pouchdb-adapter-idb-6.1.2.tgz#06f0f432705f6e9ae89c2aba6f08f0b7a0d83eff"
+  dependencies:
+    pouchdb-adapter-utils "6.1.2"
+    pouchdb-binary-utils "6.1.2"
+    pouchdb-collections "6.1.2"
+    pouchdb-errors "6.1.2"
+    pouchdb-json "6.1.2"
+    pouchdb-merge "6.1.2"
+    pouchdb-promise "6.1.2"
+    pouchdb-utils "6.1.2"
 
 pouchdb-adapter-leveldb-core@6.1.1:
   version "6.1.1"
@@ -7844,6 +7857,25 @@ pouchdb-adapter-utils@6.1.2:
     pouchdb-errors "6.1.2"
     pouchdb-md5 "6.1.2"
     pouchdb-merge "6.1.2"
+    pouchdb-utils "6.1.2"
+
+pouchdb-adapter-websql-core@6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/pouchdb-adapter-websql-core/-/pouchdb-adapter-websql-core-6.1.2.tgz#0df6f14c520a0d8ad4f4197b357e6fbdc3bf7dfc"
+  dependencies:
+    pouchdb-adapter-utils "6.1.2"
+    pouchdb-binary-utils "6.1.2"
+    pouchdb-collections "6.1.2"
+    pouchdb-errors "6.1.2"
+    pouchdb-json "6.1.2"
+    pouchdb-merge "6.1.2"
+    pouchdb-utils "6.1.2"
+
+pouchdb-adapter-websql@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/pouchdb-adapter-websql/-/pouchdb-adapter-websql-6.1.2.tgz#6310d9c80ed9d0efff194546678c2eab33c2de25"
+  dependencies:
+    pouchdb-adapter-websql-core "6.1.2"
     pouchdb-utils "6.1.2"
 
 pouchdb-ajax@6.1.1:
@@ -7916,7 +7948,7 @@ pouchdb-collections@6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/pouchdb-collections/-/pouchdb-collections-6.1.2.tgz#070161cdf485d87ddd29d977e4e8392dabf9313d"
 
-pouchdb-core@6.1.2:
+pouchdb-core@6.1.2, pouchdb-core@^6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/pouchdb-core/-/pouchdb-core-6.1.2.tgz#57fc869ff99087e4af60d8b941a3681d5f915b1c"
   dependencies:
@@ -8109,7 +8141,7 @@ pouchdb-react-native@^6.1.26:
     pouchdb-mapreduce "6.1.2"
     pouchdb-replication "6.1.2"
 
-pouchdb-replication@6.1.2:
+pouchdb-replication@6.1.2, pouchdb-replication@^6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/pouchdb-replication/-/pouchdb-replication-6.1.2.tgz#dae716a89eb826130736dcacf60ed570fcf616f4"
   dependencies:
