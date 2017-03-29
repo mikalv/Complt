@@ -1,8 +1,8 @@
-import uuid from 'uuid';
+import uuid from 'uuid/v4';
 import reducer, { initialState } from '../items';
 import * as actions from '../actions';
 
-jest.mock('uuid');
+jest.mock('uuid/v4');
 uuid.mockReturnValue('item5');
 
 const items = [

@@ -58,13 +58,13 @@ export const updateItemPouch = doc => ({ type: UPDATE_ITEM_POUCH, item: doc });
 export const createTask = (parentProjectId, item) => ({
   type: CREATE_ITEM,
   parentProjectId,
-  item: { _id: uuid.v4(), isProject: false, ...item },
+  item: { _id: uuid(), isProject: false, ...item },
 });
 
 export const createProject = (parentProjectId, item) => ({
   type: CREATE_ITEM,
   parentProjectId,
-  item: { _id: uuid.v4(), isProject: true, ...item },
+  item: { _id: uuid(), isProject: true, ...item },
 });
 
 export const completeItem = (id, isCompleted) => ({ type: COMPLETE_ITEM, id, isCompleted });
