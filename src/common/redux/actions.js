@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import uuid from 'uuid/v4';
 import history from '../../web/history';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
