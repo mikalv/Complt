@@ -2,3 +2,17 @@
   display: flex;
   flex-wrap: wrap;
 }
+.Item-avatar {
+  flex-grow: 0;
+  align-self: center;
+  margin: 5px;
+}
+.Item-content {
+  flex: 8;
+  margin: 5px;
+}
+.Item-actions {
+  flex: 0;
+  align-self: center;
+  margin: 5px;
+}

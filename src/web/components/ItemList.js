@@ -1,5 +1,4 @@
 import React from 'react';
-import List from 'react-md/lib/Lists/List';
 import Item from './Item';
 import PropTypes from '../../common/PropTypes';
 
@@ -16,7 +15,7 @@ const ItemList = ({
     onItemMove,
     className,
 }) => (
-  <List style={style} className={className}>
+  <div style={style} className={className}>
     {items.map((item, i) => {
       if (!item) return null;
       return (<Item
@@ -33,7 +32,7 @@ const ItemList = ({
         onDelete={() => onDelete(i)}
       />);
     })}
-  </List>
+  </div>
 );
 
 ItemList.propTypes = {

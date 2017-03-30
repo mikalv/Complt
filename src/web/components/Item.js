@@ -5,7 +5,6 @@ import Done from 'react-icons/lib/md/done';
 import Delete from 'react-icons/lib/md/delete';
 import Create from 'react-icons/lib/md/create';
 import MoreVert from 'react-icons/lib/md/more-vert';
-import ListItem from 'react-md/lib/Lists/ListItem';
 import Avatar from 'react-md/lib/Avatars/Avatar';
 import Chip from 'react-md/lib/Chips/Chip';
 import Button from 'react-md/lib/Buttons/Button';
@@ -38,31 +37,41 @@ const Item = ({
   onItemUpdate,
   onItemMove,
 }) => (
-  <ListItem
-    leftAvatar={<Avatar
-      onClick={stopPropagation(onAvatarTouchTap)}
-      icon={item.isProject === true ?
-        <Assignment color={item.isCompleted ? colors.completedItem : undefined} /> :
-        <Done color={item.isCompleted ? colors.completedItem : undefined} />
-      }
-    />}
+  <div // eslint-disable-line jsx-a11y/no-static-element-interactions
     onClick={stopPropagation(onItemTap)}
-    component={item.isProject ? Link : undefined}
-    to={item.isProject ? `project/${item._id}` : undefined}
-    threeLines
-    primaryText={item.name}
-    secondaryText={(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) ? <div className="Item-chip-container">
-      {!item.dates || item.dates.length === 0 ? undefined : <Chip style={{ marginRight: 5, marginTop: 3 }} label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
-      {!item.tags || item.tags.length === 0 ? undefined :
-        item.tags.map(
-          tag => <Link to={`/tag/${tag}`} key={tag} style={{ textDecoration: 'none' }} onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip style={{ marginRight: 5, marginTop: 3 }} label={tag} /></Link>)}
-    </div> : undefined}
+    // component={item.isProject ? Link : undefined}
+    // to={item.isProject ? `project/${item._id}` : undefined}
+    className="flex row"
   >
-    <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
-    {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button> : undefined}
-    {canDelete ?
-      <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
-  </ListItem>);
+    <div className="Item-avatar">
+      <Avatar
+        onClick={stopPropagation(onAvatarTouchTap)}
+        icon={item.isProject === true ?
+          <Assignment color={item.isCompleted ? colors.completedItem : undefined} /> :
+          <Done color={item.isCompleted ? colors.completedItem : undefined} />
+        }
+      />
+    </div>
+    <div className="Item-content">
+      {item.name}
+      {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) ? <div className="Item-chip-container">
+        {!item.dates || item.dates.length === 0 ? undefined : <Chip style={{ marginRight: 5, marginTop: 3 }} label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
+        {!item.tags || item.tags.length === 0 ? undefined :
+          item.tags.map(
+            tag => <Link to={`/tag/${tag}`} key={tag} style={{ textDecoration: 'none' }} onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip style={{ marginRight: 5, marginTop: 3 }} label={tag} /></Link>)}
+      </div> : undefined}
+    </div>
+    <div className="Item-actions">
+      <div className="flex row">
+        <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
+        {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button>
+        : undefined}
+        {canDelete ?
+          <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
+      </div>
+    </div>
+
+  </div>);
 
 Item.propTypes = {
   item: PropTypes.item,
