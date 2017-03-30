@@ -2,15 +2,15 @@
   display: flex;
   flex-wrap: wrap;
 }
-.Item-avatar {
+.Item-left {
   flex-grow: 0;
   margin: 5px;
 }
-.Item-content {
+.Item-center {
   flex: 4;
   margin: 5px;
 }
-.Item-actions {
+.Item-right {
   flex: 1.5 2;
   margin: 5px;
   display: flex;

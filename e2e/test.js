@@ -13,8 +13,8 @@ describe('app', function () {
     $('#add-tag').click();
     input.addValue('tag2');
     $('#add-item-submit').click();
-    const listItem = $('main').$('.md-list').$('.md-list-item');
-    const textElement = listItem.$('.md-tile-text--primary');
+    const listItem = $('main').$('.Projects-item-list').$('.Item').$('.Item-center');
+    const textElement = listItem.$('.Item-name');
     const chipContainer = listItem.$('.Item-chip-container');
     const chips = chipContainer.$$('.md-chip');
     expect(textElement.getText()).to.equal('Task in inbox');
