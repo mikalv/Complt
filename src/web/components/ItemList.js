@@ -1,4 +1,5 @@
 import React from 'react';
+import Divider from 'react-md/lib/Dividers/Divider';
 import Item from './Item';
 import PropTypes from '../../common/PropTypes';
 
@@ -18,7 +19,7 @@ const ItemList = ({
   <div style={style} className={className}>
     {items.map((item, i) => {
       if (!item) return null;
-      return (<Item
+      return ([<Item
         key={item._id}
         item={item}
         canDelete={
@@ -30,7 +31,7 @@ const ItemList = ({
         onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
         onItemMove={onItemMove !== undefined ? () => onItemMove(i) : undefined}
         onDelete={() => onDelete(i)}
-      />);
+      />, <Divider />]);
     })}
   </div>
 );
