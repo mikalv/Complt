@@ -4,15 +4,22 @@
 }
 .Item-avatar {
   flex-grow: 0;
-  align-self: center;
   margin: 5px;
 }
 .Item-content {
-  flex: 8;
+  flex: 4;
   margin: 5px;
 }
 .Item-actions {
-  flex: 0;
-  align-self: center;
+  flex: 1.5 2;
   margin: 5px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Item {
+  color: inherit;
+  text-decoration: none;
+  align-items: center;
 }

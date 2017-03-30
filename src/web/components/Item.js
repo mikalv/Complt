@@ -8,6 +8,7 @@ import MoreVert from 'react-icons/lib/md/more-vert';
 import Avatar from 'react-md/lib/Avatars/Avatar';
 import Chip from 'react-md/lib/Chips/Chip';
 import Button from 'react-md/lib/Buttons/Button';
+import AccessibleFakeInkedButton from 'react-md/lib/Helpers/AccessibleFakeInkedButton';
 import dateCreate from 'sugar-date/date/create';
 import formatDate from 'sugar-date/date/format';
 import getNextDueDate from '../../common/utils/getNextDueDate';
@@ -37,11 +38,11 @@ const Item = ({
   onItemUpdate,
   onItemMove,
 }) => (
-  <div // eslint-disable-line jsx-a11y/no-static-element-interactions
+  <AccessibleFakeInkedButton
+    component={item.isProject ? Link : 'div'}
     onClick={stopPropagation(onItemTap)}
-    // component={item.isProject ? Link : undefined}
-    // to={item.isProject ? `project/${item._id}` : undefined}
-    className="flex row"
+    to={item.isProject ? `project/${item._id}` : undefined}
+    className="flex row Item"
   >
     <div className="Item-avatar">
       <Avatar
@@ -55,23 +56,21 @@ const Item = ({
     <div className="Item-content">
       {item.name}
       {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) ? <div className="Item-chip-container">
-        {!item.dates || item.dates.length === 0 ? undefined : <Chip style={{ marginRight: 5, marginTop: 3 }} label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
-        {!item.tags || item.tags.length === 0 ? undefined :
+        {!item.dates ? undefined : <Chip style={{ marginRight: 5, marginTop: 3 }} label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
+        {!item.tags ? undefined :
           item.tags.map(
             tag => <Link to={`/tag/${tag}`} key={tag} style={{ textDecoration: 'none' }} onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip style={{ marginRight: 5, marginTop: 3 }} label={tag} /></Link>)}
       </div> : undefined}
     </div>
     <div className="Item-actions">
-      <div className="flex row">
-        <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
-        {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button>
-        : undefined}
-        {canDelete ?
-          <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
-      </div>
-    </div>
+      <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
+      {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button>
+      : undefined}
+      {canDelete ?
+        <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
+    </div><hr />
 
-  </div>);
+  </AccessibleFakeInkedButton>);
 
 Item.propTypes = {
   item: PropTypes.item,
