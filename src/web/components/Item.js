@@ -27,6 +27,17 @@ const stopPropagation = (callback) => {
   return callback;
 };
 
+const getParentProjectName = (item) => {
+  switch (item._id) {
+    case 'inbox':
+      return 'Inbox';
+    case 'root':
+      return 'Projects';
+    default:
+      return item.name;
+  }
+};
+
 const Item = ({
   item = {},
   onLeftButtonClick,
@@ -50,11 +61,12 @@ const Item = ({
     </div>
     <div className="Item-center">
       <span className="Item-name">{item.name}</span>
-      {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) ? <div className="Item-chip-container">
-        {!item.dates || item.dates.length === 0 ? undefined : <Chip style={{ marginRight: 5, marginTop: 3 }} label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
+      {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) || item.parent ? <div className="Item-chip-container">
+        {!item.parent ? undefined : <Link to={`/project/${item.parent._id}`} className="Item-chip-link"><Chip className="Item-chip" label={getParentProjectName(item.parent)} /></Link>}
+        {!item.dates || item.dates.length === 0 ? undefined : <Chip className="Item-chip" label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
         {!item.tags ? undefined :
           item.tags.map(
-            tag => <Link to={`/tag/${tag}`} key={tag} style={{ textDecoration: 'none' }} onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip style={{ marginRight: 5, marginTop: 3 }} label={tag} /></Link>)}
+            tag => <Link to={`/tag/${tag}`} key={tag} className="Item-chip-link" onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip className="Item-chip" label={tag} /></Link>)}
       </div> : undefined}
     </div>
     <div className="Item-right">
