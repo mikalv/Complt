@@ -243,32 +243,17 @@ exports[`Projects component renders correctly with some items 1`] = `
                   <div
                     className="Item-chip-container">
                     <a
+                      className="Item-chip-link"
                       onClick={[Function]}
-                      style={
-                        Object {
-                          "textDecoration": "none",
-                        }
-                      }
                       to="/tag/@tag">
                       <Chip
+                        className="Item-chip"
                         label="@tag"
-                        rotateIcon={true}
-                        style={
-                          Object {
-                            "marginRight": 5,
-                            "marginTop": 3,
-                          }
-                        }>
+                        rotateIcon={true}>
                         <button
-                          className="md-chip"
+                          className="md-chip Item-chip"
                           onMouseLeave={[Function]}
                           onMouseOver={[Function]}
-                          style={
-                            Object {
-                              "marginRight": 5,
-                              "marginTop": 3,
-                            }
-                          }
                           type="button">
                           <span
                             className="md-chip-text">
@@ -1246,32 +1231,17 @@ exports[`Projects component renders correctly with some items 1`] = `
                   <div
                     className="Item-chip-container">
                     <a
+                      className="Item-chip-link"
                       onClick={[Function]}
-                      style={
-                        Object {
-                          "textDecoration": "none",
-                        }
-                      }
                       to="/tag/@tag">
                       <Chip
+                        className="Item-chip"
                         label="@tag"
-                        rotateIcon={true}
-                        style={
-                          Object {
-                            "marginRight": 5,
-                            "marginTop": 3,
-                          }
-                        }>
+                        rotateIcon={true}>
                         <button
-                          className="md-chip"
+                          className="md-chip Item-chip"
                           onMouseLeave={[Function]}
                           onMouseOver={[Function]}
-                          style={
-                            Object {
-                              "marginRight": 5,
-                              "marginTop": 3,
-                            }
-                          }
                           type="button">
                           <span
                             className="md-chip-text">
