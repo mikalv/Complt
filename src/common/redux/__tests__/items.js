@@ -122,18 +122,18 @@ describe('itemsReducer', () => {
   it('handles COMPLETE_ITEM correctly if the id doesn\'t exist', () => {
     expect(reducer(items, actions.completeItem('item30', true))).toEqual(items);
   });
-  it('handles DELETE_TASK correctly', () => {
-    expect(reducer(items, actions.deleteTask('item4', 'item3'))).toEqual([
+  it('handles DELETE_ITEM correctly with a task', () => {
+    expect(reducer(items, actions.deleteItem('item4', 'item3'))).toEqual([
       { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item4', isProject: true, children: ['item1', 'item2'] },
     ]);
   });
-  it('handles DELETE_TASK correctly if the task to delete is not in the parent\'s children', () => {
-    expect(reducer(itemsWithOrphanTask, actions.deleteTask('item4', 'item5'))).toEqual(itemsWithOrphanTask);
+  it('handles DELETE_ITEM correctly with a tsk if the task to delete is not in the parent\'s children', () => {
+    expect(reducer(itemsWithOrphanTask, actions.deleteItem('item4', 'item5'))).toEqual(itemsWithOrphanTask);
   });
-  it('handles DELETE_PROJECT correctly', () => {
-    expect(reducer(itemsWithProjectWithoutChildren, actions.deleteProject('root', 'item5'))).toEqual([
+  it('handles DELETE_ITEM correctly with a project', () => {
+    expect(reducer(itemsWithProjectWithoutChildren, actions.deleteItem('root', 'item5'))).toEqual([
       { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
       { _id: 'item3', isProject: false, isCompleted: false, tags: [] },
@@ -141,11 +141,11 @@ describe('itemsReducer', () => {
       { _id: 'root', isProject: true, children: [] },
     ]);
   });
-  it('handles DELETE_PROJECT correctly if the project to delete is not in the parent\'s children', () => {
-    expect(reducer(itemsWithOrphanProject, actions.deleteProject('item4', 'item5'))).toEqual(itemsWithOrphanProject);
+  it('handles DELETE_ITEM correctly with a project if the project to delete is not in the parent\'s children', () => {
+    expect(reducer(itemsWithOrphanProject, actions.deleteItem('item4', 'item5'))).toEqual(itemsWithOrphanProject);
   });
-  it('handles DELETE_PROJECT correctly if the project to delete has children', () => {
-    expect(reducer(itemsWithProjectWithChildren, actions.deleteProject('root', 'item4'))).toEqual(itemsWithProjectWithChildren);
+  it('handles DELETE_ITEM correctly with a project if the project to delete has children', () => {
+    expect(reducer(itemsWithProjectWithChildren, actions.deleteItem('root', 'item4'))).toEqual(itemsWithProjectWithChildren);
   });
   it('handles UPDATE_ITEM correctly with a task', () => {
     expect(reducer(items, actions.updateItem({ _id: 'item2', isCompleted: true, tags: ['@tag'], name: 'Some Task' }))).toEqual([

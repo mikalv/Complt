@@ -19,17 +19,17 @@ describe('Projects component', () => {
     const component = mount(<Projects projectChildren={items} />);
     expect(component).toMatchSnapshot();
   });
-  it('calls deleteProject when a project is deleted', () => {
-    const deleteProject = jest.fn();
-    const component = mount(<Projects projectChildren={items} deleteProject={deleteProject} projectId="root" />);
+  it('calls deleteItem when a project is deleted', () => {
+    const deleteItem = jest.fn();
+    const component = mount(<Projects projectChildren={items} deleteItem={deleteItem} projectId="root" />);
     component.childAt(0).childAt(2).find('MdDelete').simulate('click');
-    expect(deleteProject).toBeCalledWith('root', 'item2');
+    expect(deleteItem).toBeCalledWith('root', 'item2');
   });
-  it('calls deleteTask when a task is deleted', () => {
-    const deleteTask = jest.fn();
-    const component = mount(<Projects projectChildren={items} deleteTask={deleteTask} projectId="root" />);
+  it('calls deleteItem when a task is deleted', () => {
+    const deleteItem = jest.fn();
+    const component = mount(<Projects projectChildren={items} deleteItem={deleteItem} projectId="root" />);
     component.childAt(0).childAt(4).find('MdDelete').simulate('click');
-    expect(deleteTask).toBeCalledWith('root', 'item3');
+    expect(deleteItem).toBeCalledWith('root', 'item3');
   });
   it('calls showUpdateItemDialog when an item is updated', () => {
     const showUpdateItemDialog = jest.fn();

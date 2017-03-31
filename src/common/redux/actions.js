@@ -16,8 +16,7 @@ import {
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
   COMPLETE_ITEM,
-  DELETE_TASK,
-  DELETE_PROJECT,
+  DELETE_ITEM,
   SHOW_TOAST,
   DISMISS_TOAST,
   SYNC_STARTED,
@@ -69,14 +68,8 @@ export const createProject = (parentProjectId, item) => ({
 
 export const completeItem = (id, isCompleted) => ({ type: COMPLETE_ITEM, id, isCompleted });
 
-export const deleteTask = (parentProjectId, id) => ({
-  type: DELETE_TASK,
-  parentProjectId,
-  id,
-});
-
-export const deleteProject = (parentProjectId, id) => ({
-  type: DELETE_PROJECT,
+export const deleteItem = (parentProjectId, id) => ({
+  type: DELETE_ITEM,
   parentProjectId,
   id,
 });
