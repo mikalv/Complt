@@ -29,7 +29,7 @@ const stopPropagation = (callback) => {
 
 const Item = ({
   item = {},
-  onAvatarTouchTap,
+  onLeftButtonClick,
   onDelete,
   canDelete,
   canMove,
@@ -44,7 +44,7 @@ const Item = ({
     className="flex row Item"
   >
     <div className="Item-left">
-      <Button icon onClick={stopPropagation(onAvatarTouchTap)}>{item.isProject === true ?
+      <Button icon onClick={stopPropagation(onLeftButtonClick)}>{item.isProject === true ?
         <Assignment color={item.isCompleted ? colors.completedItem : undefined} /> :
         <Done color={item.isCompleted ? colors.completedItem : undefined} />}</Button>
     </div>
@@ -69,7 +69,7 @@ const Item = ({
 
 Item.propTypes = {
   item: PropTypes.item,
-  onAvatarTouchTap: React.PropTypes.func,
+  onLeftButtonClick: React.PropTypes.func,
   canDelete: React.PropTypes.bool,
   canMove: React.PropTypes.bool,
   onDelete: React.PropTypes.func,

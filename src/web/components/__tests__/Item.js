@@ -51,13 +51,13 @@ describe('Item component', () => {
     expect(onItemTap).not.toBeCalled();
     expect(onItemMove).toBeCalled();
   });
-  it('only calls onAvatarTouchTap when the avatar is pressed', () => {
+  it('only calls onLeftButtonClick when the left button is pressed', () => {
     const onItemTap = jest.fn();
-    const onAvatarTouchTap = jest.fn();
-    const component = mount(<Item canMove onItemTap={onItemTap} onAvatarTouchTap={onAvatarTouchTap} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
+    const onLeftButtonClick = jest.fn();
+    const component = mount(<Item canMove onItemTap={onItemTap} onLeftButtonClick={onLeftButtonClick} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
     expect(component).toMatchSnapshot();
-    component.find('Avatar').simulate('click');
+    component.find('.Item-left').find('button').simulate('click');
     expect(onItemTap).not.toBeCalled();
-    expect(onAvatarTouchTap).toBeCalled();
+    expect(onLeftButtonClick).toBeCalled();
   });
 });

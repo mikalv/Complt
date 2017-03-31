@@ -5,7 +5,7 @@ import PropTypes from '../../common/PropTypes';
 
 const ItemList = ({
     items = [],
-    onItemAvatarTap,
+    onLeftButtonClick,
     style,
     onDelete,
     canDeleteTask,
@@ -26,7 +26,7 @@ const ItemList = ({
           (canDeleteTask && item.isProject === false) ||
           (canDeleteProject && item.isProject === true)}
         canMove={canMove}
-        onAvatarTouchTap={onItemAvatarTap !== undefined ? () => onItemAvatarTap(i) : undefined}
+        onLeftButtonClick={onLeftButtonClick !== undefined ? () => onLeftButtonClick(i) : undefined}
         onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
         onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
         onItemMove={onItemMove !== undefined ? () => onItemMove(i) : undefined}
@@ -38,7 +38,7 @@ const ItemList = ({
 
 ItemList.propTypes = {
   items: React.PropTypes.arrayOf(PropTypes.item),
-  onItemAvatarTap: React.PropTypes.func,
+  onLeftButtonClick: React.PropTypes.func,
   canDeleteProject: React.PropTypes.bool,
   canDeleteTask: React.PropTypes.bool,
   canMove: React.PropTypes.bool,

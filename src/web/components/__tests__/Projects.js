@@ -22,38 +22,38 @@ describe('Projects component', () => {
   it('calls deleteProject when a project is deleted', () => {
     const deleteProject = jest.fn();
     const component = mount(<Projects projectChildren={items} deleteProject={deleteProject} projectId="root" />);
-    component.childAt(0).childAt(1).find('MdDelete').simulate('click');
+    component.childAt(0).childAt(2).find('MdDelete').simulate('click');
     expect(deleteProject).toBeCalledWith('root', 'item2');
   });
   it('calls deleteTask when a task is deleted', () => {
     const deleteTask = jest.fn();
     const component = mount(<Projects projectChildren={items} deleteTask={deleteTask} projectId="root" />);
-    component.childAt(0).childAt(2).find('MdDelete').simulate('click');
+    component.childAt(0).childAt(4).find('MdDelete').simulate('click');
     expect(deleteTask).toBeCalledWith('root', 'item3');
   });
   it('calls showUpdateItemDialog when an item is updated', () => {
     const showUpdateItemDialog = jest.fn();
     const component = mount(<Projects projectChildren={items} showUpdateItemDialog={showUpdateItemDialog} projectId="root" />);
-    component.childAt(0).childAt(2).find('MdCreate').simulate('click');
+    component.childAt(0).childAt(4).find('MdCreate').simulate('click');
     expect(showUpdateItemDialog).toBeCalledWith('item3');
   });
   it('calls showUpdateItemDialog when an item is updated', () => {
     const showMoveItemDialog = jest.fn();
     const component = mount(<Projects projectChildren={items} showMoveItemDialog={showMoveItemDialog} projectId="root" />);
-    component.childAt(0).childAt(2).find('MdMoreVert').simulate('click');
+    component.childAt(0).childAt(4).find('MdMoreVert').simulate('click');
     expect(showMoveItemDialog).toBeCalledWith('item3', 'root');
   });
   it('calls completeItem correctly when an item is completed', () => {
     const completeItem = jest.fn();
     const component = mount(<Projects projectChildren={items} completeItem={completeItem} projectId="root" />);
-    component.childAt(0).childAt(2).find('Avatar').simulate('click');
+    component.childAt(0).childAt(4).find('.Item-left').find('button')
+    .simulate('click');
     expect(completeItem).toBeCalledWith('item3', true);
   });
   it('calls routerPush correctly when a project is clicked', () => {
     const routerPush = jest.fn();
     const component = mount(<Projects projectChildren={items} routerPush={routerPush} projectId="root" />);
-    component.childAt(0).childAt(1).find('li').find('AccessibleFakeButtonInked')
-    .simulate('click');
+    component.childAt(0).childAt(2).find('.Item-center').simulate('click');
     expect(routerPush).toBeCalledWith('/project/item2');
   });
   it('calls createProject when a project is created', () => {
