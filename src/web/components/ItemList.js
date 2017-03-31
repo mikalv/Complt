@@ -1,11 +1,11 @@
 import React from 'react';
-import List from 'react-md/lib/Lists/List';
+import Divider from 'react-md/lib/Dividers/Divider';
 import Item from './Item';
 import PropTypes from '../../common/PropTypes';
 
 const ItemList = ({
     items = [],
-    onItemAvatarTap,
+    onLeftButtonClick,
     style,
     onDelete,
     canDeleteTask,
@@ -16,29 +16,29 @@ const ItemList = ({
     onItemMove,
     className,
 }) => (
-  <List style={style} className={className}>
+  <div style={style} className={className}>
     {items.map((item, i) => {
       if (!item) return null;
-      return (<Item
+      return ([<Item
         key={item._id}
         item={item}
         canDelete={
           (canDeleteTask && item.isProject === false) ||
           (canDeleteProject && item.isProject === true)}
         canMove={canMove}
-        onAvatarTouchTap={onItemAvatarTap !== undefined ? () => onItemAvatarTap(i) : undefined}
+        onLeftButtonClick={onLeftButtonClick !== undefined ? () => onLeftButtonClick(i) : undefined}
         onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
         onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
         onItemMove={onItemMove !== undefined ? () => onItemMove(i) : undefined}
         onDelete={() => onDelete(i)}
-      />);
+      />, <Divider />]);
     })}
-  </List>
+  </div>
 );
 
 ItemList.propTypes = {
   items: React.PropTypes.arrayOf(PropTypes.item),
-  onItemAvatarTap: React.PropTypes.func,
+  onLeftButtonClick: React.PropTypes.func,
   canDeleteProject: React.PropTypes.bool,
   canDeleteTask: React.PropTypes.bool,
   canMove: React.PropTypes.bool,

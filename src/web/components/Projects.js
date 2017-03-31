@@ -20,7 +20,7 @@ export const Projects = props => (
       canMove
       onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
       onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
-      onItemAvatarTap={i =>
+      onLeftButtonClick={i =>
         props.completeItem(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted)}
       items={props.projectChildren}
       onItemTap={(i) => {
