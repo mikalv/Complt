@@ -33,10 +33,17 @@ const pouchMiddleware = PouchMiddleware({
   },
 });
 
-let middleware = applyMiddleware(thunk, pouchMiddleware);
+const analyticsMiddleware = () => next => (action) => {
+  next(action);
+  if (!action.type.match(/(POUCH|INITIAL_ITEMS_LOADED|persist)/)) {
+    window.ga('send', 'event', 'redux', action.type);
+  }
+};
+
+let middleware = applyMiddleware(thunk, pouchMiddleware, analyticsMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware);
+  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware, analyticsMiddleware);
 }
 
 let enhancer;
