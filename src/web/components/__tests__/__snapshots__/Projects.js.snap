@@ -27,7 +27,8 @@ exports[`Projects component renders correctly with some items 1`] = `
       },
     ]
   }>
-  <div>
+  <div
+    className="flex-child">
     <Component
       canDeleteProject={true}
       canDeleteTask={true}

@@ -2,6 +2,7 @@ exports[`App component renders correctly when the pathname does not match a rout
 <NavigationDrawer
   autoclose={true}
   constantDrawerType={false}
+  contentClassName="flex"
   contentComponent="main"
   contentId="main-content"
   defaultMedia="mobile"
@@ -159,6 +160,7 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
 <NavigationDrawer
   autoclose={true}
   constantDrawerType={false}
+  contentClassName="flex"
   contentComponent="main"
   contentId="main-content"
   defaultMedia="mobile"

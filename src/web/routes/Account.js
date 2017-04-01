@@ -7,7 +7,7 @@ import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import PropTypes from '../../common/PropTypes';
 
 export const Account = props => (
-  <div className="flex center column text-center" style={{ paddingTop: '100px' }}>
+  <div className="flex-child flex center column text-center">
     <h1>{props.user.name}</h1>
     <p>{props.user.email}</p>
     <div>

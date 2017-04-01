@@ -31,6 +31,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
     canDeleteProject={true}
     canDeleteTask={true}
     canMove={true}
+    className="flex-child"
     items={
       Array [
         Object {
@@ -63,7 +64,8 @@ exports[`NonProjectItemList component renders correctly 1`] = `
     onItemTap={[Function]}
     onItemUpdate={[Function]}
     onLeftButtonClick={[Function]}>
-    <div>
+    <div
+      className="flex-child">
       <Component
         canDelete={true}
         canMove={true}

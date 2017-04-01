@@ -7,9 +7,10 @@ exports[`Tags component renders some items correctly 1`] = `
       "@tag3",
     ]
   }>
-  <List>
+  <List
+    className="flex-child">
     <ul
-      className="md-list">
+      className="md-list flex-child">
       <ListItem
         activeClassName="md-text--theme-primary"
         component="a"

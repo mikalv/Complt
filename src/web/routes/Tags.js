@@ -6,7 +6,7 @@ import ListItem from 'react-md/lib/Lists/ListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 
 export const Tags = props => (
-  <List>
+  <List className="flex-child">
     {props.tags.map(tag =>
       <ListItem
         key={tag}

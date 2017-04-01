@@ -3,6 +3,7 @@ import ItemList from './ItemList';
 import PropTypes from '../../common/PropTypes';
 
 const NonProjectItemList = props => (<ItemList
+  className="flex-child"
   onLeftButtonClick={i =>
     props.completeItem(props.items[i]._id, !props.items[i].isCompleted)}
   onItemUpdate={i => props.showUpdateItemDialog(props.items[i]._id)}

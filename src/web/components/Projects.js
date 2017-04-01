@@ -8,7 +8,7 @@ import PropTypes from '../../common/PropTypes';
 import './Projects.css';
 
 export const Projects = props => (
-  <div>
+  <div className="flex-child">
     <ItemList
       onDelete={i => props.deleteItem(props.projectId, props.projectChildren[i]._id)}
       canDeleteTask

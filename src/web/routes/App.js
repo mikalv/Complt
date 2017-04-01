@@ -31,6 +31,7 @@ export const App = props => (
     mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
     tabletDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
     desktopDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
+    contentClassName="flex"
     toolbarTitleMenu={
       <SelectField
         id="items-to-show-selection"
