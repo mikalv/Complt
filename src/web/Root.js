@@ -8,6 +8,11 @@ import IconContext from './components/IconContext';
 import history from './history';
 import App from './routes/App';
 
+history.listen((location) => {
+  window.ga('set', 'page', location.pathname);
+  window.ga('send', 'pageview');
+});
+
 const Root = (
   <Provider store={store}>
     <IconContext>

@@ -27,3 +27,8 @@ if (module.hot) {
     );
   });
 }
+
+window.ga = (...args) => {
+  console.log('Google Analytics:'); // eslint-disable-line no-console
+  console.log(args); // eslint-disable-line no-console
+};
