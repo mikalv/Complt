@@ -9,6 +9,7 @@ describe('app', function () {
   });
   it('can add a task to the inbox', function () {
     const input = $('#add-item-input');
+    input.waitForExist(5000);
     input.setValue('Task in inbox @tag');
     $('#add-tag').click();
     input.addValue('tag2');
