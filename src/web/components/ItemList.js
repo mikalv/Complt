@@ -1,40 +1,68 @@
-import React from 'react';
+import React, { Component } from 'react';
+import List from 'react-virtualized/dist/es/List/List';
+import CellMeasurer from 'react-virtualized/dist/es/CellMeasurer/CellMeasurer';
+import CellMeasurerCache from 'react-virtualized/dist/es/CellMeasurer/CellMeasurerCache';
 import Divider from 'react-md/lib/Dividers/Divider';
 import Item from './Item';
 import PropTypes from '../../common/PropTypes';
 
-const ItemList = ({
-    items = [],
-    onLeftButtonClick,
-    style,
-    onDelete,
-    canDeleteTask,
-    canDeleteProject,
-    canMove,
-    onItemTap,
-    onItemUpdate,
-    onItemMove,
-    className,
-}) => (
-  <div style={style} className={className}>
-    {items.map((item, i) => {
-      if (!item) return null;
-      return ([<Item
-        key={item._id}
-        item={item}
-        canDelete={
-          (canDeleteTask && item.isProject === false) ||
-          (canDeleteProject && item.isProject === true)}
-        canMove={canMove}
-        onLeftButtonClick={onLeftButtonClick !== undefined ? () => onLeftButtonClick(i) : undefined}
-        onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
-        onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
-        onItemMove={onItemMove !== undefined ? () => onItemMove(i) : undefined}
-        onDelete={() => onDelete(i)}
-      />, <Divider />]);
-    })}
-  </div>
-);
+class ItemList extends Component {
+  constructor(props) {
+    super(props);
+    this._cache = new CellMeasurerCache({ fixedWidth: true });
+    this._rowRenderer = this._rowRenderer.bind(this);
+  }
+  _rowRenderer({ index, key, parent, style }) {
+    const {
+        items = [],
+        onLeftButtonClick,
+        onDelete,
+        canDeleteTask,
+        canDeleteProject,
+        canMove,
+        onItemTap,
+        onItemUpdate,
+        onItemMove,
+    } = this.props;
+    const item = items[index];
+    return (<CellMeasurer
+      cache={this._cache}
+      columnIndex={0}
+      key={key}
+      parent={parent}
+      rowIndex={index}
+    >
+      <div style={style}>
+        <Item
+          key={item._id}
+          item={item}
+          canDelete={
+                (canDeleteTask && item.isProject === false) ||
+                (canDeleteProject && item.isProject === true)}
+          canMove={canMove}
+          onLeftButtonClick={onLeftButtonClick !== undefined ?
+            () => onLeftButtonClick(index) : undefined}
+          onItemTap={onItemTap !== undefined ? () => onItemTap(index) : undefined}
+          onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(index) : undefined}
+          onItemMove={onItemMove !== undefined ? () => onItemMove(index) : undefined}
+          onDelete={() => onDelete(index)}
+        />
+        <Divider />
+      </div>
+    </CellMeasurer>);
+  }
+  render() {
+    return (<div style={this.props.style} className={this.props.className}>
+      <List
+        rowHeight={this._cache.rowHeight}
+        rowRenderer={this._rowRenderer}
+        rowCount={this.props.items.length}
+        height={500}
+        width={500}
+      />
+    </div>);
+  }
+}
 
 ItemList.propTypes = {
   items: React.PropTypes.arrayOf(PropTypes.item),

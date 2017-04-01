@@ -47,12 +47,14 @@ const Item = ({
   onItemTap,
   onItemUpdate,
   onItemMove,
+  style,
 }) => (
   <AccessibleFakeInkedButton
     component={item.isProject ? Link : 'div'}
     onClick={stopPropagation(onItemTap)}
     to={item.isProject ? `project/${item._id}` : undefined}
     className="flex row Item"
+    style={style}
   >
     <div className="Item-left">
       <Button icon onClick={stopPropagation(onLeftButtonClick)}>{item.isProject === true ?
@@ -88,6 +90,7 @@ Item.propTypes = {
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,
   onItemMove: React.PropTypes.func,
+  style: React.PropTypes.object,
 };
 
 export default Item;
