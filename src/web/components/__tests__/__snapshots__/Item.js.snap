@@ -358,7 +358,6 @@ exports[`Item component only calls onLeftButtonClick when the left button is pre
             </ButtonTooltiped>
           </ButtonTooltipedInked>
         </div>
-        <hr />
       </div>
     </AccessibleFakeButton>
   </AccessibleFakeButtonInked>
@@ -719,7 +718,6 @@ exports[`Item component renders a completed task correctly 1`] = `
             </ButtonTooltiped>
           </ButtonTooltipedInked>
         </div>
-        <hr />
       </div>
     </AccessibleFakeButton>
   </AccessibleFakeButtonInked>
@@ -1080,7 +1078,6 @@ exports[`Item component renders a project correctly 1`] = `
             </ButtonTooltiped>
           </ButtonTooltipedInked>
         </div>
-        <hr />
       </a>
     </AccessibleFakeButton>
   </AccessibleFakeButtonInked>
@@ -1486,7 +1483,6 @@ exports[`Item component renders a task with tags correctly 1`] = `
             </ButtonTooltiped>
           </ButtonTooltipedInked>
         </div>
-        <hr />
       </div>
     </AccessibleFakeButton>
   </AccessibleFakeButtonInked>
@@ -1845,7 +1841,6 @@ exports[`Item component renders an uncompleted task correctly 1`] = `
             </ButtonTooltiped>
           </ButtonTooltipedInked>
         </div>
-        <hr />
       </div>
     </AccessibleFakeButton>
   </AccessibleFakeButtonInked>
@@ -2195,7 +2190,6 @@ exports[`Item component renders correctly if it does not have an item 1`] = `
             </ButtonTooltiped>
           </ButtonTooltipedInked>
         </div>
-        <hr />
       </div>
     </AccessibleFakeButton>
   </AccessibleFakeButtonInked>
@@ -2650,7 +2644,6 @@ exports[`Item component renders the delete button when it has the canDelete prop
             </ButtonTooltiped>
           </ButtonTooltipedInked>
         </div>
-        <hr />
       </div>
     </AccessibleFakeButton>
   </AccessibleFakeButtonInked>

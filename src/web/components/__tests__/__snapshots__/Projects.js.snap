@@ -564,7 +564,6 @@ exports[`Projects component renders correctly with some items 1`] = `
                     </ButtonTooltiped>
                   </ButtonTooltipedInked>
                 </div>
-                <hr />
               </div>
             </AccessibleFakeButton>
           </AccessibleFakeButtonInked>
@@ -1046,7 +1045,6 @@ exports[`Projects component renders correctly with some items 1`] = `
                     </ButtonTooltiped>
                   </ButtonTooltipedInked>
                 </div>
-                <hr />
               </a>
             </AccessibleFakeButton>
           </AccessibleFakeButtonInked>
@@ -1552,7 +1550,6 @@ exports[`Projects component renders correctly with some items 1`] = `
                     </ButtonTooltiped>
                   </ButtonTooltipedInked>
                 </div>
-                <hr />
               </div>
             </AccessibleFakeButton>
           </AccessibleFakeButtonInked>

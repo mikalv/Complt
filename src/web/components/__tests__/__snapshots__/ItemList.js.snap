@@ -363,7 +363,6 @@ exports[`ItemList component renders an item correctly 1`] = `
                 </ButtonTooltiped>
               </ButtonTooltipedInked>
             </div>
-            <hr />
           </div>
         </AccessibleFakeButton>
       </AccessibleFakeButtonInked>

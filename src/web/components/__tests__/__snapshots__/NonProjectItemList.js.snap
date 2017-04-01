@@ -561,7 +561,6 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                   </ButtonTooltiped>
                 </ButtonTooltipedInked>
               </div>
-              <hr />
             </div>
           </AccessibleFakeButton>
         </AccessibleFakeButtonInked>
@@ -1043,7 +1042,6 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                   </ButtonTooltiped>
                 </ButtonTooltipedInked>
               </div>
-              <hr />
             </a>
           </AccessibleFakeButton>
         </AccessibleFakeButtonInked>
@@ -1549,7 +1547,6 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                   </ButtonTooltiped>
                 </ButtonTooltipedInked>
               </div>
-              <hr />
             </div>
           </AccessibleFakeButton>
         </AccessibleFakeButtonInked>
