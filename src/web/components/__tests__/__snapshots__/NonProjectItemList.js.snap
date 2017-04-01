@@ -28,6 +28,9 @@ exports[`NonProjectItemList component renders correctly 1`] = `
     ]
   }>
   <Component
+    canDeleteProject={true}
+    canDeleteTask={true}
+    canMove={true}
     items={
       Array [
         Object {
@@ -55,11 +58,15 @@ exports[`NonProjectItemList component renders correctly 1`] = `
         },
       ]
     }
+    onDelete={[Function]}
+    onItemMove={[Function]}
     onItemTap={[Function]}
     onItemUpdate={[Function]}
     onLeftButtonClick={[Function]}>
     <div>
       <Component
+        canDelete={true}
+        canMove={true}
         item={
           Object {
             "_id": "item1",
@@ -72,6 +79,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
           }
         }
         onDelete={[Function]}
+        onItemMove={[Function]}
         onItemTap={[Function]}
         onItemUpdate={[Function]}
         onLeftButtonClick={[Function]}>
@@ -354,6 +362,204 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                     </Button>
                   </ButtonTooltiped>
                 </ButtonTooltipedInked>
+                <ButtonTooltipedInked
+                  icon={true}
+                  inkTransitionEnterTimeout={450}
+                  inkTransitionLeaveTimeout={300}
+                  inkTransitionOverlap={150}
+                  onClick={[Function]}>
+                  <ButtonTooltiped
+                    icon={true}
+                    ink={
+                      <InkContainer
+                        className={undefined}
+                        disabledInteractions={undefined}
+                        inkClassName={undefined}
+                        inkStyle={undefined}
+                        style={undefined}
+                        transitionEnterTimeout={450}
+                        transitionLeaveTimeout={300}
+                        transitionOverlap={150}
+                        waitForInkTransition={undefined} />
+                    }
+                    onClick={[Function]}
+                    tooltipDelay={0}
+                    tooltipPosition="bottom"
+                    tooltipTransitionEnterTimeout={150}
+                    tooltipTransitionLeaveTimeout={150}>
+                    <Button
+                      fixedPosition="br"
+                      icon={true}
+                      iconBefore={true}
+                      ink={
+                        <InkContainer
+                          className={undefined}
+                          disabledInteractions={undefined}
+                          inkClassName={undefined}
+                          inkStyle={undefined}
+                          style={undefined}
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}
+                          waitForInkTransition={undefined} />
+                      }
+                      onClick={[Function]}
+                      type="button">
+                      <button
+                        className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        type="button">
+                        <InkContainer
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}>
+                          <ReactTransitionGroup
+                            childFactory={[Function]}
+                            className="md-ink-container"
+                            component="div">
+                            <div
+                              className="md-ink-container" />
+                          </ReactTransitionGroup>
+                        </InkContainer>
+                        <FontIcon
+                          iconClassName="material-icons">
+                          <i
+                            className="md-icon material-icons">
+                            <MdMoreVert>
+                              <IconBase
+                                viewBox="0 0 40 40">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                      "verticalAlign": "middle",
+                                    }
+                                  }
+                                  viewBox="0 0 40 40"
+                                  width="1em">
+                                  <g>
+                                    <path
+                                      d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  </g>
+                                </svg>
+                              </IconBase>
+                            </MdMoreVert>
+                          </i>
+                        </FontIcon>
+                      </button>
+                    </Button>
+                  </ButtonTooltiped>
+                </ButtonTooltipedInked>
+                <ButtonTooltipedInked
+                  icon={true}
+                  inkTransitionEnterTimeout={450}
+                  inkTransitionLeaveTimeout={300}
+                  inkTransitionOverlap={150}
+                  onClick={[Function]}>
+                  <ButtonTooltiped
+                    icon={true}
+                    ink={
+                      <InkContainer
+                        className={undefined}
+                        disabledInteractions={undefined}
+                        inkClassName={undefined}
+                        inkStyle={undefined}
+                        style={undefined}
+                        transitionEnterTimeout={450}
+                        transitionLeaveTimeout={300}
+                        transitionOverlap={150}
+                        waitForInkTransition={undefined} />
+                    }
+                    onClick={[Function]}
+                    tooltipDelay={0}
+                    tooltipPosition="bottom"
+                    tooltipTransitionEnterTimeout={150}
+                    tooltipTransitionLeaveTimeout={150}>
+                    <Button
+                      fixedPosition="br"
+                      icon={true}
+                      iconBefore={true}
+                      ink={
+                        <InkContainer
+                          className={undefined}
+                          disabledInteractions={undefined}
+                          inkClassName={undefined}
+                          inkStyle={undefined}
+                          style={undefined}
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}
+                          waitForInkTransition={undefined} />
+                      }
+                      onClick={[Function]}
+                      type="button">
+                      <button
+                        className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        type="button">
+                        <InkContainer
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}>
+                          <ReactTransitionGroup
+                            childFactory={[Function]}
+                            className="md-ink-container"
+                            component="div">
+                            <div
+                              className="md-ink-container" />
+                          </ReactTransitionGroup>
+                        </InkContainer>
+                        <FontIcon
+                          iconClassName="material-icons">
+                          <i
+                            className="md-icon material-icons">
+                            <MdDelete>
+                              <IconBase
+                                viewBox="0 0 40 40">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                      "verticalAlign": "middle",
+                                    }
+                                  }
+                                  viewBox="0 0 40 40"
+                                  width="1em">
+                                  <g>
+                                    <path
+                                      d="m31.6 6.6v3.4h-23.2v-3.4h5.7l1.8-1.6h8.2l1.8 1.6h5.7z m-21.6 25v-20h20v20c0 1.8-1.6 3.4-3.4 3.4h-13.2c-1.8 0-3.4-1.6-3.4-3.4z" />
+                                  </g>
+                                </svg>
+                              </IconBase>
+                            </MdDelete>
+                          </i>
+                        </FontIcon>
+                      </button>
+                    </Button>
+                  </ButtonTooltiped>
+                </ButtonTooltipedInked>
               </div>
               <hr />
             </div>
@@ -365,6 +571,8 @@ exports[`NonProjectItemList component renders correctly 1`] = `
           className="md-divider" />
       </Divider>
       <Component
+        canDelete={true}
+        canMove={true}
         item={
           Object {
             "_id": "item2",
@@ -373,6 +581,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
           }
         }
         onDelete={[Function]}
+        onItemMove={[Function]}
         onItemTap={[Function]}
         onItemUpdate={[Function]}
         onLeftButtonClick={[Function]}>
@@ -635,6 +844,204 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                     </Button>
                   </ButtonTooltiped>
                 </ButtonTooltipedInked>
+                <ButtonTooltipedInked
+                  icon={true}
+                  inkTransitionEnterTimeout={450}
+                  inkTransitionLeaveTimeout={300}
+                  inkTransitionOverlap={150}
+                  onClick={[Function]}>
+                  <ButtonTooltiped
+                    icon={true}
+                    ink={
+                      <InkContainer
+                        className={undefined}
+                        disabledInteractions={undefined}
+                        inkClassName={undefined}
+                        inkStyle={undefined}
+                        style={undefined}
+                        transitionEnterTimeout={450}
+                        transitionLeaveTimeout={300}
+                        transitionOverlap={150}
+                        waitForInkTransition={undefined} />
+                    }
+                    onClick={[Function]}
+                    tooltipDelay={0}
+                    tooltipPosition="bottom"
+                    tooltipTransitionEnterTimeout={150}
+                    tooltipTransitionLeaveTimeout={150}>
+                    <Button
+                      fixedPosition="br"
+                      icon={true}
+                      iconBefore={true}
+                      ink={
+                        <InkContainer
+                          className={undefined}
+                          disabledInteractions={undefined}
+                          inkClassName={undefined}
+                          inkStyle={undefined}
+                          style={undefined}
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}
+                          waitForInkTransition={undefined} />
+                      }
+                      onClick={[Function]}
+                      type="button">
+                      <button
+                        className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        type="button">
+                        <InkContainer
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}>
+                          <ReactTransitionGroup
+                            childFactory={[Function]}
+                            className="md-ink-container"
+                            component="div">
+                            <div
+                              className="md-ink-container" />
+                          </ReactTransitionGroup>
+                        </InkContainer>
+                        <FontIcon
+                          iconClassName="material-icons">
+                          <i
+                            className="md-icon material-icons">
+                            <MdMoreVert>
+                              <IconBase
+                                viewBox="0 0 40 40">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                      "verticalAlign": "middle",
+                                    }
+                                  }
+                                  viewBox="0 0 40 40"
+                                  width="1em">
+                                  <g>
+                                    <path
+                                      d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  </g>
+                                </svg>
+                              </IconBase>
+                            </MdMoreVert>
+                          </i>
+                        </FontIcon>
+                      </button>
+                    </Button>
+                  </ButtonTooltiped>
+                </ButtonTooltipedInked>
+                <ButtonTooltipedInked
+                  icon={true}
+                  inkTransitionEnterTimeout={450}
+                  inkTransitionLeaveTimeout={300}
+                  inkTransitionOverlap={150}
+                  onClick={[Function]}>
+                  <ButtonTooltiped
+                    icon={true}
+                    ink={
+                      <InkContainer
+                        className={undefined}
+                        disabledInteractions={undefined}
+                        inkClassName={undefined}
+                        inkStyle={undefined}
+                        style={undefined}
+                        transitionEnterTimeout={450}
+                        transitionLeaveTimeout={300}
+                        transitionOverlap={150}
+                        waitForInkTransition={undefined} />
+                    }
+                    onClick={[Function]}
+                    tooltipDelay={0}
+                    tooltipPosition="bottom"
+                    tooltipTransitionEnterTimeout={150}
+                    tooltipTransitionLeaveTimeout={150}>
+                    <Button
+                      fixedPosition="br"
+                      icon={true}
+                      iconBefore={true}
+                      ink={
+                        <InkContainer
+                          className={undefined}
+                          disabledInteractions={undefined}
+                          inkClassName={undefined}
+                          inkStyle={undefined}
+                          style={undefined}
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}
+                          waitForInkTransition={undefined} />
+                      }
+                      onClick={[Function]}
+                      type="button">
+                      <button
+                        className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        type="button">
+                        <InkContainer
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}>
+                          <ReactTransitionGroup
+                            childFactory={[Function]}
+                            className="md-ink-container"
+                            component="div">
+                            <div
+                              className="md-ink-container" />
+                          </ReactTransitionGroup>
+                        </InkContainer>
+                        <FontIcon
+                          iconClassName="material-icons">
+                          <i
+                            className="md-icon material-icons">
+                            <MdDelete>
+                              <IconBase
+                                viewBox="0 0 40 40">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                      "verticalAlign": "middle",
+                                    }
+                                  }
+                                  viewBox="0 0 40 40"
+                                  width="1em">
+                                  <g>
+                                    <path
+                                      d="m31.6 6.6v3.4h-23.2v-3.4h5.7l1.8-1.6h8.2l1.8 1.6h5.7z m-21.6 25v-20h20v20c0 1.8-1.6 3.4-3.4 3.4h-13.2c-1.8 0-3.4-1.6-3.4-3.4z" />
+                                  </g>
+                                </svg>
+                              </IconBase>
+                            </MdDelete>
+                          </i>
+                        </FontIcon>
+                      </button>
+                    </Button>
+                  </ButtonTooltiped>
+                </ButtonTooltipedInked>
               </div>
               <hr />
             </a>
@@ -646,6 +1053,8 @@ exports[`NonProjectItemList component renders correctly 1`] = `
           className="md-divider" />
       </Divider>
       <Component
+        canDelete={true}
+        canMove={true}
         item={
           Object {
             "_id": "item3",
@@ -658,6 +1067,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
           }
         }
         onDelete={[Function]}
+        onItemMove={[Function]}
         onItemTap={[Function]}
         onItemUpdate={[Function]}
         onLeftButtonClick={[Function]}>
@@ -934,6 +1344,204 @@ exports[`NonProjectItemList component renders correctly 1`] = `
                                 </svg>
                               </IconBase>
                             </MdCreate>
+                          </i>
+                        </FontIcon>
+                      </button>
+                    </Button>
+                  </ButtonTooltiped>
+                </ButtonTooltipedInked>
+                <ButtonTooltipedInked
+                  icon={true}
+                  inkTransitionEnterTimeout={450}
+                  inkTransitionLeaveTimeout={300}
+                  inkTransitionOverlap={150}
+                  onClick={[Function]}>
+                  <ButtonTooltiped
+                    icon={true}
+                    ink={
+                      <InkContainer
+                        className={undefined}
+                        disabledInteractions={undefined}
+                        inkClassName={undefined}
+                        inkStyle={undefined}
+                        style={undefined}
+                        transitionEnterTimeout={450}
+                        transitionLeaveTimeout={300}
+                        transitionOverlap={150}
+                        waitForInkTransition={undefined} />
+                    }
+                    onClick={[Function]}
+                    tooltipDelay={0}
+                    tooltipPosition="bottom"
+                    tooltipTransitionEnterTimeout={150}
+                    tooltipTransitionLeaveTimeout={150}>
+                    <Button
+                      fixedPosition="br"
+                      icon={true}
+                      iconBefore={true}
+                      ink={
+                        <InkContainer
+                          className={undefined}
+                          disabledInteractions={undefined}
+                          inkClassName={undefined}
+                          inkStyle={undefined}
+                          style={undefined}
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}
+                          waitForInkTransition={undefined} />
+                      }
+                      onClick={[Function]}
+                      type="button">
+                      <button
+                        className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        type="button">
+                        <InkContainer
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}>
+                          <ReactTransitionGroup
+                            childFactory={[Function]}
+                            className="md-ink-container"
+                            component="div">
+                            <div
+                              className="md-ink-container" />
+                          </ReactTransitionGroup>
+                        </InkContainer>
+                        <FontIcon
+                          iconClassName="material-icons">
+                          <i
+                            className="md-icon material-icons">
+                            <MdMoreVert>
+                              <IconBase
+                                viewBox="0 0 40 40">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                      "verticalAlign": "middle",
+                                    }
+                                  }
+                                  viewBox="0 0 40 40"
+                                  width="1em">
+                                  <g>
+                                    <path
+                                      d="m20 26.6c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-10c1.8 0 3.4 1.6 3.4 3.4s-1.6 3.4-3.4 3.4-3.4-1.6-3.4-3.4 1.6-3.4 3.4-3.4z m0-3.2c-1.8 0-3.4-1.6-3.4-3.4s1.6-3.4 3.4-3.4 3.4 1.6 3.4 3.4-1.6 3.4-3.4 3.4z" />
+                                  </g>
+                                </svg>
+                              </IconBase>
+                            </MdMoreVert>
+                          </i>
+                        </FontIcon>
+                      </button>
+                    </Button>
+                  </ButtonTooltiped>
+                </ButtonTooltipedInked>
+                <ButtonTooltipedInked
+                  icon={true}
+                  inkTransitionEnterTimeout={450}
+                  inkTransitionLeaveTimeout={300}
+                  inkTransitionOverlap={150}
+                  onClick={[Function]}>
+                  <ButtonTooltiped
+                    icon={true}
+                    ink={
+                      <InkContainer
+                        className={undefined}
+                        disabledInteractions={undefined}
+                        inkClassName={undefined}
+                        inkStyle={undefined}
+                        style={undefined}
+                        transitionEnterTimeout={450}
+                        transitionLeaveTimeout={300}
+                        transitionOverlap={150}
+                        waitForInkTransition={undefined} />
+                    }
+                    onClick={[Function]}
+                    tooltipDelay={0}
+                    tooltipPosition="bottom"
+                    tooltipTransitionEnterTimeout={150}
+                    tooltipTransitionLeaveTimeout={150}>
+                    <Button
+                      fixedPosition="br"
+                      icon={true}
+                      iconBefore={true}
+                      ink={
+                        <InkContainer
+                          className={undefined}
+                          disabledInteractions={undefined}
+                          inkClassName={undefined}
+                          inkStyle={undefined}
+                          style={undefined}
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}
+                          waitForInkTransition={undefined} />
+                      }
+                      onClick={[Function]}
+                      type="button">
+                      <button
+                        className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        type="button">
+                        <InkContainer
+                          transitionEnterTimeout={450}
+                          transitionLeaveTimeout={300}
+                          transitionOverlap={150}>
+                          <ReactTransitionGroup
+                            childFactory={[Function]}
+                            className="md-ink-container"
+                            component="div">
+                            <div
+                              className="md-ink-container" />
+                          </ReactTransitionGroup>
+                        </InkContainer>
+                        <FontIcon
+                          iconClassName="material-icons">
+                          <i
+                            className="md-icon material-icons">
+                            <MdDelete>
+                              <IconBase
+                                viewBox="0 0 40 40">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                      "verticalAlign": "middle",
+                                    }
+                                  }
+                                  viewBox="0 0 40 40"
+                                  width="1em">
+                                  <g>
+                                    <path
+                                      d="m31.6 6.6v3.4h-23.2v-3.4h5.7l1.8-1.6h8.2l1.8 1.6h5.7z m-21.6 25v-20h20v20c0 1.8-1.6 3.4-3.4 3.4h-13.2c-1.8 0-3.4-1.6-3.4-3.4z" />
+                                  </g>
+                                </svg>
+                              </IconBase>
+                            </MdDelete>
                           </i>
                         </FontIcon>
                       </button>
