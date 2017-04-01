@@ -75,7 +75,7 @@ const Item = ({
       : undefined}
       {canDelete ?
         <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
-    </div><hr />
+    </div>
 
   </AccessibleFakeInkedButton>);
 
