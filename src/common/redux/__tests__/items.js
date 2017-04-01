@@ -33,6 +33,16 @@ describe('itemsReducer', () => {
   it('handles DELETE_ITEM_POUCH correctly if the id doesn\'t exist', () => {
     expect(reducer(items, actions.removeItemPouch({ _id: 'item20' }))).toEqual(items);
   });
+  it('handles DELETE_ITEM_WITHOUT_PARENT correctly', () => {
+    expect(reducer(items, actions.deleteItemWithoutParent('item3'))).toEqual([
+      { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item4', isProject: true, children: ['item1', 'item2', 'item3'] },
+    ]);
+  });
+  it('handles DELETE_ITEM_WITHOUT_PARENT correctly if the id doesn\'t exist', () => {
+    expect(reducer(items, actions.deleteItemWithoutParent('item20'))).toEqual(items);
+  });
   it('handles INSERT_ITEM_POUCH correctly', () => {
     expect(reducer(items, actions.insertItemPouch({ _id: 'item20', isProject: true, children: [] }))).toEqual([
       { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
@@ -195,5 +205,23 @@ describe('itemsReducer', () => {
       { _id: 'item4', isProject: true, children: ['item1', 'item3'] },
       { _id: 'root', isProject: true, children: ['item2'] },
     ]);
+  });
+  it('handles MOVE_ITEM_WITHOUT_PARENT if the item to do move exists and the newParent exists and is a project', () => {
+    expect(reducer(itemsWithOrphanTask, actions.moveItemWithoutParent('item5', 'item4'))).toEqual([
+      { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item3', isProject: false, isCompleted: false, tags: [] },
+      { _id: 'item4', isProject: true, children: ['item1', 'item2', 'item3', 'item5'] },
+      { _id: 'item5', isProject: false, isCompleted: false, tags: [] },
+    ]);
+  });
+  it('handles MOVE_ITEM_WITHOUT_PARENT if the item to do move does not exist', () => {
+    expect(reducer(itemsWithOrphanTask, actions.moveItemWithoutParent('item6', 'item4'))).toEqual(itemsWithOrphanTask);
+  });
+  it('handles MOVE_ITEM_WITHOUT_PARENT if the newParent does not exist', () => {
+    expect(reducer(itemsWithOrphanTask, actions.moveItemWithoutParent('item5', 'item7'))).toEqual(itemsWithOrphanTask);
+  });
+  it('handles MOVE_ITEM_WITHOUT_PARENT if the newParent is not a project', () => {
+    expect(reducer(itemsWithOrphanTask, actions.moveItemWithoutParent('item5', 'item3'))).toEqual(itemsWithOrphanTask);
   });
 });

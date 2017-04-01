@@ -1,5 +1,5 @@
 import reducer, { initialState } from '../syncState';
-import { syncStarted, syncFailed, syncSucceded, sync, attemptSync } from '../actions';
+import { syncStarted, syncFailed, syncSucceded, sync, attemptSync, initialItemsLoaded } from '../actions';
 import { SYNC_STARTED, SYNC_FAILED, SYNC_SUCCEDED, SHOW_TOAST, LOGIN } from '../actionTypes';
 import logException from '../../utils/logException';
 import pouchDBSync from '../../utils/pouchDBSync';
@@ -25,18 +25,28 @@ describe('syncReducer', () => {
     expect(reducer(undefined, syncStarted())).toEqual({
       syncing: true,
       error: false,
+      initialItemsLoaded: false,
     });
   });
   it('handles SYNC_FAILED correctly', () => {
     expect(reducer(undefined, syncFailed())).toEqual({
       syncing: false,
       error: true,
+      initialItemsLoaded: false,
     });
   });
-  it('handled SYNC_SUCCEDED correctly', () => {
+  it('handles SYNC_SUCCEDED correctly', () => {
     expect(reducer(undefined, syncSucceded())).toEqual({
       syncing: false,
       error: false,
+      initialItemsLoaded: false,
+    });
+  });
+  it('handles INITIAL_ITEMS_LOADED correctly', () => {
+    expect(reducer(undefined, initialItemsLoaded())).toEqual({
+      syncing: false,
+      error: false,
+      initialItemsLoaded: true,
     });
   });
 });

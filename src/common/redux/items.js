@@ -5,8 +5,10 @@ import {
   CREATE_ITEM,
   COMPLETE_ITEM,
   DELETE_ITEM,
+  DELETE_ITEM_WITHOUT_PARENT,
   UPDATE_ITEM,
   MOVE_ITEM,
+  MOVE_ITEM_WITHOUT_PARENT,
 } from './actionTypes';
 
 export const initialState = [];
@@ -31,6 +33,7 @@ function ensureRootAndInboxExists(state, action) {
 
 export default function itemsReducer(state = initialState, action) {
   switch (action.type) {
+    case DELETE_ITEM_WITHOUT_PARENT:
     case DELETE_ITEM_POUCH: {
       const indexOfId = state.findIndex(item => item._id === action.id);
       if (indexOfId === -1) return state;
@@ -140,6 +143,18 @@ export default function itemsReducer(state = initialState, action) {
         ...stateWithoutItemInPreviousParent.slice(0, newParentIndex),
         { ...newParent, children: [...newParent.children, action.id] },
         ...stateWithoutItemInPreviousParent.slice(newParentIndex + 1),
+      ];
+    }
+    case MOVE_ITEM_WITHOUT_PARENT: {
+      const newParentIndex = state.findIndex(item => item._id === action.newParent);
+      const itemIndex = state.findIndex(item => item._id === action.id);
+      if (itemIndex === -1 || newParentIndex === -1) return state;
+      const newParent = state[newParentIndex];
+      if (!newParent.isProject) return state;
+      return [
+        ...state.slice(0, newParentIndex),
+        { ...newParent, children: [...newParent.children, action.id] },
+        ...state.slice(newParentIndex + 1),
       ];
     }
     default: {

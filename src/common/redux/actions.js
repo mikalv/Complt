@@ -29,6 +29,9 @@ import {
   HIDE_MOVE_ITEM_DIALOG,
   MOVE_ITEM,
   CHANGE_ITEMS_TO_SHOW,
+  DELETE_ITEM_WITHOUT_PARENT,
+  MOVE_ITEM_WITHOUT_PARENT,
+  INITIAL_ITEMS_LOADED,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
@@ -71,6 +74,11 @@ export const completeItem = (id, isCompleted) => ({ type: COMPLETE_ITEM, id, isC
 export const deleteItem = (parentProjectId, id) => ({
   type: DELETE_ITEM,
   parentProjectId,
+  id,
+});
+
+export const deleteItemWithoutParent = id => ({
+  type: DELETE_ITEM_WITHOUT_PARENT,
   id,
 });
 
@@ -174,9 +182,16 @@ export const moveItem = (id, previousParent, newParent) => ({
   type: MOVE_ITEM, id, previousParent, newParent,
 });
 
+export const moveItemWithoutParent = (id, newParent) => ({
+  type: MOVE_ITEM_WITHOUT_PARENT, id, newParent,
+});
+
 export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
   dispatch(hideMoveItemDialog());
-  dispatch(moveItem(id, previousParent, newParent));
+  if (typeof previousParent === 'string') dispatch(moveItem(id, previousParent, newParent));
+  if (previousParent === null) dispatch(moveItemWithoutParent(id, newParent));
 };
 
 export const changeItemsToShow = option => ({ type: CHANGE_ITEMS_TO_SHOW, option });
+
+export const initialItemsLoaded = () => ({ type: INITIAL_ITEMS_LOADED });
