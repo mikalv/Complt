@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import List from 'react-md/lib/Lists/List';
 import ListItem from 'react-md/lib/Lists/ListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
+import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
+import Loading from '../components/Loading';
 
 export const Tags = props => (
   <List className="flex-child">
@@ -33,4 +35,4 @@ export function mapStateToProps(state) {
   return { tags };
 }
 
-export default connect(mapStateToProps)(Tags);
+export default areInitialItemsLoaded(connect(mapStateToProps)(Tags), Loading);

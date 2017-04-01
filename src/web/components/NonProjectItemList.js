@@ -20,12 +20,14 @@ const NonProjectItemList = props => (<ItemList
     const item = props.items[i];
     if (item.parent && item.parent._id) {
       props.deleteItem(item.parent._id, item._id);
-    }
+    } else props.deleteItemWithoutParent(item._id);
   }}
   onItemMove={(i) => {
     const item = props.items[i];
     if (item.parent && item.parent._id) {
       props.showMoveItemDialog(item._id, item.parent._id);
+    } else {
+      props.showMoveItemDialog(item._id, null);
     }
   }}
 />);
@@ -39,6 +41,7 @@ NonProjectItemList.propTypes = {
   showUpdateItemDialog: React.PropTypes.func,
   showMoveItemDialog: React.PropTypes.func,
   deleteItem: React.PropTypes.func,
+  deleteItemWithoutParent: React.PropTypes.func,
 };
 
 export default NonProjectItemList;

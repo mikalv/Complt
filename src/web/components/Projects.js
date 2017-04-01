@@ -5,6 +5,8 @@ import ItemList from './ItemList';
 import AddItem from './AddItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import PropTypes from '../../common/PropTypes';
+import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
+import Loading from './Loading';
 import './Projects.css';
 
 export const Projects = props => (
@@ -61,4 +63,6 @@ export function mapStateToProps(state, ownProps) {
   return { projectChildren: getFilteredItems(projectChildren, state.itemsToShow) };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default areInitialItemsLoaded(
+  connect(mapStateToProps, mapDispatchToProps)(Projects),
+  Loading);

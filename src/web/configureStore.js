@@ -12,7 +12,7 @@ import syncState from '../common/redux/syncState';
 import itemsToShow from '../common/redux/itemsToShow';
 import logException from '../common/utils/logException';
 import db from '../common/db';
-import { removeItemPouch, insertItemPouch, updateItemPouch } from '../common/redux/actions';
+import { removeItemPouch, insertItemPouch, updateItemPouch, initialItemsLoaded } from '../common/redux/actions';
 
 const pouchMiddleware = PouchMiddleware({
   path: '/items',
@@ -27,6 +27,9 @@ const pouchMiddleware = PouchMiddleware({
       logException(new Error('An error occured in pouch-redux-middleware', { error, data }));
     }
     cb(error);
+  },
+  initialBatchDispatched() {
+    store.dispatch(initialItemsLoaded());
   },
 });
 
