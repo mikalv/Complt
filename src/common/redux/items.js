@@ -4,10 +4,11 @@ import {
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
   COMPLETE_ITEM,
-  DELETE_TASK,
-  DELETE_PROJECT,
+  DELETE_ITEM,
+  DELETE_ITEM_WITHOUT_PARENT,
   UPDATE_ITEM,
   MOVE_ITEM,
+  MOVE_ITEM_WITHOUT_PARENT,
 } from './actionTypes';
 
 export const initialState = [];
@@ -32,6 +33,7 @@ function ensureRootAndInboxExists(state, action) {
 
 export default function itemsReducer(state = initialState, action) {
   switch (action.type) {
+    case DELETE_ITEM_WITHOUT_PARENT:
     case DELETE_ITEM_POUCH: {
       const indexOfId = state.findIndex(item => item._id === action.id);
       if (indexOfId === -1) return state;
@@ -81,33 +83,12 @@ export default function itemsReducer(state = initialState, action) {
         ...state.slice(indexOfId + 1),
       ];
     }
-    case DELETE_TASK: {
-      const parentProject = state.find(item => item._id === action.parentProjectId);
-      const childIndexInParent = parentProject.children.indexOf(action.id);
-      if (childIndexInParent === -1) return state;
-      const taskIndex = state.findIndex(item => item._id === action.id);
-      const stateWithoutTask = [
-        ...state.slice(0, taskIndex),
-        ...state.slice(taskIndex + 1),
-      ];
-      const parentProjectIndex = stateWithoutTask.findIndex(item =>
-        item._id === action.parentProjectId);
-      return [
-        ...stateWithoutTask.slice(0, parentProjectIndex),
-        { ...parentProject,
-          children: [
-            ...parentProject.children.slice(0, childIndexInParent),
-            ...parentProject.children.slice(childIndexInParent + 1),
-          ] },
-        ...stateWithoutTask.slice(parentProjectIndex + 1),
-      ];
-    }
-    case DELETE_PROJECT: {
+    case DELETE_ITEM: {
       const parentProject = state.find(item => item._id === action.parentProjectId);
       const childIndexInParent = parentProject.children.indexOf(action.id);
       if (childIndexInParent === -1) return state;
       const childIndex = state.findIndex(item => item._id === action.id);
-      if (state[childIndex].children.length > 0) return state;
+      if (state[childIndex].isProject && state[childIndex].children.length > 0) return state;
       const stateWithoutTask = [
         ...state.slice(0, childIndex),
         ...state.slice(childIndex + 1),
@@ -162,6 +143,18 @@ export default function itemsReducer(state = initialState, action) {
         ...stateWithoutItemInPreviousParent.slice(0, newParentIndex),
         { ...newParent, children: [...newParent.children, action.id] },
         ...stateWithoutItemInPreviousParent.slice(newParentIndex + 1),
+      ];
+    }
+    case MOVE_ITEM_WITHOUT_PARENT: {
+      const newParentIndex = state.findIndex(item => item._id === action.newParent);
+      const itemIndex = state.findIndex(item => item._id === action.id);
+      if (itemIndex === -1 || newParentIndex === -1) return state;
+      const newParent = state[newParentIndex];
+      if (!newParent.isProject) return state;
+      return [
+        ...state.slice(0, newParentIndex),
+        { ...newParent, children: [...newParent.children, action.id] },
+        ...state.slice(newParentIndex + 1),
       ];
     }
     default: {

@@ -6,6 +6,9 @@ body {
 .flex {
   display: flex;
 }
+.flex-child {
+  flex: 1;
+}
 .center {
   justify-content: center;
 }

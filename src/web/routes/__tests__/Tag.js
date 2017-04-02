@@ -11,6 +11,11 @@ describe('mapStateToProps', () => {
         '@tag3',
       ],
       _id: '6c4c2b5f-71cd-4194-994f-da42a9d275c3',
+      parent: {
+        _id: 'root',
+        children: ['6c4c2b5f-71cd-4194-994f-da42a9d275c3', '58aa7f62-d5fa-4c8e-aa3a-87b9e4e82ba3'],
+        isProject: true,
+      },
     },
     {
       isProject: true,
@@ -21,6 +26,11 @@ describe('mapStateToProps', () => {
         '@tag3',
       ],
       _id: '58aa7f62-d5fa-4c8e-aa3a-87b9e4e82ba3',
+      parent: {
+        _id: 'root',
+        children: ['6c4c2b5f-71cd-4194-994f-da42a9d275c3', '58aa7f62-d5fa-4c8e-aa3a-87b9e4e82ba3'],
+        isProject: true,
+      },
     }] });
   });
 });

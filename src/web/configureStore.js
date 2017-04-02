@@ -12,7 +12,7 @@ import syncState from '../common/redux/syncState';
 import itemsToShow from '../common/redux/itemsToShow';
 import logException from '../common/utils/logException';
 import db from '../common/db';
-import { removeItemPouch, insertItemPouch, updateItemPouch } from '../common/redux/actions';
+import { removeItemPouch, insertItemPouch, updateItemPouch, initialItemsLoaded } from '../common/redux/actions';
 
 const pouchMiddleware = PouchMiddleware({
   path: '/items',
@@ -28,12 +28,22 @@ const pouchMiddleware = PouchMiddleware({
     }
     cb(error);
   },
+  initialBatchDispatched() {
+    store.dispatch(initialItemsLoaded());
+  },
 });
 
-let middleware = applyMiddleware(thunk, pouchMiddleware);
+const analyticsMiddleware = () => next => (action) => {
+  next(action);
+  if (!action.type.match(/(POUCH|INITIAL_ITEMS_LOADED|persist)/)) {
+    window.ga('send', 'event', 'redux', action.type);
+  }
+};
+
+let middleware = applyMiddleware(thunk, pouchMiddleware, analyticsMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware);
+  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware, analyticsMiddleware);
 }
 
 let enhancer;

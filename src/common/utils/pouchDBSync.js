@@ -1,7 +1,6 @@
-import PouchDB from '../PouchDB';
 import db from '../db';
 
-const pouchDBSync = (token, remoteURI) => new Promise((resolve, reject) => {
+const pouchDBSync = (token, remoteURI) => import('../PouchDBWithHttpAndReplication').then(({ default: PouchDB }) => new Promise((resolve, reject) => {
   const remoteDB = new PouchDB(remoteURI, {
     ajax: { headers: { Authorization: `Bearer ${token}` } },
     skipSetup: true,
@@ -9,6 +8,6 @@ const pouchDBSync = (token, remoteURI) => new Promise((resolve, reject) => {
   PouchDB.sync(db, remoteDB)
     .on('error', reject)
     .on('complete', resolve);
-});
+}));
 
 export default pouchDBSync;

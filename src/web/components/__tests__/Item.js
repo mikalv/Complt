@@ -27,6 +27,18 @@ describe('Item component', () => {
     const component = mount(<Item canMove canDelete item={{ name: 'Task', isProject: false, isCompleted: false }} />);
     expect(component).toMatchSnapshot();
   });
+  it('renders an item with a parent project correctly', () => {
+    const component = mount(<Item canMove item={{ name: 'Task', isProject: false, isCompleted: false, parent: { _id: 'someProjectId', name: 'Some Project' } }} />);
+    expect(component).toMatchSnapshot();
+  });
+  it('renders an item with the inbox as its parent correctly', () => {
+    const component = mount(<Item canMove item={{ name: 'Task', isProject: false, isCompleted: false, parent: { _id: 'inbox' } }} />);
+    expect(component).toMatchSnapshot();
+  });
+  it('renders an item with the root as its parent correctly', () => {
+    const component = mount(<Item canMove item={{ name: 'Task', isProject: false, isCompleted: false, parent: { _id: 'root' } }} />);
+    expect(component).toMatchSnapshot();
+  });
   it('only calls onDelete when the delete button is pressed', () => {
     const onItemTap = jest.fn();
     const onDelete = jest.fn();
@@ -51,13 +63,13 @@ describe('Item component', () => {
     expect(onItemTap).not.toBeCalled();
     expect(onItemMove).toBeCalled();
   });
-  it('only calls onAvatarTouchTap when the avatar is pressed', () => {
+  it('only calls onLeftButtonClick when the left button is pressed', () => {
     const onItemTap = jest.fn();
-    const onAvatarTouchTap = jest.fn();
-    const component = mount(<Item canMove onItemTap={onItemTap} onAvatarTouchTap={onAvatarTouchTap} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
+    const onLeftButtonClick = jest.fn();
+    const component = mount(<Item canMove onItemTap={onItemTap} onLeftButtonClick={onLeftButtonClick} item={{ name: 'Task', isProject: false, isCompleted: false }} />);
     expect(component).toMatchSnapshot();
-    component.find('Avatar').simulate('click');
+    component.find('.Item-left').find('button').simulate('click');
     expect(onItemTap).not.toBeCalled();
-    expect(onAvatarTouchTap).toBeCalled();
+    expect(onLeftButtonClick).toBeCalled();
   });
 });

@@ -23,7 +23,7 @@ describe('ItemList component', () => {
       onDelete={onDelete}
       items={[project, task, project]}
     />);
-    component.childAt(1).find('MdDelete').simulate('click');
+    component.childAt(2).find('MdDelete').simulate('click');
     expect(onDelete).toBeCalledWith(1);
   });
   it('calls onDelete correctly with a project', () => {
@@ -33,7 +33,7 @@ describe('ItemList component', () => {
       onDelete={onDelete}
       items={[project, task, project]}
     />);
-    component.childAt(2).find('MdDelete').simulate('click');
+    component.childAt(4).find('MdDelete').simulate('click');
     expect(onDelete).toBeCalledWith(2);
   });
   it('calls onItemTap correctly', () => {
@@ -42,17 +42,17 @@ describe('ItemList component', () => {
       onItemTap={onItemTap}
       items={[project, task, project]}
     />);
-    component.childAt(2).find('ListItemText').simulate('click');
+    component.childAt(4).find('.Item-center').simulate('click');
     expect(onItemTap).toBeCalledWith(2);
   });
-  it('calls onItemAvatarTap correctly', () => {
-    const onItemAvatarTap = jest.fn();
+  it('calls onLeftButtonClick correctly', () => {
+    const onLeftButtonClick = jest.fn();
     const component = mount(<ItemList
-      onItemAvatarTap={onItemAvatarTap}
+      onLeftButtonClick={onLeftButtonClick}
       items={[project, task, project]}
     />);
-    component.childAt(2).find('Avatar').simulate('click');
-    expect(onItemAvatarTap).toBeCalledWith(2);
+    component.childAt(4).find('.Item-left').find('button').simulate('click');
+    expect(onLeftButtonClick).toBeCalledWith(2);
   });
   it('calls onItemUpdate correctly', () => {
     const onItemUpdate = jest.fn();
@@ -60,7 +60,7 @@ describe('ItemList component', () => {
       onItemUpdate={onItemUpdate}
       items={[project, task, project]}
     />);
-    component.childAt(2).find('MdCreate').simulate('click');
+    component.childAt(4).find('MdCreate').simulate('click');
     expect(onItemUpdate).toBeCalledWith(2);
   });
   it('calls onItemMove correctly', () => {
@@ -70,7 +70,7 @@ describe('ItemList component', () => {
       canMove
       items={[project, task, project]}
     />);
-    component.childAt(2).find('MdMoreVert').simulate('click');
+    component.childAt(4).find('MdMoreVert').simulate('click');
     expect(onItemMove).toBeCalledWith(2);
   });
 });

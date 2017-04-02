@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import uuid from 'uuid/v4';
 import history from '../../web/history';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
@@ -16,8 +16,7 @@ import {
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
   COMPLETE_ITEM,
-  DELETE_TASK,
-  DELETE_PROJECT,
+  DELETE_ITEM,
   SHOW_TOAST,
   DISMISS_TOAST,
   SYNC_STARTED,
@@ -30,6 +29,9 @@ import {
   HIDE_MOVE_ITEM_DIALOG,
   MOVE_ITEM,
   CHANGE_ITEMS_TO_SHOW,
+  DELETE_ITEM_WITHOUT_PARENT,
+  MOVE_ITEM_WITHOUT_PARENT,
+  INITIAL_ITEMS_LOADED,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
@@ -58,26 +60,25 @@ export const updateItemPouch = doc => ({ type: UPDATE_ITEM_POUCH, item: doc });
 export const createTask = (parentProjectId, item) => ({
   type: CREATE_ITEM,
   parentProjectId,
-  item: { _id: uuid.v4(), isProject: false, ...item },
+  item: { _id: uuid(), isProject: false, ...item },
 });
 
 export const createProject = (parentProjectId, item) => ({
   type: CREATE_ITEM,
   parentProjectId,
-  item: { _id: uuid.v4(), isProject: true, ...item },
+  item: { _id: uuid(), isProject: true, ...item },
 });
 
 export const completeItem = (id, isCompleted) => ({ type: COMPLETE_ITEM, id, isCompleted });
 
-export const deleteTask = (parentProjectId, id) => ({
-  type: DELETE_TASK,
+export const deleteItem = (parentProjectId, id) => ({
+  type: DELETE_ITEM,
   parentProjectId,
   id,
 });
 
-export const deleteProject = (parentProjectId, id) => ({
-  type: DELETE_PROJECT,
-  parentProjectId,
+export const deleteItemWithoutParent = id => ({
+  type: DELETE_ITEM_WITHOUT_PARENT,
   id,
 });
 
@@ -181,9 +182,16 @@ export const moveItem = (id, previousParent, newParent) => ({
   type: MOVE_ITEM, id, previousParent, newParent,
 });
 
+export const moveItemWithoutParent = (id, newParent) => ({
+  type: MOVE_ITEM_WITHOUT_PARENT, id, newParent,
+});
+
 export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
   dispatch(hideMoveItemDialog());
-  dispatch(moveItem(id, previousParent, newParent));
+  if (typeof previousParent === 'string') dispatch(moveItem(id, previousParent, newParent));
+  if (previousParent === null) dispatch(moveItemWithoutParent(id, newParent));
 };
 
 export const changeItemsToShow = option => ({ type: CHANGE_ITEMS_TO_SHOW, option });
+
+export const initialItemsLoaded = () => ({ type: INITIAL_ITEMS_LOADED });

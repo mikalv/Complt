@@ -6,6 +6,10 @@ import Root from './Root';
 import './index.css';
 import './index.scss';
 
+window.ga = (...args) => {
+  console.log('Google Analytics:'); // eslint-disable-line no-console
+  console.log(args); // eslint-disable-line no-console
+};
 
 const rootEl = document.getElementById('root');
 ReactDOM.render(

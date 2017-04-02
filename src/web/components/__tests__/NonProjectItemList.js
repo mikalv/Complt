@@ -25,7 +25,7 @@ describe('NonProjectItemList component', () => {
       items={items}
       completeItem={completeItem}
     />);
-    component.childAt(2).find('Avatar').simulate('click');
+    component.childAt(4).find('.Item-left').find('button').simulate('click');
     expect(completeItem).toBeCalledWith('item3', true);
   });
   it('calls routerPush correctly when a project is clicked', () => {
@@ -34,8 +34,7 @@ describe('NonProjectItemList component', () => {
       items={items}
       history={{ push: routerPush }}
     />);
-    component.childAt(1).find('li').find('AccessibleFakeButtonInked')
-    .simulate('click');
+    component.childAt(2).find('.Item-center').simulate('click');
     expect(routerPush).toBeCalledWith('/project/item2');
   });
   it('calls showUpdateItemDialog when an item is updated', () => {
@@ -44,7 +43,7 @@ describe('NonProjectItemList component', () => {
       items={items}
       showUpdateItemDialog={showUpdateItemDialog}
     />);
-    component.childAt(2).find('MdCreate').simulate('click');
+    component.childAt(4).find('MdCreate').simulate('click');
     expect(showUpdateItemDialog).toBeCalledWith('item3');
   });
 });

@@ -5,22 +5,20 @@ import ItemList from './ItemList';
 import AddItem from './AddItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import PropTypes from '../../common/PropTypes';
+import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
+import Loading from './Loading';
 import './Projects.css';
 
 export const Projects = props => (
-  <div>
+  <div className="flex-child">
     <ItemList
-      onDelete={(i) => {
-        const item = props.projectChildren[i];
-        if (item.isProject) props.deleteProject(props.projectId, item._id);
-        else props.deleteTask(props.projectId, item._id);
-      }}
+      onDelete={i => props.deleteItem(props.projectId, props.projectChildren[i]._id)}
       canDeleteTask
       canDeleteProject
       canMove
       onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
       onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
-      onItemAvatarTap={i =>
+      onLeftButtonClick={i =>
         props.completeItem(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted)}
       items={props.projectChildren}
       onItemTap={(i) => {
@@ -50,8 +48,7 @@ Projects.propTypes = {
   routerPush: React.PropTypes.func,
   initialIsProject: React.PropTypes.bool,
   canChangeType: React.PropTypes.bool,
-  deleteTask: React.PropTypes.func,
-  deleteProject: React.PropTypes.func,
+  deleteItem: React.PropTypes.func,
   moveItemDialog: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   completeItem: React.PropTypes.func,
   showMoveItemDialog: React.PropTypes.func,
@@ -66,4 +63,6 @@ export function mapStateToProps(state, ownProps) {
   return { projectChildren: getFilteredItems(projectChildren, state.itemsToShow) };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default areInitialItemsLoaded(
+  connect(mapStateToProps, mapDispatchToProps)(Projects),
+  Loading);

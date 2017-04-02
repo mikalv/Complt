@@ -19,7 +19,7 @@ export default function processItem(value, isProject = false) {
       valueWithoutDate = `${value.substring(0, date.index).trim()} ${value.substring(date.index + date[0].length).trim()}`;
       item.dates.push({
         dateType: DUE_DATE,
-        value: parsedDate.toString(),
+        value: parsedDate.toISOString(),
       });
     }
   } else valueWithoutDate = value;
