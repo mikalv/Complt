@@ -42,9 +42,16 @@ export const loginCallback = (error, result) => (dispatch) => {
     return;
   }
   if (!result) return;
+  let state;
+  try {
+    state = JSON.parse(decodeURIComponent(result.state));
+  } catch (e) {
+    state = {};
+  }
   dispatch(login(result.idToken));
   getTokenInfo(result.idToken).then(profile => dispatch(getProfile(profile)));
-  history.push('/');
+  history.replace(state.pathname || '/');
+  if (state.shouldSync) dispatch(attemptSync());
 };
 
 export const logout = () => ({ type: LOGOUT });
@@ -91,12 +98,15 @@ export const dismissToast = () => ({
   type: DISMISS_TOAST,
 });
 
-export const showSignInToast = () => (dispatch) => {
+export const showSignInToast = shouldSync => (dispatch) => {
   dispatch(showToast({
     text: 'Please sign in to sync',
     action: {
       label: 'SIGN IN',
-      onClick: () => loginWithGoogle((err, result) => dispatch(loginCallback(err, result))),
+      onClick: () => loginWithGoogle(
+        (err, result) => dispatch(loginCallback(err, result)),
+        { pathname: history.location.pathname, shouldSync },
+      ),
     } }));
 };
 
@@ -119,7 +129,7 @@ export const attemptSync = () => (dispatch, getState) => {
       getTokenInfo(idToken).then(profile => dispatch(getProfile(profile)));
       return sync(dispatch, getState)();
     }).catch(() => {
-      dispatch(showSignInToast());
+      dispatch(showSignInToast(true));
       dispatch(syncFailed());
     });
   }
@@ -134,7 +144,7 @@ export const sync = (dispatch, getState) => () =>
   })
   .catch((error) => {
     if (error.status === 401) {
-      dispatch(showSignInToast());
+      dispatch(showSignInToast(true));
     } else {
       logException(new Error('An error occured while syncing'), error);
       dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
