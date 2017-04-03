@@ -61,7 +61,8 @@ const Item = ({
     </div>
     <div className="Item-center">
       <span className="Item-name">{item.name}</span>
-      {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) || item.parent ? <div className="Item-chip-container">
+      {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) || item.parent || item.children ? <div className="Item-chip-container">
+        {!item.children ? undefined : <Chip className="Item-chip" label={item.children.length === 1 ? '1 Item' : `${item.children.length} Items`} />}
         {!item.parent ? undefined : <Link to={`/project/${item.parent._id}`} className="Item-chip-link"><Chip className="Item-chip" label={getParentProjectName(item.parent)} /></Link>}
         {!item.dates || item.dates.length === 0 ? undefined : <Chip className="Item-chip" label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
         {!item.tags ? undefined :
