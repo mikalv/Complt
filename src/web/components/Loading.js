@@ -4,7 +4,7 @@ import './Loading.css';
 
 const Loading = ({ scale }) => (
   <div className="Loading">
-    <CircularProgress scale={scale || 3} />
+    <CircularProgress id="items-loading" scale={scale || 3} />
   </div>
 );
 
