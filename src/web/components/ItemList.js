@@ -15,12 +15,14 @@ const ItemList = ({
     onItemUpdate,
     onItemMove,
     className,
+    ItemComponent = Item,
 }) => (
   <div style={style} className={className}>
     {items.map((item, i) => {
       if (!item) return null;
-      return ([<Item
+      return ([<ItemComponent
         key={item._id}
+        index={i}
         item={item}
         canDelete={
           (canDeleteTask && item.isProject === false) ||
@@ -48,6 +50,7 @@ ItemList.propTypes = {
   onItemMove: React.PropTypes.func,
   style: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
   className: React.PropTypes.string,
+  ItemComponent: React.PropTypes.func,
 };
 
 export default ItemList;
