@@ -16,4 +16,8 @@ describe('mapStateToProps', () => {
     expect(mapStateToProps({ startTime: 1489932000000, endTime: 1490018400000 })({ items }))
     .toEqual({ items: [firstItem] });
   });
+  it('returns the items in the correct order', () => {
+    expect(mapStateToProps({ startTime: 0, endTime: 100000000000000000 })({ items }))
+    .toEqual({ items: [thirdItem, firstItem] });
+  });
 });

@@ -4,6 +4,12 @@ import getFilteredItems from '../../common/utils/getFilteredItems';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import NonProjectItemList from './NonProjectItemList';
 
+const sortDates = (a, b) => {
+  const aDate = new Date(getNextDueDate(a.dates));
+  const bDate = new Date(getNextDueDate(b.dates));
+  return aDate < bDate ? -1 : aDate > bDate ? 1 : 0; // eslint-disable-line no-nested-ternary
+};
+
 export const mapStateToProps = ({ endTime, startTime }) => (state) => {
   const items = [];
   state.items.forEach((item) => {
@@ -15,7 +21,7 @@ export const mapStateToProps = ({ endTime, startTime }) => (state) => {
       }
     }
   });
-  return { items: getFilteredItems(items, state.itemsToShow) };
+  return { items: getFilteredItems(items, state.itemsToShow).sort(sortDates) };
 };
 
 const ItemListByDueDate = _ => connect(mapStateToProps(_), mapDispatchToProps)(NonProjectItemList);
