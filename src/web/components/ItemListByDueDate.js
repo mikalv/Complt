@@ -2,6 +2,9 @@ import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import getNextDueDate from '../../common/utils/getNextDueDate';
+import { getParents } from '../../common/utils/parents';
+import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
+import Loading from './Loading';
 import NonProjectItemList from './NonProjectItemList';
 
 const sortDates = (a, b) => {
@@ -12,7 +15,8 @@ const sortDates = (a, b) => {
 
 export const mapStateToProps = ({ endTime, startTime }) => (state) => {
   const items = [];
-  state.items.forEach((item) => {
+  const itemsWithParents = getParents(state.items);
+  itemsWithParents.forEach((item) => {
     if (item && Array.isArray(item.dates)) {
       const nextDueDate = getNextDueDate(item.dates);
       if (!nextDueDate) return;
@@ -24,7 +28,8 @@ export const mapStateToProps = ({ endTime, startTime }) => (state) => {
   return { items: getFilteredItems(items, state.itemsToShow).sort(sortDates) };
 };
 
-const ItemListByDueDate = _ => connect(mapStateToProps(_), mapDispatchToProps)(NonProjectItemList);
+const ItemListByDueDate = _ =>
+areInitialItemsLoaded(connect(mapStateToProps(_), mapDispatchToProps)(NonProjectItemList), Loading);
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
