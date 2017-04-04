@@ -69,6 +69,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
       <Component
         canDelete={true}
         canMove={true}
+        index={0}
         item={
           Object {
             "_id": "item1",
@@ -574,6 +575,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
       <Component
         canDelete={true}
         canMove={true}
+        index={1}
         item={
           Object {
             "_id": "item2",
@@ -1055,6 +1057,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
       <Component
         canDelete={true}
         canMove={true}
+        index={2}
         item={
           Object {
             "_id": "item3",

@@ -1,3 +1,4 @@
+import { arrayMove } from 'react-sortable-hoc/dist/es6/utils';
 import {
   DELETE_ITEM_POUCH,
   INSERT_ITEM_POUCH,
@@ -9,6 +10,7 @@ import {
   UPDATE_ITEM,
   MOVE_ITEM,
   MOVE_ITEM_WITHOUT_PARENT,
+  REORDER_ITEM,
 } from './actionTypes';
 
 export const initialState = [];
@@ -155,6 +157,17 @@ export default function itemsReducer(state = initialState, action) {
         ...state.slice(0, newParentIndex),
         { ...newParent, children: [...newParent.children, action.id] },
         ...state.slice(newParentIndex + 1),
+      ];
+    }
+    case REORDER_ITEM: {
+      if (action.oldIndex === action.newIndex) return state;
+      const projectIndex = state.findIndex(item => item._id === action.id);
+      const project = state[projectIndex];
+      const newProjectChildren = arrayMove(project.children, action.oldIndex, action.newIndex);
+      return [
+        ...state.slice(0, projectIndex),
+        { ...project, children: newProjectChildren },
+        ...state.slice(projectIndex + 1),
       ];
     }
     default: {

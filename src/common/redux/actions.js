@@ -32,6 +32,7 @@ import {
   DELETE_ITEM_WITHOUT_PARENT,
   MOVE_ITEM_WITHOUT_PARENT,
   INITIAL_ITEMS_LOADED,
+  REORDER_ITEM,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
@@ -205,3 +206,6 @@ export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
 export const changeItemsToShow = option => ({ type: CHANGE_ITEMS_TO_SHOW, option });
 
 export const initialItemsLoaded = () => ({ type: INITIAL_ITEMS_LOADED });
+
+export const reorderItem = (id, oldIndex, newIndex) =>
+({ type: REORDER_ITEM, id, oldIndex, newIndex });

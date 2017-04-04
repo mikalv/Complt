@@ -224,4 +224,15 @@ describe('itemsReducer', () => {
   it('handles MOVE_ITEM_WITHOUT_PARENT if the newParent is not a project', () => {
     expect(reducer(itemsWithOrphanTask, actions.moveItemWithoutParent('item5', 'item3'))).toEqual(itemsWithOrphanTask);
   });
+  it('handles REORDER_ITEM if the newIndex is the same as the oldIndex', () => {
+    expect(reducer(items, actions.reorderItem('item4', 2, 2))).toEqual(items);
+  });
+  it('handles REORDER_ITEM if the newIndex is different to the oldIndex', () => {
+    expect(reducer(items, actions.reorderItem('item4', 2, 0))).toEqual([
+      { _id: 'item1', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item2', isProject: false, isCompleted: true, tags: [] },
+      { _id: 'item3', isProject: false, isCompleted: false, tags: [] },
+      { _id: 'item4', isProject: true, children: ['item3', 'item1', 'item2'] },
+    ]);
+  });
 });
