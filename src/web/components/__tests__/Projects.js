@@ -1,6 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Projects, mapStateToProps } from '../Projects';
+import SortableElement from 'react-sortable-hoc/dist/es6/SortableElement';
+import SortableContainer from 'react-sortable-hoc/dist/es6/SortableContainer';
+
+jest.mock('react-sortable-hoc/dist/es6/SortableElement')
+.mock('react-sortable-hoc/dist/es6/SortableContainer');
+
+SortableElement.mockImplementation(component => component);
+SortableContainer.mockImplementation(component => component);
+
+const { Projects, mapStateToProps } = require('../Projects');
 
 const task = { name: 'Task', isProject: false, isCompleted: false, tags: ['@tag'] };
 const project = { name: 'Project', isProject: true };
