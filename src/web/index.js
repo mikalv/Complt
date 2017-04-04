@@ -7,7 +7,7 @@ import './index.scss';
 
 if (!process.env.REACT_APP_ELECTRON) offlinePlugin.install();
 
-if (!window.location.origin.includes('localhost')) {
+if (!window.location.origin.indexOf('localhost') !== -1) {
   /* eslint-disable */
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

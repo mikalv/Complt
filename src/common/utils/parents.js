@@ -1,5 +1,5 @@
 export function getSingleParent(id, items) {
-  return items.find(item => item.isProject === true && item.children.includes(id));
+  return items.find(item => item.isProject === true && item.children.indexOf(id) !== -1);
 }
 
 export function getParents(items) {
