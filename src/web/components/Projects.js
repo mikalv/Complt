@@ -22,7 +22,7 @@ export const Projects = props => (
       canDeleteTask
       canDeleteProject
       canMove
-      pressDelay={200}
+      pressDelay={300}
       onSortEnd={({ oldIndex, newIndex }) => props.reorderItem(props.projectId, oldIndex, newIndex)}
       ItemComponent={SortableItem}
       onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}

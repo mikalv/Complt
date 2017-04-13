@@ -68,7 +68,7 @@ exports[`Projects component renders correctly with some items 1`] = `
       onItemUpdate={[Function]}
       onLeftButtonClick={[Function]}
       onSortEnd={[Function]}
-      pressDelay={200}>
+      pressDelay={300}>
       <div
         className="Projects-item-list">
         <Component
