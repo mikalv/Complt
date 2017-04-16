@@ -8744,9 +8744,9 @@ react-router@^4.1.1:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
-react-sortable-hoc@^0.6.2:
+"react-sortable-hoc@https://github.com/clauderic/react-sortable-hoc":
   version "0.6.2"
-  resolved "https://registry.yarnpkg.com/react-sortable-hoc/-/react-sortable-hoc-0.6.2.tgz#9f0b5aea0a496de1ecb9e1da97d8d2dbbed0905c"
+  resolved "https://github.com/clauderic/react-sortable-hoc#3245c5eb44204ca3a7f30b17eea231f84805f029"
   dependencies:
     babel-runtime "^6.11.6"
     invariant "^2.2.1"

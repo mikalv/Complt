@@ -1,13 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import SortableElement from 'react-sortable-hoc/dist/es6/SortableElement';
-import SortableContainer from 'react-sortable-hoc/dist/es6/SortableContainer';
-
-jest.mock('react-sortable-hoc/dist/es6/SortableElement')
-.mock('react-sortable-hoc/dist/es6/SortableContainer');
-
-SortableElement.mockImplementation(component => component);
-SortableContainer.mockImplementation(component => component);
 
 const { Projects, mapStateToProps } = require('../Projects');
 
@@ -65,21 +57,27 @@ describe('Projects component', () => {
     component.childAt(0).childAt(2).find('.Item-center').simulate('click');
     expect(routerPush).toBeCalledWith('/project/item2');
   });
-  it('calls createProject when a project is created', () => {
+  it('calls createProject when a project is created', (done) => {
     const createProject = jest.fn();
     const component = mount(<Projects projectChildren={items} initialIsProject createProject={createProject} projectId="root" />);
     const input = component.find('input').first();
     input.simulate('change', { target: { value: 'Some Project @tag' } });
     component.find({ type: 'submit' }).simulate('submit');
-    expect(createProject).toBeCalledWith('root', { name: 'Some Project', isProject: true, children: [], isCompleted: false, tags: ['@tag'], dates: [] });
+    setTimeout(() => {
+      expect(createProject).toBeCalledWith('root', { name: 'Some Project', isProject: true, children: [], isCompleted: false, tags: ['@tag'], dates: [] });
+      done();
+    }, 100);
   });
-  it('calls createTask when a task is created', () => {
+  it('calls createTask when a task is created', (done) => {
     const createTask = jest.fn();
     const component = mount(<Projects projectChildren={items} createTask={createTask} projectId="root" />);
     const input = component.find('input').first();
     input.simulate('change', { target: { value: 'Some Task @tag' } });
     component.find({ type: 'submit' }).simulate('submit');
-    expect(createTask).toBeCalledWith('root', { name: 'Some Task', isProject: false, isCompleted: false, tags: ['@tag'], dates: [] });
+    setTimeout(() => {
+      expect(createTask).toBeCalledWith('root', { name: 'Some Task', isProject: false, isCompleted: false, tags: ['@tag'], dates: [] });
+      done();
+    }, 100);
   });
 });
 

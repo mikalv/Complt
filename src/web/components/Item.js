@@ -8,8 +8,6 @@ import MoreVert from 'react-icons/lib/md/more-vert';
 import Chip from 'react-md/lib/Chips/Chip';
 import Button from 'react-md/lib/Buttons/Button';
 import AccessibleFakeInkedButton from 'react-md/lib/Helpers/AccessibleFakeInkedButton';
-import dateCreate from 'sugar-date/date/create';
-import formatDate from 'sugar-date/date/format';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import history from '../../web/history';
 import PropTypes from '../../common/PropTypes';
@@ -38,6 +36,11 @@ const getParentProjectName = (item) => {
   }
 };
 
+const getFormattedDate = (rawDate) => {
+  const date = new Date(rawDate);
+  return date.toLocaleString();
+};
+
 const Item = ({
   item = {},
   onLeftButtonClick,
@@ -64,7 +67,7 @@ const Item = ({
       {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) || item.parent || item.children ? <div className="Item-chip-container">
         {!item.children ? undefined : <Chip className="Item-chip" label={item.children.length === 1 ? '1 Item' : `${item.children.length} Items`} />}
         {!item.parent ? undefined : <Link to={`/project/${item.parent._id}`} className="Item-chip-link"><Chip className="Item-chip" label={getParentProjectName(item.parent)} /></Link>}
-        {!item.dates || item.dates.length === 0 ? undefined : <Chip className="Item-chip" label={`Due ${formatDate(dateCreate(getNextDueDate(item.dates)), '%c')}`} />}
+        {!item.dates || item.dates.length === 0 ? undefined : <Chip className="Item-chip" label={`Due ${getFormattedDate(getNextDueDate(item.dates))}`} />}
         {!item.tags ? undefined :
           item.tags.map(
             tag => <Link to={`/tag/${tag}`} key={tag} className="Item-chip-link" onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip className="Item-chip" label={tag} /></Link>)}

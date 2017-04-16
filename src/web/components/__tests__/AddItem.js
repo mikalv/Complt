@@ -44,13 +44,16 @@ describe('AddItem component', () => {
     component.find('MdLabel').simulate('click');
     expect(TextField.props().value).toEqual('Task @');
   });
-  it('correctly calls onAddItem when the form is submitted', () => {
+  it('correctly calls onAddItem when the form is submitted', (done) => {
     const onAddItem = jest.fn();
     const component = mount(<AddItem onAddItem={onAddItem} canChangeType />);
     const input = component.find('input').first();
     input.simulate('change', { target: { value: 'Task @tag' } });
     component.find({ type: 'submit' }).simulate('submit');
-    expect(onAddItem).toBeCalledWith({ isProject: false, tags: ['@tag'], name: 'Task', isCompleted: false, dates: [] });
+    setTimeout(() => {
+      expect(onAddItem).toBeCalledWith({ isProject: false, tags: ['@tag'], name: 'Task', isCompleted: false, dates: [] });
+      done();
+    }, 100);
   });
   it('does\'t call AddItem if the item returned from processItem is falsy', () => {
     const onAddItem = jest.fn();

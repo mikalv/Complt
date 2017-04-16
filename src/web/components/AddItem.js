@@ -7,7 +7,6 @@ import Send from 'react-icons/lib/md/send';
 import Paper from 'react-md/lib/Papers/Paper';
 import Button from 'react-md/lib/Buttons/Button';
 import FormTextField from './FormTextField';
-import processItem from '../../common/utils/processItem';
 import './AddItem.css';
 
 const AddItem = props => (
@@ -16,14 +15,19 @@ const AddItem = props => (
       input: '',
       isProject: props.initialIsProject || false,
     }}
-    validate={({ input, isProject }) => !processItem(input, isProject)}
-    onSubmit={({ input, isProject }) => props.onAddItem(processItem(input, isProject))}
   >
     {({ values: { isProject, input }, setValue, submitForm }) => (
       <form
         onSubmit={(e) => {
           submitForm(e);
-          setValue('input', '');
+          import('../../common/utils/processItem').then(({ default: processItem }) => {
+            console.log(1);
+            const item = processItem(input, isProject);
+            if (item) {
+              props.onAddItem(item);
+              setValue('input', '');
+            }
+          });
         }}
       >
         <Paper zDepth={2} style={{ padding: 10, backgroundColor: '#fff' }} className="md-drawer-relative">

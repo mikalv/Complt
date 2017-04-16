@@ -86,6 +86,7 @@ var config = {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'react-addons-css-transition-group': 'preact-css-transition-group',
+      lodash: 'lodash-es',
     }
   },
 
@@ -129,9 +130,13 @@ var config = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, /react-sortable-hoc/],
         loader: 'babel-loader',
-
+        options: {
+          babelrc: false,
+          "presets": [["es2015", { "modules": false }], "stage-3", "react", "stage-0"],
+          "plugins": ["lodash", "syntax-dynamic-import"],
+        }
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
