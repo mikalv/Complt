@@ -92,9 +92,9 @@
     hoist-non-react-statics "^1.2.0"
     lodash "^4.15.0"
 
-"@shoutem/theme@git+https://github.com/GeekyAnts/theme.git#caching":
+"@shoutem/theme@https://github.com/GeekyAnts/theme#caching":
   version "0.8.8"
-  resolved "git+https://github.com/GeekyAnts/theme.git#23ce8703cbebe948cb507a12e462242fac9da497"
+  resolved "https://github.com/GeekyAnts/theme#23ce8703cbebe948cb507a12e462242fac9da497"
   dependencies:
     hoist-non-react-statics "^1.0.5"
     lodash "^4.10.1"
@@ -2855,13 +2855,13 @@ debug@2.2.0, debug@~2.2.0:
   dependencies:
     ms "0.7.1"
 
-debug@2.6.0, debug@^2.1.1:
+debug@2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
   dependencies:
     ms "0.7.2"
 
-debug@2.6.1, debug@^2.1.0, debug@^2.2.0, debug@^2.6.0, debug@^2.6.1:
+debug@2.6.1, debug@^2.1.0, debug@^2.1.1, debug@^2.2.0, debug@^2.6.0, debug@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
@@ -6309,7 +6309,7 @@ lodash@3.9.3:
   version "3.9.3"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.9.3.tgz#0159e86832feffc6d61d852b12a953b99496bd32"
 
-"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.1, lodash@^4.12.0, lodash@^4.14.0, lodash@^4.14.1, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@^4.8.0, lodash@~4.17.2:
+"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.1, lodash@^4.12.0, lodash@^4.14.0, lodash@^4.14.1, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@^4.8.0, lodash@~4.17.2:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -6317,7 +6317,7 @@ lodash@^3.3.1, lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.2.0, lodash@~4.11.1:
+lodash@~4.11.1:
   version "4.11.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.11.2.tgz#d6b4338b110a58e21dae5cebcfdbbfd2bc4cdb3b"
 
@@ -6519,13 +6519,13 @@ mime-db@~1.23.0:
   version "1.23.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.23.0.tgz#a31b4070adaea27d732ea333740a64d0ec9a6659"
 
-mime-types@2.1.11:
+mime-types@2.1.11, mime-types@~2.1.7:
   version "2.1.11"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.11.tgz#c259c471bda808a85d6cd193b430a5fae4473b3c"
   dependencies:
     mime-db "~1.23.0"
 
-mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.6, mime-types@~2.1.7, mime-types@~2.1.9:
+mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.6, mime-types@~2.1.9:
   version "2.1.15"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.15.tgz#a4ebf5064094569237b8cf70046776d09fc92aed"
   dependencies:
@@ -6928,13 +6928,9 @@ node-status-codes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-status-codes/-/node-status-codes-1.0.0.tgz#5ae5541d024645d32a58fcddc9ceecea7ae3ac2f"
 
-node-uuid@1.4.7:
+node-uuid@1.4.7, node-uuid@^1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.7.tgz#6da5a17668c4b3dd59623bda11cf7fa4c1f60a6f"
-
-node-uuid@^1.4.7:
-  version "1.4.8"
-  resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.8.tgz#b040eb0923968afabf8d32fb1f17f1167fdab907"
 
 noop-logger@^0.1.0:
   version "0.1.1"
@@ -8102,9 +8098,9 @@ preact-transition-group@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/preact-transition-group/-/preact-transition-group-1.1.0.tgz#97d0beff0790d721faecd2560c02cd30d5426f23"
 
-preact@^7.2.1:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-7.2.1.tgz#159e1892f614985e49eb0a96fd6e6d8bdf8bbcc5"
+preact@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-8.1.0.tgz#f035b808eebb74e46d56246b02ca0f190b6d6574"
 
 prebuild@^4.1.1:
   version "4.5.0"
@@ -8550,9 +8546,9 @@ react-native-keyboard-aware-scroll-view@0.2.7:
   dependencies:
     react-timer-mixin "^0.13.3"
 
-"react-native-maps@git+https://github.com/exponent/react-native-maps.git#v0.12.2-exp.1":
+"react-native-maps@git+https://github.com/exponent/react-native-maps#v0.12.2-exp.1":
   version "0.12.2"
-  resolved "git+https://github.com/exponent/react-native-maps.git#268871ed909b02267671fb40576f50963f09bd7c"
+  resolved "git+https://github.com/exponent/react-native-maps#268871ed909b02267671fb40576f50963f09bd7c"
 
 react-native-material-design-styles@^0.2.6:
   version "0.2.6"
@@ -8580,9 +8576,9 @@ react-native-scrollable-tab-view@^0.7.1:
     react-static-container "^1.0.1"
     react-timer-mixin "^0.13.3"
 
-"react-native-svg@git+https://github.com/exponent/react-native-svg.git#4.4.1":
+"react-native-svg@git+https://github.com/exponent/react-native-svg#4.4.1":
   version "4.4.1"
-  resolved "git+https://github.com/exponent/react-native-svg.git#e26bec094b87ada3fa2f2557210226d06f1aec5e"
+  resolved "git+https://github.com/exponent/react-native-svg#e26bec094b87ada3fa2f2557210226d06f1aec5e"
   dependencies:
     color "^0.11.1"
     lodash "^4.0.0"
@@ -8598,16 +8594,9 @@ react-native-vector-icons@3.0.0:
     lodash "^4.0.0"
     yargs "^6.3.0"
 
-react-native-vector-icons@4.0.0:
+react-native-vector-icons@4.0.0, react-native-vector-icons@~4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.0.0.tgz#6a2f8f4c6ace613aed7748cd530809283e5b1538"
-  dependencies:
-    lodash "^4.0.0"
-    yargs "^6.3.0"
-
-react-native-vector-icons@~4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.0.1.tgz#39c05d2e775deeb98d5afdbda5dcf67965ff674f"
   dependencies:
     lodash "^4.0.0"
     yargs "^6.3.0"
@@ -8861,7 +8850,7 @@ read@1.0.x:
   dependencies:
     mute-stream "~0.0.4"
 
-readable-stream@1.0, readable-stream@1.0.33, "readable-stream@>=1.0.33-1 <1.1.0-0", readable-stream@^1.0.33:
+readable-stream@1.0, readable-stream@1.0.33, "readable-stream@>=1.0.33-1 <1.1.0-0":
   version "1.0.33"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.33.tgz#3a360dd66c1b1d7fd4705389860eda1d0f61126c"
   dependencies:
@@ -8870,7 +8859,7 @@ readable-stream@1.0, readable-stream@1.0.33, "readable-stream@>=1.0.33-1 <1.1.0-
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@1.1.x, readable-stream@^1.1.8, readable-stream@~1.1.8, readable-stream@~1.1.9:
+readable-stream@1.1.x, readable-stream@^1.0.33, readable-stream@^1.1.8, readable-stream@~1.1.8, readable-stream@~1.1.9:
   version "1.1.14"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
   dependencies:
