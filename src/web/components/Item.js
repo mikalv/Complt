@@ -47,9 +47,12 @@ const Item = ({
   onItemTap,
   onItemUpdate,
   onItemMove,
-}) => (
-  <AccessibleFakeInkedButton
-    component={item.isProject ? Link : 'div'}
+  connectDragSource,
+  connectDropTarget,
+}) => {
+  const thing = (<AccessibleFakeInkedButton
+    draggable
+    component={'div'}
     onClick={stopPropagation(onItemTap)}
     to={item.isProject ? `project/${item._id}` : undefined}
     className="flex row Item"
@@ -79,6 +82,12 @@ const Item = ({
     </div>
 
   </AccessibleFakeInkedButton>);
+  if (connectDropTarget && connectDragSource) {
+    console.log('drag n drop thing');
+    return connectDropTarget(connectDragSource(<div>{thing}</div>));
+  }
+  return thing;
+};
 
 Item.propTypes = {
   item: PropTypes.item,

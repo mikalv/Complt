@@ -1,7 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import SortableElement from 'react-sortable-hoc/dist/es6/SortableElement';
-import SortableContainer from 'react-sortable-hoc/dist/es6/SortableContainer';
+import { connect as reduxConnect } from 'react-redux';
+// import SortableElement from 'react-sortable-hoc/dist/es6/SortableElement';
+// import SortableContainer from 'react-sortable-hoc/dist/es6/SortableContainer';
+import { findDOMNode } from 'react-dom';
+import { DragSource, DropTarget, DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
@@ -12,8 +15,73 @@ import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
 import Loading from './Loading';
 import './Projects.css';
 
-const SortableItem = SortableElement(Item);
-const SortableItemList = SortableContainer(ItemList);
+const cardSource = {
+  beginDrag(props) {
+    console.log('drag start');
+    console.log(2);
+    return {
+      id: props.item._id,
+      index: props.index,
+    };
+  },
+};
+
+const cardTarget = {
+  hover(props, monitor, component) {
+    console.log(1);
+    const dragIndex = monitor.getItem().index;
+    const hoverIndex = props.index;
+
+    // Don't replace items with themselves
+    if (dragIndex === hoverIndex) {
+      return;
+    }
+    console.log(props.ref);
+    debugger
+    // Determine rectangle on screen
+    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
+
+    // Get vertical middle
+    const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+
+    // Determine mouse position
+    const clientOffset = monitor.getClientOffset();
+
+    // Get pixels to the top
+    const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+
+    // Only perform the move when the mouse has crossed half of the items height
+    // When dragging downwards, only move when the cursor is below 50%
+    // When dragging upwards, only move when the cursor is above 50%
+
+    // Dragging downwards
+    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+      return;
+    }
+
+    // Dragging upwards
+    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+      return;
+    }
+
+    // Time to actually perform the action
+    props.moveCard(dragIndex, hoverIndex);
+
+    // Note: we're mutating the monitor item here!
+    // Generally it's better to avoid mutations,
+    // but it's good here for the sake of performance
+    // to avoid expensive index searches.
+    monitor.getItem().index = hoverIndex;
+  },
+};
+
+const SortableItem = DragSource('ITEM', cardSource, (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging(),
+}))(DropTarget('ITEM', cardTarget, connect2 => ({
+  connectDropTarget: connect2.dropTarget(),
+}))(Item));
+const SortableItemList = DragDropContext(HTML5Backend)(ItemList);
 
 export const Projects = props => (
   <div className="flex-child">
@@ -74,5 +142,5 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default areInitialItemsLoaded(
-  connect(mapStateToProps, mapDispatchToProps)(Projects),
+  reduxConnect(mapStateToProps, mapDispatchToProps)(Projects),
   Loading);
