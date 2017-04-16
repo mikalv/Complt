@@ -151,6 +151,7 @@
     "moduleNameMapper": {
       "(.*)PouchDB(.*)": "pouchdb-memory",
       "react-native": "react-native-mock",
+      "(.*)react-sortable-hoc(.*)": "<rootDir>/src/test/HOC.js",
       "react-router-dom/Link": "<rootDir>/src/test/LinkMock.js"
     },
     "setupFiles": [

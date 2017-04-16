@@ -3,7 +3,6 @@ import history from '../../web/history';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
-import processItem from '../utils/processItem';
 import renewAuth from '../../web/renewAuth';
 import getTokenInfo from '../utils/getTokenInfo';
 import loginWithGoogle from '../../web/loginWithGoogle';
@@ -168,15 +167,17 @@ export const hideUpdateItemDialog = () => ({
 });
 
 export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
-  const processedItem = processItem(updatedItemInput, item.isProject);
-  const newItem = {
-    ...item,
-    name: processedItem.name,
-    tags: processedItem.tags,
-    dates: processedItem.dates,
-  };
-  dispatch(updateItem(newItem));
-  dispatch(hideUpdateItemDialog());
+  import('../utils/processItem').then(({ default: processItem }) => {
+    const processedItem = processItem(updatedItemInput, item.isProject);
+    const newItem = {
+      ...item,
+      name: processedItem.name,
+      tags: processedItem.tags,
+      dates: processedItem.dates,
+    };
+    dispatch(updateItem(newItem));
+    dispatch(hideUpdateItemDialog());
+  });
 };
 
 export const showMoveItemDialog = (id, parentProject) => ({

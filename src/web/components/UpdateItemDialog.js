@@ -4,7 +4,6 @@ import DialogFooter from 'react-md/lib/Dialogs/DialogFooter';
 import Button from 'react-md/lib/Buttons/Button';
 import Form from 'react-form/lib/form';
 import { connect } from 'react-redux';
-import formatDate from 'sugar-date/date/format';
 import FormTextField from './FormTextField';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getNextDueDate from '../../common/utils/getNextDueDate';
@@ -65,7 +64,7 @@ export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
     const item = state.items.find(({ _id }) => _id === state.dialogs.updateItem.id);
     const tags = item.tags || [];
-    const date = item.dates && item.dates.length !== 0 ? ` !${formatDate(new Date(getNextDueDate(item.dates)))}!` : '';
+    const date = item.dates && item.dates.length !== 0 ? ` !${new Date(getNextDueDate(item.dates)).toString()}!` : '';
     const defaultInputValue = `${item.name} ${tags.join(' ')}${date}`.trim();
     return {
       visible: true,
