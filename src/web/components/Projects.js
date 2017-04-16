@@ -1,21 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import SortableElement from 'react-sortable-hoc/dist/es6/SortableElement';
+import SortableContainer from 'react-sortable-hoc/dist/es6/SortableContainer';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
+import Item from './Item';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import PropTypes from '../../common/PropTypes';
 import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
 import Loading from './Loading';
 import './Projects.css';
 
+const SortableItem = SortableElement(Item);
+const SortableItemList = SortableContainer(ItemList);
+
 export const Projects = props => (
   <div className="flex-child">
-    <ItemList
+    <SortableItemList
       onDelete={i => props.deleteItem(props.projectId, props.projectChildren[i]._id)}
       canDeleteTask
       canDeleteProject
       canMove
+      pressDelay={300}
+      onSortEnd={({ oldIndex, newIndex }) => props.reorderItem(props.projectId, oldIndex, newIndex)}
+      ItemComponent={SortableItem}
       onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
       onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
       onLeftButtonClick={i =>
@@ -53,6 +62,7 @@ Projects.propTypes = {
   completeItem: React.PropTypes.func,
   showMoveItemDialog: React.PropTypes.func,
   showUpdateItemDialog: React.PropTypes.func,
+  reorderItem: React.PropTypes.func,
 };
 
 export function mapStateToProps(state, ownProps) {

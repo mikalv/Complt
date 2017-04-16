@@ -29,7 +29,7 @@ export function mapStateToProps(state) {
   getFilteredItems(state.items, state.itemsToShow).forEach((item) => {
     if (!Array.isArray(item.tags)) return;
     item.tags.forEach((tag) => {
-      if (!tags.includes(tag)) tags.push(tag);
+      if (tags.indexOf(tag) === -1) tags.push(tag);
     });
   });
   return { tags };

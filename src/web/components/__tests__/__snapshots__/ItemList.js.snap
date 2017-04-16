@@ -13,6 +13,7 @@ exports[`ItemList component renders an item correctly 1`] = `
   <div>
     <Component
       canMove={true}
+      index={0}
       item={
         Object {
           "isCompleted": false,

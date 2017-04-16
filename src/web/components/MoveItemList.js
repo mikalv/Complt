@@ -4,7 +4,7 @@ import ListItem from 'react-md/lib/Lists/ListItem';
 import PropTypes from '../../common/PropTypes';
 
 export function renderListItem(item, onChooseItem, itemToMove, key) {
-  if (item === null || !item.isProject || item._id === itemToMove) return null;
+  if (item == null || !item.isProject || item._id === itemToMove) return null;
   return (
     <ListItem
       isOpen

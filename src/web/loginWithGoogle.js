@@ -1,4 +1,4 @@
-const login = callback => import('auth0-js/src/web-auth').then((WebAuth) => {
+const login = (callback, state) => import('auth0-js/src/web-auth').then((WebAuth) => {
   const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
   const redirectUri = `${window.location.origin}/login`;
   const auth0 = new WebAuth({
@@ -12,6 +12,7 @@ const login = callback => import('auth0-js/src/web-auth').then((WebAuth) => {
   if (!process.env.REACT_APP_ELECTRON) {
     auth0.authorize({
       connection: 'google-oauth2',
+      state: JSON.stringify(state),
     });
   } else {
     auth0.popup.authorize({

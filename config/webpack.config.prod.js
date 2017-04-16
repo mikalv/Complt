@@ -262,7 +262,7 @@ var config = {
         }
       }
     }),
-    new LodashModuleReplacementPlugin(),
+    new LodashModuleReplacementPlugin({ shorthands: true }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
       filename: cssFilename

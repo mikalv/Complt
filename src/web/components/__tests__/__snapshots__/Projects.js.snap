@@ -30,6 +30,7 @@ exports[`Projects component renders correctly with some items 1`] = `
   <div
     className="flex-child">
     <Component
+      ItemComponent={[Function]}
       canDeleteProject={true}
       canDeleteTask={true}
       canMove={true}
@@ -65,12 +66,15 @@ exports[`Projects component renders correctly with some items 1`] = `
       onItemMove={[Function]}
       onItemTap={[Function]}
       onItemUpdate={[Function]}
-      onLeftButtonClick={[Function]}>
+      onLeftButtonClick={[Function]}
+      onSortEnd={[Function]}
+      pressDelay={300}>
       <div
         className="Projects-item-list">
         <Component
           canDelete={true}
           canMove={true}
+          index={0}
           item={
             Object {
               "_id": "item1",
@@ -576,6 +580,7 @@ exports[`Projects component renders correctly with some items 1`] = `
         <Component
           canDelete={true}
           canMove={true}
+          index={1}
           item={
             Object {
               "_id": "item2",
@@ -1057,6 +1062,7 @@ exports[`Projects component renders correctly with some items 1`] = `
         <Component
           canDelete={true}
           canMove={true}
+          index={2}
           item={
             Object {
               "_id": "item3",
