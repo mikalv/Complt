@@ -1,4 +1,3 @@
-import { arrayMove } from 'react-sortable-hoc/dist/es6/utils';
 import {
   DELETE_ITEM_POUCH,
   INSERT_ITEM_POUCH,
@@ -13,6 +12,15 @@ import {
   REORDER_ITEM,
 } from './actionTypes';
 
+function arrayMove(arr, previousIndex, newIndex) {
+  const array = arr.slice(0);
+  let safeNewIndex = newIndex;
+  if (newIndex >= array.length) {
+    safeNewIndex = array.length - 1;
+  }
+  array.splice(safeNewIndex, 0, array.splice(previousIndex, 1)[0]);
+  return array;
+}
 export const initialState = [];
 
 function ensureRootAndInboxExists(state, action) {
