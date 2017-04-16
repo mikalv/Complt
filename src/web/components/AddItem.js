@@ -21,7 +21,6 @@ const AddItem = props => (
         onSubmit={(e) => {
           submitForm(e);
           import('../../common/utils/processItem').then(({ default: processItem }) => {
-            console.log(1);
             const item = processItem(input, isProject);
             if (item) {
               props.onAddItem(item);
