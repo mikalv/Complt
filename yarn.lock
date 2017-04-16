@@ -3229,11 +3229,7 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-ejs@^2.3.1:
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.5.tgz#6ef4e954ea7dcf54f66aad2fe7aa421932d9ed77"
-
-ejs@^2.3.4, ejs@^2.5.6:
+ejs@^2.3.1, ejs@^2.3.4, ejs@^2.5.6:
   version "2.5.6"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.6.tgz#479636bfa3fe3b1debd52087f0acb204b4f19c88"
 
@@ -8834,9 +8830,9 @@ react-router@^4.1.1:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
-react-sortable-hoc@^0.6.2:
+"react-sortable-hoc@https://github.com/clauderic/react-sortable-hoc":
   version "0.6.2"
-  resolved "https://registry.yarnpkg.com/react-sortable-hoc/-/react-sortable-hoc-0.6.2.tgz#9f0b5aea0a496de1ecb9e1da97d8d2dbbed0905c"
+  resolved "https://github.com/clauderic/react-sortable-hoc#3245c5eb44204ca3a7f30b17eea231f84805f029"
   dependencies:
     babel-runtime "^6.11.6"
     invariant "^2.2.1"

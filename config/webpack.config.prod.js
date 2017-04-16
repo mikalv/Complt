@@ -82,7 +82,8 @@ var config = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      lodash: 'lodash-es',
     }
   },
 
@@ -126,9 +127,13 @@ var config = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, /react-sortable-hoc/],
         loader: 'babel-loader',
-
+        options: {
+          babelrc: false,
+          "presets": [["es2015", { "modules": false }], "stage-3", "react", "stage-0"],
+          "plugins": ["lodash", "syntax-dynamic-import"],
+        }
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.

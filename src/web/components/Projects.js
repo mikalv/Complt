@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SortableElement from 'react-sortable-hoc/dist/es6/SortableElement';
-import SortableContainer from 'react-sortable-hoc/dist/es6/SortableContainer';
+import SortableElement from 'react-sortable-hoc/src/SortableElement';
+import SortableContainer from 'react-sortable-hoc/src/SortableContainer';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';

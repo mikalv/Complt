@@ -121,11 +121,12 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, /react-sortable-hoc/],
         loader: 'babel-loader',
         options: {
-          presets: ['es2015', 'react', 'stage-3'],
+          presets: ['es2015', 'react', 'stage-3', 'stage-0'],
           plugins: ['react-hot-loader/babel'],
+          babelrc: false,
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/
           // directory for faster rebuilds.
