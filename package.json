@@ -107,6 +107,7 @@
     "react-dom": "^15.5.4",
     "react-form": "^1.2.6",
     "react-icons": "^2.2.3",
+    "react-loadable": "^3.3.0",
     "react-md": "1.0.11",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-14.0.0.tar.gz",
     "react-native-material-ui": "^1.6.0",

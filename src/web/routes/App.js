@@ -9,14 +9,19 @@ import Button from 'react-md/lib/Buttons/Button';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import Toolbar from 'react-md/lib/Toolbars/Toolbar';
 import { connect } from 'react-redux';
+import Loadable from 'react-loadable';
 import AppRouter from '../AppRouter';
 import { navItems, navItemsWithActive } from '../navItems';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
-import UpdateItemDialog from '../components/UpdateItemDialog';
-import MoveItemDialog from '../components/MoveItemDialog';
 import PropTypes from '../../common/PropTypes';
 import './App.scss';
+
+const Dialogs = Loadable({
+  loader: () => import('../components/Dialogs'),
+  LoadingComponent: () => null,
+  webpackRequireWeakId: () => require.resolveWeak('../components/Dialogs'),
+});
 
 export const App = props => (
   <NavigationDrawer
@@ -47,8 +52,7 @@ export const App = props => (
   >
     <AppRouter />
     <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
-    <UpdateItemDialog />
-    <MoveItemDialog />
+    <Dialogs />
   </NavigationDrawer>
 );
 
