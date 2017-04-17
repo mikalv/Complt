@@ -147,8 +147,7 @@ exports[`App component renders correctly when the pathname does not match a rout
     transitionEnterTimeout={300}
     transitionLeaveTimeout={300}
     transitionName="md-snackbar" />
-  <Connect(Component) />
-  <Connect(Component) />
+  <Loadable />
 </NavigationDrawer>
 `;
 
@@ -302,7 +301,6 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
     transitionEnterTimeout={300}
     transitionLeaveTimeout={300}
     transitionName="md-snackbar" />
-  <Connect(Component) />
-  <Connect(Component) />
+  <Loadable />
 </NavigationDrawer>
 `;
