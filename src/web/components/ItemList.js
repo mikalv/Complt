@@ -6,7 +6,6 @@ import PropTypes from '../../common/PropTypes';
 const ItemList = ({
     items = [],
     onLeftButtonClick,
-    style,
     onDelete,
     canDeleteTask,
     canDeleteProject,
@@ -17,7 +16,7 @@ const ItemList = ({
     className,
     ItemComponent = Item,
 }) => (
-  <div style={style} className={className}>
+  <div className={className}>
     {items.map((item, i) => {
       if (!item) return null;
       return ([<ItemComponent
@@ -48,7 +47,6 @@ ItemList.propTypes = {
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,
   onItemMove: React.PropTypes.func,
-  style: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
   className: React.PropTypes.string,
   ItemComponent: React.PropTypes.func,
 };

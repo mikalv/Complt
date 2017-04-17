@@ -92,14 +92,14 @@ exports[`Projects component renders correctly with some items 1`] = `
           onItemUpdate={[Function]}
           onLeftButtonClick={[Function]}>
           <AccessibleFakeButtonInked
-            className="flex row Item"
+            className="flex row Item md-text"
             component="div"
             inkTransitionEnterTimeout={450}
             inkTransitionLeaveTimeout={300}
             inkTransitionOverlap={150}
             onClick={[Function]}>
             <AccessibleFakeButton
-              className="flex row Item"
+              className="flex row Item md-text"
               component="div"
               ink={
                 <InkContainer
@@ -118,7 +118,7 @@ exports[`Projects component renders correctly with some items 1`] = `
               tabIndex={0}>
               <div
                 aria-pressed={false}
-                className="md-fake-btn md-pointer--hover flex row Item"
+                className="md-fake-btn md-pointer--hover flex row Item md-text"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -594,7 +594,7 @@ exports[`Projects component renders correctly with some items 1`] = `
           onItemUpdate={[Function]}
           onLeftButtonClick={[Function]}>
           <AccessibleFakeButtonInked
-            className="flex row Item"
+            className="flex row Item md-text"
             component="a"
             inkTransitionEnterTimeout={450}
             inkTransitionLeaveTimeout={300}
@@ -602,7 +602,7 @@ exports[`Projects component renders correctly with some items 1`] = `
             onClick={[Function]}
             to="project/item2">
             <AccessibleFakeButton
-              className="flex row Item"
+              className="flex row Item md-text"
               component="a"
               ink={
                 <InkContainer
@@ -622,7 +622,7 @@ exports[`Projects component renders correctly with some items 1`] = `
               to="project/item2">
               <a
                 aria-pressed={false}
-                className="md-fake-btn md-pointer--hover flex row Item"
+                className="md-fake-btn md-pointer--hover flex row Item md-text"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -1080,14 +1080,14 @@ exports[`Projects component renders correctly with some items 1`] = `
           onItemUpdate={[Function]}
           onLeftButtonClick={[Function]}>
           <AccessibleFakeButtonInked
-            className="flex row Item"
+            className="flex row Item md-text"
             component="div"
             inkTransitionEnterTimeout={450}
             inkTransitionLeaveTimeout={300}
             inkTransitionOverlap={150}
             onClick={[Function]}>
             <AccessibleFakeButton
-              className="flex row Item"
+              className="flex row Item md-text"
               component="div"
               ink={
                 <InkContainer
@@ -1106,7 +1106,7 @@ exports[`Projects component renders correctly with some items 1`] = `
               tabIndex={0}>
               <div
                 aria-pressed={false}
-                className="md-fake-btn md-pointer--hover flex row Item"
+                className="md-fake-btn md-pointer--hover flex row Item md-text"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -1592,338 +1592,319 @@ exports[`Projects component renders correctly with some items 1`] = `
           <div
             className="ReactForm">
             <form
+              className="md-drawer-relative AddItem"
               onSubmit={[Function]}>
-              <Paper
-                className="md-drawer-relative"
-                component="div"
-                style={
-                  Object {
-                    "backgroundColor": "#fff",
-                    "padding": 10,
-                  }
-                }
-                zDepth={2}>
-                <div
-                  className="md-paper md-paper--2 md-drawer-relative"
-                  style={
-                    Object {
-                      "backgroundColor": "#fff",
-                      "padding": 10,
-                    }
-                  }>
-                  <div
-                    className="flex column">
-                    <Component
-                      field="input"
-                      id="add-item-input"
-                      placeholder="e.g. Finish Report @work">
-                      <FormInput
-                        field="input">
-                        <FormField
-                          field="input">
+              <div
+                className="flex column">
+                <Component
+                  field="input"
+                  id="add-item-input"
+                  placeholder="e.g. Finish Report @work">
+                  <FormInput
+                    field="input">
+                    <FormField
+                      field="input">
+                      <div
+                        className="FormInput">
+                        <TextField
+                          fullWidth={true}
+                          id="add-item-input"
+                          leftIconStateful={true}
+                          lineDirection="left"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          passwordIconChildren="remove_red_eye"
+                          placeholder="e.g. Finish Report @work"
+                          rightIconStateful={true}
+                          type="text"
+                          value="">
                           <div
-                            className="FormInput">
-                            <TextField
+                            className="md-text-field-container md-full-width md-text-field-container--input"
+                            onClick={[Function]}
+                            style={
+                              Object {
+                                "height": null,
+                              }
+                            }>
+                            <FloatingLabel
+                              active={false}
+                              error={false}
+                              floating={false}
+                              htmlFor="add-item-input"
+                              iconOffset={false} />
+                            <InputField
                               fullWidth={true}
                               id="add-item-input"
-                              leftIconStateful={true}
-                              lineDirection="left"
+                              inlineIndicator={false}
                               onBlur={[Function]}
                               onChange={[Function]}
-                              passwordIconChildren="remove_red_eye"
+                              onFocus={[Function]}
+                              onHeightChange={[Function]}
+                              onKeyDown={[Function]}
                               placeholder="e.g. Finish Report @work"
-                              rightIconStateful={true}
                               type="text"
                               value="">
-                              <div
-                                className="md-text-field-container md-full-width md-text-field-container--input"
-                                onClick={[Function]}
-                                style={
-                                  Object {
-                                    "height": null,
-                                  }
-                                }>
-                                <FloatingLabel
-                                  active={false}
-                                  error={false}
-                                  floating={false}
-                                  htmlFor="add-item-input"
-                                  iconOffset={false} />
-                                <InputField
-                                  fullWidth={true}
-                                  id="add-item-input"
-                                  inlineIndicator={false}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  onHeightChange={[Function]}
-                                  onKeyDown={[Function]}
-                                  placeholder="e.g. Finish Report @work"
-                                  type="text"
-                                  value="">
-                                  <input
-                                    className="md-text-field md-text md-full-width md-text-field--margin"
-                                    id="add-item-input"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                    onKeyDown={[Function]}
-                                    placeholder="e.g. Finish Report @work"
-                                    type="text"
-                                    value="" />
-                                </InputField>
-                                <TextFieldDivider
-                                  active={false}
-                                  error={false}
-                                  lineDirection="left">
-                                  <Divider
-                                    className="md-divider--text-field md-divider--expand-from-left">
-                                    <hr
-                                      className="md-divider md-divider--text-field md-divider--expand-from-left" />
-                                  </Divider>
-                                </TextFieldDivider>
-                                <TextFieldMessage
-                                  active={false}
-                                  currentLength={0}
-                                  error={false}
-                                  leftIcon={false}
-                                  rightIcon={false} />
-                              </div>
-                            </TextField>
-                            <FormError
-                              field="input">
-                              <FormField
-                                field="input">
-                                <div
-                                  className="FormError"
-                                  style={
-                                    Object {
-                                      "display": "none",
-                                    }
-                                  } />
-                              </FormField>
-                            </FormError>
-                          </div>
-                        </FormField>
-                      </FormInput>
-                    </Component>
-                    <div
-                      className="flex row space-between">
-                      <div>
-                        <ButtonTooltipedInked
-                          icon={true}
-                          id="add-tag"
-                          inkTransitionEnterTimeout={450}
-                          inkTransitionLeaveTimeout={300}
-                          inkTransitionOverlap={150}
-                          onClick={[Function]}>
-                          <ButtonTooltiped
-                            icon={true}
-                            id="add-tag"
-                            ink={
-                              <InkContainer
-                                className={undefined}
-                                disabledInteractions={undefined}
-                                inkClassName={undefined}
-                                inkStyle={undefined}
-                                style={undefined}
-                                transitionEnterTimeout={450}
-                                transitionLeaveTimeout={300}
-                                transitionOverlap={150}
-                                waitForInkTransition={undefined} />
-                            }
-                            onClick={[Function]}
-                            tooltipDelay={0}
-                            tooltipPosition="bottom"
-                            tooltipTransitionEnterTimeout={150}
-                            tooltipTransitionLeaveTimeout={150}>
-                            <Button
-                              fixedPosition="br"
-                              icon={true}
-                              iconBefore={true}
-                              id="add-tag"
-                              ink={
-                                <InkContainer
-                                  className={undefined}
-                                  disabledInteractions={undefined}
-                                  inkClassName={undefined}
-                                  inkStyle={undefined}
-                                  style={undefined}
-                                  transitionEnterTimeout={450}
-                                  transitionLeaveTimeout={300}
-                                  transitionOverlap={150}
-                                  waitForInkTransition={undefined} />
-                              }
-                              onClick={[Function]}
-                              type="button">
-                              <button
-                                className="md-inline-block md-btn md-btn--icon md-pointer--hover"
-                                id="add-tag"
-                                onClick={[Function]}
+                              <input
+                                className="md-text-field md-text md-full-width md-text-field--margin"
+                                id="add-item-input"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onFocus={[Function]}
                                 onKeyDown={[Function]}
-                                onKeyUp={[Function]}
-                                onMouseDown={[Function]}
-                                onMouseLeave={[Function]}
-                                onMouseOver={[Function]}
-                                onMouseUp={[Function]}
-                                onTouchEnd={[Function]}
-                                onTouchStart={[Function]}
-                                type="button">
-                                <InkContainer
-                                  transitionEnterTimeout={450}
-                                  transitionLeaveTimeout={300}
-                                  transitionOverlap={150}>
-                                  <ReactTransitionGroup
-                                    childFactory={[Function]}
-                                    className="md-ink-container"
-                                    component="div">
-                                    <div
-                                      className="md-ink-container" />
-                                  </ReactTransitionGroup>
-                                </InkContainer>
-                                <FontIcon
-                                  iconClassName="material-icons">
-                                  <i
-                                    className="md-icon material-icons">
-                                    <MdLabel>
-                                      <IconBase
-                                        viewBox="0 0 40 40">
-                                        <svg
-                                          fill="currentColor"
-                                          height="1em"
-                                          preserveAspectRatio="xMidYMid meet"
-                                          style={
-                                            Object {
-                                              "color": undefined,
-                                              "verticalAlign": "middle",
-                                            }
-                                          }
-                                          viewBox="0 0 40 40"
-                                          width="1em">
-                                          <g>
-                                            <path
-                                              d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z" />
-                                          </g>
-                                        </svg>
-                                      </IconBase>
-                                    </MdLabel>
-                                  </i>
-                                </FontIcon>
-                              </button>
-                            </Button>
-                          </ButtonTooltiped>
-                        </ButtonTooltipedInked>
+                                placeholder="e.g. Finish Report @work"
+                                type="text"
+                                value="" />
+                            </InputField>
+                            <TextFieldDivider
+                              active={false}
+                              error={false}
+                              lineDirection="left">
+                              <Divider
+                                className="md-divider--text-field md-divider--expand-from-left">
+                                <hr
+                                  className="md-divider md-divider--text-field md-divider--expand-from-left" />
+                              </Divider>
+                            </TextFieldDivider>
+                            <TextFieldMessage
+                              active={false}
+                              currentLength={0}
+                              error={false}
+                              leftIcon={false}
+                              rightIcon={false} />
+                          </div>
+                        </TextField>
+                        <FormError
+                          field="input">
+                          <FormField
+                            field="input">
+                            <div
+                              className="FormError"
+                              style={
+                                Object {
+                                  "display": "none",
+                                }
+                              } />
+                          </FormField>
+                        </FormError>
                       </div>
-                      <div>
-                        <ButtonTooltipedInked
+                    </FormField>
+                  </FormInput>
+                </Component>
+                <div
+                  className="flex row space-between">
+                  <div>
+                    <ButtonTooltipedInked
+                      icon={true}
+                      id="add-tag"
+                      inkTransitionEnterTimeout={450}
+                      inkTransitionLeaveTimeout={300}
+                      inkTransitionOverlap={150}
+                      onClick={[Function]}>
+                      <ButtonTooltiped
+                        icon={true}
+                        id="add-tag"
+                        ink={
+                          <InkContainer
+                            className={undefined}
+                            disabledInteractions={undefined}
+                            inkClassName={undefined}
+                            inkStyle={undefined}
+                            style={undefined}
+                            transitionEnterTimeout={450}
+                            transitionLeaveTimeout={300}
+                            transitionOverlap={150}
+                            waitForInkTransition={undefined} />
+                        }
+                        onClick={[Function]}
+                        tooltipDelay={0}
+                        tooltipPosition="bottom"
+                        tooltipTransitionEnterTimeout={150}
+                        tooltipTransitionLeaveTimeout={150}>
+                        <Button
+                          fixedPosition="br"
                           icon={true}
+                          iconBefore={true}
+                          id="add-tag"
+                          ink={
+                            <InkContainer
+                              className={undefined}
+                              disabledInteractions={undefined}
+                              inkClassName={undefined}
+                              inkStyle={undefined}
+                              style={undefined}
+                              transitionEnterTimeout={450}
+                              transitionLeaveTimeout={300}
+                              transitionOverlap={150}
+                              waitForInkTransition={undefined} />
+                          }
+                          onClick={[Function]}
+                          type="button">
+                          <button
+                            className="md-inline-block md-btn md-btn--icon md-pointer--hover"
+                            id="add-tag"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseOver={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchStart={[Function]}
+                            type="button">
+                            <InkContainer
+                              transitionEnterTimeout={450}
+                              transitionLeaveTimeout={300}
+                              transitionOverlap={150}>
+                              <ReactTransitionGroup
+                                childFactory={[Function]}
+                                className="md-ink-container"
+                                component="div">
+                                <div
+                                  className="md-ink-container" />
+                              </ReactTransitionGroup>
+                            </InkContainer>
+                            <FontIcon
+                              iconClassName="material-icons">
+                              <i
+                                className="md-icon material-icons">
+                                <MdLabel>
+                                  <IconBase
+                                    viewBox="0 0 40 40">
+                                    <svg
+                                      fill="currentColor"
+                                      height="1em"
+                                      preserveAspectRatio="xMidYMid meet"
+                                      style={
+                                        Object {
+                                          "color": undefined,
+                                          "verticalAlign": "middle",
+                                        }
+                                      }
+                                      viewBox="0 0 40 40"
+                                      width="1em">
+                                      <g>
+                                        <path
+                                          d="m29.4 9.8l7.2 10.2-7.2 10.2c-0.6 0.9-1.7 1.4-2.8 1.4h-18.2c-1.8 0-3.4-1.4-3.4-3.2v-16.8c0-1.8 1.6-3.2 3.4-3.2h18.2c1.1 0 2.1 0.5 2.8 1.4z" />
+                                      </g>
+                                    </svg>
+                                  </IconBase>
+                                </MdLabel>
+                              </i>
+                            </FontIcon>
+                          </button>
+                        </Button>
+                      </ButtonTooltiped>
+                    </ButtonTooltipedInked>
+                  </div>
+                  <div>
+                    <ButtonTooltipedInked
+                      icon={true}
+                      id="add-item-submit"
+                      inkTransitionEnterTimeout={450}
+                      inkTransitionLeaveTimeout={300}
+                      inkTransitionOverlap={150}
+                      primary={true}
+                      type="submit">
+                      <ButtonTooltiped
+                        icon={true}
+                        id="add-item-submit"
+                        ink={
+                          <InkContainer
+                            className={undefined}
+                            disabledInteractions={undefined}
+                            inkClassName={undefined}
+                            inkStyle={undefined}
+                            style={undefined}
+                            transitionEnterTimeout={450}
+                            transitionLeaveTimeout={300}
+                            transitionOverlap={150}
+                            waitForInkTransition={undefined} />
+                        }
+                        primary={true}
+                        tooltipDelay={0}
+                        tooltipPosition="bottom"
+                        tooltipTransitionEnterTimeout={150}
+                        tooltipTransitionLeaveTimeout={150}
+                        type="submit">
+                        <Button
+                          fixedPosition="br"
+                          icon={true}
+                          iconBefore={true}
                           id="add-item-submit"
-                          inkTransitionEnterTimeout={450}
-                          inkTransitionLeaveTimeout={300}
-                          inkTransitionOverlap={150}
+                          ink={
+                            <InkContainer
+                              className={undefined}
+                              disabledInteractions={undefined}
+                              inkClassName={undefined}
+                              inkStyle={undefined}
+                              style={undefined}
+                              transitionEnterTimeout={450}
+                              transitionLeaveTimeout={300}
+                              transitionOverlap={150}
+                              waitForInkTransition={undefined} />
+                          }
                           primary={true}
                           type="submit">
-                          <ButtonTooltiped
-                            icon={true}
+                          <button
+                            className="md-inline-block md-btn md-btn--icon md-text--theme-primary md-ink--primary md-pointer--hover"
                             id="add-item-submit"
-                            ink={
-                              <InkContainer
-                                className={undefined}
-                                disabledInteractions={undefined}
-                                inkClassName={undefined}
-                                inkStyle={undefined}
-                                style={undefined}
-                                transitionEnterTimeout={450}
-                                transitionLeaveTimeout={300}
-                                transitionOverlap={150}
-                                waitForInkTransition={undefined} />
-                            }
-                            primary={true}
-                            tooltipDelay={0}
-                            tooltipPosition="bottom"
-                            tooltipTransitionEnterTimeout={150}
-                            tooltipTransitionLeaveTimeout={150}
+                            onKeyDown={[Function]}
+                            onKeyUp={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseOver={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchStart={[Function]}
                             type="submit">
-                            <Button
-                              fixedPosition="br"
-                              icon={true}
-                              iconBefore={true}
-                              id="add-item-submit"
-                              ink={
-                                <InkContainer
-                                  className={undefined}
-                                  disabledInteractions={undefined}
-                                  inkClassName={undefined}
-                                  inkStyle={undefined}
-                                  style={undefined}
-                                  transitionEnterTimeout={450}
-                                  transitionLeaveTimeout={300}
-                                  transitionOverlap={150}
-                                  waitForInkTransition={undefined} />
-                              }
-                              primary={true}
-                              type="submit">
-                              <button
-                                className="md-inline-block md-btn md-btn--icon md-text--theme-primary md-ink--primary md-pointer--hover"
-                                id="add-item-submit"
-                                onKeyDown={[Function]}
-                                onKeyUp={[Function]}
-                                onMouseDown={[Function]}
-                                onMouseLeave={[Function]}
-                                onMouseOver={[Function]}
-                                onMouseUp={[Function]}
-                                onTouchEnd={[Function]}
-                                onTouchStart={[Function]}
-                                type="submit">
-                                <InkContainer
-                                  transitionEnterTimeout={450}
-                                  transitionLeaveTimeout={300}
-                                  transitionOverlap={150}>
-                                  <ReactTransitionGroup
-                                    childFactory={[Function]}
-                                    className="md-ink-container"
-                                    component="div">
-                                    <div
-                                      className="md-ink-container" />
-                                  </ReactTransitionGroup>
-                                </InkContainer>
-                                <FontIcon
-                                  iconClassName="material-icons">
-                                  <i
-                                    className="md-icon material-icons">
-                                    <MdSend>
-                                      <IconBase
-                                        viewBox="0 0 40 40">
-                                        <svg
-                                          fill="currentColor"
-                                          height="1em"
-                                          preserveAspectRatio="xMidYMid meet"
-                                          style={
-                                            Object {
-                                              "color": undefined,
-                                              "verticalAlign": "middle",
-                                            }
-                                          }
-                                          viewBox="0 0 40 40"
-                                          width="1em">
-                                          <g>
-                                            <path
-                                              d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z" />
-                                          </g>
-                                        </svg>
-                                      </IconBase>
-                                    </MdSend>
-                                  </i>
-                                </FontIcon>
-                              </button>
-                            </Button>
-                          </ButtonTooltiped>
-                        </ButtonTooltipedInked>
-                      </div>
-                    </div>
+                            <InkContainer
+                              transitionEnterTimeout={450}
+                              transitionLeaveTimeout={300}
+                              transitionOverlap={150}>
+                              <ReactTransitionGroup
+                                childFactory={[Function]}
+                                className="md-ink-container"
+                                component="div">
+                                <div
+                                  className="md-ink-container" />
+                              </ReactTransitionGroup>
+                            </InkContainer>
+                            <FontIcon
+                              iconClassName="material-icons">
+                              <i
+                                className="md-icon material-icons">
+                                <MdSend>
+                                  <IconBase
+                                    viewBox="0 0 40 40">
+                                    <svg
+                                      fill="currentColor"
+                                      height="1em"
+                                      preserveAspectRatio="xMidYMid meet"
+                                      style={
+                                        Object {
+                                          "color": undefined,
+                                          "verticalAlign": "middle",
+                                        }
+                                      }
+                                      viewBox="0 0 40 40"
+                                      width="1em">
+                                      <g>
+                                        <path
+                                          d="m3.4 35v-11.6l25-3.4-25-3.4v-11.6l35 15z" />
+                                      </g>
+                                    </svg>
+                                  </IconBase>
+                                </MdSend>
+                              </i>
+                            </FontIcon>
+                          </button>
+                        </Button>
+                      </ButtonTooltiped>
+                    </ButtonTooltipedInked>
                   </div>
                 </div>
-              </Paper>
+              </div>
             </form>
           </div>
         </Form>

@@ -55,7 +55,7 @@ const Item = ({
     component={item.isProject ? Link : 'div'}
     onClick={stopPropagation(onItemTap)}
     to={item.isProject ? `project/${item._id}` : undefined}
-    className="flex row Item"
+    className="flex row Item md-text"
   >
     <div className="Item-left">
       <Button icon onClick={stopPropagation(onLeftButtonClick)}>{item.isProject === true ?

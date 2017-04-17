@@ -10,15 +10,11 @@ exports[`App component renders correctly when the pathname does not match a rout
   desktopMinWidth={1025}
   drawerHeader={
     <Toolbar
+      className="md-background--secondary"
       colored={true}
       component="header"
       prominentTitle={true}
-      singleColor={true}
-      style={
-        Object {
-          "backgroundColor": "#ff4081",
-        }
-      } />
+      singleColor={true} />
   }
   drawerTransitionDuration={300}
   extractMini={true}
@@ -168,15 +164,11 @@ exports[`App component renders correctly when the pathname matches a route 1`] =
   desktopMinWidth={1025}
   drawerHeader={
     <Toolbar
+      className="md-background--secondary"
       colored={true}
       component="header"
       prominentTitle={true}
-      singleColor={true}
-      style={
-        Object {
-          "backgroundColor": "#ff4081",
-        }
-      } />
+      singleColor={true} />
   }
   drawerTransitionDuration={300}
   extractMini={true}

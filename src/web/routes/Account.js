@@ -5,13 +5,14 @@ import Button from 'react-md/lib/Buttons/Button';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import PropTypes from '../../common/PropTypes';
+import './Account.scss';
 
 export const Account = props => (
   <div className="flex-child flex center column text-center">
     <h1>{props.user.name}</h1>
     <p>{props.user.email}</p>
     <div>
-      <Avatar alt="User Profile Photo" src={props.user.picture} icon={<Person size={100} />} style={{ height: '150px', width: '150px' }} />
+      <Avatar alt="User Profile Photo" src={props.user.picture} icon={<Person size={100} />} className="Account-avatar" />
     </div>
     <div><Button
       label="Sign Out"
