@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom';
-import Raven from 'raven-js';
 import offlinePlugin from 'offline-plugin/runtime';
 import Root from './Root';
 import './index.css';
@@ -21,9 +20,11 @@ if (!window.location.origin.indexOf('localhost') !== -1) {
   window.ga = () => {};
 }
 
-Raven.config('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415').install();
-
 ReactDOM.render(
   Root,
   document.getElementById('root'),
 );
+
+import('raven-js').then((Raven) => {
+  Raven.config('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415').install();
+});
