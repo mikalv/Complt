@@ -14,6 +14,7 @@ const ItemList = ({
     onItemUpdate,
     onItemMove,
     className,
+    canSort,
     ItemComponent = Item,
 }) => (
   <div className={className}>
@@ -23,6 +24,7 @@ const ItemList = ({
         key={item._id}
         index={i}
         item={item}
+        canSort={canSort}
         canDelete={
           (canDeleteTask && item.isProject === false) ||
           (canDeleteProject && item.isProject === true)}
@@ -43,6 +45,7 @@ ItemList.propTypes = {
   canDeleteProject: React.PropTypes.bool,
   canDeleteTask: React.PropTypes.bool,
   canMove: React.PropTypes.bool,
+  canSort: React.PropTypes.bool,
   onDelete: React.PropTypes.func,
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,
