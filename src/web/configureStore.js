@@ -1,7 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
-import RavenMiddleware from 'redux-raven-middleware';
 import thunk from 'redux-thunk';
 import auth from '../common/redux/auth';
 import items from '../common/redux/items';
@@ -40,11 +39,7 @@ const analyticsMiddleware = () => next => (action) => {
   }
 };
 
-let middleware = applyMiddleware(thunk, pouchMiddleware, analyticsMiddleware);
-
-if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(RavenMiddleware('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415', { release: process.env.REACT_APP_GIT_REF }), thunk, pouchMiddleware, analyticsMiddleware);
-}
+const middleware = applyMiddleware(thunk, pouchMiddleware, analyticsMiddleware);
 
 let enhancer;
 
