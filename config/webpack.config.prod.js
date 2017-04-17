@@ -285,7 +285,8 @@ var config = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    Buffer: 'mock'
+    Buffer: 'mock',
+    process: false,
   }
 };
 
