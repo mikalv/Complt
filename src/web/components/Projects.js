@@ -22,7 +22,8 @@ export const Projects = props => (
       canDeleteTask
       canDeleteProject
       canMove
-      pressDelay={300}
+      canSort
+      useDragHandle
       onSortEnd={({ oldIndex, newIndex }) => props.reorderItem(props.projectId, oldIndex, newIndex)}
       ItemComponent={SortableItem}
       onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}

@@ -1,0 +1,13 @@
+@import '~react-md/src/scss/react-md';
+
+.AddItem-fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.AddItem {
+  padding: 10px;
+  background-color: $md-dark-theme-background-color;
+  @include md-box-shadow(5);
+}

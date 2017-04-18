@@ -5,14 +5,18 @@ import Done from 'react-icons/lib/md/done';
 import Delete from 'react-icons/lib/md/delete';
 import Create from 'react-icons/lib/md/create';
 import MoreVert from 'react-icons/lib/md/more-vert';
+import DragHandle from 'react-icons/lib/md/drag-handle';
 import Chip from 'react-md/lib/Chips/Chip';
 import Button from 'react-md/lib/Buttons/Button';
 import AccessibleFakeInkedButton from 'react-md/lib/Helpers/AccessibleFakeInkedButton';
+import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import history from '../../web/history';
 import PropTypes from '../../common/PropTypes';
 import colors from '../../common/colors';
 import './Item.css';
+
+const Handle = SortableHandle(() => <Button icon><DragHandle /></Button>);
 
 const stopPropagation = (callback) => {
   if (typeof callback === 'function') {
@@ -50,12 +54,13 @@ const Item = ({
   onItemTap,
   onItemUpdate,
   onItemMove,
+  canSort,
 }) => (
   <AccessibleFakeInkedButton
     component={item.isProject ? Link : 'div'}
     onClick={stopPropagation(onItemTap)}
     to={item.isProject ? `project/${item._id}` : undefined}
-    className="flex row Item"
+    className="flex row Item md-text"
   >
     <div className="Item-left">
       <Button icon onClick={stopPropagation(onLeftButtonClick)}>{item.isProject === true ?
@@ -74,6 +79,7 @@ const Item = ({
       </div> : undefined}
     </div>
     <div className="Item-right">
+      {canSort ? <Handle /> : undefined}
       <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
       {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button>
       : undefined}
@@ -88,6 +94,7 @@ Item.propTypes = {
   onLeftButtonClick: React.PropTypes.func,
   canDelete: React.PropTypes.bool,
   canMove: React.PropTypes.bool,
+  canSort: React.PropTypes.bool,
   onDelete: React.PropTypes.func,
   onItemTap: React.PropTypes.func,
   onItemUpdate: React.PropTypes.func,

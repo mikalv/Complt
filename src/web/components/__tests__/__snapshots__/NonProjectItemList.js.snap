@@ -87,14 +87,14 @@ exports[`NonProjectItemList component renders correctly 1`] = `
         onItemUpdate={[Function]}
         onLeftButtonClick={[Function]}>
         <AccessibleFakeButtonInked
-          className="flex row Item"
+          className="flex row Item md-text"
           component="div"
           inkTransitionEnterTimeout={450}
           inkTransitionLeaveTimeout={300}
           inkTransitionOverlap={150}
           onClick={[Function]}>
           <AccessibleFakeButton
-            className="flex row Item"
+            className="flex row Item md-text"
             component="div"
             ink={
               <InkContainer
@@ -113,7 +113,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
             tabIndex={0}>
             <div
               aria-pressed={false}
-              className="md-fake-btn md-pointer--hover flex row Item"
+              className="md-fake-btn md-pointer--hover flex row Item md-text"
               onBlur={[Function]}
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -589,7 +589,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
         onItemUpdate={[Function]}
         onLeftButtonClick={[Function]}>
         <AccessibleFakeButtonInked
-          className="flex row Item"
+          className="flex row Item md-text"
           component="a"
           inkTransitionEnterTimeout={450}
           inkTransitionLeaveTimeout={300}
@@ -597,7 +597,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
           onClick={[Function]}
           to="project/item2">
           <AccessibleFakeButton
-            className="flex row Item"
+            className="flex row Item md-text"
             component="a"
             ink={
               <InkContainer
@@ -617,7 +617,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
             to="project/item2">
             <a
               aria-pressed={false}
-              className="md-fake-btn md-pointer--hover flex row Item"
+              className="md-fake-btn md-pointer--hover flex row Item md-text"
               onBlur={[Function]}
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -1075,14 +1075,14 @@ exports[`NonProjectItemList component renders correctly 1`] = `
         onItemUpdate={[Function]}
         onLeftButtonClick={[Function]}>
         <AccessibleFakeButtonInked
-          className="flex row Item"
+          className="flex row Item md-text"
           component="div"
           inkTransitionEnterTimeout={450}
           inkTransitionLeaveTimeout={300}
           inkTransitionOverlap={150}
           onClick={[Function]}>
           <AccessibleFakeButton
-            className="flex row Item"
+            className="flex row Item md-text"
             component="div"
             ink={
               <InkContainer
@@ -1101,7 +1101,7 @@ exports[`NonProjectItemList component renders correctly 1`] = `
             tabIndex={0}>
             <div
               aria-pressed={false}
-              className="md-fake-btn md-pointer--hover flex row Item"
+              className="md-fake-btn md-pointer--hover flex row Item md-text"
               onBlur={[Function]}
               onClick={[Function]}
               onKeyDown={[Function]}

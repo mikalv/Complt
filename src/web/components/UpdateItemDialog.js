@@ -8,6 +8,7 @@ import FormTextField from './FormTextField';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import PropTypes from '../../common/PropTypes';
+import './UpdateItemDialog.scss';
 
 export const onSubmit = (item, handleUpdateItem) => ({ input }) => handleUpdateItem(input, item);
 
@@ -25,7 +26,7 @@ export const UpdateItemForm = props => (
           field="input"
         />
         <DialogFooter
-          style={{ paddingRight: 0 }}
+          className="UpdateItemDialog-footer"
           actions={[
             <Button flat label="Cancel" onClick={props.hideUpdateItemDialog} />,
             <Button flat label="Update" onClick={submitForm} />,
