@@ -62,4 +62,6 @@ AddItem.propTypes = {
   canChangeType: React.PropTypes.bool,
 };
 
+AddItem.displayName = 'AddItem';
+
 export default AddItem;
