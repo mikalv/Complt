@@ -130,6 +130,18 @@ var config = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
+        include: /(preact-material-components|@material)/,
+        loader: 'babel-loader',
+        options: {
+          presets: [['es2015', {"modules": false}]],
+					plugins:[
+						["transform-react-jsx", { "pragma": "h" }],
+						"transform-object-rest-spread"
+					]
+        }
+      },
+      {
+        test: /\.(js|jsx)$/,
         include: [paths.appSrc, /react-sortable-hoc/],
         loader: 'babel-loader',
         options: {
@@ -177,7 +189,7 @@ var config = {
                   ]
                 }
               }
-            }, { loader: "sass-loader", options: { sourceMap: true } }
+            }, { loader: "sass-loader", options: { sourceMap: true, includePaths: [paths.appNodeModules] } }
           ]
         }, extractTextPluginOptions))
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.

@@ -4,6 +4,9 @@ $md-light-theme: false;
 $md-primary-color: #59C9A5;
 $md-secondary-color: $md-pink-a-200;
 
+$mdc-theme-primary: #59C9A5;
+$mdc-theme-accent: #FF4081;
+
 html {
   background-color: $md-dark-theme-background-color;
 }
@@ -33,3 +36,32 @@ html {
 @include react-md-overlays;
 @include react-md-dividers;
 @include react-md-menus;
+
+.mdc-theme--dark, main {
+	background-color: #333;
+	color: #fff;
+}
+
+@import "@material/animation/mdc-animation";
+@import "@material/button/mdc-button";
+@import "@material/card/mdc-card";
+@import "@material/checkbox/mdc-checkbox";
+@import "@material/dialog/mdc-dialog";
+@import "@material/drawer/mdc-drawer";
+@import "@material/elevation/mdc-elevation";
+@import "@material/fab/mdc-fab";
+@import "@material/form-field/mdc-form-field";
+@import "@material/grid-list/mdc-grid-list";
+@import "@material/icon-toggle/mdc-icon-toggle";
+@import "@material/layout-grid/mdc-layout-grid";
+@import "@material/list/mdc-list";
+@import "@material/menu/mdc-menu";
+@import "@material/radio/mdc-radio";
+@import "@material/ripple/mdc-ripple";
+@import "@material/select/mdc-select";
+@import "@material/snackbar/mdc-snackbar";
+@import "@material/switch/mdc-switch";
+@import "@material/textfield/mdc-textfield";
+@import "@material/theme/mdc-theme";
+@import "@material/toolbar/mdc-toolbar";
+@import "@material/typography/mdc-typography";

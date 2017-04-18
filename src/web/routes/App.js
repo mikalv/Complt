@@ -37,7 +37,7 @@ export const App = props => (
     mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
     tabletDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
     desktopDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
-    contentClassName="flex"
+    contentClassName="flex mdc-theme--dark"
     toolbarTitleMenu={
       <SelectField
         id="items-to-show-selection"
