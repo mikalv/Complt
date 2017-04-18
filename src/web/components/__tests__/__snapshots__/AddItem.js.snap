@@ -1,5 +1,5 @@
 exports[`AddItem component renders correctly when canChangeType is true and initialIsProject is false 1`] = `
-<Component
+<AddItem
   canChangeType={true}
   onAddItem={[Function]}>
   <Form
@@ -30,7 +30,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
           <Component
             field="input"
             id="add-item-input"
-            placeholder="e.g. Finish Report @work">
+            placeholder="e.g. Finish Report @work !tomorrow at 8am!">
             <FormInput
               field="input">
               <FormField
@@ -45,7 +45,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                     onBlur={[Function]}
                     onChange={[Function]}
                     passwordIconChildren="remove_red_eye"
-                    placeholder="e.g. Finish Report @work"
+                    placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                     rightIconStateful={true}
                     type="text"
                     value="">
@@ -72,7 +72,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                         onFocus={[Function]}
                         onHeightChange={[Function]}
                         onKeyDown={[Function]}
-                        placeholder="e.g. Finish Report @work"
+                        placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                         type="text"
                         value="">
                         <input
@@ -82,7 +82,7 @@ exports[`AddItem component renders correctly when canChangeType is true and init
                           onChange={[Function]}
                           onFocus={[Function]}
                           onKeyDown={[Function]}
-                          placeholder="e.g. Finish Report @work"
+                          placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                           type="text"
                           value="" />
                       </InputField>
@@ -438,11 +438,11 @@ exports[`AddItem component renders correctly when canChangeType is true and init
       </form>
     </div>
   </Form>
-</Component>
+</AddItem>
 `;
 
 exports[`AddItem component renders correctly when canChangeType is true and initialIsProject is true 1`] = `
-<Component
+<AddItem
   canChangeType={true}
   initialIsProject={true}
   onAddItem={[Function]}>
@@ -882,11 +882,11 @@ exports[`AddItem component renders correctly when canChangeType is true and init
       </form>
     </div>
   </Form>
-</Component>
+</AddItem>
 `;
 
 exports[`AddItem component renders correctly when initialIsProject is false 1`] = `
-<Component
+<AddItem
   onAddItem={[Function]}>
   <Form
     component="div"
@@ -916,7 +916,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
           <Component
             field="input"
             id="add-item-input"
-            placeholder="e.g. Finish Report @work">
+            placeholder="e.g. Finish Report @work !tomorrow at 8am!">
             <FormInput
               field="input">
               <FormField
@@ -931,7 +931,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                     onBlur={[Function]}
                     onChange={[Function]}
                     passwordIconChildren="remove_red_eye"
-                    placeholder="e.g. Finish Report @work"
+                    placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                     rightIconStateful={true}
                     type="text"
                     value="">
@@ -958,7 +958,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                         onFocus={[Function]}
                         onHeightChange={[Function]}
                         onKeyDown={[Function]}
-                        placeholder="e.g. Finish Report @work"
+                        placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                         type="text"
                         value="">
                         <input
@@ -968,7 +968,7 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
                           onChange={[Function]}
                           onFocus={[Function]}
                           onKeyDown={[Function]}
-                          placeholder="e.g. Finish Report @work"
+                          placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                           type="text"
                           value="" />
                       </InputField>
@@ -1225,11 +1225,11 @@ exports[`AddItem component renders correctly when initialIsProject is false 1`] 
       </form>
     </div>
   </Form>
-</Component>
+</AddItem>
 `;
 
 exports[`AddItem component renders correctly when initialIsProject is true 1`] = `
-<Component
+<AddItem
   initialIsProject={true}
   onAddItem={[Function]}>
   <Form
@@ -1569,5 +1569,5 @@ exports[`AddItem component renders correctly when initialIsProject is true 1`] =
       </form>
     </div>
   </Form>
-</Component>
+</AddItem>
 `;

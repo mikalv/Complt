@@ -1864,7 +1864,7 @@ exports[`Projects component renders correctly with some items 1`] = `
     </Component>
     <div
       className="AddItem-fixed">
-      <Component
+      <AddItem
         onAddItem={[Function]}>
         <Form
           component="div"
@@ -1894,7 +1894,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                 <Component
                   field="input"
                   id="add-item-input"
-                  placeholder="e.g. Finish Report @work">
+                  placeholder="e.g. Finish Report @work !tomorrow at 8am!">
                   <FormInput
                     field="input">
                     <FormField
@@ -1909,7 +1909,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                           onBlur={[Function]}
                           onChange={[Function]}
                           passwordIconChildren="remove_red_eye"
-                          placeholder="e.g. Finish Report @work"
+                          placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                           rightIconStateful={true}
                           type="text"
                           value="">
@@ -1936,7 +1936,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                               onFocus={[Function]}
                               onHeightChange={[Function]}
                               onKeyDown={[Function]}
-                              placeholder="e.g. Finish Report @work"
+                              placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                               type="text"
                               value="">
                               <input
@@ -1946,7 +1946,7 @@ exports[`Projects component renders correctly with some items 1`] = `
                                 onChange={[Function]}
                                 onFocus={[Function]}
                                 onKeyDown={[Function]}
-                                placeholder="e.g. Finish Report @work"
+                                placeholder="e.g. Finish Report @work !tomorrow at 8am!"
                                 type="text"
                                 value="" />
                             </InputField>
@@ -2203,7 +2203,7 @@ exports[`Projects component renders correctly with some items 1`] = `
             </form>
           </div>
         </Form>
-      </Component>
+      </AddItem>
     </div>
   </div>
 </Component>

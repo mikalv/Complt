@@ -22,7 +22,7 @@ export const UpdateItemForm = props => (
     {({ submitForm }) => (
       <form onSubmit={submitForm}>
         <FormTextField
-          placeholder={props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work'}
+          placeholder={props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work !tomorrow at 8am!'}
           field="input"
         />
         <DialogFooter
