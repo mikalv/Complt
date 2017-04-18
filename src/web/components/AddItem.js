@@ -32,7 +32,7 @@ const AddItem = props => (
         <div className="flex column">
           <FormTextField
             id="add-item-input"
-            placeholder={isProject ? 'e.g. Report' : 'e.g. Finish Report @work'}
+            placeholder={isProject ? 'e.g. Report' : 'e.g. Finish Report @work !tomorrow at 8am!'}
             field="input"
           />
           <div className="flex row space-between">
