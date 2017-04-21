@@ -11,3 +11,6 @@
   background-color: $md-dark-theme-background-color;
   @include md-box-shadow(5);
 }
+.AddItem-input {
+  width: 100%;
+}
