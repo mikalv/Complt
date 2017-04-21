@@ -4,7 +4,6 @@ import Sync from 'react-icons/lib/md/sync';
 import ArrowDropDown from 'react-icons/lib/md/arrow-drop-down';
 import NavigationDrawer from 'react-md/lib/NavigationDrawers';
 import SelectField from 'react-md/lib/SelectFields/SelectField';
-import Snackbar from 'react-md/lib/Snackbars';
 import Button from 'react-md/lib/Buttons/Button';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import Toolbar from 'react-md/lib/Toolbars/Toolbar';
@@ -50,7 +49,6 @@ export const App = props => (
     ]}
   >
     <AppRouter />
-    <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
     <Dialogs />
   </NavigationDrawer>
 );
