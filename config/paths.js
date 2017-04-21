@@ -66,7 +66,7 @@ module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp(process.env.REACT_APP_ELECTRON ? 'electron' : 'public'),
   appHtml: resolveApp(process.env.REACT_APP_ELECTRON ? 'electron/index.html' : 'public/index.html'),
-  appIndexJs: resolveApp('src/web/index.js'),
+  appIndexJs: resolveApp(process.env.NODE_ENV === 'development' ? 'src/web/index-dev.js' : 'src/web/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
