@@ -14,7 +14,6 @@ import AppRouter from '../AppRouter';
 import { navItems, navItemsWithActive } from '../navItems';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
-import PropTypes from '../../common/PropTypes';
 import './App.scss';
 
 const Dialogs = Loadable({
@@ -55,30 +54,6 @@ export const App = props => (
     <Dialogs />
   </NavigationDrawer>
 );
-
-App.propTypes = {
-  location: React.PropTypes.shape({
-    pathname: React.PropTypes.string.isRequired,
-  }),
-  dismissToast: React.PropTypes.func,
-  attemptSync: React.PropTypes.func,
-  itemsToShow: React.PropTypes.string,
-  changeItemsToShow: React.PropTypes.func,
-  syncState: React.PropTypes.shape({
-    syncing: React.PropTypes.bool.isRequired,
-  }),
-  toasts: React.PropTypes.arrayOf(React.PropTypes.shape({
-    text: React.PropTypes.string.isRequired,
-    action: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.shape({
-        onClick: React.PropTypes.func,
-        label: React.PropTypes.string.isRequired,
-      }),
-    ]),
-  })).isRequired,
-  profile: PropTypes.profile,
-};
 
 function mapStateToProps({ toasts, itemsToShow, syncState, profile }) {
   return { toasts, itemsToShow, syncState, profile };

@@ -1,6 +1,5 @@
 import React from 'react';
 import ItemList from './ItemList';
-import PropTypes from '../../common/PropTypes';
 
 const NonProjectItemList = props => (<ItemList
   className="flex-child"
@@ -31,17 +30,5 @@ const NonProjectItemList = props => (<ItemList
     }
   }}
 />);
-
-NonProjectItemList.propTypes = {
-  items: React.PropTypes.arrayOf(PropTypes.item),
-  history: React.PropTypes.shape({
-    push: React.PropTypes.func,
-  }),
-  completeItem: React.PropTypes.func,
-  showUpdateItemDialog: React.PropTypes.func,
-  showMoveItemDialog: React.PropTypes.func,
-  deleteItem: React.PropTypes.func,
-  deleteItemWithoutParent: React.PropTypes.func,
-};
 
 export default NonProjectItemList;

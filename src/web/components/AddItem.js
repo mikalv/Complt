@@ -56,10 +56,4 @@ const AddItem = props => (
   </Form>
 );
 
-AddItem.propTypes = {
-  onAddItem: React.PropTypes.func.isRequired, // eslint-disable-line react/no-unused-prop-types
-  initialIsProject: React.PropTypes.bool,
-  canChangeType: React.PropTypes.bool,
-};
-
 export default AddItem;

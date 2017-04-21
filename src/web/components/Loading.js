@@ -8,8 +8,4 @@ const Loading = ({ scale }) => (
   </div>
 );
 
-Loading.propTypes = {
-  scale: React.PropTypes.number,
-};
-
 export default Loading;

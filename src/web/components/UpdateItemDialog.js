@@ -7,8 +7,6 @@ import { connect } from 'react-redux';
 import FormTextField from './FormTextField';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getNextDueDate from '../../common/utils/getNextDueDate';
-import PropTypes from '../../common/PropTypes';
-import './UpdateItemDialog.scss';
 
 export const onSubmit = (item, handleUpdateItem) => ({ input }) => handleUpdateItem(input, item);
 
@@ -37,13 +35,6 @@ export const UpdateItemForm = props => (
   </Form>
 );
 
-UpdateItemForm.propTypes = {
-  item: PropTypes.item,
-  defaultInputValue: React.PropTypes.string,
-  handleUpdateItem: React.PropTypes.func,
-  hideUpdateItemDialog: React.PropTypes.func,
-};
-
 export const UpdateItemDialog = props => (
   <Dialog
     id="Update Item Dialog"
@@ -55,11 +46,6 @@ export const UpdateItemDialog = props => (
     <UpdateItemForm {...props} />
   </Dialog>
 );
-
-UpdateItemDialog.propTypes = {
-  visible: React.PropTypes.bool,
-  hideUpdateItemDialog: React.PropTypes.func,
-};
 
 export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {

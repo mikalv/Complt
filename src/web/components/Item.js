@@ -10,7 +10,6 @@ import Chip from 'react-md/lib/Chips/Chip';
 import Button from 'react-md/lib/Buttons/Button';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
 import getNextDueDate from '../../common/utils/getNextDueDate';
-import PropTypes from '../../common/PropTypes';
 import colors from '../../common/colors';
 import './Item.css';
 
@@ -83,17 +82,5 @@ const Item = ({
     </div>
   </div>
 );
-
-Item.propTypes = {
-  item: PropTypes.item,
-  onLeftButtonClick: React.PropTypes.func,
-  canDelete: React.PropTypes.bool,
-  canMove: React.PropTypes.bool,
-  canSort: React.PropTypes.bool,
-  onDelete: React.PropTypes.func,
-  onItemTap: React.PropTypes.func,
-  onItemUpdate: React.PropTypes.func,
-  onItemMove: React.PropTypes.func,
-};
 
 export default Item;

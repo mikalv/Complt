@@ -17,10 +17,6 @@ export const Tags = props => (
   </List>
 );
 
-Tags.propTypes = {
-  tags: React.PropTypes.arrayOf(React.PropTypes.string),
-};
-
 export function mapStateToProps(state) {
   const tags = [];
   getFilteredItems(state.items, state.itemsToShow).forEach((item) => {

@@ -15,6 +15,4 @@ const FormTextField = ({ field, ...rest }) => (
 );
 
 
-FormTextField.propTypes = { field: React.PropTypes.string };
-
 export default FormTextField;

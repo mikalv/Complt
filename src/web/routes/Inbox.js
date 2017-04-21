@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx h */
+import { h } from 'preact';
 import Projects from '../components/Projects';
 
 const Inbox = () => <Projects projectId="inbox" />;

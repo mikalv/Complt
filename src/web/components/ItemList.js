@@ -1,7 +1,6 @@
 import React from 'react';
 import Divider from 'react-md/lib/Dividers/Divider';
 import Item from './Item';
-import PropTypes from '../../common/PropTypes';
 
 const ItemList = ({
     items = [],
@@ -38,20 +37,5 @@ const ItemList = ({
     })}
   </div>
 );
-
-ItemList.propTypes = {
-  items: React.PropTypes.arrayOf(PropTypes.item),
-  onLeftButtonClick: React.PropTypes.func,
-  canDeleteProject: React.PropTypes.bool,
-  canDeleteTask: React.PropTypes.bool,
-  canMove: React.PropTypes.bool,
-  canSort: React.PropTypes.bool,
-  onDelete: React.PropTypes.func,
-  onItemTap: React.PropTypes.func,
-  onItemUpdate: React.PropTypes.func,
-  onItemMove: React.PropTypes.func,
-  className: React.PropTypes.string,
-  ItemComponent: React.PropTypes.func,
-};
 
 export default ItemList;

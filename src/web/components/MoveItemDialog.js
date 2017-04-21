@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import itemsToTree from '../../common/utils/itemsToTree';
 import MoveItemList from './MoveItemList';
-import PropTypes from '../../common/PropTypes';
 
 export const moveItem = (handleMoveItem, id, parentProject) => newParent =>
 handleMoveItem(id, parentProject, newParent);
@@ -27,17 +26,6 @@ export const MoveItemDialog = props => (
     />
   </Dialog>
 );
-
-MoveItemDialog.propTypes = {
-  itemTree: PropTypes.item,
-  hideMoveItemDialog: React.PropTypes.func,
-  handleMoveItem: React.PropTypes.func,
-  dialog: React.PropTypes.shape({
-    visible: React.PropTypes.bool,
-    id: React.PropTypes.string,
-    parentProject: React.PropTypes.string,
-  }),
-};
 
 export function mapStateToProps(state) {
   const itemTree = itemsToTree(state.items, 'root');

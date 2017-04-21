@@ -9,15 +9,5 @@ const Project = props => (
     routerPush={props.history.push}
   />
 );
-Project.propTypes = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      projectId: React.PropTypes.string,
-    }),
-  }),
-  history: React.PropTypes.shape({
-    push: React.PropTypes.func,
-  }),
-};
 
 export default Project;

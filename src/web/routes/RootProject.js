@@ -9,10 +9,5 @@ const RootProject = props => (
     routerPush={props.history.push}
   />
 );
-RootProject.propTypes = {
-  history: React.PropTypes.shape({
-    push: React.PropTypes.func,
-  }),
-};
 
 export default RootProject;

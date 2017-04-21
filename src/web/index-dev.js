@@ -1,30 +1,21 @@
 /* eslint-disable global-require */
-import { AppContainer } from 'react-hot-loader';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Root from './Root';
+import { render } from 'preact';
+import 'preact/devtools';
 import './index.css';
 import './index.scss';
 
 window.ga = () => {};
 
-const rootEl = document.getElementById('root');
-ReactDOM.render(
-  <AppContainer>
-    {Root}
-  </AppContainer>,
-  rootEl,
-);
+let Root;
+let elem;
+
+function init() {
+  Root = require('./Root').default;
+  elem = render(Root, document.getElementById('root'), elem);
+}
+
+init();
 
 if (module.hot) {
-  module.hot.accept('./Root', () => {
-    const NextApp = require('./Root').default;
-
-    ReactDOM.render(
-      <AppContainer>
-        {NextApp}
-      </AppContainer>,
-      rootEl,
-    );
-  });
+  module.hot.accept('./Root', init);
 }
