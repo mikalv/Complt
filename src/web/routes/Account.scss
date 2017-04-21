@@ -1,4 +1,15 @@
 .Account-avatar {
-  height: 150px !important;
-  width: 150px !important;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #616161;
+}
+.Account-avatar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Account-avatar-container {
+  display: flex;
+  justify-content: center;
 }
