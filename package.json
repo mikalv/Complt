@@ -83,6 +83,7 @@
   "dependencies": {
     "@exponent/vector-icons": "~4.0.0",
     "auth0-js": "^8.3.0",
+    "classnames": "^2.2.5",
     "electron": "^1.4.15",
     "exponent": "^14.0.0",
     "history": "^4.6.1",
