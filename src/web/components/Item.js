@@ -7,13 +7,13 @@ import Create from 'react-icons/lib/md/create';
 import MoreVert from 'react-icons/lib/md/more-vert';
 import DragHandle from 'react-icons/lib/md/drag-handle';
 import Chip from 'react-md/lib/Chips/Chip';
-import Button from 'react-md/lib/Buttons/Button';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
+import IconButton from './IconButton';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import colors from '../../common/colors';
 import './Item.css';
 
-const Handle = SortableHandle(() => <Button icon><DragHandle /></Button>);
+const Handle = SortableHandle(() => <IconButton className="IconButton-margin"><DragHandle /></IconButton>);
 
 const stopPropagation = (callback) => {
   if (typeof callback === 'function') {
@@ -57,9 +57,9 @@ const Item = ({
     className="flex row Item md-text"
   >
     <div className="Item-left">
-      <Button icon onClick={stopPropagation(onLeftButtonClick)}>{item.isProject === true ?
+      <IconButton className="IconButton-margin" onClick={stopPropagation(onLeftButtonClick)}>{item.isProject === true ?
         <Assignment color={item.isCompleted ? colors.completedItem : 'rgba(255, 255, 255, 0.7)'} /> :
-        <Done color={item.isCompleted ? colors.completedItem : 'rgba(255, 255, 255, 0.7)'} />}</Button>
+        <Done color={item.isCompleted ? colors.completedItem : 'rgba(255, 255, 255, 0.7)'} />}</IconButton>
     </div>
     <div className="Item-center">
       <span className="Item-name">{item.name}</span>
@@ -74,11 +74,11 @@ const Item = ({
     </div>
     <div className="Item-right">
       {canSort ? <Handle /> : undefined}
-      <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
-      {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button>
+      <IconButton className="IconButton-margin" onClick={stopPropagation(onItemUpdate)}><Create /></IconButton>
+      {canMove ? <IconButton className="IconButton-margin" onClick={stopPropagation(onItemMove)}><MoreVert /></IconButton>
       : undefined}
       {canDelete ?
-        <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
+        <IconButton className="IconButton-margin" onClick={stopPropagation(onDelete)}><Delete /></IconButton> : undefined}
     </div>
   </div>
 );

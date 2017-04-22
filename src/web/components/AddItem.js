@@ -4,7 +4,7 @@ import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Label from 'react-icons/lib/md/label';
 import Send from 'react-icons/lib/md/send';
-import Button from 'react-md/lib/Buttons/Button';
+import IconButton from './IconButton';
 import FormTextField from './FormTextField';
 import './AddItem.scss';
 
@@ -38,17 +38,17 @@ const AddItem = props => (
           />
           <div className="flex row space-between">
             <div>
-              <Button id="add-tag" icon onClick={() => setValue('input', `${input} @`)}>
+              <IconButton className="IconButton-margin" id="add-tag" onClick={() => setValue('input', `${input} @`)}>
                 <Label />
-              </Button>
+              </IconButton>
             </div>
-            <div>
-              {props.canChangeType ? <Button icon onClick={() => setValue('isProject', !isProject)}>
+            <div className="flex row">
+              {props.canChangeType ? <IconButton className="IconButton-margin" onClick={() => setValue('isProject', !isProject)}>
                 {isProject ? <Done /> : <Assignment />}
-              </Button> : null}
-              <Button id="add-item-submit" icon primary type="submit">
+              </IconButton> : null}
+              <IconButton className="IconButton-margin" id="add-item-submit" type="submit" onClick={submitForm}>
                 <Send />
-              </Button>
+              </IconButton>
             </div>
           </div>
         </div>
