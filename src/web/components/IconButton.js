@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from 'preact';
 import cn from 'classnames';
-import './IconButton.scss';
+import './IconButton.css';
 
 const IconButton = ({ children, className, ...props }) =>
   <button tabIndex="0" role="button" {...props} className={cn('mdc-icon-toggle IconButton', className)}>{children}</button>;
