@@ -15,12 +15,12 @@ const AddItem = props => (
       isProject: props.initialIsProject || false,
     }}
   >
-    {({ values: { isProject, input }, setValue, submitForm }) => (
+    {({ values: { isProject, input }, setValue, submitForm, getValue }) => (
       <form
         onSubmit={(e) => {
           submitForm(e);
           import('../../common/utils/processItem').then(({ default: processItem }) => {
-            const item = processItem(input, isProject);
+            const item = processItem(getValue('input'), isProject);
             if (item) {
               props.onAddItem(item);
               setValue('input', '');
@@ -38,15 +38,15 @@ const AddItem = props => (
           />
           <div className="flex row space-between">
             <div>
-              <IconButton className="IconButton-margin" id="add-tag" onClick={() => setValue('input', `${input} @`)}>
+              <IconButton type="button" className="IconButton-margin" id="add-tag" onClick={() => setValue('input', `${input} @`)}>
                 <Label />
               </IconButton>
             </div>
             <div className="flex row">
-              {props.canChangeType ? <IconButton className="IconButton-margin" onClick={() => setValue('isProject', !isProject)}>
+              {props.canChangeType ? <IconButton type="button" className="IconButton-margin" onClick={() => setValue('isProject', !isProject)}>
                 {isProject ? <Done /> : <Assignment />}
               </IconButton> : null}
-              <IconButton className="IconButton-margin" id="add-item-submit" type="submit" onClick={submitForm}>
+              <IconButton className="IconButton-margin" id="add-item-submit" type="submit">
                 <Send />
               </IconButton>
             </div>
