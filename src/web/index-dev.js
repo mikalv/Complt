@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
-import { render } from 'preact';
-import 'preact/devtools';
-import './index.css';
 import './index.scss';
+import { render } from 'preact'; // eslint-disable-line import/first
+import 'preact/devtools'; // eslint-disable-line import/first
+import './index.css';
 
 window.ga = () => {};
 

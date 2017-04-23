@@ -1,44 +1,8 @@
-@import '~react-md/src/scss/react-md';
-
-$md-light-theme: false;
-$md-primary-color: #59C9A5;
-$md-secondary-color: $md-pink-a-200;
-
 $mdc-theme-primary: #59C9A5;
 $mdc-theme-accent: #FF4081;
-
-html {
-  background-color: $md-dark-theme-background-color;
-}
-
-@include react-md-colors;
-@include react-md-typography;
-@include react-md-accessibility;
-@include react-md-grid;
-@include react-md-transitions;
-@include react-md-papers;
-@include react-md-buttons;
-// @include react-md-text-fields;
-@include react-md-lists;
-// @include react-md-avatars;
-@include react-md-chips;
-// @include react-md-dialogs;
-// @include react-md-snackbars;
-@include react-md-progress;
-@include react-md-select-fields;
-@include react-md-drawers;
-@include react-md-inks;
-@include react-md-icons;
-@include react-md-helpers-everything;
-@include react-md-navigation-drawers;
-@include react-md-progress;
-@include react-md-toolbars;
-@include react-md-overlays;
-@include react-md-dividers;
-@include react-md-menus;
-
-.mdc-theme--dark, main {
-	background-color: #333;
+$mdc-theme-background: #333;
+.mdc-theme--dark, main, html {
+	background-color: $mdc-theme-background;
 	color: #fff;
 }
 

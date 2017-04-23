@@ -1,8 +1,8 @@
-import { render } from 'preact';
-import offlinePlugin from 'offline-plugin/runtime';
+import './index.scss';
+import { render } from 'preact'; // eslint-disable-line import/first
+import offlinePlugin from 'offline-plugin/runtime'; // eslint-disable-line import/first
 import Root from './Root';
 import './index.css';
-import './index.scss';
 
 if (!process.env.REACT_APP_ELECTRON) offlinePlugin.install();
 
