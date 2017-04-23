@@ -1,1 +1,1 @@
-export default toast => toast
+export default toast => toast;
