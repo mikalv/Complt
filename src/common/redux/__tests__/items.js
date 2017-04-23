@@ -2,6 +2,8 @@ import uuid from 'uuid/v4';
 import reducer, { initialState } from '../items';
 import * as actions from '../actions';
 
+jest.mock('../../../web/showToast');
+
 jest.mock('uuid/v4');
 uuid.mockReturnValue('item5');
 

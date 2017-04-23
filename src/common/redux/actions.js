@@ -94,7 +94,7 @@ export const showSignInToast = shouldSync => (dispatch) => {
     actionText: 'SIGN IN',
     actionHandler: () => loginWithGoogle(
       (err, result) => dispatch(loginCallback(err, result)),
-      { pathname: history.location.pathname, shouldSync },
+      { pathname: window.location.pathname, shouldSync },
     ),
   });
 };
