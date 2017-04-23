@@ -170,7 +170,6 @@
     "testURL": "http://localhost",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$",
     "collectCoverageFrom": [
-      "src/web/**/*.{js,jsx}",
       "src/common/**/*.{js,jsx}"
     ],
     "snapshotSerializers": [
