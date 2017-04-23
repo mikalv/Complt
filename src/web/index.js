@@ -4,8 +4,6 @@ import offlinePlugin from 'offline-plugin/runtime'; // eslint-disable-line impor
 import Root from './Root';
 import './index.css';
 
-if (!process.env.REACT_APP_ELECTRON) offlinePlugin.install();
-
 if (!window.location.origin.indexOf('localhost') !== -1) {
   /* eslint-disable */
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -24,6 +22,8 @@ render(
   Root,
   document.getElementById('root'),
 );
+
+if (!process.env.REACT_APP_ELECTRON) offlinePlugin.install();
 
 import('raven-js').then((Raven) => {
   Raven.config('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415').install();
