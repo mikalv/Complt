@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { render } from 'preact';
 import offlinePlugin from 'offline-plugin/runtime';
 import Root from './Root';
 import './index.css';
@@ -20,7 +20,7 @@ if (!window.location.origin.indexOf('localhost') !== -1) {
   window.ga = () => {};
 }
 
-ReactDOM.render(
+render(
   Root,
   document.getElementById('root'),
 );
