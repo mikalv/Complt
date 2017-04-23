@@ -6,9 +6,6 @@
   margin-right: 5px;
   margin-top: 3px;
 }
-.Item-chip-link {
-  text-decoration: none;
-}
 .Item-left {
   flex-grow: 0;
   margin: 5px;
