@@ -5,7 +5,7 @@ describe('app', function () {
   it('renders without crashing', function () {
     browser.url('http://localhost:8080/');
     expect(browser.getUrl()).to.equal('http://localhost:8080/inbox');
-    expect(browser.$('.md-list--drawer').$$('li')[0].getText()).to.equal('All');
+    expect(browser.$('.mdc-toolbar__row').$('.mdc-select__selected-text').getText()).to.equal('All');
   });
   it('can add a task to the inbox', function () {
     const input = $('#add-item-input');
