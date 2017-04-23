@@ -1,4 +1,4 @@
-@import '~react-md/src/scss/react-md';
+@import "@material/elevation/mdc-elevation";
 
 .AddItem-fixed {
   position: fixed;
@@ -8,6 +8,11 @@
 }
 .AddItem {
   padding: 10px;
-  background-color: $md-dark-theme-background-color;
-  @include md-box-shadow(5);
+  @include mdc-elevation(24);
+}
+.AddItem-input {
+  width: 100%;
+}
+#add-item-input {
+  width: 100%;
 }

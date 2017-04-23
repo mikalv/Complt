@@ -1,22 +1,21 @@
 import React from 'react';
-import Link from 'react-router-dom/Link';
+import { Link } from 'preact-router';
 import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Delete from 'react-icons/lib/md/delete';
 import Create from 'react-icons/lib/md/create';
 import MoreVert from 'react-icons/lib/md/more-vert';
 import DragHandle from 'react-icons/lib/md/drag-handle';
-import Chip from 'react-md/lib/Chips/Chip';
-import Button from 'react-md/lib/Buttons/Button';
-import AccessibleFakeInkedButton from 'react-md/lib/Helpers/AccessibleFakeInkedButton';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
+import IconButton from './IconButton';
+import Chip from './Chip';
 import getNextDueDate from '../../common/utils/getNextDueDate';
-import history from '../../web/history';
-import PropTypes from '../../common/PropTypes';
 import colors from '../../common/colors';
 import './Item.css';
 
-const Handle = SortableHandle(() => <Button icon><DragHandle /></Button>);
+const Handle = SortableHandle(() => (
+  <IconButton className="IconButton-margin"><DragHandle /></IconButton>
+));
 
 const stopPropagation = (callback) => {
   if (typeof callback === 'function') {
@@ -45,60 +44,89 @@ const getFormattedDate = (rawDate) => {
   return date.toLocaleString();
 };
 
-const Item = ({
-  item = {},
-  onLeftButtonClick,
-  onDelete,
-  canDelete,
-  canMove,
-  onItemTap,
-  onItemUpdate,
-  onItemMove,
-  canSort,
-}) => (
-  <AccessibleFakeInkedButton
-    component={item.isProject ? Link : 'div'}
-    onClick={stopPropagation(onItemTap)}
-    to={item.isProject ? `project/${item._id}` : undefined}
-    className="flex row Item md-text"
-  >
+const Item = (
+  {
+    item = {},
+    onLeftButtonClick,
+    onDelete,
+    canDelete,
+    canMove,
+    onItemTap,
+    onItemUpdate,
+    onItemMove,
+    canSort,
+  },
+) => (
+  <li className="flex row Item">
     <div className="Item-left">
-      <Button icon onClick={stopPropagation(onLeftButtonClick)}>{item.isProject === true ?
-        <Assignment color={item.isCompleted ? colors.completedItem : undefined} /> :
-        <Done color={item.isCompleted ? colors.completedItem : undefined} />}</Button>
+      <IconButton className="IconButton-margin" onClick={stopPropagation(onLeftButtonClick)}>
+        {item.isProject === true
+          ? <Assignment
+            color={item.isCompleted ? colors.completedItem : 'rgba(255, 255, 255, 0.7)'}
+          />
+          : <Done color={item.isCompleted ? colors.completedItem : 'rgba(255, 255, 255, 0.7)'} />}
+      </IconButton>
     </div>
     <div className="Item-center">
       <span className="Item-name">{item.name}</span>
-      {(item.dates && item.dates.length !== 0) || (item.tags && item.tags.length !== 0) || item.parent || item.children ? <div className="Item-chip-container">
-        {!item.children ? undefined : <Chip className="Item-chip" label={item.children.length === 1 ? '1 Item' : `${item.children.length} Items`} />}
-        {!item.parent ? undefined : <Link to={`/project/${item.parent._id}`} className="Item-chip-link"><Chip className="Item-chip" label={getParentProjectName(item.parent)} /></Link>}
-        {!item.dates || item.dates.length === 0 ? undefined : <Chip className="Item-chip" label={`Due ${getFormattedDate(getNextDueDate(item.dates))}`} />}
-        {!item.tags ? undefined :
-          item.tags.map(
-            tag => <Link to={`/tag/${tag}`} key={tag} className="Item-chip-link" onClick={stopPropagation(() => history.push(`/tag/${tag}`))}><Chip className="Item-chip" label={tag} /></Link>)}
-      </div> : undefined}
+      {(item.dates && item.dates.length !== 0) ||
+        (item.tags && item.tags.length !== 0) ||
+        item.parent ||
+        item.children
+          ? <div className="Item-chip-container">
+            {!item.children
+              ? undefined
+                : <Chip
+                  Component={Link}
+                  href={`/project/${item._id}`}
+                  onClick={stopPropagation(onItemTap)}
+                  action
+                  className="Item-chip"
+                >
+                  {item.children.length === 1 ? '1 Item' : `${item.children.length} Items`}
+                </Chip>}
+            {!item.parent
+              ? undefined
+              : <Chip
+                Component={Link}
+                href={`/project/${item.parent._id}`}
+                action
+                className="Item-chip"
+              >
+                {getParentProjectName(item.parent)}
+              </Chip>}
+            {!item.dates || item.dates.length === 0
+              ? undefined
+              : <Chip className="Item-chip">
+                {`Due ${getFormattedDate(getNextDueDate(item.dates))}`}
+              </Chip>}
+            {!item.tags
+              ? undefined
+              : item.tags.map(tag => (
+                <Chip Component={Link} action href={`/tag/${tag}`} key={tag} className="Item-chip">
+                  {tag}
+                </Chip>
+                ))}
+          </div>
+        : undefined}
     </div>
     <div className="Item-right">
       {canSort ? <Handle /> : undefined}
-      <Button icon onClick={stopPropagation(onItemUpdate)}><Create /></Button>
-      {canMove ? <Button icon onClick={stopPropagation(onItemMove)}><MoreVert /></Button>
-      : undefined}
-      {canDelete ?
-        <Button icon onClick={stopPropagation(onDelete)}><Delete /></Button> : undefined}
+      <IconButton className="IconButton-margin" onClick={stopPropagation(onItemUpdate)}>
+        <Create />
+      </IconButton>
+      {canMove
+        ? <IconButton className="IconButton-margin" onClick={stopPropagation(onItemMove)}>
+          <MoreVert />
+        </IconButton>
+        : undefined}
+      {canDelete
+        ? <IconButton className="IconButton-margin" onClick={stopPropagation(onDelete)}>
+          <Delete />
+        </IconButton>
+        : undefined}
     </div>
-
-  </AccessibleFakeInkedButton>);
-
-Item.propTypes = {
-  item: PropTypes.item,
-  onLeftButtonClick: React.PropTypes.func,
-  canDelete: React.PropTypes.bool,
-  canMove: React.PropTypes.bool,
-  canSort: React.PropTypes.bool,
-  onDelete: React.PropTypes.func,
-  onItemTap: React.PropTypes.func,
-  onItemUpdate: React.PropTypes.func,
-  onItemMove: React.PropTypes.func,
-};
+  </li>
+);
 
 export default Item;

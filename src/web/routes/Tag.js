@@ -10,7 +10,7 @@ export function mapStateToProps(state, ownProps) {
   const itemsWithParents = getParents(state.items);
   const items = [];
   itemsWithParents.forEach((item) => {
-    if (item && Array.isArray(item.tags) && item.tags.indexOf(ownProps.match.params.tag) !== -1) {
+    if (item && Array.isArray(item.tags) && item.tags.indexOf(ownProps.tag) !== -1) {
       items.push(item);
     }
   });

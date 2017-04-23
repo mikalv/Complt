@@ -1,8 +1,8 @@
-import ReactDOM from 'react-dom';
-import offlinePlugin from 'offline-plugin/runtime';
+import './index.scss';
+import { render } from 'preact'; // eslint-disable-line import/first
+import offlinePlugin from 'offline-plugin/runtime'; // eslint-disable-line import/first
 import Root from './Root';
 import './index.css';
-import './index.scss';
 
 if (!window.location.origin.indexOf('localhost') !== -1) {
   /* eslint-disable */
@@ -18,7 +18,7 @@ if (!window.location.origin.indexOf('localhost') !== -1) {
   window.ga = () => {};
 }
 
-ReactDOM.render(
+render(
   Root,
   document.getElementById('root'),
 );

@@ -1,20 +1,19 @@
-import React from 'react';
+/** @jsx h */
+import { h, Component } from 'preact';
+import { getCurrentUrl, route } from 'preact-router';
 import Menu from 'react-icons/lib/md/menu';
 import Sync from 'react-icons/lib/md/sync';
-import ArrowDropDown from 'react-icons/lib/md/arrow-drop-down';
-import NavigationDrawer from 'react-md/lib/NavigationDrawers';
-import SelectField from 'react-md/lib/SelectFields/SelectField';
-import Snackbar from 'react-md/lib/Snackbars';
-import Button from 'react-md/lib/Buttons/Button';
-import CircularProgress from 'react-md/lib/Progress/CircularProgress';
-import Toolbar from 'react-md/lib/Toolbars/Toolbar';
+import Toolbar from 'preact-material-components/Toolbar';
+import Drawer from 'preact-material-components/Drawer';
+import Select from 'preact-material-components/Select';
 import { connect } from 'react-redux';
 import Loadable from 'react-loadable';
+import Spinner from '../components/Spinner';
+import IconButton from '../components/IconButton';
 import AppRouter from '../AppRouter';
-import { navItems, navItemsWithActive } from '../navItems';
+import NavItems from '../components/NavItems';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
-import PropTypes from '../../common/PropTypes';
 import './App.scss';
 
 const Dialogs = Loadable({
@@ -23,62 +22,77 @@ const Dialogs = Loadable({
   webpackRequireWeakId: () => require.resolveWeak('../components/Dialogs'),
 });
 
-export const App = props => (
-  <NavigationDrawer
-    drawerHeader={
-      <Toolbar
-        title={props.profile.name}
-        prominentTitle
-        colored
-        className="md-background--secondary"
-      />}
-    temporaryIconChildren={<Menu />}
-    navItems={navItemsWithActive(navItems, props.location.pathname)}
-    mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
-    tabletDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
-    desktopDrawerType={NavigationDrawer.DrawerTypes.CLIPPED}
-    contentClassName="flex"
-    toolbarTitleMenu={
-      <SelectField
-        id="items-to-show-selection"
-        menuItems={itemsToShowValues}
-        iconChildren={<ArrowDropDown size={24} />}
-        value={props.itemsToShow}
-        onChange={props.changeItemsToShow}
-      />}
-    toolbarActions={[
-      props.syncState.syncing ? <div className="syncing-spinner-container md-btn md-btn--icon"><CircularProgress id="syncing-spinner" /></div> : <Button icon onClick={props.attemptSync}><Sync /></Button>,
-    ]}
-  >
-    <AppRouter />
-    <Snackbar toasts={props.toasts} onDismiss={props.dismissToast} />
-    <Dialogs />
-  </NavigationDrawer>
-);
+const redirects = [['project/inbox', '/inbox'], ['project/root', '/projects'], ['', '/inbox']];
 
-App.propTypes = {
-  location: React.PropTypes.shape({
-    pathname: React.PropTypes.string.isRequired,
-  }),
-  dismissToast: React.PropTypes.func,
-  attemptSync: React.PropTypes.func,
-  itemsToShow: React.PropTypes.string,
-  changeItemsToShow: React.PropTypes.func,
-  syncState: React.PropTypes.shape({
-    syncing: React.PropTypes.bool.isRequired,
-  }),
-  toasts: React.PropTypes.arrayOf(React.PropTypes.shape({
-    text: React.PropTypes.string.isRequired,
-    action: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.shape({
-        onClick: React.PropTypes.func,
-        label: React.PropTypes.string.isRequired,
-      }),
-    ]),
-  })).isRequired,
-  profile: PropTypes.profile,
-};
+export class App extends Component {
+  componentDidMount() {
+    const currentUrl = getCurrentUrl();
+    this.performRedirects(currentUrl);
+  }
+  onRouteChange = ({ url }) => {
+    window.ga('set', 'page', url);
+    window.ga('send', 'pageview');
+    this.performRedirects(url);
+  };
+  performRedirects = (url) => {
+    redirects.forEach((redirect) => {
+      if (redirect[0] === url.replace(/(^\/+|\/+$)/g, '')) route(redirect[1], true);
+    });
+  };
+  render(props) {
+    return (
+      <div className="App">
+        <Toolbar>
+          <Toolbar.Row>
+            <Toolbar.Section align-start className="App-toolbar-section">
+              <IconButton
+                onClick={() => {
+                  this.drawer.MDComponent.open = !this.drawer.MDComponent.open;
+                }}
+              >
+                <Menu />
+              </IconButton>
+              <Select
+                ref={(select) => {
+                  this.select = select;
+                }}
+                hintText={props.itemsToShow}
+                id="items-to-show-select"
+                onChange={() => props.changeItemsToShow(this.select.MDComponent.value)}
+              >
+                {itemsToShowValues.map(item => <Select.Item>{item}</Select.Item>)}
+              </Select>
+            </Toolbar.Section>
+            <Toolbar.Section align-end className="App-toolbar-section">
+              {props.syncState.syncing
+                ? <div className="">
+                  <Spinner id="syncing-spinner" size={24} />
+                </div>
+                : <IconButton onClick={props.attemptSync}><Sync /></IconButton>}
+            </Toolbar.Section>
+          </Toolbar.Row>
+        </Toolbar>
+        <Drawer.TemporaryDrawer
+          ref={(drawer) => {
+            this.drawer = drawer;
+            global.drawer = drawer;
+          }}
+        >
+          <Drawer.TemporaryDrawerHeader className="mdc-theme--accent-bg">
+            {props.profile.name}
+          </Drawer.TemporaryDrawerHeader>
+          <Drawer.TemporaryDrawerContent>
+            <NavItems activeClassName="mdc-temporary-drawer--selected" />
+          </Drawer.TemporaryDrawerContent>
+        </Drawer.TemporaryDrawer>
+        <main>
+          <AppRouter onChange={this.onRouteChange} />
+        </main>
+        <Dialogs />
+      </div>
+    );
+  }
+}
 
 function mapStateToProps({ toasts, itemsToShow, syncState, profile }) {
   return { toasts, itemsToShow, syncState, profile };

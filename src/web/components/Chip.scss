@@ -1,0 +1,29 @@
+// Adapted from material-design-lite's chip and react-md's chip
+// https://github.com/google/material-design-lite/blob/mdl-1.x/src/chip/_chip.scss
+// https://github.com/mlaursen/react-md/blob/master/src/scss/components/_chips.scss
+
+@import "@material/elevation/mdc-elevation";
+
+.chip {
+    align-items: center;
+    background: #757575;
+    border: 0;
+    border-radius: 16px;
+    display: inline-flex;
+    height: 32px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #fff;
+    @include mdc-elevation-transition;
+    transition-property: background-color, box-shadow;
+    &:focus {
+        outline: 0;
+        @include mdc-elevation(5);
+    }
+    &:hover {
+      @include mdc-elevation(2);
+      background-color: #616161;
+    }
+  }

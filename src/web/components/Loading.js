@@ -1,15 +1,11 @@
 import React from 'react';
-import CircularProgress from 'react-md/lib/Progress/CircularProgress';
+import Spinner from './Spinner';
 import './Loading.css';
 
-const Loading = ({ scale }) => (
+const Loading = ({ size }) => (
   <div className="Loading">
-    <CircularProgress id="items-loading" scale={scale || 3} />
+    <Spinner id="items-loading" size={size} />
   </div>
 );
-
-Loading.propTypes = {
-  scale: React.PropTypes.number,
-};
 
 export default Loading;

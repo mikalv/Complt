@@ -1,8 +1,7 @@
 import React from 'react';
-import Link from 'react-router-dom/Link';
 import { connect } from 'react-redux';
-import List from 'react-md/lib/Lists/List';
-import ListItem from 'react-md/lib/Lists/ListItem';
+import List from 'preact-material-components/List';
+import LinkListItem from '../components/LinkListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
 import Loading from '../components/Loading';
@@ -10,19 +9,13 @@ import Loading from '../components/Loading';
 export const Tags = props => (
   <List className="flex-child">
     {props.tags.map(tag =>
-      <ListItem
+      <LinkListItem
+        href={`/tag/${tag}`}
         key={tag}
-        primaryText={tag}
-        component={Link}
-        to={`/tag/${tag}`}
-      />,
+      >{tag}</LinkListItem>,
     )}
   </List>
 );
-
-Tags.propTypes = {
-  tags: React.PropTypes.arrayOf(React.PropTypes.string),
-};
 
 export function mapStateToProps(state) {
   const tags = [];

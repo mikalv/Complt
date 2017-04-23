@@ -7,7 +7,6 @@ import ItemList from './ItemList';
 import AddItem from './AddItem';
 import Item from './Item';
 import getFilteredItems from '../../common/utils/getFilteredItems';
-import PropTypes from '../../common/PropTypes';
 import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
 import Loading from './Loading';
 import './Projects.css';
@@ -50,21 +49,6 @@ export const Projects = props => (
     </div>
   </div>
 );
-Projects.propTypes = {
-  projectChildren: React.PropTypes.arrayOf(PropTypes.item),
-  createProject: React.PropTypes.func,
-  createTask: React.PropTypes.func,
-  projectId: React.PropTypes.string,
-  routerPush: React.PropTypes.func,
-  initialIsProject: React.PropTypes.bool,
-  canChangeType: React.PropTypes.bool,
-  deleteItem: React.PropTypes.func,
-  moveItemDialog: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
-  completeItem: React.PropTypes.func,
-  showMoveItemDialog: React.PropTypes.func,
-  showUpdateItemDialog: React.PropTypes.func,
-  reorderItem: React.PropTypes.func,
-};
 
 export function mapStateToProps(state, ownProps) {
   const project = state.items.find(item => item._id === ownProps.projectId);

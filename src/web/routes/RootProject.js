@@ -1,18 +1,14 @@
 import React from 'react';
+import { route } from 'preact-router';
 import Projects from '../components/Projects';
 
-const RootProject = props => (
+const RootProject = () => (
   <Projects
     initialIsProject
     canChangeType
     projectId="root"
-    routerPush={props.history.push}
+    routerPush={route}
   />
 );
-RootProject.propTypes = {
-  history: React.PropTypes.shape({
-    push: React.PropTypes.func,
-  }),
-};
 
 export default RootProject;
