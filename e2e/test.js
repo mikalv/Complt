@@ -11,8 +11,8 @@ describe('app', function () {
     const input = $('#add-item-input');
     input.waitForExist(5000);
     input.setValue('Task in inbox @tag');
-    $('#add-tag').click();
-    console.log(input.getValue());
+    // $('#add-tag').click();
+    // console.log(input.getValue());
     // input.addValue('tag2');
     $('#add-item-submit').click();
     const listItem = $('main').$('.Projects-item-list').$('.Item').$('.Item-center');
