@@ -16,8 +16,5 @@ class IconContext extends Component {
 IconContext.childContextTypes = {
   reactIconBase: React.PropTypes.object,
 };
-IconContext.propTypes = {
-  children: React.PropTypes.node,
-};
 
 export default IconContext;

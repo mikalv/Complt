@@ -1,14 +1,11 @@
 import React from 'react';
-import Dialog from 'react-md/lib/Dialogs';
-import DialogFooter from 'react-md/lib/Dialogs/DialogFooter';
-import Button from 'react-md/lib/Buttons/Button';
+import Dialog from 'preact-material-components/Dialog';
 import Form from 'react-form/lib/form';
 import { connect } from 'react-redux';
+import DialogContainer from './Dialog';
 import FormTextField from './FormTextField';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getNextDueDate from '../../common/utils/getNextDueDate';
-import PropTypes from '../../common/PropTypes';
-import './UpdateItemDialog.scss';
 
 export const onSubmit = (item, handleUpdateItem) => ({ input }) => handleUpdateItem(input, item);
 
@@ -21,51 +18,43 @@ export const UpdateItemForm = props => (
   >
     {({ submitForm }) => (
       <form onSubmit={submitForm}>
-        <FormTextField
-          placeholder={props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work !tomorrow at 8am!'}
-          field="input"
-        />
-        <DialogFooter
-          className="UpdateItemDialog-footer"
-          actions={[
-            <Button flat label="Cancel" onClick={props.hideUpdateItemDialog} />,
-            <Button flat label="Update" onClick={submitForm} />,
-          ]}
-        />
+        <Dialog.Body>
+          <FormTextField
+            placeholder={
+              props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work !tomorrow at 8am!'
+            }
+            field="input"
+          />
+        </Dialog.Body>
+        <Dialog.Footer className="UpdateItemDialog-footer">
+          <Dialog.FooterButton type="button" cancel onClick={props.hideUpdateItemDialog}>
+            Cancel
+          </Dialog.FooterButton>
+          <Dialog.FooterButton type="submit" accept onClick={submitForm}>Update</Dialog.FooterButton>
+        </Dialog.Footer>
       </form>
     )}
   </Form>
 );
 
-UpdateItemForm.propTypes = {
-  item: PropTypes.item,
-  defaultInputValue: React.PropTypes.string,
-  handleUpdateItem: React.PropTypes.func,
-  hideUpdateItemDialog: React.PropTypes.func,
-};
-
 export const UpdateItemDialog = props => (
-  <Dialog
+  <DialogContainer
     id="Update Item Dialog"
     visible={props.visible}
-    title="Update your Item"
     onHide={props.hideUpdateItemDialog}
-    contentStyle={{ paddingBottom: 0 }}
   >
+    <Dialog.Header>Update Item</Dialog.Header>
     <UpdateItemForm {...props} />
-  </Dialog>
+  </DialogContainer>
 );
-
-UpdateItemDialog.propTypes = {
-  visible: React.PropTypes.bool,
-  hideUpdateItemDialog: React.PropTypes.func,
-};
 
 export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
     const item = state.items.find(({ _id }) => _id === state.dialogs.updateItem.id);
     const tags = item.tags || [];
-    const date = item.dates && item.dates.length !== 0 ? ` !${new Date(getNextDueDate(item.dates)).toString()}!` : '';
+    const date = item.dates && item.dates.length !== 0
+      ? ` !${new Date(getNextDueDate(item.dates)).toString()}!`
+      : '';
     const defaultInputValue = `${item.name} ${tags.join(' ')}${date}`.trim();
     return {
       visible: true,

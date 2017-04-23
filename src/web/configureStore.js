@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 import auth from '../common/redux/auth';
 import items from '../common/redux/items';
 import profile from '../common/redux/profile';
-import toasts from '../common/redux/toasts';
 import dialogs from '../common/redux/dialogs';
 import syncState from '../common/redux/syncState';
 import itemsToShow from '../common/redux/itemsToShow';
@@ -61,7 +60,6 @@ const store = createStore(
     items,
     auth,
     profile,
-    toasts,
     syncState,
     dialogs,
     itemsToShow,

@@ -60,9 +60,10 @@ exports.config = {
     browserName: 'chrome',
     version: 55,
   }, {
-    browserName: 'safari',
-    platform: 'mac',
-  }, {
+  //   browserName: 'safari',
+  //   platform: 'macOS 10.12',
+  //   version: '10.0',
+  // }, {
     browserName: 'MicrosoftEdge',
     platform: 'Windows 10',
     version: '14.14393',

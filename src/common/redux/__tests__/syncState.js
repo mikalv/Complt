@@ -1,17 +1,19 @@
 import reducer, { initialState } from '../syncState';
 import { syncStarted, syncFailed, syncSucceded, sync, attemptSync, initialItemsLoaded } from '../actions';
-import { SYNC_STARTED, SYNC_FAILED, SYNC_SUCCEDED, SHOW_TOAST, LOGIN } from '../actionTypes';
+import { SYNC_STARTED, SYNC_FAILED, SYNC_SUCCEDED, LOGIN } from '../actionTypes';
 import logException from '../../utils/logException';
 import pouchDBSync from '../../utils/pouchDBSync';
 import renewAuth from '../../../web/renewAuth';
 import isTokenExpired from '../../utils/auth';
+import showToast from '../../../web/showToast';
 import mockStore from '../mockStore';
 
 jest.mock('../../db')
 .mock('../../utils/auth')
 .mock('../../utils/logException')
 .mock('../../utils/pouchDBSync')
-.mock('../../../web/renewAuth');
+.mock('../../../web/renewAuth')
+.mock('../../../web/showToast');
 
 isTokenExpired.mockReturnValue(true);
 pouchDBSync.mockReturnValue(Promise.resolve());
@@ -60,7 +62,6 @@ describe('attemptSync()', () => {
     const actions = store.getActions();
     expect(actions).toEqual([
       { type: SYNC_STARTED },
-      { type: SHOW_TOAST, toast: { text: 'Syncing Started, Please Wait...' } },
     ]);
   });
   it('dispatches the correct actions when renewAuth resolves', () => {
@@ -75,7 +76,6 @@ describe('attemptSync()', () => {
       const actions = store.getActions();
       expect(actions).toEqual([
         { type: SYNC_STARTED },
-        { type: SHOW_TOAST, toast: { text: 'Syncing Started, Please Wait...' } },
         { type: LOGIN, token: 'some.valid.token' },
       ]);
       expect(pouchDBSync).toBeCalledWith('some.valid.token', process.env.REACT_APP_COUCH_URL);
@@ -89,16 +89,11 @@ describe('attemptSync()', () => {
       expect(isTokenExpired).toBeCalledWith('some.expired.token');
       expect(renewAuth).toBeCalled();
       const actions = store.getActions();
-      expect(actions.length).toEqual(4);
-      const actionsWithoutToast = [actions[0], actions[1], actions[3]];
-      expect(actionsWithoutToast).toEqual([
+      expect(actions).toEqual([
         { type: SYNC_STARTED },
-        { type: SHOW_TOAST, toast: { text: 'Syncing Started, Please Wait...' } },
         { type: SYNC_FAILED },
       ]);
-      expect(actions[2].type).toEqual(SHOW_TOAST);
-      expect(actions[2].toast.text).toEqual('Please sign in to sync');
-      expect(actions[2].toast.action.label).toEqual('SIGN IN');
+      expect(showToast).toBeCalled();
     });
   });
 });
@@ -108,11 +103,7 @@ describe('sync() action creator', () => {
     const store = mockStore();
     pouchDBSync.mockReturnValueOnce(Promise.reject({ status: 401 }));
     return sync(store.dispatch, store.getState)().then(() => {
-      const actions = store.getActions();
-      expect(actions[0].type).toEqual(SHOW_TOAST);
-      expect(actions[0].toast.text).toEqual('Please sign in to sync');
-      expect(actions[0].toast.action.label).toEqual('SIGN IN');
-      expect(actions[1]).toEqual({ type: SYNC_FAILED });
+      expect(showToast).toBeCalled();
     });
   });
   it('dispatches the correct actions when the sync fails with an error that is not a 401', () => {
@@ -121,9 +112,9 @@ describe('sync() action creator', () => {
     return sync(store.dispatch, store.getState)().then(() => {
       const actions = store.getActions();
       expect(actions).toEqual([
-        { type: SHOW_TOAST, toast: { text: 'An error occured while syncing, please try again later' } },
         { type: SYNC_FAILED },
       ]);
+      expect(showToast).toBeCalledWith({ message: 'An error occured while syncing, please try again later' });
       expect(logException).toBeCalledWith(new Error('An error occured while syncing'), { status: 500 });
     });
   });
@@ -133,7 +124,6 @@ describe('sync() action creator', () => {
     return sync(store.dispatch, store.getState)().then(() => {
       const actions = store.getActions();
       expect(actions).toEqual([
-        { type: SHOW_TOAST, toast: { text: 'Syncing finished' } },
         { type: SYNC_SUCCEDED },
       ]);
     });

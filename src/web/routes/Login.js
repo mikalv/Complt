@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'preact';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 
@@ -22,9 +22,5 @@ export class Login extends Component {
     return null;
   }
 }
-
-Login.propTypes = {
-  loginCallback: React.PropTypes.func,
-};
 
 export default connect(undefined, mapDispatchToProps)(Login);

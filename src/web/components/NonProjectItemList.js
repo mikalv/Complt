@@ -1,6 +1,6 @@
 import React from 'react';
+import { route } from 'preact-router';
 import ItemList from './ItemList';
-import PropTypes from '../../common/PropTypes';
 
 const NonProjectItemList = props => (<ItemList
   className="flex-child"
@@ -10,7 +10,7 @@ const NonProjectItemList = props => (<ItemList
   items={props.items}
   onItemTap={(i) => {
     if (props.items[i].isProject) {
-      props.history.push(`/project/${props.items[i]._id}`);
+      route(`/project/${props.items[i]._id}`);
     }
   }}
   canMove
@@ -31,17 +31,5 @@ const NonProjectItemList = props => (<ItemList
     }
   }}
 />);
-
-NonProjectItemList.propTypes = {
-  items: React.PropTypes.arrayOf(PropTypes.item),
-  history: React.PropTypes.shape({
-    push: React.PropTypes.func,
-  }),
-  completeItem: React.PropTypes.func,
-  showUpdateItemDialog: React.PropTypes.func,
-  showMoveItemDialog: React.PropTypes.func,
-  deleteItem: React.PropTypes.func,
-  deleteItemWithoutParent: React.PropTypes.func,
-};
 
 export default NonProjectItemList;

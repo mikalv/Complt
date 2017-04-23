@@ -3,6 +3,8 @@ import { showUpdateItemDialog, hideUpdateItemDialog, handleUpdateItem, showMoveI
 import { HIDE_UPDATE_ITEM_DIALOG, UPDATE_ITEM, HIDE_MOVE_ITEM_DIALOG, MOVE_ITEM } from '../actionTypes';
 import mockStore from '../mockStore';
 
+jest.mock('../../../web/showToast');
+
 describe('dialogsReducer', () => {
   it('returns the inital state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);

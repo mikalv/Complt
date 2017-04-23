@@ -1,5 +1,6 @@
 import uuid from 'uuid/v4';
-import history from '../../web/history';
+import { route } from 'preact-router';
+import showToast from '../../web/showToast';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
@@ -16,8 +17,6 @@ import {
   CREATE_ITEM,
   COMPLETE_ITEM,
   DELETE_ITEM,
-  SHOW_TOAST,
-  DISMISS_TOAST,
   SYNC_STARTED,
   SYNC_SUCCEDED,
   SYNC_FAILED,
@@ -50,7 +49,7 @@ export const loginCallback = (error, result) => (dispatch) => {
   }
   dispatch(login(result.idToken));
   getTokenInfo(result.idToken).then(profile => dispatch(getProfile(profile)));
-  history.replace(state.pathname || '/');
+  route(state.pathname || '/', true);
   if (state.shouldSync) dispatch(attemptSync());
 };
 
@@ -89,25 +88,15 @@ export const deleteItemWithoutParent = id => ({
   id,
 });
 
-export const showToast = toast => ({
-  type: SHOW_TOAST,
-  toast,
-});
-
-export const dismissToast = () => ({
-  type: DISMISS_TOAST,
-});
-
 export const showSignInToast = shouldSync => (dispatch) => {
-  dispatch(showToast({
-    text: 'Please sign in to sync',
-    action: {
-      label: 'SIGN IN',
-      onClick: () => loginWithGoogle(
-        (err, result) => dispatch(loginCallback(err, result)),
-        { pathname: history.location.pathname, shouldSync },
-      ),
-    } }));
+  showToast({
+    message: 'Please sign in to sync',
+    actionText: 'SIGN IN',
+    actionHandler: () => loginWithGoogle(
+      (err, result) => dispatch(loginCallback(err, result)),
+      { pathname: window.location.pathname, shouldSync },
+    ),
+  });
 };
 
 export const syncStarted = () => ({
@@ -122,7 +111,6 @@ export const syncSucceded = () => ({
 
 export const attemptSync = () => (dispatch, getState) => {
   dispatch(syncStarted());
-  dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
   if (isTokenExpired(getState().auth)) {
     return renewAuth().then((idToken) => {
       dispatch(login(idToken));
@@ -139,7 +127,6 @@ export const attemptSync = () => (dispatch, getState) => {
 export const sync = (dispatch, getState) => () =>
   pouchDBSync(getState().auth, process.env.REACT_APP_COUCH_URL)
   .then(() => {
-    dispatch(showToast({ text: 'Syncing finished' }));
     dispatch(syncSucceded());
   })
   .catch((error) => {
@@ -147,7 +134,7 @@ export const sync = (dispatch, getState) => () =>
       dispatch(showSignInToast(true));
     } else {
       logException(new Error('An error occured while syncing'), error);
-      dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
+      showToast({ message: 'An error occured while syncing, please try again later' });
     }
     dispatch(syncFailed());
   });

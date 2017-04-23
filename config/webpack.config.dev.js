@@ -39,7 +39,7 @@ module.exports = {
     // Note: instead of the default WebpackDevServer client, we use a custom one
     // to bring better experience for Create React App users. You can replace
     // the line below with these two lines if you prefer the stock client:
-    require.resolve('react-hot-loader/patch'),
+    // require.resolve('react-hot-loader/patch'),
     require.resolve('webpack-dev-server/client') + '?/',
     require.resolve('webpack/hot/dev-server'),
     // require.resolve('react-dev-utils/webpackHotDevClient'),
@@ -78,7 +78,10 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat',
+      'react-addons-css-transition-group': 'preact-css-transition-group',
     }
   },
 
@@ -121,11 +124,22 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
+        include: /(preact-material-components|@material)/,
+        loader: 'babel-loader',
+        options: {
+          presets: [['es2015', {"modules": false}]],
+          plugins:[
+            ["transform-react-jsx", { "pragma": "h" }],
+            "transform-object-rest-spread"
+          ]
+        }
+      },
+      {
+        test: /\.(js|jsx)$/,
         include: [paths.appSrc, /react-sortable-hoc/],
         loader: 'babel-loader',
         options: {
           presets: ['es2015', 'react', 'stage-3', 'stage-0'],
-          plugins: ['react-hot-loader/babel'],
           babelrc: false,
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -164,7 +178,7 @@ module.exports = {
               }
             }
           },
-          { loader: "sass-loader", options: { sourceMap: true } }
+          { loader: "sass-loader", options: { sourceMap: true, includePaths: [paths.appNodeModules] } }
         ]
       },
       // "file" loader for svg
