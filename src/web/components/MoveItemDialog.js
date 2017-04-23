@@ -1,8 +1,7 @@
 import React from 'react';
-import Dialog from 'react-md/lib/Dialogs';
-import Button from 'react-md/lib/Buttons/Button';
-import Toolbar from 'react-md/lib/Toolbars/Toolbar';
+import Dialog from 'preact-material-components/Dialog';
 import { connect } from 'react-redux';
+import DialogContainer from './Dialog';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import itemsToTree from '../../common/utils/itemsToTree';
 import MoveItemList from './MoveItemList';
@@ -11,20 +10,22 @@ export const moveItem = (handleMoveItem, id, parentProject) => newParent =>
 handleMoveItem(id, parentProject, newParent);
 
 export const MoveItemDialog = props => (
-  <Dialog
+  <DialogContainer
     id="Move Item Dialog"
-    aria-describedby="MoveItemDialogToolbar"
+    aria-describedby="MoveItemDialogHeader"
     visible={props.dialog.visible}
     onHide={props.hideMoveItemDialog}
-    fullPage
   >
-    <Toolbar id="MoveItemDialogToolbar" title="Move to..." actions={[<Button flat label="Cancel" onClick={props.hideMoveItemDialog} />]} />
-    <MoveItemList
-      itemTree={props.itemTree}
-      itemToMove={props.dialog.id}
-      onChooseItem={moveItem(props.handleMoveItem, props.dialog.id, props.dialog.parentProject)}
-    />
-  </Dialog>
+    <Dialog.Header id="MoveItemDialogHeader">Move to...</Dialog.Header>
+    <Dialog.Body scrollable>
+      <MoveItemList
+        itemTree={props.itemTree}
+        itemToMove={props.dialog.id}
+        onChooseItem={moveItem(props.handleMoveItem, props.dialog.id, props.dialog.parentProject)}
+      />
+    </Dialog.Body>
+    <Dialog.Footer><Dialog.FooterButton type="button" cancel onClick={props.hideMoveItemDialog}>Cancel</Dialog.FooterButton></Dialog.Footer>
+  </DialogContainer>
 );
 
 export function mapStateToProps(state) {
