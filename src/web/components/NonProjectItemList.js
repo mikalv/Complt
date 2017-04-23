@@ -1,4 +1,5 @@
 import React from 'react';
+import { route } from 'preact-router';
 import ItemList from './ItemList';
 
 const NonProjectItemList = props => (<ItemList
@@ -9,7 +10,7 @@ const NonProjectItemList = props => (<ItemList
   items={props.items}
   onItemTap={(i) => {
     if (props.items[i].isProject) {
-      props.history.push(`/project/${props.items[i]._id}`);
+      route(`/project/${props.items[i]._id}`);
     }
   }}
   canMove

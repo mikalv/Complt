@@ -10,7 +10,7 @@ export const Tags = props => (
   <List className="flex-child">
     {props.tags.map(tag =>
       <LinkListItem
-        to={`/tag/${tag}`}
+        href={`/tag/${tag}`}
         key={tag}
       >{tag}</LinkListItem>,
     )}

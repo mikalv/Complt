@@ -238,14 +238,14 @@ var config = {
       name: 'vendor',
       minChunks(module, count) {
         var context = module.context;
-        return context && context.indexOf('node_modules') !== -1 && context.indexOf('react-md') === -1;
+        return context && context.indexOf('node_modules') !== -1 && context.indexOf('@material') === -1;
       },
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'react',
       minChunks(module, count) {
         var context = module.context;
-        return context && context.indexOf('react-md') === -1  && context.indexOf('react') !== -1;
+        return context && context.indexOf('@material') === -1  && context.indexOf('react') !== -1;
       },
     }),
     // Makes some environment variables available to the JS code, for example:

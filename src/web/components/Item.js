@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'react-router-dom/Link';
+import { Link } from 'preact-router';
 import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Delete from 'react-icons/lib/md/delete';
@@ -78,7 +78,7 @@ const Item = (
               ? undefined
                 : <Chip
                   Component={Link}
-                  to={`/project/${item._id}`}
+                  href={`/project/${item._id}`}
                   onClick={stopPropagation(onItemTap)}
                   action
                   className="Item-chip"
@@ -89,7 +89,7 @@ const Item = (
               ? undefined
               : <Chip
                 Component={Link}
-                to={`/project/${item.parent._id}`}
+                href={`/project/${item.parent._id}`}
                 action
                 className="Item-chip"
               >
@@ -103,7 +103,7 @@ const Item = (
             {!item.tags
               ? undefined
               : item.tags.map(tag => (
-                <Chip Component={Link} action to={`/tag/${tag}`} key={tag} className="Item-chip">
+                <Chip Component={Link} action href={`/tag/${tag}`} key={tag} className="Item-chip">
                   {tag}
                 </Chip>
                 ))}

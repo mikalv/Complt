@@ -1,6 +1,6 @@
 import uuid from 'uuid/v4';
+import { route } from 'preact-router';
 import showToast from '../../web/showToast';
-import history from '../../web/history';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
@@ -49,7 +49,7 @@ export const loginCallback = (error, result) => (dispatch) => {
   }
   dispatch(login(result.idToken));
   getTokenInfo(result.idToken).then(profile => dispatch(getProfile(profile)));
-  history.replace(state.pathname || '/');
+  route(state.pathname || '/', true);
   if (state.shouldSync) dispatch(attemptSync());
 };
 

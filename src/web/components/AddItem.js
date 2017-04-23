@@ -27,7 +27,7 @@ const AddItem = props => (
             }
           });
         }}
-        className="md-drawer-relative AddItem"
+        className="AddItem"
       >
         <div className="flex column">
           <FormTextField

@@ -1,9 +1,8 @@
 /** @jsx h */
 import { h } from 'preact';
-import { Link } from 'preact-router';
 import MaterialComponent from 'preact-material-components/MaterialComponent';
 
-export default class LinkListItem extends MaterialComponent {
+export default class InteractiveListItem extends MaterialComponent {
   constructor() {
     super();
     this.componentName = 'list-item';
@@ -11,11 +10,11 @@ export default class LinkListItem extends MaterialComponent {
   componentDidMount() {
     super.attachRipple();
   }
-  materialDom({ Component = Link, ...props }) {
+  materialDom(props) {
     return ( // eslint-disable-next-line no-return-assign
-      <Component role="option" {...props} ref={control => this.control = control}>
+      <a role="option" {...props} ref={control => this.control = control}>
         {props.children}
-      </Component>
+      </a>
     );
   }
 }
