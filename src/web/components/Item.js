@@ -53,7 +53,7 @@ const Item = ({
   onItemMove,
   canSort,
 }) => (
-  <div
+  <li
     className="flex row Item md-text"
   >
     <div className="Item-left">
@@ -80,7 +80,7 @@ const Item = ({
       {canDelete ?
         <IconButton className="IconButton-margin" onClick={stopPropagation(onDelete)}><Delete /></IconButton> : undefined}
     </div>
-  </div>
+  </li>
 );
 
 export default Item;
