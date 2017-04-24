@@ -33,7 +33,7 @@ class Dialog extends Component {
   render({ children, visible, ...props }) {
     return (
       <MDDialog
-        ref={(dialog) => {
+        ref={dialog => {
           this.dialog = dialog;
         }}
         {...props}

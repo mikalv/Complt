@@ -12,10 +12,17 @@ export default class LinkListItem extends MaterialComponent {
     super.attachRipple();
   }
   materialDom({ Component = Link, ...props }) {
-    return ( // eslint-disable-next-line no-return-assign
-      <Component role="option" {...props} ref={control => this.control = control}>
-        {props.children}
-      </Component>
+    return (
+      // eslint-disable-next-line no-return-assign
+      (
+        <Component
+          role="option"
+          {...props}
+          ref={control => (this.control = control)}
+        >
+          {props.children}
+        </Component>
+      )
     );
   }
 }

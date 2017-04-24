@@ -22,7 +22,11 @@ const Dialogs = Loadable({
   webpackRequireWeakId: () => require.resolveWeak('../components/Dialogs'),
 });
 
-const redirects = [['project/inbox', '/inbox'], ['project/root', '/projects'], ['', '/inbox']];
+const redirects = [
+  ['project/inbox', '/inbox'],
+  ['project/root', '/projects'],
+  ['', '/inbox'],
+];
 
 export class App extends Component {
   componentDidMount() {
@@ -34,9 +38,10 @@ export class App extends Component {
     window.ga('send', 'pageview');
     this.performRedirects(url);
   };
-  performRedirects = (url) => {
-    redirects.forEach((redirect) => {
-      if (redirect[0] === url.replace(/(^\/+|\/+$)/g, '')) route(redirect[1], true);
+  performRedirects = url => {
+    redirects.forEach(redirect => {
+      if (redirect[0] === url.replace(/(^\/+|\/+$)/g, ''))
+        route(redirect[1], true);
     });
   };
   render(props) {
@@ -53,27 +58,30 @@ export class App extends Component {
                 <Menu />
               </IconButton>
               <Select
-                ref={(select) => {
+                ref={select => {
                   this.select = select;
                 }}
                 hintText={props.itemsToShow}
                 id="items-to-show-select"
-                onChange={() => props.changeItemsToShow(this.select.MDComponent.value)}
+                onChange={() =>
+                  props.changeItemsToShow(this.select.MDComponent.value)}
               >
-                {itemsToShowValues.map(item => <Select.Item>{item}</Select.Item>)}
+                {itemsToShowValues.map(item => (
+                  <Select.Item>{item}</Select.Item>
+                ))}
               </Select>
             </Toolbar.Section>
             <Toolbar.Section align-end className="App-toolbar-section">
               {props.syncState.syncing
                 ? <div className="">
-                  <Spinner id="syncing-spinner" size={24} />
-                </div>
+                    <Spinner id="syncing-spinner" size={24} />
+                  </div>
                 : <IconButton onClick={props.attemptSync}><Sync /></IconButton>}
             </Toolbar.Section>
           </Toolbar.Row>
         </Toolbar>
         <Drawer.TemporaryDrawer
-          ref={(drawer) => {
+          ref={drawer => {
             this.drawer = drawer;
             global.drawer = drawer;
           }}

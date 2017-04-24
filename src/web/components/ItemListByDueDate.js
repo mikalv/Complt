@@ -13,10 +13,10 @@ const sortDates = (a, b) => {
   return aDate < bDate ? -1 : aDate > bDate ? 1 : 0; // eslint-disable-line no-nested-ternary
 };
 
-export const mapStateToProps = ({ endTime, startTime }) => (state) => {
+export const mapStateToProps = ({ endTime, startTime }) => state => {
   const items = [];
   const itemsWithParents = getParents(state.items);
-  itemsWithParents.forEach((item) => {
+  itemsWithParents.forEach(item => {
     if (item && Array.isArray(item.dates)) {
       const nextDueDate = getNextDueDate(item.dates);
       if (!nextDueDate) return;
@@ -29,7 +29,10 @@ export const mapStateToProps = ({ endTime, startTime }) => (state) => {
 };
 
 const ItemListByDueDate = _ =>
-areInitialItemsLoaded(connect(mapStateToProps(_), mapDispatchToProps)(NonProjectItemList), Loading);
+  areInitialItemsLoaded(
+    connect(mapStateToProps(_), mapDispatchToProps)(NonProjectItemList),
+    Loading
+  );
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
@@ -47,12 +50,18 @@ const week = new Date(todayTime);
 week.setDate(today.getDate() + 7);
 const weekTime = week.getTime();
 
-export const Today = ItemListByDueDate({ startTime: todayTime, endTime: tomorrowTime });
+export const Today = ItemListByDueDate({
+  startTime: todayTime,
+  endTime: tomorrowTime,
+});
 export const Tomorrow = ItemListByDueDate({
   startTime: tomorrowTime,
   endTime: dayAfterTomorrowTime,
 });
 export const Overdue = ItemListByDueDate({ startTime: 0, endTime: todayTime });
-export const Week = ItemListByDueDate({ startTime: todayTime, endTime: weekTime });
+export const Week = ItemListByDueDate({
+  startTime: todayTime,
+  endTime: weekTime,
+});
 
 export default ItemListByDueDate;

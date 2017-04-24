@@ -8,6 +8,8 @@ describe('itemsToShowReducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
   it('handles CHANGE_ITEMS_TO_SHOW correctly', () => {
-    expect(reducer(undefined, changeItemsToShow(SHOW_COMPLETED))).toEqual(SHOW_COMPLETED);
+    expect(reducer(undefined, changeItemsToShow(SHOW_COMPLETED))).toEqual(
+      SHOW_COMPLETED
+    );
   });
 });

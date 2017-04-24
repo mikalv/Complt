@@ -1,8 +1,10 @@
 import mockDate from 'mockdate';
 import isTokenExpired from '../auth';
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODE4Njg5NDh9.xwSMLlXBJRO3S2Ro5vBzjvbsL1A1-PYg28b4tMw-DKc';
-const tokenWithoutExp = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.3m-8plZgXl2r0gXsQ3xGtZv0ztXLoOiwEPaBlX1jpBM';
+const token =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODE4Njg5NDh9.xwSMLlXBJRO3S2Ro5vBzjvbsL1A1-PYg28b4tMw-DKc';
+const tokenWithoutExp =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.3m-8plZgXl2r0gXsQ3xGtZv0ztXLoOiwEPaBlX1jpBM';
 const notAToken = 'sdfsdfsdfsdf';
 
 describe('isTokenExpired(token)', () => {

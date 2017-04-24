@@ -6,13 +6,16 @@ import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import './Account.scss';
 
-const renderAvatar = (picture) => {
+const renderAvatar = picture => {
   if (picture) {
     return <img className="Account-avatar" alt="User Profile" src={picture} />;
   }
-  return <div className="Account-avatar Account-avatar-icon"><Person size={67} /></div>;
+  return (
+    <div className="Account-avatar Account-avatar-icon">
+      <Person size={67} />
+    </div>
+  );
 };
-
 
 export const Account = props => (
   <div className="flex-child flex center column text-center">
@@ -27,18 +30,23 @@ export const Account = props => (
         primary
         onClick={() => {
           props.logout();
-          import('auth0-js/src/web-auth').then((WebAuth) => {
+          import('auth0-js/src/web-auth').then(WebAuth => {
             const auth0 = new WebAuth({
               domain: process.env.REACT_APP_AUTH0_DOMAIN,
               clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
             });
             auth0.logout(
-              { returnTo: window.location.href, client_id: process.env.REACT_APP_AUTH0_CLIENT_ID },
-              { version: 'v2' },
+              {
+                returnTo: window.location.href,
+                client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
+              },
+              { version: 'v2' }
             );
           });
         }}
-      >Sign Out</Button>
+      >
+        Sign Out
+      </Button>
     </div>
   </div>
 );

@@ -35,7 +35,7 @@ import {
 
 export const login = token => ({ type: LOGIN, token });
 
-export const loginCallback = (error, result) => (dispatch) => {
+export const loginCallback = (error, result) => dispatch => {
   if (error) {
     logException(error);
     return;
@@ -57,7 +57,10 @@ export const logout = () => ({ type: LOGOUT });
 
 export const getProfile = profile => ({ type: GET_PROFILE, profile });
 
-export const removeItemPouch = doc => ({ type: DELETE_ITEM_POUCH, id: doc._id });
+export const removeItemPouch = doc => ({
+  type: DELETE_ITEM_POUCH,
+  id: doc._id,
+});
 
 export const insertItemPouch = doc => ({ type: INSERT_ITEM_POUCH, item: doc });
 
@@ -75,7 +78,11 @@ export const createProject = (parentProjectId, item) => ({
   item: { _id: uuid(), isProject: true, ...item },
 });
 
-export const completeItem = (id, isCompleted) => ({ type: COMPLETE_ITEM, id, isCompleted });
+export const completeItem = (id, isCompleted) => ({
+  type: COMPLETE_ITEM,
+  id,
+  isCompleted,
+});
 
 export const deleteItem = (parentProjectId, id) => ({
   type: DELETE_ITEM,
@@ -88,14 +95,15 @@ export const deleteItemWithoutParent = id => ({
   id,
 });
 
-export const showSignInToast = shouldSync => (dispatch) => {
+export const showSignInToast = shouldSync => dispatch => {
   showToast({
     message: 'Please sign in to sync',
     actionText: 'SIGN IN',
-    actionHandler: () => loginWithGoogle(
-      (err, result) => dispatch(loginCallback(err, result)),
-      { pathname: window.location.pathname, shouldSync },
-    ),
+    actionHandler: () =>
+      loginWithGoogle((err, result) => dispatch(loginCallback(err, result)), {
+        pathname: window.location.pathname,
+        shouldSync,
+      }),
   });
 };
 
@@ -112,32 +120,36 @@ export const syncSucceded = () => ({
 export const attemptSync = () => (dispatch, getState) => {
   dispatch(syncStarted());
   if (isTokenExpired(getState().auth)) {
-    return renewAuth().then((idToken) => {
-      dispatch(login(idToken));
-      getTokenInfo(idToken).then(profile => dispatch(getProfile(profile)));
-      return sync(dispatch, getState)();
-    }).catch(() => {
-      dispatch(showSignInToast(true));
-      dispatch(syncFailed());
-    });
+    return renewAuth()
+      .then(idToken => {
+        dispatch(login(idToken));
+        getTokenInfo(idToken).then(profile => dispatch(getProfile(profile)));
+        return sync(dispatch, getState)();
+      })
+      .catch(() => {
+        dispatch(showSignInToast(true));
+        dispatch(syncFailed());
+      });
   }
   return sync(dispatch, getState)();
 };
 
 export const sync = (dispatch, getState) => () =>
   pouchDBSync(getState().auth, process.env.REACT_APP_COUCH_URL)
-  .then(() => {
-    dispatch(syncSucceded());
-  })
-  .catch((error) => {
-    if (error.status === 401) {
-      dispatch(showSignInToast(true));
-    } else {
-      logException(new Error('An error occured while syncing'), error);
-      showToast({ message: 'An error occured while syncing, please try again later' });
-    }
-    dispatch(syncFailed());
-  });
+    .then(() => {
+      dispatch(syncSucceded());
+    })
+    .catch(error => {
+      if (error.status === 401) {
+        dispatch(showSignInToast(true));
+      } else {
+        logException(new Error('An error occured while syncing'), error);
+        showToast({
+          message: 'An error occured while syncing, please try again later',
+        });
+      }
+      dispatch(syncFailed());
+    });
 
 export const updateItem = item => ({
   type: UPDATE_ITEM,
@@ -153,7 +165,7 @@ export const hideUpdateItemDialog = () => ({
   type: HIDE_UPDATE_ITEM_DIALOG,
 });
 
-export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
+export const handleUpdateItem = (updatedItemInput, item) => dispatch => {
   import('../utils/processItem').then(({ default: processItem }) => {
     const processedItem = processItem(updatedItemInput, item.isProject);
     const newItem = {
@@ -178,22 +190,35 @@ export const hideMoveItemDialog = () => ({
 });
 
 export const moveItem = (id, previousParent, newParent) => ({
-  type: MOVE_ITEM, id, previousParent, newParent,
+  type: MOVE_ITEM,
+  id,
+  previousParent,
+  newParent,
 });
 
 export const moveItemWithoutParent = (id, newParent) => ({
-  type: MOVE_ITEM_WITHOUT_PARENT, id, newParent,
+  type: MOVE_ITEM_WITHOUT_PARENT,
+  id,
+  newParent,
 });
 
-export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
+export const handleMoveItem = (id, previousParent, newParent) => dispatch => {
   dispatch(hideMoveItemDialog());
-  if (typeof previousParent === 'string') dispatch(moveItem(id, previousParent, newParent));
+  if (typeof previousParent === 'string')
+    dispatch(moveItem(id, previousParent, newParent));
   if (previousParent === null) dispatch(moveItemWithoutParent(id, newParent));
 };
 
-export const changeItemsToShow = option => ({ type: CHANGE_ITEMS_TO_SHOW, option });
+export const changeItemsToShow = option => ({
+  type: CHANGE_ITEMS_TO_SHOW,
+  option,
+});
 
 export const initialItemsLoaded = () => ({ type: INITIAL_ITEMS_LOADED });
 
-export const reorderItem = (id, oldIndex, newIndex) =>
-({ type: REORDER_ITEM, id, oldIndex, newIndex });
+export const reorderItem = (id, oldIndex, newIndex) => ({
+  type: REORDER_ITEM,
+  id,
+  oldIndex,
+  newIndex,
+});

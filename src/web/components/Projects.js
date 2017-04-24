@@ -17,20 +17,27 @@ const SortableItemList = SortableContainer(ItemList);
 export const Projects = props => (
   <div className="flex-child">
     <SortableItemList
-      onDelete={i => props.deleteItem(props.projectId, props.projectChildren[i]._id)}
+      onDelete={i =>
+        props.deleteItem(props.projectId, props.projectChildren[i]._id)}
       canDeleteTask
       canDeleteProject
       canMove
       canSort
       useDragHandle
-      onSortEnd={({ oldIndex, newIndex }) => props.reorderItem(props.projectId, oldIndex, newIndex)}
+      onSortEnd={({ oldIndex, newIndex }) =>
+        props.reorderItem(props.projectId, oldIndex, newIndex)}
       ItemComponent={SortableItem}
-      onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
-      onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
+      onItemMove={i =>
+        props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
+      onItemUpdate={i =>
+        props.showUpdateItemDialog(props.projectChildren[i]._id)}
       onLeftButtonClick={i =>
-        props.completeItem(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted)}
+        props.completeItem(
+          props.projectChildren[i]._id,
+          !props.projectChildren[i].isCompleted
+        )}
       items={props.projectChildren}
-      onItemTap={(i) => {
+      onItemTap={i => {
         if (props.projectChildren[i].isProject) {
           props.routerPush(`/project/${props.projectChildren[i]._id}`);
         }
@@ -41,7 +48,7 @@ export const Projects = props => (
       <AddItem
         initialIsProject={props.initialIsProject}
         canChangeType={props.canChangeType}
-        onAddItem={(item) => {
+        onAddItem={item => {
           if (item.isProject) props.createProject(props.projectId, item);
           else props.createTask(props.projectId, item);
         }}
@@ -54,10 +61,14 @@ export function mapStateToProps(state, ownProps) {
   const project = state.items.find(item => item._id === ownProps.projectId);
   if (project === undefined) return { projectChildren: [] };
   const projectChildren = project.children.map(id =>
-    state.items.find(item => item._id === id));
-  return { projectChildren: getFilteredItems(projectChildren, state.itemsToShow) };
+    state.items.find(item => item._id === id)
+  );
+  return {
+    projectChildren: getFilteredItems(projectChildren, state.itemsToShow),
+  };
 }
 
 export default areInitialItemsLoaded(
   connect(mapStateToProps, mapDispatchToProps)(Projects),
-  Loading);
+  Loading
+);

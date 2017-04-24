@@ -7,7 +7,8 @@ import FormTextField from './FormTextField';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 
-export const onSubmit = (item, handleUpdateItem) => ({ input }) => handleUpdateItem(input, item);
+export const onSubmit = (item, handleUpdateItem) => ({ input }) =>
+  handleUpdateItem(input, item);
 
 export const UpdateItemForm = props => (
   <Form
@@ -21,16 +22,24 @@ export const UpdateItemForm = props => (
         <Dialog.Body>
           <FormTextField
             placeholder={
-              props.item.isProject ? 'e.g. Report' : 'e.g. Finish Report @work !tomorrow at 8am!'
+              props.item.isProject
+                ? 'e.g. Report'
+                : 'e.g. Finish Report @work !tomorrow at 8am!'
             }
             field="input"
           />
         </Dialog.Body>
         <Dialog.Footer className="UpdateItemDialog-footer">
-          <Dialog.FooterButton type="button" cancel onClick={props.hideUpdateItemDialog}>
+          <Dialog.FooterButton
+            type="button"
+            cancel
+            onClick={props.hideUpdateItemDialog}
+          >
             Cancel
           </Dialog.FooterButton>
-          <Dialog.FooterButton type="submit" accept onClick={submitForm}>Update</Dialog.FooterButton>
+          <Dialog.FooterButton type="submit" accept onClick={submitForm}>
+            Update
+          </Dialog.FooterButton>
         </Dialog.Footer>
       </form>
     )}
@@ -50,7 +59,9 @@ export const UpdateItemDialog = props => (
 
 export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
-    const item = state.items.find(({ _id }) => _id === state.dialogs.updateItem.id);
+    const item = state.items.find(
+      ({ _id }) => _id === state.dialogs.updateItem.id
+    );
     const tags = item.tags || [];
     const date = item.dates && item.dates.length !== 0
       ? ` !${new Date(getNextDueDate(item.dates)).toString()}!`

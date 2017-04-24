@@ -8,9 +8,15 @@ import Loading from '../components/Loading';
 
 export function mapStateToProps(state) {
   const items = getParents(state.items);
-  return { items: getFilteredItems(items.filter(({ _id }) => _id !== 'inbox' && _id !== 'root'), state.itemsToShow) };
+  return {
+    items: getFilteredItems(
+      items.filter(({ _id }) => _id !== 'inbox' && _id !== 'root'),
+      state.itemsToShow
+    ),
+  };
 }
 
 export default areInitialItemsLoaded(
   connect(mapStateToProps, mapDispatchToProps)(NonProjectItemList),
-  Loading);
+  Loading
+);

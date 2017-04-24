@@ -1,5 +1,5 @@
 export default function logException(ex, context) {
-  import('raven-js').then((Raven) => {
+  import('raven-js').then(Raven => {
     Raven.captureException(ex, {
       extra: context,
     });

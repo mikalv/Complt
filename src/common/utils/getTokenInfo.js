@@ -3,11 +3,13 @@ const getTokenInfo = token =>
     method: 'POST',
     headers: new Headers({ 'content-type': 'application/json' }),
     body: JSON.stringify({ id_token: token }),
-  }).then(response => response.json()).then((profile) => {
-    import('raven-js').then((Raven) => {
-      Raven.setUserContext({ email: profile.email, id: profile.user_id });
+  })
+    .then(response => response.json())
+    .then(profile => {
+      import('raven-js').then(Raven => {
+        Raven.setUserContext({ email: profile.email, id: profile.user_id });
+      });
+      return profile;
     });
-    return profile;
-  });
 
 export default getTokenInfo;

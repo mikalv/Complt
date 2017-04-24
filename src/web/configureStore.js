@@ -10,7 +10,12 @@ import syncState from '../common/redux/syncState';
 import itemsToShow from '../common/redux/itemsToShow';
 import logException from '../common/utils/logException';
 import db from '../common/db';
-import { removeItemPouch, insertItemPouch, updateItemPouch, initialItemsLoaded } from '../common/redux/actions';
+import {
+  removeItemPouch,
+  insertItemPouch,
+  updateItemPouch,
+  initialItemsLoaded,
+} from '../common/redux/actions';
 
 const pouchMiddleware = PouchMiddleware({
   path: '/items',
@@ -22,7 +27,9 @@ const pouchMiddleware = PouchMiddleware({
   },
   handleResponse: (error, data, cb) => {
     if (error) {
-      logException(new Error('An error occured in pouch-redux-middleware', { error, data }));
+      logException(
+        new Error('An error occured in pouch-redux-middleware', { error, data })
+      );
     }
     cb(error);
   },
@@ -31,7 +38,7 @@ const pouchMiddleware = PouchMiddleware({
   },
 });
 
-const analyticsMiddleware = () => next => (action) => {
+const analyticsMiddleware = () => next => action => {
   next(action);
   if (!action.type.match(/(POUCH|INITIAL_ITEMS_LOADED|persist)/)) {
     window.ga('send', 'event', 'redux', action.type);
@@ -44,15 +51,12 @@ let enhancer;
 
 if (window.__REDUX_DEVTOOLS_EXTENSION__) {
   enhancer = compose(
-      autoRehydrate(),
-      middleware,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  );
-} else {
-  enhancer = compose(
     autoRehydrate(),
     middleware,
-    );
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+} else {
+  enhancer = compose(autoRehydrate(), middleware);
 }
 
 const store = createStore(
@@ -64,12 +68,11 @@ const store = createStore(
     dialogs,
     itemsToShow,
   }),
-  enhancer,
+  enhancer
 );
 
 persistStore(store, {
   whitelist: ['auth', 'profile', 'itemsToShow'],
 });
-
 
 export default store;

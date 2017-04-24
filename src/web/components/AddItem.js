@@ -17,9 +17,11 @@ const AddItem = props => (
   >
     {({ values: { isProject, input }, setValue, submitForm, getValue }) => (
       <form
-        onSubmit={(e) => {
+        onSubmit={e => {
           submitForm(e);
-          import('../../common/utils/processItem').then(({ default: processItem }) => {
+          import(
+            '../../common/utils/processItem'
+          ).then(({ default: processItem }) => {
             const item = processItem(getValue('input'), isProject);
             if (item) {
               props.onAddItem(item);
@@ -33,27 +35,46 @@ const AddItem = props => (
           <FormTextField
             id="add-item-input"
             className="AddItem-input"
-            placeholder={isProject ? 'e.g. Report' : 'e.g. Finish Report @work !tomorrow at 8am!'}
+            placeholder={
+              isProject
+                ? 'e.g. Report'
+                : 'e.g. Finish Report @work !tomorrow at 8am!'
+            }
             field="input"
           />
           <div className="flex row space-between">
             <div>
-              <IconButton type="button" className="IconButton-margin" id="add-tag" onClick={() => setValue('input', `${input} @`)}>
+              <IconButton
+                type="button"
+                className="IconButton-margin"
+                id="add-tag"
+                onClick={() => setValue('input', `${input} @`)}
+              >
                 <Label />
               </IconButton>
             </div>
             <div className="flex row">
-              {props.canChangeType ? <IconButton type="button" className="IconButton-margin" onClick={() => setValue('isProject', !isProject)}>
-                {isProject ? <Done /> : <Assignment />}
-              </IconButton> : null}
-              <IconButton className="IconButton-margin" id="add-item-submit" type="submit">
+              {props.canChangeType
+                ? <IconButton
+                    type="button"
+                    className="IconButton-margin"
+                    onClick={() => setValue('isProject', !isProject)}
+                  >
+                    {isProject ? <Done /> : <Assignment />}
+                  </IconButton>
+                : null}
+              <IconButton
+                className="IconButton-margin"
+                id="add-item-submit"
+                type="submit"
+              >
                 <Send />
               </IconButton>
             </div>
           </div>
         </div>
       </form>
-  )}
+    )}
   </Form>
 );
 
