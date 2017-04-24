@@ -10,9 +10,9 @@ const FormTextField = ({ field, ...rest }) => (
         value={getValue()}
         onChange={({ target: { value = '' } }) => setValue(value)}
         onBlur={() => setTouched()}
-      />)}
+      />
+    )}
   </FormInput>
 );
-
 
 export default FormTextField;

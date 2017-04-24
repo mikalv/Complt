@@ -1,10 +1,12 @@
 export function getSingleParent(id, items) {
-  return items.find(item => item.isProject === true && item.children.indexOf(id) !== -1);
+  return items.find(
+    item => item.isProject === true && item.children.indexOf(id) !== -1
+  );
 }
 
 export function getParents(items) {
   const parents = {};
-  items.forEach((item) => {
+  items.forEach(item => {
     if (
       item.isProject === false ||
       !Array.isArray(item.children) ||
@@ -12,11 +14,11 @@ export function getParents(items) {
     ) {
       return;
     }
-    item.children.forEach((id) => {
+    item.children.forEach(id => {
       parents[id] = item;
     });
   });
-  return items.map((item) => {
+  return items.map(item => {
     if (item._id === 'inbox' || item._id === 'root') return item;
     const parent = parents[item._id];
     if (parent == null) return item;

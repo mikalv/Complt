@@ -7,7 +7,7 @@ import itemsToTree from '../../common/utils/itemsToTree';
 import MoveItemList from './MoveItemList';
 
 export const moveItem = (handleMoveItem, id, parentProject) => newParent =>
-handleMoveItem(id, parentProject, newParent);
+  handleMoveItem(id, parentProject, newParent);
 
 export const MoveItemDialog = props => (
   <DialogContainer
@@ -21,10 +21,22 @@ export const MoveItemDialog = props => (
       <MoveItemList
         itemTree={props.itemTree}
         itemToMove={props.dialog.id}
-        onChooseItem={moveItem(props.handleMoveItem, props.dialog.id, props.dialog.parentProject)}
+        onChooseItem={moveItem(
+          props.handleMoveItem,
+          props.dialog.id,
+          props.dialog.parentProject
+        )}
       />
     </Dialog.Body>
-    <Dialog.Footer><Dialog.FooterButton type="button" cancel onClick={props.hideMoveItemDialog}>Cancel</Dialog.FooterButton></Dialog.Footer>
+    <Dialog.Footer>
+      <Dialog.FooterButton
+        type="button"
+        cancel
+        onClick={props.hideMoveItemDialog}
+      >
+        Cancel
+      </Dialog.FooterButton>
+    </Dialog.Footer>
   </DialogContainer>
 );
 

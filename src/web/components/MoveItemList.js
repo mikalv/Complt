@@ -7,7 +7,9 @@ export function renderListItem(item, onChooseItem, itemToMove, key) {
     <List.Item key={key} onClick={() => onChooseItem(item._id)}>
       {item.name || 'Projects'}
     </List.Item>,
-    ...item.children.map((itemInMap, i) => renderListItem(itemInMap, onChooseItem, itemToMove, i)),
+    ...item.children.map((itemInMap, i) =>
+      renderListItem(itemInMap, onChooseItem, itemToMove, i)
+    ),
   ];
 }
 

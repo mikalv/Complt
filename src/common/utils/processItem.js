@@ -16,14 +16,16 @@ export default function processItem(value, isProject = false) {
     const parsedDate = dateCreate(date[1], { future: true });
     if (parsedDate.toString() === 'Invalid Date') valueWithoutDate = value;
     else {
-      valueWithoutDate = `${value.substring(0, date.index).trim()} ${value.substring(date.index + date[0].length).trim()}`;
+      valueWithoutDate = `${value
+        .substring(0, date.index)
+        .trim()} ${value.substring(date.index + date[0].length).trim()}`;
       item.dates.push({
         dateType: DUE_DATE,
         value: parsedDate.toISOString(),
       });
     }
   } else valueWithoutDate = value;
-  valueWithoutDate.split(' ').forEach((part) => {
+  valueWithoutDate.split(' ').forEach(part => {
     if (part.split('')[0] === '@') {
       item.tags.push(part);
       return;

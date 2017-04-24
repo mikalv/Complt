@@ -12,7 +12,7 @@ function getSingleDueDate(date) {
 export default function getNextDueDate(dates = []) {
   if (dates.length === 0) return undefined;
   let nextDueDate = Infinity;
-  dates.forEach((date) => {
+  dates.forEach(date => {
     const dueDateValue = getSingleDueDate(date);
     if (dueDateValue < nextDueDate) nextDueDate = dueDateValue;
   });

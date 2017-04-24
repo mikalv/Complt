@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 class IconContext extends Component {
-  getChildContext() { // eslint-disable-line class-methods-use-this
+  getChildContext() {
+    // eslint-disable-line class-methods-use-this
     return {
       reactIconBase: {
         style: { verticalAlign: 'none' },

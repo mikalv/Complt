@@ -1,4 +1,9 @@
-import { SHOW_UPDATE_ITEM_DIALOG, HIDE_UPDATE_ITEM_DIALOG, SHOW_MOVE_ITEM_DIALOG, HIDE_MOVE_ITEM_DIALOG } from './actionTypes';
+import {
+  SHOW_UPDATE_ITEM_DIALOG,
+  HIDE_UPDATE_ITEM_DIALOG,
+  SHOW_MOVE_ITEM_DIALOG,
+  HIDE_MOVE_ITEM_DIALOG,
+} from './actionTypes';
 
 export const initialState = {
   updateItem: {

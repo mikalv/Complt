@@ -13,5 +13,4 @@ const areInitialItemsLoaded = (ActualComponent, LoadingComponent) =>
     return <LoadingComponent {...props} />;
   });
 
-
 export default areInitialItemsLoaded;

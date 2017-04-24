@@ -17,9 +17,9 @@ const Handle = SortableHandle(() => (
   <IconButton className="IconButton-margin"><DragHandle /></IconButton>
 ));
 
-const stopPropagation = (callback) => {
+const stopPropagation = callback => {
   if (typeof callback === 'function') {
-    return (e) => {
+    return e => {
       e.preventDefault();
       e.stopPropagation();
       callback(e);
@@ -28,7 +28,7 @@ const stopPropagation = (callback) => {
   return callback;
 };
 
-const getParentProjectName = (item) => {
+const getParentProjectName = item => {
   switch (item._id) {
     case 'inbox':
       return 'Inbox';
@@ -39,32 +39,43 @@ const getParentProjectName = (item) => {
   }
 };
 
-const getFormattedDate = (rawDate) => {
+const getFormattedDate = rawDate => {
   const date = new Date(rawDate);
   return date.toLocaleString();
 };
 
-const Item = (
-  {
-    item = {},
-    onLeftButtonClick,
-    onDelete,
-    canDelete,
-    canMove,
-    onItemTap,
-    onItemUpdate,
-    onItemMove,
-    canSort,
-  },
-) => (
+const Item = ({
+  item = {},
+  onLeftButtonClick,
+  onDelete,
+  canDelete,
+  canMove,
+  onItemTap,
+  onItemUpdate,
+  onItemMove,
+  canSort,
+}) => (
   <li className="flex row Item">
     <div className="Item-left">
-      <IconButton className="IconButton-margin" onClick={stopPropagation(onLeftButtonClick)}>
+      <IconButton
+        className="IconButton-margin"
+        onClick={stopPropagation(onLeftButtonClick)}
+      >
         {item.isProject === true
           ? <Assignment
-            color={item.isCompleted ? colors.completedItem : 'rgba(255, 255, 255, 0.7)'}
-          />
-          : <Done color={item.isCompleted ? colors.completedItem : 'rgba(255, 255, 255, 0.7)'} />}
+              color={
+                item.isCompleted
+                  ? colors.completedItem
+                  : 'rgba(255, 255, 255, 0.7)'
+              }
+            />
+          : <Done
+              color={
+                item.isCompleted
+                  ? colors.completedItem
+                  : 'rgba(255, 255, 255, 0.7)'
+              }
+            />}
       </IconButton>
     </div>
     <div className="Item-center">
@@ -73,57 +84,74 @@ const Item = (
         (item.tags && item.tags.length !== 0) ||
         item.parent ||
         item.children
-          ? <div className="Item-chip-container">
+        ? <div className="Item-chip-container">
             {!item.children
               ? undefined
-                : <Chip
+              : <Chip
                   Component={Link}
                   href={`/project/${item._id}`}
                   onClick={stopPropagation(onItemTap)}
                   action
                   className="Item-chip"
                 >
-                  {item.children.length === 1 ? '1 Item' : `${item.children.length} Items`}
+                  {item.children.length === 1
+                    ? '1 Item'
+                    : `${item.children.length} Items`}
                 </Chip>}
             {!item.parent
               ? undefined
               : <Chip
-                Component={Link}
-                href={`/project/${item.parent._id}`}
-                action
-                className="Item-chip"
-              >
-                {getParentProjectName(item.parent)}
-              </Chip>}
+                  Component={Link}
+                  href={`/project/${item.parent._id}`}
+                  action
+                  className="Item-chip"
+                >
+                  {getParentProjectName(item.parent)}
+                </Chip>}
             {!item.dates || item.dates.length === 0
               ? undefined
               : <Chip className="Item-chip">
-                {`Due ${getFormattedDate(getNextDueDate(item.dates))}`}
-              </Chip>}
+                  {`Due ${getFormattedDate(getNextDueDate(item.dates))}`}
+                </Chip>}
             {!item.tags
               ? undefined
               : item.tags.map(tag => (
-                <Chip Component={Link} action href={`/tag/${tag}`} key={tag} className="Item-chip">
-                  {tag}
-                </Chip>
+                  <Chip
+                    Component={Link}
+                    action
+                    href={`/tag/${tag}`}
+                    key={tag}
+                    className="Item-chip"
+                  >
+                    {tag}
+                  </Chip>
                 ))}
           </div>
         : undefined}
     </div>
     <div className="Item-right">
       {canSort ? <Handle /> : undefined}
-      <IconButton className="IconButton-margin" onClick={stopPropagation(onItemUpdate)}>
+      <IconButton
+        className="IconButton-margin"
+        onClick={stopPropagation(onItemUpdate)}
+      >
         <Create />
       </IconButton>
       {canMove
-        ? <IconButton className="IconButton-margin" onClick={stopPropagation(onItemMove)}>
-          <MoreVert />
-        </IconButton>
+        ? <IconButton
+            className="IconButton-margin"
+            onClick={stopPropagation(onItemMove)}
+          >
+            <MoreVert />
+          </IconButton>
         : undefined}
       {canDelete
-        ? <IconButton className="IconButton-margin" onClick={stopPropagation(onDelete)}>
-          <Delete />
-        </IconButton>
+        ? <IconButton
+            className="IconButton-margin"
+            onClick={stopPropagation(onDelete)}
+          >
+            <Delete />
+          </IconButton>
         : undefined}
     </div>
   </li>

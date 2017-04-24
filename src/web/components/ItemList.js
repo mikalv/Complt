@@ -4,22 +4,20 @@ import Divider from './Divider';
 import Item from './Item';
 import './ItemList.scss';
 
-const ItemList = (
-  {
-    items = [],
-    onLeftButtonClick,
-    onDelete,
-    canDeleteTask,
-    canDeleteProject,
-    canMove,
-    onItemTap,
-    onItemUpdate,
-    onItemMove,
-    className,
-    canSort,
-    ItemComponent = Item,
-  },
-) => (
+const ItemList = ({
+  items = [],
+  onLeftButtonClick,
+  onDelete,
+  canDeleteTask,
+  canDeleteProject,
+  canMove,
+  onItemTap,
+  onItemUpdate,
+  onItemMove,
+  className,
+  canSort,
+  ItemComponent = Item,
+}) => (
   <ul className={cn(className, 'ItemList')}>
     {items.map((item, i) => {
       if (!item) return null;
@@ -35,11 +33,17 @@ const ItemList = (
           }
           canMove={canMove}
           onLeftButtonClick={
-            onLeftButtonClick !== undefined ? () => onLeftButtonClick(i) : undefined
+            onLeftButtonClick !== undefined
+              ? () => onLeftButtonClick(i)
+              : undefined
           }
           onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
-          onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
-          onItemMove={onItemMove !== undefined ? () => onItemMove(i) : undefined}
+          onItemUpdate={
+            onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined
+          }
+          onItemMove={
+            onItemMove !== undefined ? () => onItemMove(i) : undefined
+          }
           onDelete={() => onDelete(i)}
         />,
         <Divider />,
