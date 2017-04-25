@@ -130,7 +130,8 @@ module.exports = {
           presets: [['es2015', {"modules": false}]],
           plugins:[
             ["transform-react-jsx", { "pragma": "h" }],
-            "transform-object-rest-spread"
+            "transform-object-rest-spread",
+            "transform-react-constant-elements"
           ]
         }
       },
@@ -140,6 +141,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['es2015', 'react', 'stage-3', 'stage-0'],
+          plugins: ["transform-react-constant-elements"],
           babelrc: false,
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/

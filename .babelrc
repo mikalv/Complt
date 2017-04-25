@@ -1,6 +1,6 @@
 {
   "presets": [["es2015", { "modules": false }], "stage-3", "react"],
-  "plugins": ["lodash", "syntax-dynamic-import"],
+  "plugins": ["lodash", "syntax-dynamic-import", "transform-react-constant-elements"],
   "env": {
     "development": {
       "plugins": ["transform-react-jsx-source"]

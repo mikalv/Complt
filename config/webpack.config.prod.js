@@ -136,7 +136,8 @@ var config = {
           presets: [['es2015', {"modules": false}]],
 					plugins:[
 						["transform-react-jsx", { "pragma": "h" }],
-						"transform-object-rest-spread"
+						"transform-object-rest-spread",
+            "transform-react-constant-elements"
 					]
         }
       },
@@ -147,7 +148,7 @@ var config = {
         options: {
           babelrc: false,
           "presets": [["es2015", { "modules": false }], "stage-3", "react", "stage-0"],
-          "plugins": ["lodash", "syntax-dynamic-import"],
+          "plugins": ["lodash", "syntax-dynamic-import", "transform-react-constant-elements"],
         }
       },
       // The notation here is somewhat confusing.
