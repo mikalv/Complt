@@ -22,9 +22,6 @@ export function getParents(items) {
     if (item._id === 'inbox' || item._id === 'root') return item;
     const parent = parents[item._id];
     if (parent == null) return item;
-    return {
-      ...item,
-      parent,
-    };
+    return Object.assign({}, items, { parent });
   });
 }
