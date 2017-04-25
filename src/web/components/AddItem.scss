@@ -1,5 +1,5 @@
-@import "@material/elevation/mdc-elevation";
-@import "../index";
+@import "@material/elevation/_mixins";
+@import "../variables";
 
 .AddItem-fixed {
   position: fixed;

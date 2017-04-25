@@ -2,7 +2,7 @@
 // https://github.com/google/material-design-lite/blob/mdl-1.x/src/chip/_chip.scss
 // https://github.com/mlaursen/react-md/blob/master/src/scss/components/_chips.scss
 
-@import "@material/elevation/mdc-elevation";
+@import "@material/elevation/_mixins";
 
 .chip {
     align-items: center;

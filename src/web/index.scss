@@ -1,7 +1,5 @@
-$mdc-theme-primary: #59C9A5;
-$mdc-theme-accent: #FF4081;
-$mdc-theme-background: #333;
-$mdc-permanent-drawer-dark-theme-bg-color: #424242;
+@import "variables";
+
 .mdc-theme--dark, main, html {
 	background-color: $mdc-theme-background;
 	color: #fff;
