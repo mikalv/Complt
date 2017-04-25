@@ -317,55 +317,53 @@ const subsetIds = [
   'fcc07492-5d17-4c3c-a1fc-687ca8854f44',
 ];
 
-const subset = [
-  {
-    isProject: true,
-    name: 'regfg',
-    isCompleted: false,
-    tags: [],
-    dates: [],
-    children: [
-      'f1abf6bb-7b75-4277-990b-3219e273ae00',
-      'b2ef53a8-3bc8-44a8-ab02-c3a13518888b',
-    ],
-    _id: 'dc3931ee-0859-4257-a3be-d4782c82188c',
-    _rev: '5-2f7a09adc5edcd7602789f4d0217e6a9',
-  },
-  {
-    isProject: false,
-    name: 'sdf',
-    isCompleted: false,
-    tags: [],
-    dates: [],
-    _id: 'f15773c6-7999-413e-8877-003a74267408',
-    _rev: '1-3141e30781fbdc1f4fa4280be23394c2',
-  },
-  {
-    isProject: true,
-    name: 'fdsg',
-    isCompleted: false,
-    tags: [],
-    dates: [],
-    children: [
-      '929f8d12-6c91-4720-9a04-7c8cfacbecda',
-      'f15773c6-7999-413e-8877-003a74267408',
-    ],
-    _id: 'b2ef53a8-3bc8-44a8-ab02-c3a13518888b',
-    _rev: '3-1f82164c56f0b9deee803065824f7e91',
-  },
-  {
-    isProject: true,
-    name: 'sdfg',
-    isCompleted: false,
-    tags: [],
-    dates: [],
-    children: [],
-    _id: 'fcc07492-5d17-4c3c-a1fc-687ca8854f44',
-    _rev: '1-42c4ea69547e09573de71fe79c505dfa',
-  },
-];
-
-console.log(subsetIds.map(id => bigListOfItems.find(item => item._id === id)));
+// const subset = [
+//   {
+//     isProject: true,
+//     name: 'regfg',
+//     isCompleted: false,
+//     tags: [],
+//     dates: [],
+//     children: [
+//       'f1abf6bb-7b75-4277-990b-3219e273ae00',
+//       'b2ef53a8-3bc8-44a8-ab02-c3a13518888b',
+//     ],
+//     _id: 'dc3931ee-0859-4257-a3be-d4782c82188c',
+//     _rev: '5-2f7a09adc5edcd7602789f4d0217e6a9',
+//   },
+//   {
+//     isProject: false,
+//     name: 'sdf',
+//     isCompleted: false,
+//     tags: [],
+//     dates: [],
+//     _id: 'f15773c6-7999-413e-8877-003a74267408',
+//     _rev: '1-3141e30781fbdc1f4fa4280be23394c2',
+//   },
+//   {
+//     isProject: true,
+//     name: 'fdsg',
+//     isCompleted: false,
+//     tags: [],
+//     dates: [],
+//     children: [
+//       '929f8d12-6c91-4720-9a04-7c8cfacbecda',
+//       'f15773c6-7999-413e-8877-003a74267408',
+//     ],
+//     _id: 'b2ef53a8-3bc8-44a8-ab02-c3a13518888b',
+//     _rev: '3-1f82164c56f0b9deee803065824f7e91',
+//   },
+//   {
+//     isProject: true,
+//     name: 'sdfg',
+//     isCompleted: false,
+//     tags: [],
+//     dates: [],
+//     children: [],
+//     _id: 'fcc07492-5d17-4c3c-a1fc-687ca8854f44',
+//     _rev: '1-42c4ea69547e09573de71fe79c505dfa',
+//   },
+// ];
 
 describe('getParents', () => {
   it('it correctly gets the parent for all items', () => {
@@ -373,7 +371,7 @@ describe('getParents', () => {
   });
   it('it correctly gets the parents for a subset of items', () => {
     expect(
-      getParents(bigListOfItems, subset)
+      getParents(bigListOfItems).filter(item => subsetIds.includes(item._id))
     ).toMatchSnapshot();
   });
 });
