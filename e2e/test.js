@@ -17,10 +17,7 @@ describe('app', function() {
     // console.log(input.getValue());
     // input.addValue('tag2');
     $('#add-item-submit').click();
-    const listItem = $('main')
-      .$('.Projects-item-list')
-      .$('.Item')
-      .$('.Item-center');
+    const listItem = $('main').$('.Item').$('.Item-center');
     const textElement = listItem.$('.Item-name');
     const chipContainer = listItem.$('.Item-chip-container');
     const chips = chipContainer.$$('.chip');
