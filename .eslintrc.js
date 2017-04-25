@@ -11,7 +11,8 @@ module.exports = {
     'new-cap': 0,
     'react/prop-types': 0,
     'react/require-default-props': 0,
-    'prettier/prettier': ['error', {'trailingComma': 'es5', 'singleQuote': true}]
+    'prettier/prettier': ['error', {'trailingComma': 'es5', 'singleQuote': true}],
+    'class-methods-use-this': 0,
   },
   env: {
     jest: true,
