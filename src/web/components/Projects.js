@@ -9,13 +9,12 @@ import Item from './Item';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
 import Loading from './Loading';
-import './Projects.css';
 
 const SortableItem = SortableElement(Item);
 const SortableItemList = SortableContainer(ItemList);
 
 export const Projects = props => (
-  <div className="flex-child">
+  <div className="flex-child flex-child flex column space-between">
     <SortableItemList
       onDelete={i =>
         props.deleteItem(props.projectId, props.projectChildren[i]._id)}
@@ -42,18 +41,16 @@ export const Projects = props => (
           props.routerPush(`/project/${props.projectChildren[i]._id}`);
         }
       }}
-      className="Projects-item-list"
+      className="scroll"
     />
-    <div className="AddItem-fixed">
-      <AddItem
-        initialIsProject={props.initialIsProject}
-        canChangeType={props.canChangeType}
-        onAddItem={item => {
-          if (item.isProject) props.createProject(props.projectId, item);
-          else props.createTask(props.projectId, item);
-        }}
-      />
-    </div>
+    <AddItem
+      initialIsProject={props.initialIsProject}
+      canChangeType={props.canChangeType}
+      onAddItem={item => {
+        if (item.isProject) props.createProject(props.projectId, item);
+        else props.createTask(props.projectId, item);
+      }}
+    />
   </div>
 );
 

@@ -11,7 +11,7 @@ import IconButton from './IconButton';
 import Chip from './Chip';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import colors from '../../common/colors';
-import './Item.css';
+import './Item.scss';
 
 const Handle = SortableHandle(() => (
   <IconButton className="IconButton-margin"><DragHandle /></IconButton>

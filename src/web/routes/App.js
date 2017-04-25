@@ -12,6 +12,7 @@ import Spinner from '../components/Spinner';
 import IconButton from '../components/IconButton';
 import AppRouter from '../AppRouter';
 import NavItems from '../components/NavItems';
+import MatchMedia from '../MatchMedia';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import './App.scss';
@@ -47,16 +48,19 @@ export class App extends Component {
   render(props) {
     return (
       <div className="App">
-        <Toolbar>
+        <Toolbar fixed>
           <Toolbar.Row>
             <Toolbar.Section align-start className="App-toolbar-section">
-              <IconButton
-                onClick={() => {
-                  this.drawer.MDComponent.open = !this.drawer.MDComponent.open;
-                }}
-              >
-                <Menu />
-              </IconButton>
+              {props.matches
+                ? null
+                : <IconButton
+                    onClick={() => {
+                      this.drawer.MDComponent.open = !this.drawer.MDComponent
+                        .open;
+                    }}
+                  >
+                    <Menu />
+                  </IconButton>}
               <Select
                 ref={select => {
                   this.select = select;
@@ -73,29 +77,43 @@ export class App extends Component {
             </Toolbar.Section>
             <Toolbar.Section align-end className="App-toolbar-section">
               {props.syncState.syncing
-                ? <div className="">
-                    <Spinner id="syncing-spinner" size={24} />
-                  </div>
+                ? <Spinner id="syncing-spinner" size={24} />
                 : <IconButton onClick={props.attemptSync}><Sync /></IconButton>}
             </Toolbar.Section>
           </Toolbar.Row>
         </Toolbar>
-        <Drawer.TemporaryDrawer
-          ref={drawer => {
-            this.drawer = drawer;
-            global.drawer = drawer;
-          }}
-        >
-          <Drawer.TemporaryDrawerHeader className="mdc-theme--accent-bg">
-            {props.profile.name}
-          </Drawer.TemporaryDrawerHeader>
-          <Drawer.TemporaryDrawerContent>
-            <NavItems activeClassName="mdc-temporary-drawer--selected" />
-          </Drawer.TemporaryDrawerContent>
-        </Drawer.TemporaryDrawer>
-        <main>
-          <AppRouter onChange={this.onRouteChange} />
-        </main>
+        <div className="flex App-content">
+          {props.matches
+            ? <Drawer.PermanentDrawer>
+                <Toolbar className="mdc-theme--text-primary-on-accent mdc-theme--accent-bg">
+                  <Toolbar.Row />
+                  <Toolbar.Row>
+                    {props.profile.name}
+                  </Toolbar.Row>
+                </Toolbar>
+                <NavItems activeClassName="mdc-permanent-drawer--selected" />
+              </Drawer.PermanentDrawer>
+            : <Drawer.TemporaryDrawer
+                ref={drawer => {
+                  this.drawer = drawer;
+                }}
+              >
+                <Drawer.TemporaryDrawerHeader className="mdc-theme--accent-bg">
+                  {props.profile.name}
+                </Drawer.TemporaryDrawerHeader>
+                <Drawer.TemporaryDrawerContent>
+                  <NavItems
+                    onListClick={() => {
+                      this.drawer.MDComponent.open = false;
+                    }}
+                    activeClassName="mdc-temporary-drawer--selected"
+                  />
+                </Drawer.TemporaryDrawerContent>
+              </Drawer.TemporaryDrawer>}
+          <main className="flex-child flex mdc-toolbar-fixed-adjust">
+            <AppRouter onChange={this.onRouteChange} />
+          </main>
+        </div>
         <Dialogs />
       </div>
     );
@@ -106,4 +124,6 @@ function mapStateToProps({ toasts, itemsToShow, syncState, profile }) {
   return { toasts, itemsToShow, syncState, profile };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default MatchMedia('(min-width: 600px)')(
+  connect(mapStateToProps, mapDispatchToProps)(App)
+);

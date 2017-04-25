@@ -1,5 +1,6 @@
 /** @jsx h */
 import { h } from 'preact';
+import { route } from 'preact-router';
 import InboxIcon from 'react-icons/lib/md/inbox';
 import Assignment from 'react-icons/lib/md/assignment';
 import Person from 'react-icons/lib/md/person';
@@ -58,11 +59,15 @@ export const navItems = [
   },
 ];
 
-const NavItems = ({ activeClassName }) => (
-  <List>
+const NavItems = ({ activeClassName, onListClick }) => (
+  <List onClick={onListClick}>
     {navItems.map(Item => (
       <LinkListItem
         Component={Link}
+        onClick={e => {
+          e.preventDefault();
+          route(Item.href);
+        }}
         href={Item.href}
         activeClassName={activeClassName}
       >

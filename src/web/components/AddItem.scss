@@ -11,6 +11,7 @@
   padding: 10px;
   background-color: $mdc-theme-background;
   @include mdc-elevation(24);
+  margin-top: 5px;
 }
 .AddItem-input {
   width: 100%;

@@ -4,7 +4,7 @@ import ItemList from './ItemList';
 
 const NonProjectItemList = props => (
   <ItemList
-    className="flex-child"
+    className="flex-child scroll"
     onLeftButtonClick={i =>
       props.completeItem(props.items[i]._id, !props.items[i].isCompleted)}
     onItemUpdate={i => props.showUpdateItemDialog(props.items[i]._id)}
