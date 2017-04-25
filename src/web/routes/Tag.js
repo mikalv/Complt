@@ -8,17 +8,12 @@ import Loading from '../components/Loading';
 
 export function mapStateToProps(state, ownProps) {
   const itemsWithParents = getParents(state.items);
-  const items = [];
-  itemsWithParents.forEach(item => {
-    if (
-      item &&
-      Array.isArray(item.tags) &&
-      item.tags.indexOf(ownProps.tag) !== -1
-    ) {
-      items.push(item);
-    }
-  });
-  return { items: getFilteredItems(items, state.itemsToShow) };
+  const items = getFilteredItems(
+    itemsWithParents,
+    state.itemsToShow,
+    item => Array.isArray(item.tags) && item.tags.indexOf(ownProps.tag) !== -1
+  );
+  return { items };
 }
 
 export default areInitialItemsLoaded(
