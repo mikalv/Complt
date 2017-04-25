@@ -21,6 +21,7 @@ export const UpdateItemForm = props => (
       <form onSubmit={submitForm}>
         <Dialog.Body>
           <FormTextField
+            className="full-width"
             placeholder={
               props.item.isProject
                 ? 'e.g. Report'
