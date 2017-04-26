@@ -7,7 +7,7 @@ import Today from 'preact-icons/lib/md/today';
 import Apps from 'preact-icons/lib/md/apps';
 import Label from 'preact-icons/lib/md/label';
 import List from 'preact-material-components/List';
-import { Link } from './Match';
+import { Link } from 'preact-router/match';
 import LinkListItem from './LinkListItem';
 
 export const navItems = [

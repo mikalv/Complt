@@ -6691,9 +6691,9 @@ preact-render-to-string@^3.6.0:
   dependencies:
     pretty-format "^3.5.1"
 
-preact-router@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/preact-router/-/preact-router-2.5.1.tgz#e471b4ecbc35e0bcd0f9da270e0c57be82616249"
+preact-router@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/preact-router/-/preact-router-2.5.2.tgz#15402f809f7236006e40214fcffadcac409bd693"
 
 preact-transition-group@^1.1.0:
   version "1.1.0"

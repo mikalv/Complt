@@ -104,7 +104,7 @@
     "preact-icons": "^2.2.5",
     "preact-material-components": "^1.0.0-beta.3",
     "preact-redux": "^2.0.1",
-    "preact-router": "^2.5.1",
+    "preact-router": "^2.5.2",
     "raven-js": "^3.14.2",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.5.2",
