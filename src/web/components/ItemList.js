@@ -1,53 +1,55 @@
 import React from 'react';
-import List from 'react-md/lib/Lists/List';
+import cn from 'classnames';
+import Divider from './Divider';
 import Item from './Item';
-import PropTypes from '../../common/PropTypes';
+import './ItemList.scss';
 
 const ItemList = ({
-    items = [],
-    onItemAvatarTap,
-    style,
-    onDelete,
-    canDeleteTask,
-    canDeleteProject,
-    canMove,
-    onItemTap,
-    onItemUpdate,
-    onItemMove,
-    className,
+  items = [],
+  onLeftButtonClick,
+  onDelete,
+  canDeleteTask,
+  canDeleteProject,
+  canMove,
+  onItemTap,
+  onItemUpdate,
+  onItemMove,
+  className,
+  canSort,
+  ItemComponent = Item,
 }) => (
-  <List style={style} className={className}>
+  <ul className={cn(className, 'ItemList')}>
     {items.map((item, i) => {
       if (!item) return null;
-      return (<Item
-        key={item._id}
-        item={item}
-        canDelete={
-          (canDeleteTask && item.isProject === false) ||
-          (canDeleteProject && item.isProject === true)}
-        canMove={canMove}
-        onAvatarTouchTap={onItemAvatarTap !== undefined ? () => onItemAvatarTap(i) : undefined}
-        onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
-        onItemUpdate={onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined}
-        onItemMove={onItemMove !== undefined ? () => onItemMove(i) : undefined}
-        onDelete={() => onDelete(i)}
-      />);
+      return [
+        <ItemComponent
+          key={item._id}
+          index={i}
+          item={item}
+          canSort={canSort}
+          canDelete={
+            (canDeleteTask && item.isProject === false) ||
+              (canDeleteProject && item.isProject === true)
+          }
+          canMove={canMove}
+          onLeftButtonClick={
+            onLeftButtonClick !== undefined
+              ? () => onLeftButtonClick(i)
+              : undefined
+          }
+          onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
+          onItemUpdate={
+            onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined
+          }
+          onItemMove={
+            onItemMove !== undefined ? () => onItemMove(i) : undefined
+          }
+          onDelete={() => onDelete(i)}
+        />,
+        <Divider />,
+      ];
     })}
-  </List>
+  </ul>
 );
-
-ItemList.propTypes = {
-  items: React.PropTypes.arrayOf(PropTypes.item),
-  onItemAvatarTap: React.PropTypes.func,
-  canDeleteProject: React.PropTypes.bool,
-  canDeleteTask: React.PropTypes.bool,
-  canMove: React.PropTypes.bool,
-  onDelete: React.PropTypes.func,
-  onItemTap: React.PropTypes.func,
-  onItemUpdate: React.PropTypes.func,
-  onItemMove: React.PropTypes.func,
-  style: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  className: React.PropTypes.string,
-};
 
 export default ItemList;

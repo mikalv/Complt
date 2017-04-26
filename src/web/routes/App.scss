@@ -1,0 +1,33 @@
+.syncing-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+.App-toolbar-section {
+  overflow: visible;
+}
+#syncing-spinner {
+  margin: 0;
+}
+#items-to-show-select {
+  width: 120px !important;
+}
+.App {
+  height: 100%;
+}
+main {
+  display: flex;
+}
+@media (min-width: 600px) {
+  .drawer-margin {
+    margin-left: 240px;
+  }
+}
+.mdc-permanent-drawer__content {
+  overflow: auto;
+  height: 100%;
+}
+.App-content {
+  height: 100%;
+}

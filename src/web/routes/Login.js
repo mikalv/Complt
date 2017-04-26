@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import { Component } from 'preact';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 
 export class Login extends Component {
   componentDidMount() {
-    import('auth0-js/src/web-auth').then((WebAuth) => {
+    import('auth0-js/src/web-auth').then(WebAuth => {
       const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
       const redirectUri = `${window.location.origin}/login`;
       const auth0 = new WebAuth({
@@ -22,9 +22,5 @@ export class Login extends Component {
     return null;
   }
 }
-
-Login.propTypes = {
-  loginCallback: React.PropTypes.func,
-};
 
 export default connect(undefined, mapDispatchToProps)(Login);

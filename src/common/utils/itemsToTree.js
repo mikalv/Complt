@@ -2,7 +2,7 @@ function itemsToTree(items, topLevelId) {
   if (items.length === 0) return undefined;
   const topLevelItem = items.find(item => item._id === topLevelId);
   if (topLevelItem === undefined) return topLevelItem;
-  const topLevelItemChildren = topLevelItem.children.map((childId) => {
+  const topLevelItemChildren = topLevelItem.children.map(childId => {
     const item = items.find(itemInFind => itemInFind._id === childId);
     if (item === undefined) return null;
     if (item.isProject) {

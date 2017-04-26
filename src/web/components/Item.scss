@@ -1,0 +1,33 @@
+@import "../variables";
+
+.Item-chip-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Item-chip {
+  margin-right: 5px;
+  margin-top: 3px;
+}
+.Item-left {
+  flex-grow: 0;
+  margin: 5px;
+}
+.Item-center {
+  flex: 4;
+  margin: 5px;
+}
+.Item-right {
+  flex: 1.5 2;
+  margin: 5px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Item {
+  color: inherit;
+  text-decoration: none;
+  align-items: center;
+  list-style: none;
+  background-color: $mdc-theme-background;
+}

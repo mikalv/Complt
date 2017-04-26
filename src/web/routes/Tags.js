@@ -1,36 +1,28 @@
 import React from 'react';
-import Link from 'react-router-dom/Link';
 import { connect } from 'react-redux';
-import List from 'react-md/lib/Lists/List';
-import ListItem from 'react-md/lib/Lists/ListItem';
+import List from 'preact-material-components/List';
+import LinkListItem from '../components/LinkListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
+import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
+import Loading from '../components/Loading';
 
 export const Tags = props => (
-  <List>
-    {props.tags.map(tag =>
-      <ListItem
-        key={tag}
-        primaryText={tag}
-        component={Link}
-        to={`/tag/${tag}`}
-      />,
-    )}
+  <List className="flex-child">
+    {props.tags.map(tag => (
+      <LinkListItem href={`/tag/${tag}`} key={tag}>{tag}</LinkListItem>
+    ))}
   </List>
 );
 
-Tags.propTypes = {
-  tags: React.PropTypes.arrayOf(React.PropTypes.string),
-};
-
 export function mapStateToProps(state) {
   const tags = [];
-  getFilteredItems(state.items, state.itemsToShow).forEach((item) => {
+  getFilteredItems(state.items, state.itemsToShow).forEach(item => {
     if (!Array.isArray(item.tags)) return;
-    item.tags.forEach((tag) => {
-      if (!tags.includes(tag)) tags.push(tag);
+    item.tags.forEach(tag => {
+      if (tags.indexOf(tag) === -1) tags.push(tag);
     });
   });
   return { tags };
 }
 
-export default connect(mapStateToProps)(Tags);
+export default areInitialItemsLoaded(connect(mapStateToProps)(Tags), Loading);

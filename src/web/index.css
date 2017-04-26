@@ -1,10 +1,12 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
 }
 .flex {
   display: flex;
+}
+.flex-child {
+  flex: 1;
 }
 .center {
   justify-content: center;
@@ -31,4 +33,13 @@ body {
 }
 .text-center {
   text-align: center;
+}
+.full-width {
+  width: 100%;
+}
+.full-width > input {
+  width: 100%;
+}
+.scroll {
+  overflow: auto;
 }

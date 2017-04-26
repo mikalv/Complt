@@ -1,69 +1,71 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import SortableElement from 'react-sortable-hoc/src/SortableElement';
+import SortableContainer from 'react-sortable-hoc/src/SortableContainer';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
+import Item from './Item';
 import getFilteredItems from '../../common/utils/getFilteredItems';
-import PropTypes from '../../common/PropTypes';
-import './Projects.css';
+import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
+import Loading from './Loading';
+
+const SortableItem = SortableElement(Item);
+const SortableItemList = SortableContainer(ItemList);
 
 export const Projects = props => (
-  <div>
-    <ItemList
-      onDelete={(i) => {
-        const item = props.projectChildren[i];
-        if (item.isProject) props.deleteProject(props.projectId, item._id);
-        else props.deleteTask(props.projectId, item._id);
-      }}
+  <div className="flex-child flex-child flex column space-between">
+    <SortableItemList
+      onDelete={i =>
+        props.deleteItem(props.projectId, props.projectChildren[i]._id)}
       canDeleteTask
       canDeleteProject
       canMove
-      onItemMove={i => props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
-      onItemUpdate={i => props.showUpdateItemDialog(props.projectChildren[i]._id)}
-      onItemAvatarTap={i =>
-        props.completeItem(props.projectChildren[i]._id, !props.projectChildren[i].isCompleted)}
+      canSort
+      useDragHandle
+      onSortEnd={({ oldIndex, newIndex }) =>
+        props.reorderItem(props.projectId, oldIndex, newIndex)}
+      ItemComponent={SortableItem}
+      onItemMove={i =>
+        props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
+      onItemUpdate={i =>
+        props.showUpdateItemDialog(props.projectChildren[i]._id)}
+      onLeftButtonClick={i =>
+        props.completeItem(
+          props.projectChildren[i]._id,
+          !props.projectChildren[i].isCompleted
+        )}
       items={props.projectChildren}
-      onItemTap={(i) => {
+      onItemTap={i => {
         if (props.projectChildren[i].isProject) {
           props.routerPush(`/project/${props.projectChildren[i]._id}`);
         }
       }}
-      className="Projects-item-list"
+      className="scroll"
     />
-    <div className="AddItem-fixed">
-      <AddItem
-        initialIsProject={props.initialIsProject}
-        canChangeType={props.canChangeType}
-        onAddItem={(item) => {
-          if (item.isProject) props.createProject(props.projectId, item);
-          else props.createTask(props.projectId, item);
-        }}
-      />
-    </div>
+    <AddItem
+      initialIsProject={props.initialIsProject}
+      canChangeType={props.canChangeType}
+      onAddItem={item => {
+        if (item.isProject) props.createProject(props.projectId, item);
+        else props.createTask(props.projectId, item);
+      }}
+    />
   </div>
 );
-Projects.propTypes = {
-  projectChildren: React.PropTypes.arrayOf(PropTypes.item),
-  createProject: React.PropTypes.func,
-  createTask: React.PropTypes.func,
-  projectId: React.PropTypes.string,
-  routerPush: React.PropTypes.func,
-  initialIsProject: React.PropTypes.bool,
-  canChangeType: React.PropTypes.bool,
-  deleteTask: React.PropTypes.func,
-  deleteProject: React.PropTypes.func,
-  moveItemDialog: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
-  completeItem: React.PropTypes.func,
-  showMoveItemDialog: React.PropTypes.func,
-  showUpdateItemDialog: React.PropTypes.func,
-};
 
 export function mapStateToProps(state, ownProps) {
   const project = state.items.find(item => item._id === ownProps.projectId);
   if (project === undefined) return { projectChildren: [] };
   const projectChildren = project.children.map(id =>
-    state.items.find(item => item._id === id));
-  return { projectChildren: getFilteredItems(projectChildren, state.itemsToShow) };
+    state.items.find(item => item._id === id)
+  );
+  return {
+    projectChildren: getFilteredItems(projectChildren, state.itemsToShow),
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default areInitialItemsLoaded(
+  connect(mapStateToProps, mapDispatchToProps)(Projects),
+  Loading
+);

@@ -82,7 +82,11 @@ var config = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat',
+      'react-addons-css-transition-group': 'preact-css-transition-group',
+      lodash: 'lodash-es',
     }
   },
 
@@ -126,9 +130,26 @@ var config = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: /(preact-material-components|@material)/,
         loader: 'babel-loader',
-
+        options: {
+          presets: [['es2015', {"modules": false}]],
+					plugins:[
+						["transform-react-jsx", { "pragma": "h" }],
+						"transform-object-rest-spread",
+            "transform-react-constant-elements"
+					]
+        }
+      },
+      {
+        test: /\.(js|jsx)$/,
+        include: [paths.appSrc, /react-sortable-hoc/],
+        loader: 'babel-loader',
+        options: {
+          babelrc: false,
+          "presets": [["es2015", { "modules": false }], "stage-3", "react", "stage-0"],
+          "plugins": ["lodash", "syntax-dynamic-import", "transform-react-constant-elements"],
+        }
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
@@ -150,7 +171,8 @@ var config = {
             {
               loader: 'css-loader',
               options: {
-                importLoaders: 1
+                importLoaders: 1,
+                minimize: true,
               }
             }, {
               loader: 'postcss-loader',
@@ -169,7 +191,7 @@ var config = {
                   ]
                 }
               }
-            }, { loader: "sass-loader", options: { sourceMap: true } }
+            }, { loader: "sass-loader", options: { sourceMap: true, includePaths: [paths.appNodeModules] } }
           ]
         }, extractTextPluginOptions))
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
@@ -218,14 +240,14 @@ var config = {
       name: 'vendor',
       minChunks(module, count) {
         var context = module.context;
-        return context && context.indexOf('node_modules') !== -1 && context.indexOf('react-md') === -1;
+        return context && context.indexOf('node_modules') !== -1 && context.indexOf('@material') === -1;
       },
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'react',
       minChunks(module, count) {
         var context = module.context;
-        return context && context.indexOf('react-md') === -1  && context.indexOf('react') !== -1;
+        return context && context.indexOf('@material') === -1  && context.indexOf('react') !== -1;
       },
     }),
     // Makes some environment variables available to the JS code, for example:
@@ -259,7 +281,7 @@ var config = {
         }
       }
     }),
-    new LodashModuleReplacementPlugin(),
+    new LodashModuleReplacementPlugin({ shorthands: true }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
       filename: cssFilename
@@ -277,7 +299,8 @@ var config = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    Buffer: 'mock'
+    Buffer: 'mock',
+    process: false,
   }
 };
 

@@ -4,11 +4,9 @@ import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Label from 'react-icons/lib/md/label';
 import Send from 'react-icons/lib/md/send';
-import Paper from 'react-md/lib/Papers/Paper';
-import Button from 'react-md/lib/Buttons/Button';
+import IconButton from './IconButton';
 import FormTextField from './FormTextField';
-import processItem from '../../common/utils/processItem';
-import './AddItem.css';
+import './AddItem.scss';
 
 const AddItem = props => (
   <Form
@@ -16,49 +14,68 @@ const AddItem = props => (
       input: '',
       isProject: props.initialIsProject || false,
     }}
-    validate={({ input, isProject }) => !processItem(input, isProject)}
-    onSubmit={({ input, isProject }) => props.onAddItem(processItem(input, isProject))}
   >
-    {({ values: { isProject, input }, setValue, submitForm }) => (
+    {({ values: { isProject, input }, setValue, submitForm, getValue }) => (
       <form
-        onSubmit={(e) => {
+        onSubmit={e => {
           submitForm(e);
-          setValue('input', '');
+          import(
+            '../../common/utils/processItem'
+          ).then(({ default: processItem }) => {
+            const item = processItem(getValue('input'), isProject);
+            if (item) {
+              props.onAddItem(item);
+              setValue('input', '');
+            }
+          });
         }}
+        className="AddItem"
       >
-        <Paper zDepth={2} style={{ padding: 10, backgroundColor: '#fff' }} className="md-drawer-relative">
-          <div className="flex column">
-            <FormTextField
-              id="add-item-input"
-              placeholder={isProject ? 'e.g. Report' : 'e.g. Finish Report @work'}
-              field="input"
-            />
-            <div className="flex row space-between">
-              <div>
-                <Button id="add-tag" icon onClick={() => setValue('input', `${input} @`)}>
-                  <Label />
-                </Button>
-              </div>
-              <div>
-                {props.canChangeType ? <Button icon onClick={() => setValue('isProject', !isProject)}>
-                  {isProject ? <Done /> : <Assignment />}
-                </Button> : null}
-                <Button id="add-item-submit" icon primary type="submit">
-                  <Send />
-                </Button>
-              </div>
+        <div className="flex column">
+          <FormTextField
+            id="add-item-input"
+            className="AddItem-input"
+            placeholder={
+              isProject
+                ? 'e.g. Report'
+                : 'e.g. Finish Report @work !tomorrow at 8am!'
+            }
+            field="input"
+          />
+          <div className="flex row space-between">
+            <div>
+              <IconButton
+                type="button"
+                className="IconButton-margin"
+                id="add-tag"
+                onClick={() => setValue('input', `${input} @`)}
+              >
+                <Label />
+              </IconButton>
+            </div>
+            <div className="flex row">
+              {props.canChangeType
+                ? <IconButton
+                    type="button"
+                    className="IconButton-margin"
+                    onClick={() => setValue('isProject', !isProject)}
+                  >
+                    {isProject ? <Done /> : <Assignment />}
+                  </IconButton>
+                : null}
+              <IconButton
+                className="IconButton-margin"
+                id="add-item-submit"
+                type="submit"
+              >
+                <Send />
+              </IconButton>
             </div>
           </div>
-        </Paper>
+        </div>
       </form>
-  )}
+    )}
   </Form>
 );
-
-AddItem.propTypes = {
-  onAddItem: React.PropTypes.func.isRequired, // eslint-disable-line react/no-unused-prop-types
-  initialIsProject: React.PropTypes.bool,
-  canChangeType: React.PropTypes.bool,
-};
 
 export default AddItem;

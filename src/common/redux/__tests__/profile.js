@@ -1,6 +1,8 @@
 import reducer, { initialState } from '../profile';
 import { getProfile, logout } from '../actions';
 
+jest.mock('../../../web/showToast');
+
 const profile = {
   email: 'somePerson@some.domain',
   name: 'Some Person',

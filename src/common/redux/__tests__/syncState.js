@@ -1,17 +1,32 @@
 import reducer, { initialState } from '../syncState';
-import { syncStarted, syncFailed, syncSucceded, sync, attemptSync } from '../actions';
-import { SYNC_STARTED, SYNC_FAILED, SYNC_SUCCEDED, SHOW_TOAST, LOGIN } from '../actionTypes';
+import {
+  syncStarted,
+  syncFailed,
+  syncSucceded,
+  sync,
+  attemptSync,
+  initialItemsLoaded,
+} from '../actions';
+import {
+  SYNC_STARTED,
+  SYNC_FAILED,
+  SYNC_SUCCEDED,
+  LOGIN,
+} from '../actionTypes';
 import logException from '../../utils/logException';
 import pouchDBSync from '../../utils/pouchDBSync';
 import renewAuth from '../../../web/renewAuth';
 import isTokenExpired from '../../utils/auth';
+import showToast from '../../../web/showToast';
 import mockStore from '../mockStore';
 
-jest.mock('../../db')
-.mock('../../utils/auth')
-.mock('../../utils/logException')
-.mock('../../utils/pouchDBSync')
-.mock('../../../web/renewAuth');
+jest
+  .mock('../../db')
+  .mock('../../utils/auth')
+  .mock('../../utils/logException')
+  .mock('../../utils/pouchDBSync')
+  .mock('../../../web/renewAuth')
+  .mock('../../../web/showToast');
 
 isTokenExpired.mockReturnValue(true);
 pouchDBSync.mockReturnValue(Promise.resolve());
@@ -25,18 +40,28 @@ describe('syncReducer', () => {
     expect(reducer(undefined, syncStarted())).toEqual({
       syncing: true,
       error: false,
+      initialItemsLoaded: false,
     });
   });
   it('handles SYNC_FAILED correctly', () => {
     expect(reducer(undefined, syncFailed())).toEqual({
       syncing: false,
       error: true,
+      initialItemsLoaded: false,
     });
   });
-  it('handled SYNC_SUCCEDED correctly', () => {
+  it('handles SYNC_SUCCEDED correctly', () => {
     expect(reducer(undefined, syncSucceded())).toEqual({
       syncing: false,
       error: false,
+      initialItemsLoaded: false,
+    });
+  });
+  it('handles INITIAL_ITEMS_LOADED correctly', () => {
+    expect(reducer(undefined, initialItemsLoaded())).toEqual({
+      syncing: false,
+      error: false,
+      initialItemsLoaded: true,
     });
   });
 });
@@ -48,15 +73,14 @@ describe('attemptSync()', () => {
     store.dispatch(attemptSync());
     expect(isTokenExpired).toBeCalledWith('some.valid.token');
     const actions = store.getActions();
-    expect(actions).toEqual([
-      { type: SYNC_STARTED },
-      { type: SHOW_TOAST, toast: { text: 'Syncing Started, Please Wait...' } },
-    ]);
+    expect(actions).toEqual([{ type: SYNC_STARTED }]);
   });
   it('dispatches the correct actions when renewAuth resolves', () => {
     isTokenExpired.mockReturnValueOnce(true);
     renewAuth.mockReturnValueOnce(Promise.resolve('some.valid.token'));
-    fetch.mockResponseOnce(JSON.stringify({ email: 'somePerson@some.domain', name: 'Some Person' }));
+    fetch.mockResponseOnce(
+      JSON.stringify({ email: 'somePerson@some.domain', name: 'Some Person' })
+    );
     const store = mockStore({ auth: 'some.expired.token' });
     store.dispatch(attemptSync());
     expect(isTokenExpired).toBeCalledWith('some.expired.token');
@@ -65,10 +89,12 @@ describe('attemptSync()', () => {
       const actions = store.getActions();
       expect(actions).toEqual([
         { type: SYNC_STARTED },
-        { type: SHOW_TOAST, toast: { text: 'Syncing Started, Please Wait...' } },
         { type: LOGIN, token: 'some.valid.token' },
       ]);
-      expect(pouchDBSync).toBeCalledWith('some.valid.token', process.env.REACT_APP_COUCH_URL);
+      expect(pouchDBSync).toBeCalledWith(
+        'some.valid.token',
+        process.env.REACT_APP_COUCH_URL
+      );
     });
   });
   it('dispatches the correct actions when renewAuth rejects', () => {
@@ -79,16 +105,8 @@ describe('attemptSync()', () => {
       expect(isTokenExpired).toBeCalledWith('some.expired.token');
       expect(renewAuth).toBeCalled();
       const actions = store.getActions();
-      expect(actions.length).toEqual(4);
-      const actionsWithoutToast = [actions[0], actions[1], actions[3]];
-      expect(actionsWithoutToast).toEqual([
-        { type: SYNC_STARTED },
-        { type: SHOW_TOAST, toast: { text: 'Syncing Started, Please Wait...' } },
-        { type: SYNC_FAILED },
-      ]);
-      expect(actions[2].type).toEqual(SHOW_TOAST);
-      expect(actions[2].toast.text).toEqual('Please sign in to sync');
-      expect(actions[2].toast.action.label).toEqual('SIGN IN');
+      expect(actions).toEqual([{ type: SYNC_STARTED }, { type: SYNC_FAILED }]);
+      expect(showToast).toBeCalled();
     });
   });
 });
@@ -98,11 +116,7 @@ describe('sync() action creator', () => {
     const store = mockStore();
     pouchDBSync.mockReturnValueOnce(Promise.reject({ status: 401 }));
     return sync(store.dispatch, store.getState)().then(() => {
-      const actions = store.getActions();
-      expect(actions[0].type).toEqual(SHOW_TOAST);
-      expect(actions[0].toast.text).toEqual('Please sign in to sync');
-      expect(actions[0].toast.action.label).toEqual('SIGN IN');
-      expect(actions[1]).toEqual({ type: SYNC_FAILED });
+      expect(showToast).toBeCalled();
     });
   });
   it('dispatches the correct actions when the sync fails with an error that is not a 401', () => {
@@ -110,11 +124,14 @@ describe('sync() action creator', () => {
     pouchDBSync.mockReturnValueOnce(Promise.reject({ status: 500 }));
     return sync(store.dispatch, store.getState)().then(() => {
       const actions = store.getActions();
-      expect(actions).toEqual([
-        { type: SHOW_TOAST, toast: { text: 'An error occured while syncing, please try again later' } },
-        { type: SYNC_FAILED },
-      ]);
-      expect(logException).toBeCalledWith(new Error('An error occured while syncing'), { status: 500 });
+      expect(actions).toEqual([{ type: SYNC_FAILED }]);
+      expect(showToast).toBeCalledWith({
+        message: 'An error occured while syncing, please try again later',
+      });
+      expect(logException).toBeCalledWith(
+        new Error('An error occured while syncing'),
+        { status: 500 }
+      );
     });
   });
   it('dispatches the correct acions when the sync completes', () => {
@@ -122,17 +139,17 @@ describe('sync() action creator', () => {
     pouchDBSync.mockReturnValueOnce(Promise.resolve());
     return sync(store.dispatch, store.getState)().then(() => {
       const actions = store.getActions();
-      expect(actions).toEqual([
-        { type: SHOW_TOAST, toast: { text: 'Syncing finished' } },
-        { type: SYNC_SUCCEDED },
-      ]);
+      expect(actions).toEqual([{ type: SYNC_SUCCEDED }]);
     });
   });
   it('calls pouchDBSync correctly', () => {
     const store = mockStore({ auth: 'some.auth.token' });
     pouchDBSync.mockReturnValueOnce(Promise.resolve());
     return sync(store.dispatch, store.getState)().then(() => {
-      expect(pouchDBSync).toBeCalledWith('some.auth.token', process.env.REACT_APP_COUCH_URL);
+      expect(pouchDBSync).toBeCalledWith(
+        'some.auth.token',
+        process.env.REACT_APP_COUCH_URL
+      );
     });
   });
 });

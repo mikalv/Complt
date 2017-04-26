@@ -10,9 +10,21 @@ const items = [
   { _id: 'item7', isProject: false, isCompleted: true, tags: [] },
   { _id: 'item8', isProject: false, isCompleted: true, tags: [] },
   { _id: 'item9', isProject: false, isCompleted: false, tags: [] },
-  { _id: 'item11', isProject: true, children: ['item4', 'item5', 'item6', 'item8'] },
-  { _id: 'item12', isProject: true, children: ['item3', 'item11', 'item10', 'item7'] },
-  { _id: 'root', isProject: true, children: ['item1', 'item2', 'item12', 'item9'] },
+  {
+    _id: 'item11',
+    isProject: true,
+    children: ['item4', 'item5', 'item6', 'item8'],
+  },
+  {
+    _id: 'item12',
+    isProject: true,
+    children: ['item3', 'item11', 'item10', 'item7'],
+  },
+  {
+    _id: 'root',
+    isProject: true,
+    children: ['item1', 'item2', 'item12', 'item9'],
+  },
 ];
 
 describe('itemsToTree', () => {

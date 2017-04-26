@@ -1,9 +1,9 @@
 import uuid from 'uuid/v4';
-import history from '../../web/history';
+import { route } from 'preact-router';
+import showToast from '../../web/showToast';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
-import processItem from '../utils/processItem';
 import renewAuth from '../../web/renewAuth';
 import getTokenInfo from '../utils/getTokenInfo';
 import loginWithGoogle from '../../web/loginWithGoogle';
@@ -16,10 +16,7 @@ import {
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
   COMPLETE_ITEM,
-  DELETE_TASK,
-  DELETE_PROJECT,
-  SHOW_TOAST,
-  DISMISS_TOAST,
+  DELETE_ITEM,
   SYNC_STARTED,
   SYNC_SUCCEDED,
   SYNC_FAILED,
@@ -30,26 +27,40 @@ import {
   HIDE_MOVE_ITEM_DIALOG,
   MOVE_ITEM,
   CHANGE_ITEMS_TO_SHOW,
+  DELETE_ITEM_WITHOUT_PARENT,
+  MOVE_ITEM_WITHOUT_PARENT,
+  INITIAL_ITEMS_LOADED,
+  REORDER_ITEM,
 } from './actionTypes';
 
 export const login = token => ({ type: LOGIN, token });
 
-export const loginCallback = (error, result) => (dispatch) => {
+export const loginCallback = (error, result) => dispatch => {
   if (error) {
     logException(error);
     return;
   }
   if (!result) return;
+  let state;
+  try {
+    state = JSON.parse(decodeURIComponent(result.state));
+  } catch (e) {
+    state = {};
+  }
   dispatch(login(result.idToken));
   getTokenInfo(result.idToken).then(profile => dispatch(getProfile(profile)));
-  history.push('/');
+  route(state.pathname || '/', true);
+  if (state.shouldSync) dispatch(attemptSync());
 };
 
 export const logout = () => ({ type: LOGOUT });
 
 export const getProfile = profile => ({ type: GET_PROFILE, profile });
 
-export const removeItemPouch = doc => ({ type: DELETE_ITEM_POUCH, id: doc._id });
+export const removeItemPouch = doc => ({
+  type: DELETE_ITEM_POUCH,
+  id: doc._id,
+});
 
 export const insertItemPouch = doc => ({ type: INSERT_ITEM_POUCH, item: doc });
 
@@ -67,36 +78,33 @@ export const createProject = (parentProjectId, item) => ({
   item: { _id: uuid(), isProject: true, ...item },
 });
 
-export const completeItem = (id, isCompleted) => ({ type: COMPLETE_ITEM, id, isCompleted });
+export const completeItem = (id, isCompleted) => ({
+  type: COMPLETE_ITEM,
+  id,
+  isCompleted,
+});
 
-export const deleteTask = (parentProjectId, id) => ({
-  type: DELETE_TASK,
+export const deleteItem = (parentProjectId, id) => ({
+  type: DELETE_ITEM,
   parentProjectId,
   id,
 });
 
-export const deleteProject = (parentProjectId, id) => ({
-  type: DELETE_PROJECT,
-  parentProjectId,
+export const deleteItemWithoutParent = id => ({
+  type: DELETE_ITEM_WITHOUT_PARENT,
   id,
 });
 
-export const showToast = toast => ({
-  type: SHOW_TOAST,
-  toast,
-});
-
-export const dismissToast = () => ({
-  type: DISMISS_TOAST,
-});
-
-export const showSignInToast = () => (dispatch) => {
-  dispatch(showToast({
-    text: 'Please sign in to sync',
-    action: {
-      label: 'SIGN IN',
-      onClick: () => loginWithGoogle((err, result) => dispatch(loginCallback(err, result))),
-    } }));
+export const showSignInToast = shouldSync => dispatch => {
+  showToast({
+    message: 'Please sign in to sync',
+    actionText: 'SIGN IN',
+    actionHandler: () =>
+      loginWithGoogle((err, result) => dispatch(loginCallback(err, result)), {
+        pathname: window.location.pathname,
+        shouldSync,
+      }),
+  });
 };
 
 export const syncStarted = () => ({
@@ -111,35 +119,37 @@ export const syncSucceded = () => ({
 
 export const attemptSync = () => (dispatch, getState) => {
   dispatch(syncStarted());
-  dispatch(showToast({ text: 'Syncing Started, Please Wait...' }));
   if (isTokenExpired(getState().auth)) {
-    return renewAuth().then((idToken) => {
-      dispatch(login(idToken));
-      getTokenInfo(idToken).then(profile => dispatch(getProfile(profile)));
-      return sync(dispatch, getState)();
-    }).catch(() => {
-      dispatch(showSignInToast());
-      dispatch(syncFailed());
-    });
+    return renewAuth()
+      .then(idToken => {
+        dispatch(login(idToken));
+        getTokenInfo(idToken).then(profile => dispatch(getProfile(profile)));
+        return sync(dispatch, getState)();
+      })
+      .catch(() => {
+        dispatch(showSignInToast(true));
+        dispatch(syncFailed());
+      });
   }
   return sync(dispatch, getState)();
 };
 
 export const sync = (dispatch, getState) => () =>
   pouchDBSync(getState().auth, process.env.REACT_APP_COUCH_URL)
-  .then(() => {
-    dispatch(showToast({ text: 'Syncing finished' }));
-    dispatch(syncSucceded());
-  })
-  .catch((error) => {
-    if (error.status === 401) {
-      dispatch(showSignInToast());
-    } else {
-      logException(new Error('An error occured while syncing'), error);
-      dispatch(showToast({ text: 'An error occured while syncing, please try again later' }));
-    }
-    dispatch(syncFailed());
-  });
+    .then(() => {
+      dispatch(syncSucceded());
+    })
+    .catch(error => {
+      if (error.status === 401) {
+        dispatch(showSignInToast(true));
+      } else {
+        logException(new Error('An error occured while syncing'), error);
+        showToast({
+          message: 'An error occured while syncing, please try again later',
+        });
+      }
+      dispatch(syncFailed());
+    });
 
 export const updateItem = item => ({
   type: UPDATE_ITEM,
@@ -155,16 +165,18 @@ export const hideUpdateItemDialog = () => ({
   type: HIDE_UPDATE_ITEM_DIALOG,
 });
 
-export const handleUpdateItem = (updatedItemInput, item) => (dispatch) => {
-  const processedItem = processItem(updatedItemInput, item.isProject);
-  const newItem = {
-    ...item,
-    name: processedItem.name,
-    tags: processedItem.tags,
-    dates: processedItem.dates,
-  };
-  dispatch(updateItem(newItem));
-  dispatch(hideUpdateItemDialog());
+export const handleUpdateItem = (updatedItemInput, item) => dispatch => {
+  import('../utils/processItem').then(({ default: processItem }) => {
+    const processedItem = processItem(updatedItemInput, item.isProject);
+    const newItem = {
+      ...item,
+      name: processedItem.name,
+      tags: processedItem.tags,
+      dates: processedItem.dates,
+    };
+    dispatch(updateItem(newItem));
+    dispatch(hideUpdateItemDialog());
+  });
 };
 
 export const showMoveItemDialog = (id, parentProject) => ({
@@ -178,12 +190,35 @@ export const hideMoveItemDialog = () => ({
 });
 
 export const moveItem = (id, previousParent, newParent) => ({
-  type: MOVE_ITEM, id, previousParent, newParent,
+  type: MOVE_ITEM,
+  id,
+  previousParent,
+  newParent,
 });
 
-export const handleMoveItem = (id, previousParent, newParent) => (dispatch) => {
+export const moveItemWithoutParent = (id, newParent) => ({
+  type: MOVE_ITEM_WITHOUT_PARENT,
+  id,
+  newParent,
+});
+
+export const handleMoveItem = (id, previousParent, newParent) => dispatch => {
   dispatch(hideMoveItemDialog());
-  dispatch(moveItem(id, previousParent, newParent));
+  if (typeof previousParent === 'string')
+    dispatch(moveItem(id, previousParent, newParent));
+  if (previousParent === null) dispatch(moveItemWithoutParent(id, newParent));
 };
 
-export const changeItemsToShow = option => ({ type: CHANGE_ITEMS_TO_SHOW, option });
+export const changeItemsToShow = option => ({
+  type: CHANGE_ITEMS_TO_SHOW,
+  option,
+});
+
+export const initialItemsLoaded = () => ({ type: INITIAL_ITEMS_LOADED });
+
+export const reorderItem = (id, oldIndex, newIndex) => ({
+  type: REORDER_ITEM,
+  id,
+  oldIndex,
+  newIndex,
+});
