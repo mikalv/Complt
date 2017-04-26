@@ -134,7 +134,7 @@
     "deploy:web:prod": "netlify deploy -e production -t $NETLIFY_TOKEN",
     "deploy:exponent": "exp login -u $EXPONENT_USERNAME -p $EXPONENT_PASSWORD && exp publish",
     "coverage": "npm test -- --coverage",
-    "codecov": "CI_BUILD_REPO=true npm run coverage && codecov"
+    "codecov": "CI_BUILD_REPO=true npm run coverage && CI_BUILD_REPO=true codecov"
   },
   "jest": {
     "transform": {
