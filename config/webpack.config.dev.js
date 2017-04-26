@@ -5,6 +5,7 @@ var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+var path = require('path');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
 
@@ -79,8 +80,8 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat',
+      'react': 'preact',
+      'react-dom': path.join(paths.appSrc, 'common', 'utils', 'ReactDOM.js'),
       'react-addons-css-transition-group': 'preact-css-transition-group',
     }
   },

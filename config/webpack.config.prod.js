@@ -5,6 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
+var path = require('path');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 var OfflinePlugin = require('offline-plugin');
@@ -83,8 +84,8 @@ var config = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat',
+      'react': 'preact',
+      'react-dom': path.join(paths.appSrc, 'common', 'utils', 'ReactDOM.js'),
       'react-addons-css-transition-group': 'preact-css-transition-group',
       lodash: 'lodash-es',
     }
