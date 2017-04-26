@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import Dialog from 'preact-material-components/Dialog';
 import { connect } from 'preact-redux';
 import DialogContainer from './Dialog';

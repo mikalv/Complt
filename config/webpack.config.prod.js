@@ -130,25 +130,26 @@ var config = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: /(preact-material-components|@material)/,
+        include: [paths.appSrc, /(preact-material-components|@material)/],
         loader: 'babel-loader',
         options: {
-          presets: [['es2015', {"modules": false}]],
+          presets: [['es2015', {"modules": false}], "stage-3", "react", "stage-0"],
 					plugins:[
 						["transform-react-jsx", { "pragma": "h" }],
 						"transform-object-rest-spread",
-            "transform-react-constant-elements"
+            "transform-react-constant-elements",
+            "syntax-dynamic-import",
 					]
         }
       },
       {
         test: /\.(js|jsx)$/,
-        include: [paths.appSrc, /react-sortable-hoc/],
+        include: /react-sortable-hoc/,
         loader: 'babel-loader',
         options: {
           babelrc: false,
           "presets": [["es2015", { "modules": false }], "stage-3", "react", "stage-0"],
-          "plugins": ["lodash", "syntax-dynamic-import", "transform-react-constant-elements"],
+          "plugins": ["lodash", "transform-react-constant-elements"],
         }
       },
       // The notation here is somewhat confusing.

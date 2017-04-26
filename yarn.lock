@@ -4920,6 +4920,10 @@ lie@3.1.0:
   dependencies:
     immediate "~3.0.5"
 
+linkstate@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/linkstate/-/linkstate-1.0.1.tgz#540251e313dc477a3c9fa90b99f51edf7da02776"
+
 load-json-file@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
@@ -6978,12 +6982,6 @@ react-dom@^15.5.4:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "~15.5.7"
-
-react-form@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/react-form/-/react-form-1.2.6.tgz#17c619c9f2544eb28d4219dde9a723671e8e584c"
-  dependencies:
-    classnames "^2.2.5"
 
 react-hot-loader@^3.0.0-beta.6:
   version "3.0.0-beta.6"

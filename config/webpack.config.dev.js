@@ -124,28 +124,27 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: /(preact-material-components|@material)/,
+        include: [paths.appSrc, /(preact-material-components|@material)/],
         loader: 'babel-loader',
         options: {
-          presets: [['es2015', {"modules": false}]],
+          presets: [['es2015', {"modules": false}], "stage-3", "react", "stage-0"],
           plugins:[
             ["transform-react-jsx", { "pragma": "h" }],
             "transform-object-rest-spread",
-            "transform-react-constant-elements"
-          ]
+            "transform-react-constant-elements",
+            "syntax-dynamic-import",
+          ],
+          cacheDirectory: true,
         }
       },
       {
         test: /\.(js|jsx)$/,
-        include: [paths.appSrc, /react-sortable-hoc/],
+        include: /react-sortable-hoc/,
         loader: 'babel-loader',
         options: {
-          presets: ['es2015', 'react', 'stage-3', 'stage-0'],
-          plugins: ["transform-react-constant-elements"],
           babelrc: false,
-          // This is a feature of `babel-loader` for webpack (not Babel itself).
-          // It enables caching results in ./node_modules/.cache/babel-loader/
-          // directory for faster rebuilds.
+          "presets": [["es2015", { "modules": false }], "stage-3", "react", "stage-0"],
+          "plugins": ["lodash", "transform-react-constant-elements"],
           cacheDirectory: true
         }
       },

@@ -1,4 +1,3 @@
-/** @jsx h */
 import { h } from 'preact';
 import Person from 'preact-icons/lib/md/person';
 import Button from 'preact-material-components/Button';

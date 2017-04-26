@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { connect } from 'preact-redux';
 import SortableElement from 'react-sortable-hoc/src/SortableElement';
 import SortableContainer from 'react-sortable-hoc/src/SortableContainer';

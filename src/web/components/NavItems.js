@@ -1,4 +1,3 @@
-/** @jsx h */
 import { h } from 'preact';
 import { route } from 'preact-router';
 import InboxIcon from 'preact-icons/lib/md/inbox';

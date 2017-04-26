@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { connect } from 'preact-redux';
 import List from 'preact-material-components/List';
 import LinkListItem from '../components/LinkListItem';

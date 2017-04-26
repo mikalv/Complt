@@ -8,8 +8,8 @@ class IconContext extends Component {
       },
     };
   }
-  render() {
-    return this.props.children[0];
+  render(props) {
+    return props.children[0];
   }
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import List from 'preact-material-components/List';
 
 export function renderListItem(item, onChooseItem, itemToMove, key) {

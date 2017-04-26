@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { connect } from 'preact-redux';
 
 function mapStateToProps(state) {

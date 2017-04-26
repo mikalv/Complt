@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { Provider } from 'preact-redux';
 import store from './configureStore';
 import IconContext from './components/IconContext';

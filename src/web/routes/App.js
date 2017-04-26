@@ -1,4 +1,3 @@
-/** @jsx h */
 import { h, Component } from 'preact';
 import { getCurrentUrl, route } from 'preact-router';
 import Menu from 'preact-icons/lib/md/menu';

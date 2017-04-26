@@ -1,4 +1,3 @@
-/** @jsx h */
 import { h, Component } from 'preact';
 import MDDialog from 'preact-material-components/Dialog';
 

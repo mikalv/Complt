@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { Link } from 'preact-router';
 import Assignment from 'preact-icons/lib/md/assignment';
 import Done from 'preact-icons/lib/md/done';

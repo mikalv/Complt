@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import Spinner from './Spinner';
 import './Loading.css';
 

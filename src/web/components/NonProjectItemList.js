@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { route } from 'preact-router';
 import ItemList from './ItemList';
 

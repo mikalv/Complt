@@ -1,46 +1,50 @@
-import React from 'react';
-import Form from 'react-form/lib/form';
+import { h, Component } from 'preact';
+import linkState from 'linkstate';
+import Textfield from 'preact-material-components/Textfield';
 import Assignment from 'preact-icons/lib/md/assignment';
 import Done from 'preact-icons/lib/md/done';
 import Label from 'preact-icons/lib/md/label';
 import Send from 'preact-icons/lib/md/send';
 import IconButton from './IconButton';
-import FormTextField from './FormTextField';
 import './AddItem.scss';
 
-const AddItem = props => (
-  <Form
-    defaultValues={{
+class AddItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       input: '',
       isProject: props.initialIsProject || false,
-    }}
-  >
-    {({ values: { isProject, input }, setValue, submitForm, getValue }) => (
-      <form
-        onSubmit={e => {
-          submitForm(e);
-          import(
-            '../../common/utils/processItem'
-          ).then(({ default: processItem }) => {
-            const item = processItem(getValue('input'), isProject);
-            if (item) {
-              props.onAddItem(item);
-              setValue('input', '');
-            }
-          });
-        }}
-        className="AddItem"
-      >
+    };
+  }
+  onFormSubmit = e => {
+    e.preventDefault();
+    import(
+      '../../common/utils/processItem'
+    ).then(({ default: processItem }) => {
+      const item = processItem(this.state.input, this.state.isProject);
+      if (item) {
+        this.props.onAddItem(item);
+        this.resetValue();
+      }
+    });
+  };
+  resetValue = () => this.setState({ input: '' });
+  addTag = () => this.setState({ input: `${this.state.input} @` });
+  toggleIsProject = () => this.setState({ isProject: !this.state.isProject });
+  render(props, state) {
+    return (
+      <form onSubmit={this.onFormSubmit} className="AddItem">
         <div className="flex column">
-          <FormTextField
+          <Textfield
             id="add-item-input"
             className="AddItem-input"
             placeholder={
-              isProject
+              state.isProject
                 ? 'e.g. Report'
                 : 'e.g. Finish Report @work !tomorrow at 8am!'
             }
-            field="input"
+            value={state.input}
+            onChange={linkState(this, 'input')}
           />
           <div className="flex row space-between">
             <div>
@@ -48,7 +52,7 @@ const AddItem = props => (
                 type="button"
                 className="IconButton-margin"
                 id="add-tag"
-                onClick={() => setValue('input', `${input} @`)}
+                onClick={this.addTag}
               >
                 <Label />
               </IconButton>
@@ -58,9 +62,9 @@ const AddItem = props => (
                 ? <IconButton
                     type="button"
                     className="IconButton-margin"
-                    onClick={() => setValue('isProject', !isProject)}
+                    onClick={this.toggleIsProject}
                   >
-                    {isProject ? <Done /> : <Assignment />}
+                    {state.isProject ? <Done /> : <Assignment />}
                   </IconButton>
                 : null}
               <IconButton
@@ -74,8 +78,8 @@ const AddItem = props => (
           </div>
         </div>
       </form>
-    )}
-  </Form>
-);
+    );
+  }
+}
 
 export default AddItem;

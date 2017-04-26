@@ -1,4 +1,4 @@
-import React from 'react';
+import { h } from 'preact';
 import { Router, Route } from 'preact-router';
 import { Today, Tomorrow, Overdue, Week } from './components/ItemListByDueDate';
 import Inbox from './routes/Inbox';
