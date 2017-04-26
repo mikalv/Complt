@@ -2,7 +2,6 @@
   "name": "Complt",
   "version": "0.1.0",
   "private": true,
-  "main": "native.js",
   "devDependencies": {
     "autoprefixer": "6.7.7",
     "babel-core": "6.24.1",
@@ -135,7 +134,7 @@
     "deploy:web:prod": "netlify deploy -e production -t $NETLIFY_TOKEN",
     "deploy:exponent": "exp login -u $EXPONENT_USERNAME -p $EXPONENT_PASSWORD && exp publish",
     "coverage": "npm test -- --coverage",
-    "codecov": "npm run coverage && codecov"
+    "codecov": "CI_BUILD_REPO="" npm run coverage && codecov"
   },
   "jest": {
     "transform": {
