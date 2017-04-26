@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import { Component } from 'preact';
 
 class IconContext extends Component {
   getChildContext() {
-    // eslint-disable-line class-methods-use-this
     return {
       reactIconBase: {
         style: { verticalAlign: 'none' },
@@ -10,12 +9,8 @@ class IconContext extends Component {
     };
   }
   render() {
-    return this.props.children;
+    return this.props.children[0];
   }
 }
-
-IconContext.childContextTypes = {
-  reactIconBase: React.PropTypes.object,
-};
 
 export default IconContext;
