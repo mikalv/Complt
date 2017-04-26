@@ -18,5 +18,10 @@ module.exports = {
     jest: true,
     browser: true,
     mocha: true,
-  }
+  },
+  settings: {
+    react: {
+      pragma: 'h',
+    },
+  },
 };
