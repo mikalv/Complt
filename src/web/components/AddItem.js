@@ -1,9 +1,9 @@
 import React from 'react';
 import Form from 'react-form/lib/form';
-import Assignment from 'react-icons/lib/md/assignment';
-import Done from 'react-icons/lib/md/done';
-import Label from 'react-icons/lib/md/label';
-import Send from 'react-icons/lib/md/send';
+import Assignment from 'preact-icons/lib/md/assignment';
+import Done from 'preact-icons/lib/md/done';
+import Label from 'preact-icons/lib/md/label';
+import Send from 'preact-icons/lib/md/send';
 import IconButton from './IconButton';
 import FormTextField from './FormTextField';
 import './AddItem.scss';

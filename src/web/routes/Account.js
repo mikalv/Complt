@@ -1,8 +1,8 @@
 /** @jsx h */
 import { h } from 'preact';
-import Person from 'react-icons/lib/md/person';
+import Person from 'preact-icons/lib/md/person';
 import Button from 'preact-material-components/Button';
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import './Account.scss';
 

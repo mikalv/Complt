@@ -1,12 +1,12 @@
 /** @jsx h */
 import { h } from 'preact';
 import { route } from 'preact-router';
-import InboxIcon from 'react-icons/lib/md/inbox';
-import Assignment from 'react-icons/lib/md/assignment';
-import Person from 'react-icons/lib/md/person';
-import Today from 'react-icons/lib/md/today';
-import Apps from 'react-icons/lib/md/apps';
-import Label from 'react-icons/lib/md/label';
+import InboxIcon from 'preact-icons/lib/md/inbox';
+import Assignment from 'preact-icons/lib/md/assignment';
+import Person from 'preact-icons/lib/md/person';
+import Today from 'preact-icons/lib/md/today';
+import Apps from 'preact-icons/lib/md/apps';
+import Label from 'preact-icons/lib/md/label';
 import List from 'preact-material-components/List';
 import { Link } from './Match';
 import LinkListItem from './LinkListItem';

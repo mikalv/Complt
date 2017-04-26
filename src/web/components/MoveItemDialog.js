@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from 'preact-material-components/Dialog';
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import DialogContainer from './Dialog';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import itemsToTree from '../../common/utils/itemsToTree';

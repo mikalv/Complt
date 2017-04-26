@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import SortableElement from 'react-sortable-hoc/src/SortableElement';
 import SortableContainer from 'react-sortable-hoc/src/SortableContainer';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';

@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import NonProjectItemList from '../components/NonProjectItemList';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getFilteredItems from '../../common/utils/getFilteredItems';

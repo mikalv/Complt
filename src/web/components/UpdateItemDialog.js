@@ -1,7 +1,7 @@
 import React from 'react';
 import Dialog from 'preact-material-components/Dialog';
 import Form from 'react-form/lib/form';
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import DialogContainer from './Dialog';
 import FormTextField from './FormTextField';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';

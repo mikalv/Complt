@@ -1,12 +1,12 @@
 /** @jsx h */
 import { h, Component } from 'preact';
 import { getCurrentUrl, route } from 'preact-router';
-import Menu from 'react-icons/lib/md/menu';
-import Sync from 'react-icons/lib/md/sync';
+import Menu from 'preact-icons/lib/md/menu';
+import Sync from 'preact-icons/lib/md/sync';
 import Toolbar from 'preact-material-components/Toolbar';
 import Drawer from 'preact-material-components/Drawer';
 import Select from 'preact-material-components/Select';
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import Loadable from 'react-loadable';
 import Spinner from '../components/Spinner';
 import IconButton from '../components/IconButton';

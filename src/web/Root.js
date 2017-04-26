@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider } from 'preact-redux';
 import store from './configureStore';
 import IconContext from './components/IconContext';
 import App from './routes/App';

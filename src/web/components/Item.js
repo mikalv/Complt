@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'preact-router';
-import Assignment from 'react-icons/lib/md/assignment';
-import Done from 'react-icons/lib/md/done';
-import Delete from 'react-icons/lib/md/delete';
-import Create from 'react-icons/lib/md/create';
-import MoreVert from 'react-icons/lib/md/more-vert';
-import DragHandle from 'react-icons/lib/md/drag-handle';
+import Assignment from 'preact-icons/lib/md/assignment';
+import Done from 'preact-icons/lib/md/done';
+import Delete from 'preact-icons/lib/md/delete';
+import Create from 'preact-icons/lib/md/create';
+import MoreVert from 'preact-icons/lib/md/more-vert';
+import DragHandle from 'preact-icons/lib/md/drag-handle';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
 import IconButton from './IconButton';
 import Chip from './Chip';

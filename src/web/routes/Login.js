@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 
 export class Login extends Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'preact-redux';
 import List from 'preact-material-components/List';
 import LinkListItem from '../components/LinkListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
