@@ -91,7 +91,7 @@
     "linkstate": "^1.0.1",
     "menubar": "^5.2.0",
     "mockdate": "^2.0.1",
-    "pouch-redux-middleware": "^0.6.1",
+    "pouch-redux-middleware": "https://github.com/mitchellhamilton/pouch-redux-middleware",
     "pouchdb-adapter-http": "^6.1.2",
     "pouchdb-adapter-idb": "^6.1.2",
     "pouchdb-adapter-memory": "^6.1.2",

@@ -18,7 +18,7 @@ import {
 } from '../common/redux/actions';
 
 const pouchMiddleware = PouchMiddleware({
-  path: '/items',
+  path: 'items',
   db,
   actions: {
     remove: removeItemPouch,

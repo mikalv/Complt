@@ -6376,9 +6376,9 @@ postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-pouch-redux-middleware@^0.6.1:
+"pouch-redux-middleware@https://github.com/mitchellhamilton/pouch-redux-middleware":
   version "0.6.1"
-  resolved "https://registry.yarnpkg.com/pouch-redux-middleware/-/pouch-redux-middleware-0.6.1.tgz#6f05c8b26b8c72bb90f801583fab571dd034365e"
+  resolved "https://github.com/mitchellhamilton/pouch-redux-middleware#f215e08ee555e3bda264300521fd3ff87a3ab5ff"
   dependencies:
     async-function-queue "^1.0.0"
     deep-equal "^1.0.1"
