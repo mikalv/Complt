@@ -6461,25 +6461,6 @@ pouchdb-adapter-utils@6.1.2:
     pouchdb-merge "6.1.2"
     pouchdb-utils "6.1.2"
 
-pouchdb-adapter-websql-core@6.1.2:
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/pouchdb-adapter-websql-core/-/pouchdb-adapter-websql-core-6.1.2.tgz#0df6f14c520a0d8ad4f4197b357e6fbdc3bf7dfc"
-  dependencies:
-    pouchdb-adapter-utils "6.1.2"
-    pouchdb-binary-utils "6.1.2"
-    pouchdb-collections "6.1.2"
-    pouchdb-errors "6.1.2"
-    pouchdb-json "6.1.2"
-    pouchdb-merge "6.1.2"
-    pouchdb-utils "6.1.2"
-
-pouchdb-adapter-websql@^6.1.2:
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/pouchdb-adapter-websql/-/pouchdb-adapter-websql-6.1.2.tgz#6310d9c80ed9d0efff194546678c2eab33c2de25"
-  dependencies:
-    pouchdb-adapter-websql-core "6.1.2"
-    pouchdb-utils "6.1.2"
-
 pouchdb-ajax@6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/pouchdb-ajax/-/pouchdb-ajax-6.1.2.tgz#ad3af8b16ed6b7508c0a6a1098fca4af62e2f118"

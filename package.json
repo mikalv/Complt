@@ -95,7 +95,6 @@
     "pouchdb-adapter-http": "^6.1.2",
     "pouchdb-adapter-idb": "^6.1.2",
     "pouchdb-adapter-memory": "^6.1.2",
-    "pouchdb-adapter-websql": "^6.1.2",
     "pouchdb-core": "^6.1.2",
     "pouchdb-memory": "^6.0.0",
     "pouchdb-replication": "^6.1.2",
