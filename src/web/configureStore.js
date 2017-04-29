@@ -14,7 +14,7 @@ import {
   removeItemPouch,
   insertItemPouch,
   updateItemPouch,
-  initialItemsLoaded,
+  batchInsertItemPouch,
 } from '../common/redux/actions';
 
 const pouchMiddleware = PouchMiddleware({
@@ -24,6 +24,7 @@ const pouchMiddleware = PouchMiddleware({
     remove: removeItemPouch,
     insert: insertItemPouch,
     update: updateItemPouch,
+    batchInsert: batchInsertItemPouch,
   },
   handleResponse: (error, data, cb) => {
     if (error) {
@@ -32,9 +33,6 @@ const pouchMiddleware = PouchMiddleware({
       );
     }
     cb(error);
-  },
-  initialBatchDispatched() {
-    store.dispatch(initialItemsLoaded());
   },
 });
 

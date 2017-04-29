@@ -3,9 +3,7 @@ import { connect } from 'preact-redux';
 import List from 'preact-material-components/List';
 import LinkListItem from '../components/LinkListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
-import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
 import deferComponentRender from '../deferComponentRender';
-import Loading from '../components/Loading';
 
 export const Tags = props => (
   <List className="flex-child">
@@ -26,6 +24,4 @@ export function mapStateToProps(state) {
   return { tags };
 }
 
-export default deferComponentRender(
-  areInitialItemsLoaded(connect(mapStateToProps)(Tags), Loading)
-);
+export default deferComponentRender(connect(mapStateToProps)(Tags));

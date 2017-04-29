@@ -6378,7 +6378,7 @@ postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0
 
 "pouch-redux-middleware@https://github.com/mitchellhamilton/pouch-redux-middleware":
   version "0.6.1"
-  resolved "https://github.com/mitchellhamilton/pouch-redux-middleware#f215e08ee555e3bda264300521fd3ff87a3ab5ff"
+  resolved "https://github.com/mitchellhamilton/pouch-redux-middleware#c8049084fb3774f688a3f16a4fb629dbc47a603c"
   dependencies:
     async-function-queue "^1.0.0"
     deep-equal "^1.0.1"

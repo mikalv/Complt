@@ -1,6 +1,7 @@
 import {
   DELETE_ITEM_POUCH,
   INSERT_ITEM_POUCH,
+  BATCH_INSERT_ITEM_POUCH,
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
   COMPLETE_ITEM,
@@ -45,6 +46,9 @@ export default function itemsReducer(state = initialState, action) {
     }
     case INSERT_ITEM_POUCH: {
       return [...state, action.item];
+    }
+    case BATCH_INSERT_ITEM_POUCH: {
+      return [...state, ...action.items];
     }
     case UPDATE_ITEM_POUCH: {
       const indexOfId = state.findIndex(item => item._id === action.item._id);

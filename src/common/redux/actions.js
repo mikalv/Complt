@@ -13,6 +13,7 @@ import {
   GET_PROFILE,
   DELETE_ITEM_POUCH,
   INSERT_ITEM_POUCH,
+  BATCH_INSERT_ITEM_POUCH,
   UPDATE_ITEM_POUCH,
   CREATE_ITEM,
   COMPLETE_ITEM,
@@ -29,7 +30,6 @@ import {
   CHANGE_ITEMS_TO_SHOW,
   DELETE_ITEM_WITHOUT_PARENT,
   MOVE_ITEM_WITHOUT_PARENT,
-  INITIAL_ITEMS_LOADED,
   REORDER_ITEM,
 } from './actionTypes';
 
@@ -65,6 +65,11 @@ export const removeItemPouch = doc => ({
 export const insertItemPouch = doc => ({ type: INSERT_ITEM_POUCH, item: doc });
 
 export const updateItemPouch = doc => ({ type: UPDATE_ITEM_POUCH, item: doc });
+
+export const batchInsertItemPouch = docs => ({
+  type: BATCH_INSERT_ITEM_POUCH,
+  items: docs,
+});
 
 export const createTask = (parentProjectId, item) => ({
   type: CREATE_ITEM,
@@ -213,8 +218,6 @@ export const changeItemsToShow = option => ({
   type: CHANGE_ITEMS_TO_SHOW,
   option,
 });
-
-export const initialItemsLoaded = () => ({ type: INITIAL_ITEMS_LOADED });
 
 export const reorderItem = (id, oldIndex, newIndex) => ({
   type: REORDER_ITEM,

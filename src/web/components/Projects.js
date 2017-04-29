@@ -9,8 +9,6 @@ import ItemList from './ItemList';
 import AddItem from './AddItem';
 import Item from './Item';
 import getFilteredItems from '../../common/utils/getFilteredItems';
-import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
-import Loading from './Loading';
 
 const SortableItem = SortableElement(Item);
 const SortableItemList = SortableContainer(ItemList);
@@ -68,8 +66,5 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default deferComponentRender(
-  areInitialItemsLoaded(
-    connect(mapStateToProps, mapDispatchToProps)(pure(Projects)),
-    Loading
-  )
+  connect(mapStateToProps, mapDispatchToProps)(pure(Projects))
 );

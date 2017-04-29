@@ -3,8 +3,6 @@ import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import { getParents } from '../../common/utils/parents';
-import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
-import Loading from './Loading';
 import NonProjectItemList from './NonProjectItemList';
 
 const sortDates = (a, b) => {
@@ -29,10 +27,7 @@ export const mapStateToProps = ({ endTime, startTime }) => state => {
 };
 
 const ItemListByDueDate = _ =>
-  areInitialItemsLoaded(
-    connect(mapStateToProps(_), mapDispatchToProps)(NonProjectItemList),
-    Loading
-  );
+  connect(mapStateToProps(_), mapDispatchToProps)(NonProjectItemList);
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
