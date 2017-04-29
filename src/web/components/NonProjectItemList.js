@@ -1,5 +1,7 @@
 import { h } from 'preact';
 import { route } from 'preact-router';
+import pure from '../pure';
+import deferComponentRender from '../deferComponentRender';
 import ItemList from './ItemList';
 
 const NonProjectItemList = props => (
@@ -34,4 +36,4 @@ const NonProjectItemList = props => (
   />
 );
 
-export default NonProjectItemList;
+export default deferComponentRender(pure(NonProjectItemList));

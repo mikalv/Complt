@@ -4,6 +4,7 @@ import List from 'preact-material-components/List';
 import LinkListItem from '../components/LinkListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import areInitialItemsLoaded from '../../common/utils/areInitialItemsLoaded';
+import deferComponentRender from '../deferComponentRender';
 import Loading from '../components/Loading';
 
 export const Tags = props => (
@@ -25,4 +26,6 @@ export function mapStateToProps(state) {
   return { tags };
 }
 
-export default areInitialItemsLoaded(connect(mapStateToProps)(Tags), Loading);
+export default deferComponentRender(
+  areInitialItemsLoaded(connect(mapStateToProps)(Tags), Loading)
+);

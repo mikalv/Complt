@@ -2,6 +2,8 @@ import { h } from 'preact';
 import { connect } from 'preact-redux';
 import SortableElement from 'react-sortable-hoc/src/SortableElement';
 import SortableContainer from 'react-sortable-hoc/src/SortableContainer';
+import pure from '../pure';
+import deferComponentRender from '../deferComponentRender';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
@@ -65,7 +67,9 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export default areInitialItemsLoaded(
-  connect(mapStateToProps, mapDispatchToProps)(Projects),
-  Loading
+export default deferComponentRender(
+  areInitialItemsLoaded(
+    connect(mapStateToProps, mapDispatchToProps)(pure(Projects)),
+    Loading
+  )
 );

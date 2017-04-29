@@ -7,6 +7,7 @@ import Create from 'preact-icons/lib/md/create';
 import MoreVert from 'preact-icons/lib/md/more-vert';
 import DragHandle from 'preact-icons/lib/md/drag-handle';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
+import pure from '../pure';
 import IconButton from './IconButton';
 import Chip from './Chip';
 import getNextDueDate from '../../common/utils/getNextDueDate';
@@ -157,4 +158,4 @@ const Item = ({
   </li>
 );
 
-export default Item;
+export default pure(Item);
