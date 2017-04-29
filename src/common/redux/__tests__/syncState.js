@@ -5,7 +5,6 @@ import {
   syncSucceded,
   sync,
   attemptSync,
-  initialItemsLoaded,
 } from '../actions';
 import {
   SYNC_STARTED,
@@ -40,28 +39,18 @@ describe('syncReducer', () => {
     expect(reducer(undefined, syncStarted())).toEqual({
       syncing: true,
       error: false,
-      initialItemsLoaded: false,
     });
   });
   it('handles SYNC_FAILED correctly', () => {
     expect(reducer(undefined, syncFailed())).toEqual({
       syncing: false,
       error: true,
-      initialItemsLoaded: false,
     });
   });
   it('handles SYNC_SUCCEDED correctly', () => {
     expect(reducer(undefined, syncSucceded())).toEqual({
       syncing: false,
       error: false,
-      initialItemsLoaded: false,
-    });
-  });
-  it('handles INITIAL_ITEMS_LOADED correctly', () => {
-    expect(reducer(undefined, initialItemsLoaded())).toEqual({
-      syncing: false,
-      error: false,
-      initialItemsLoaded: true,
     });
   });
 });
