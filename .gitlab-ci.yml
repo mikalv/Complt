@@ -62,14 +62,3 @@ electron/build:
   artifacts:
     paths:
       - dist/
-
-exponent/deploy:
-  stage: deploy
-  script:
-    - 'npm run deploy:exponent'
-  only:
-    - master
-  environment:
-    name: exponent
-    url: https://exp.host/@mitchellhamilton/Complt
-  when: manual
