@@ -7,11 +7,11 @@ import Create from 'preact-icons/lib/md/create';
 import MoreVert from 'preact-icons/lib/md/more-vert';
 import DragHandle from 'preact-icons/lib/md/drag-handle';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
+import cn from 'classnames';
 import pure from '../pure';
 import IconButton from './IconButton';
 import Chip from './Chip';
 import getNextDueDate from '../../common/utils/getNextDueDate';
-import colors from '../../common/colors';
 import './Item.scss';
 
 const Handle = SortableHandle(() => (
@@ -59,24 +59,12 @@ const Item = ({
   <li className="flex row Item">
     <div className="Item-left">
       <IconButton
-        className="IconButton-margin"
+        className={cn('IconButton-margin', {
+          'completed-color': item.isCompleted,
+        })}
         onClick={stopPropagation(onLeftButtonClick)}
       >
-        {item.isProject === true
-          ? <Assignment
-              color={
-                item.isCompleted
-                  ? colors.completedItem
-                  : 'rgba(255, 255, 255, 0.7)'
-              }
-            />
-          : <Done
-              color={
-                item.isCompleted
-                  ? colors.completedItem
-                  : 'rgba(255, 255, 255, 0.7)'
-              }
-            />}
+        {item.isProject === true ? <Assignment /> : <Done />}
       </IconButton>
     </div>
     <div className="Item-center">
