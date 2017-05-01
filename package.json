@@ -84,7 +84,7 @@
     "webpack-manifest-plugin": "1.1.0"
   },
   "dependencies": {
-    "auth0-js": "^8.3.0",
+    "auth0-js": "^8.6.0",
     "classnames": "^2.2.5",
     "electron": "^1.4.15",
     "jwt-decode": "^2.2.0",

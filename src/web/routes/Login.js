@@ -15,7 +15,7 @@ export class Login extends Component {
         scope: 'openid',
         audience,
       });
-      auth0.parseHash(window.location.hash, this.props.loginCallback);
+      auth0.parseHash({ hash: window.location.hash }, this.props.loginCallback);
     });
   }
   render() {
