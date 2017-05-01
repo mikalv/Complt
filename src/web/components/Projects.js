@@ -11,38 +11,42 @@ import Item from './Item';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 
 const SortableItem = SortableElement(Item);
-const SortableItemList = SortableContainer(ItemList);
+const SortableItemList = deferComponentRender(SortableContainer(ItemList));
 
 export const Projects = props => (
   <div className="flex-child flex-child flex column space-between">
-    <SortableItemList
-      onDelete={i =>
-        props.deleteItem(props.projectId, props.projectChildren[i]._id)}
-      canDeleteTask
-      canDeleteProject
-      canMove
-      canSort
-      useDragHandle
-      onSortEnd={({ oldIndex, newIndex }) =>
-        props.reorderItem(props.projectId, oldIndex, newIndex)}
-      ItemComponent={SortableItem}
-      onItemMove={i =>
-        props.showMoveItemDialog(props.projectChildren[i]._id, props.projectId)}
-      onItemUpdate={i =>
-        props.showUpdateItemDialog(props.projectChildren[i]._id)}
-      onLeftButtonClick={i =>
-        props.completeItem(
-          props.projectChildren[i]._id,
-          !props.projectChildren[i].isCompleted
-        )}
-      items={props.projectChildren}
-      onItemTap={i => {
-        if (props.projectChildren[i].isProject) {
-          props.routerPush(`/project/${props.projectChildren[i]._id}`);
-        }
-      }}
-      className="scroll"
-    />
+    <div className="scroll">
+      <SortableItemList
+        onDelete={i =>
+          props.deleteItem(props.projectId, props.projectChildren[i]._id)}
+        canDeleteTask
+        canDeleteProject
+        canMove
+        canSort
+        useDragHandle
+        onSortEnd={({ oldIndex, newIndex }) =>
+          props.reorderItem(props.projectId, oldIndex, newIndex)}
+        ItemComponent={SortableItem}
+        onItemMove={i =>
+          props.showMoveItemDialog(
+            props.projectChildren[i]._id,
+            props.projectId
+          )}
+        onItemUpdate={i =>
+          props.showUpdateItemDialog(props.projectChildren[i]._id)}
+        onLeftButtonClick={i =>
+          props.completeItem(
+            props.projectChildren[i]._id,
+            !props.projectChildren[i].isCompleted
+          )}
+        items={props.projectChildren}
+        onItemTap={i => {
+          if (props.projectChildren[i].isProject) {
+            props.routerPush(`/project/${props.projectChildren[i]._id}`);
+          }
+        }}
+      />
+    </div>
     <AddItem
       initialIsProject={props.initialIsProject}
       canChangeType={props.canChangeType}
@@ -65,6 +69,4 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export default deferComponentRender(
-  connect(mapStateToProps, mapDispatchToProps)(pure(Projects))
-);
+export default connect(mapStateToProps, mapDispatchToProps)(pure(Projects));
