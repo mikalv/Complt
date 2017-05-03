@@ -6672,16 +6672,6 @@ preact-css-transition-group@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/preact-css-transition-group/-/preact-css-transition-group-1.2.0.tgz#28f6acb0cb95c107f3c9ddbcd6f4c3de26deebdc"
 
-preact-icon-base@2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/preact-icon-base/-/preact-icon-base-2.0.6.tgz#d3d6c8fa1c87e8c3408265617dfe4b77dfbdc24b"
-
-preact-icons@^2.2.5:
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/preact-icons/-/preact-icons-2.2.5.tgz#826d5733d5916cc19189b4552b93377fd1f10b08"
-  dependencies:
-    preact-icon-base "2.0.6"
-
 preact-material-components@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/preact-material-components/-/preact-material-components-1.0.3.tgz#763dc3a179c16e93c0fd307897dad41b2ecf2326"
@@ -7000,6 +6990,16 @@ react-hot-loader@^3.0.0-beta.6:
     react-proxy "^3.0.0-alpha.0"
     redbox-react "^1.2.5"
     source-map "^0.4.4"
+
+react-icon-base@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-icon-base/-/react-icon-base-2.0.4.tgz#b6b7662e8b009b270a4f0c213c222f5d6eca3b22"
+
+react-icons@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-2.2.3.tgz#3b4847923065ecb09f8ba7f7e422112de0195196"
+  dependencies:
+    react-icon-base "2.0.4"
 
 react-loadable@^3.3.0:
   version "3.3.0"
