@@ -52,6 +52,7 @@ class AddItem extends Component {
                 type="button"
                 className="IconButton-margin"
                 id="add-tag"
+                title="Add Tag"
                 onClick={this.addTag}
               >
                 <Label />
@@ -62,6 +63,7 @@ class AddItem extends Component {
                 ? <IconButton
                     type="button"
                     className="IconButton-margin"
+                    title={`Switch to creating a ${state.isProject ? 'task' : 'project'}`}
                     onClick={this.toggleIsProject}
                   >
                     {state.isProject ? <Done /> : <Assignment />}
@@ -70,6 +72,7 @@ class AddItem extends Component {
               <IconButton
                 className="IconButton-margin"
                 id="add-item-submit"
+                title="Create Item"
                 type="submit"
               >
                 <Send />

@@ -14,8 +14,10 @@ import Chip from './Chip';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import './Item.scss';
 
-const Handle = SortableHandle(() => (
-  <IconButton className="IconButton-margin"><DragHandle /></IconButton>
+const Handle = SortableHandle(props => (
+  <IconButton className="IconButton-margin" {...props}>
+    <DragHandle />
+  </IconButton>
 ));
 
 const stopPropagation = callback => {
@@ -62,6 +64,7 @@ const Item = ({
         className={cn('IconButton-margin', {
           'completed-color': item.isCompleted,
         })}
+        title={`${item.isCompleted ? 'Unc' : 'C'}omplete ${item.isProject ? 'project' : 'task'}`}
         onClick={stopPropagation(onLeftButtonClick)}
       >
         {item.isProject === true ? <Assignment /> : <Done />}
@@ -119,9 +122,10 @@ const Item = ({
         : undefined}
     </div>
     <div className="Item-right">
-      {canSort ? <Handle /> : undefined}
+      {canSort ? <Handle tabIndex={-1} aria-hidden /> : undefined}
       <IconButton
         className="IconButton-margin"
+        title={`Update ${item.isProject ? 'project' : 'task'}`}
         onClick={stopPropagation(onItemUpdate)}
       >
         <Create />
@@ -129,6 +133,7 @@ const Item = ({
       {canMove
         ? <IconButton
             className="IconButton-margin"
+            title={`Move ${item.isProject ? 'project' : 'task'} to another project`}
             onClick={stopPropagation(onItemMove)}
           >
             <MoreVert />
@@ -136,6 +141,7 @@ const Item = ({
         : undefined}
       {canDelete
         ? <IconButton
+            title={`Delete ${item.isProject ? 'project' : 'task'}`}
             className="IconButton-margin"
             onClick={stopPropagation(onDelete)}
           >

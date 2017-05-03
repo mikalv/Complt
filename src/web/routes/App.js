@@ -38,6 +38,9 @@ export class App extends Component {
     window.ga('send', 'pageview');
     this.performRedirects(url);
   };
+  onMenuButtonClick = () => {
+    this.drawer.MDComponent.open = !this.drawer.MDComponent.open;
+  };
   performRedirects = url => {
     redirects.forEach(redirect => {
       if (redirect[0] === url.replace(/(^\/+|\/+$)/g, ''))
@@ -53,10 +56,8 @@ export class App extends Component {
               {props.matches
                 ? null
                 : <IconButton
-                    onClick={() => {
-                      this.drawer.MDComponent.open = !this.drawer.MDComponent
-                        .open;
-                    }}
+                    title={`${this.drawer && this.drawer.MDComponent.open ? 'Close' : 'Open'} navigation drawer`}
+                    onClick={this.onMenuButtonClick}
                   >
                     <Menu />
                   </IconButton>}
@@ -77,7 +78,9 @@ export class App extends Component {
             <Toolbar.Section align-end className="App-toolbar-section">
               {props.syncState.syncing
                 ? <Spinner id="syncing-spinner" size={24} />
-                : <IconButton onClick={props.attemptSync}><Sync /></IconButton>}
+                : <IconButton title="Sync items" onClick={props.attemptSync}>
+                    <Sync />
+                  </IconButton>}
             </Toolbar.Section>
           </Toolbar.Row>
         </Toolbar>
