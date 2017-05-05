@@ -11,6 +11,7 @@ var getClientEnvironment = require('./env');
 var OfflinePlugin = require('offline-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
 var InlineManifest = require('inline-manifest-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -258,20 +259,21 @@ var config = {
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
     // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true, // React doesn't support IE8
-        warnings: false
-      },
-      mangle: {
-        screw_ie8: true
-      },
-      output: {
-        comments: false,
-        screw_ie8: true
-      },
-      sourceMap: true
-    }),
+    new PrepackWebpackPlugin({}),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     screw_ie8: true, // React doesn't support IE8
+    //     warnings: false
+    //   },
+    //   mangle: {
+    //     screw_ie8: true
+    //   },
+    //   output: {
+    //     comments: false,
+    //     screw_ie8: true
+    //   },
+    //   sourceMap: true
+    // }),
     new OfflinePlugin({
       ServiceWorker: {
         navigateFallbackURL: '/',
