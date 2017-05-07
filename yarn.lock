@@ -8227,6 +8227,10 @@ timers-browserify@^2.0.2:
   dependencies:
     setimmediate "^1.0.4"
 
+tinytime@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/tinytime/-/tinytime-0.2.5.tgz#2369b9c8cefdd94eb5bce6f07e46e4e71877c8c5"
+
 tmp@0.0.28:
   version "0.0.28"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.28.tgz#172735b7f614ea7af39664fa84cf0de4e515d120"
