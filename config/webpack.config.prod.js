@@ -172,7 +172,6 @@ var config = {
       {
         test: /\.(css|scss)$/,
         loader: ExtractTextPlugin.extract(Object.assign({
-          fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
