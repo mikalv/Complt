@@ -90,8 +90,7 @@ var config = {
       'react-icon-base': path.join(paths.appSrc, 'web', 'components', 'IconBase.js'),
       'react-addons-css-transition-group': 'preact-css-transition-group',
       'lodash/sortBy': path.join(paths.appSrc, 'web', 'sortBy.js'),
-      'lodash/find': path.join(paths.appSrc, 'web', 'find.js'),
-      'pouchdb-promise': 'lie',
+      'lodash/find': path.join(paths.appSrc, 'web', 'find.js'), 
     }
   },
 
