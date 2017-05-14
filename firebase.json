@@ -1,0 +1,22 @@
+{
+  "hosting": {
+    "public": "build",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/inbox",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</static/css/main.e434c501.css>; rel=preload; as=style,</static/js/main.09398806.js>; rel=preload; as=script,</static/js/vendor.8f933dbb.js>; rel=preload; as=script"
+          }
+        ]
+      }
+    ]
+  }
+}
