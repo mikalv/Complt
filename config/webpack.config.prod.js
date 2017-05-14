@@ -89,7 +89,8 @@ var config = {
       'react-dom': path.join(paths.appSrc, 'common', 'utils', 'ReactDOM.js'),
       'react-icon-base': path.join(paths.appSrc, 'web', 'components', 'IconBase.js'),
       'react-addons-css-transition-group': 'preact-css-transition-group',
-      lodash: 'lodash-es',
+      'lodash/sortBy': path.join(paths.appSrc, 'web', 'sortBy.js'),
+      'lodash/find': path.join(paths.appSrc, 'web', 'find.js'), 
     }
   },
 
@@ -170,7 +171,6 @@ var config = {
       {
         test: /\.(css|scss)$/,
         loader: ExtractTextPlugin.extract(Object.assign({
-          fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',

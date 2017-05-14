@@ -84,6 +84,8 @@ module.exports = {
       'react-dom': path.join(paths.appSrc, 'common', 'utils', 'ReactDOM.js'),
       'react-icon-base': path.join(paths.appSrc, 'web', 'components', 'IconBase.js'),
       'react-addons-css-transition-group': 'preact-css-transition-group',
+      'lodash/sortBy': path.join(paths.appSrc, 'web', 'sortBy.js'),
+      'lodash/find': path.join(paths.appSrc, 'web', 'find.js'), 
     }
   },
 
