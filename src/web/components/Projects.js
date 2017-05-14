@@ -59,11 +59,9 @@ export const Projects = props => (
 );
 
 export function mapStateToProps(state, ownProps) {
-  const project = state.items.find(item => item._id === ownProps.projectId);
+  const project = state.items[ownProps.projectId];
   if (project === undefined) return { projectChildren: [] };
-  const projectChildren = project.children.map(id =>
-    state.items.find(item => item._id === id)
-  );
+  const projectChildren = project.children.map(id => state.items[id]);
   return {
     projectChildren: getFilteredItems(projectChildren, state.itemsToShow),
   };

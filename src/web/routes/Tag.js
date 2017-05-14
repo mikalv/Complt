@@ -5,7 +5,9 @@ import getFilteredItems from '../../common/utils/getFilteredItems';
 import { getParents } from '../../common/utils/parents';
 
 export function mapStateToProps(state, ownProps) {
-  const itemsWithParents = getParents(state.items);
+  const itemsWithParents = getParents(
+    Object.keys(state.items).map(id => state.items[id])
+  );
   const items = getFilteredItems(
     itemsWithParents,
     state.itemsToShow,

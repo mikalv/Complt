@@ -27,8 +27,13 @@ const items = [
   },
 ];
 
+const itemsObj = items.reduce((obj, item) => {
+  obj[item._id] = item; // eslint-disable-line no-param-reassign
+  return obj;
+}, {});
+
 describe('itemsToTree', () => {
   it('returns an object with all the children properties being the actual children instead of their ids', () => {
-    expect(itemsToTree(items, 'root')).toMatchSnapshot();
+    expect(itemsToTree(itemsObj, 'root')).toMatchSnapshot();
   });
 });
