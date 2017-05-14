@@ -3,7 +3,7 @@ const path = require('path');
 const assets = require('../build/asset-manifest.json');
 
 const linkHeader = `</${assets['main.css']}>; rel=preload; as=style,</${assets['main.js']}>; rel=preload; as=script,</${assets['vendor.js']}>; rel=preload; as=script`;
-// '/!(static|appcache|*.png|*.json|*.js|*.ico|*.svg|)';
+
 const firebaseConfig = {
   hosting: {
     public: 'build',
@@ -15,7 +15,16 @@ const firebaseConfig = {
     ],
     headers: [
       {
-        source: '/inbox',
+        source: '**/!(*.*)',
+        headers: [
+          {
+            key: 'Link',
+            value: linkHeader,
+          },
+        ],
+      },
+      {
+        source: '/',
         headers: [
           {
             key: 'Link',
