@@ -144,7 +144,7 @@
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-sortable-hoc|react-clone-referenced-element|exponent|@exponent/*|react-navigation)"
+      "node_modules/(?!(jest-)?redux-persist|react-sortable-hoc)"
     ],
     "moduleNameMapper": {
       "(.*)PouchDB(.*)": "pouchdb-memory",

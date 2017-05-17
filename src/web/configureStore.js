@@ -1,5 +1,4 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import { persistStore, autoRehydrate } from 'redux-persist';
 import PouchMiddleware from 'pouch-redux-middleware';
 import thunk from 'redux-thunk';
 import auth from '../common/redux/auth';
@@ -49,12 +48,11 @@ let enhancer;
 
 if (window.__REDUX_DEVTOOLS_EXTENSION__) {
   enhancer = compose(
-    autoRehydrate(),
     middleware,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 } else {
-  enhancer = compose(autoRehydrate(), middleware);
+  enhancer = middleware;
 }
 
 const store = createStore(
@@ -69,8 +67,10 @@ const store = createStore(
   enhancer
 );
 
-persistStore(store, {
-  whitelist: ['auth', 'profile', 'itemsToShow'],
+import('redux-persist/es/persistStore').then(({ default: persistStore }) => {
+  persistStore(store, {
+    whitelist: ['auth', 'profile', 'itemsToShow'],
+  });
 });
 
 export default store;
