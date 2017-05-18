@@ -1,7 +1,7 @@
 import uuid from 'uuid/v4';
 import { route } from 'preact-router';
 import showToast from '../../web/showToast';
-import pouchDBSync from '../utils/pouchDBSync';
+import { pouchDBSync } from '../../web/db';
 import isTokenExpired from '../utils/auth';
 import logException from '../utils/logException';
 import renewAuth from '../../web/renewAuth';

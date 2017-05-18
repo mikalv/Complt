@@ -142,6 +142,11 @@ module.exports = {
         }
       },
       {
+        test: /\.worker\.js$/,
+        include: path.appSrc,
+        loader: 'worker-loader',
+      },
+      {
         test: /\.(js|jsx)$/,
         include: /react-sortable-hoc/,
         loader: 'babel-loader',

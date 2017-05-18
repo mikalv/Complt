@@ -156,6 +156,11 @@ var config = {
           "plugins": ["lodash", "transform-react-constant-elements"],
         }
       },
+      {
+        test: /\.worker\.js$/,
+        include: path.appSrc,
+        loader: 'worker-loader',
+      },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.

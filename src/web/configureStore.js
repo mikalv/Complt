@@ -8,7 +8,7 @@ import dialogs from '../common/redux/dialogs';
 import syncState from '../common/redux/syncState';
 import itemsToShow from '../common/redux/itemsToShow';
 import logException from '../common/utils/logException';
-import db from '../common/db';
+import { db } from './db';
 import {
   removeItemPouch,
   insertItemPouch,
