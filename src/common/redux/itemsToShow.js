@@ -14,7 +14,9 @@ export default function itemsToShowReducer(state = initialState, action) {
     case CHANGE_ITEMS_TO_SHOW:
       return action.option;
     case REHYDRATE:
-      return action.payload.itemsToShow;
+      if (action.payload.itemsToShow !== undefined)
+        return action.payload.itemsToShow;
+      return state;
     default:
       return state;
   }
