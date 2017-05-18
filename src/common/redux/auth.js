@@ -10,7 +10,8 @@ export default function authReducer(state = initialState, action) {
     case LOGOUT:
       return initialState;
     case REHYDRATE:
-      if (state === initialState) return action.payload.auth;
+      if (state === initialState && action.payload.auth !== undefined)
+        return action.payload.auth;
       return state;
     default:
       return state;

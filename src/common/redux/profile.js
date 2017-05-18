@@ -10,7 +10,8 @@ export default function profileReducer(state = initialState, action) {
     case LOGOUT:
       return initialState;
     case REHYDRATE:
-      return action.payload.profile;
+      if (action.payload.profile !== undefined) return action.payload.profile;
+      return state;
     default:
       return state;
   }
