@@ -21,4 +21,12 @@ describe('itemsToShowReducer', () => {
       })
     ).toEqual(SHOW_COMPLETED);
   });
+  it('handles REHYDRATE correctly when it is not defined in localStorage', () => {
+    expect(
+      reducer(initialState, {
+        type: REHYDRATE,
+        payload: { itemsToShow: undefined },
+      })
+    ).toEqual(initialState);
+  });
 });

@@ -24,4 +24,12 @@ describe('profileReducer', () => {
       reducer(initialState, { type: REHYDRATE, payload: { profile } })
     ).toEqual(profile);
   });
+  it('handles REHYDRATE correctly when it is not defined in localStorage', () => {
+    expect(
+      reducer(initialState, {
+        type: REHYDRATE,
+        payload: { profile: undefined },
+      })
+    ).toEqual(initialState);
+  });
 });
