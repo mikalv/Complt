@@ -171,7 +171,9 @@ export const hideUpdateItemDialog = () => ({
 });
 
 export const handleUpdateItem = (updatedItemInput, item) => dispatch => {
-  import('../utils/processItem').then(({ default: processItem }) => {
+  import(
+    /* webpackChunkName: "process-item" */ '../utils/processItem'
+  ).then(({ default: processItem }) => {
     const processedItem = processItem(updatedItemInput, item.isProject);
     const newItem = {
       ...item,

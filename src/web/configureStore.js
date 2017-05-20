@@ -67,7 +67,9 @@ const store = createStore(
   enhancer
 );
 
-import('redux-persist/es/persistStore').then(({ default: persistStore }) => {
+import(
+  /* webpackChunkName: "redux-persist" */ 'redux-persist/es/persistStore'
+).then(({ default: persistStore }) => {
   persistStore(store, {
     whitelist: ['auth', 'profile', 'itemsToShow'],
   });

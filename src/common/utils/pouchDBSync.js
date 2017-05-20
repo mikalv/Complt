@@ -1,7 +1,9 @@
 import db from '../db';
 
 const pouchDBSync = (token, remoteURI) =>
-  import('../PouchDBWithHttpAndReplication').then(
+  import(
+    /* webpackChunkName: "pouchdb-http" */ '../PouchDBWithHttpAndReplication'
+  ).then(
     ({ default: PouchDB }) =>
       new Promise((resolve, reject) => {
         const remoteDB = new PouchDB(remoteURI, {
