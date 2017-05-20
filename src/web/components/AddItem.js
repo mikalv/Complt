@@ -38,14 +38,15 @@ class AddItem extends Component {
           <Textfield
             id="add-item-input"
             className="AddItem-input"
-            placeholder={
-              state.isProject
-                ? 'e.g. Report'
-                : 'e.g. Finish Report @work !tomorrow at 8am!'
-            }
+            label={`Add a ${this.state.isProject ? 'Project' : 'Task'}`}
             value={state.input}
             onChange={linkState(this, 'input')}
           />
+          <p className="mdc-textfield-helptext AddItem-helptext">
+            {state.isProject
+              ? 'e.g. Report'
+              : 'e.g. Finish Report @work !tomorrow at 8am!'}
+          </p>
           <div className="flex row space-between">
             <div>
               <IconButton
