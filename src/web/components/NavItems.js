@@ -6,7 +6,6 @@ import Person from 'react-icons/lib/md/person';
 import Today from 'react-icons/lib/md/today';
 import Apps from 'react-icons/lib/md/apps';
 import Label from 'react-icons/lib/md/label';
-import List from 'preact-material-components/List';
 import { Link } from 'preact-router/match';
 import LinkListItem from './LinkListItem';
 
@@ -58,23 +57,25 @@ export const navItems = [
   },
 ];
 
-const NavItems = ({ activeClassName, onListClick }) => (
-  <List onClick={onListClick}>
-    {navItems.map(Item => (
-      <LinkListItem
-        Component={Link}
-        onClick={e => {
-          e.preventDefault();
-          route(Item.href);
-        }}
-        href={Item.href}
-        activeClassName={activeClassName}
-      >
-        <Item.icon className="mdc-list-item__start-detail" />
-        {Item.text}
-      </LinkListItem>
-    ))}
-  </List>
-);
+const navItemsCache = {};
 
-export default NavItems;
+const renderNavItems = ({ activeClassName }) => {
+  if (navItemsCache[activeClassName] !== undefined)
+    return navItemsCache[activeClassName];
+  return navItems.map(Item => (
+    <LinkListItem
+      Component={Link}
+      onClick={e => {
+        e.preventDefault();
+        route(Item.href);
+      }}
+      href={Item.href}
+      activeClassName={activeClassName}
+    >
+      <Item.icon className="mdc-list-item__start-detail" />
+      {Item.text}
+    </LinkListItem>
+  ));
+};
+
+export default renderNavItems;

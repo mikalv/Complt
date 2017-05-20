@@ -9,7 +9,7 @@ import Async from '../components/Async';
 import Spinner from '../components/Spinner';
 import IconButton from '../components/IconButton';
 import AppRouter from '../AppRouter';
-import NavItems from '../components/NavItems';
+import renderNavItems from '../components/NavItems';
 import MatchMedia from '../MatchMedia';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
@@ -127,7 +127,9 @@ export class App extends Component {
                     {props.profile.name}
                   </Toolbar.Row>
                 </Toolbar>
-                <NavItems activeClassName="mdc-permanent-drawer--selected" />
+                {renderNavItems({
+                  activeClassName: 'mdc-permanent-drawer--selected',
+                })}
               </Drawer.PermanentDrawer>
             : <Drawer.TemporaryDrawer
                 ref={drawer => {
@@ -137,13 +139,16 @@ export class App extends Component {
                 <Drawer.TemporaryDrawerHeader className="mdc-theme--accent-bg">
                   {props.profile.name}
                 </Drawer.TemporaryDrawerHeader>
-                <Drawer.TemporaryDrawerContent>
-                  <NavItems
-                    onListClick={() => {
+                <Drawer.TemporaryDrawerContent
+                  onClick={e => {
+                    if (e.target.nodeName === 'A') {
                       this.drawer.MDComponent.open = false;
-                    }}
-                    activeClassName="mdc-temporary-drawer--selected"
-                  />
+                    }
+                  }}
+                >
+                  {renderNavItems({
+                    activeClassName: 'mdc-temporary-drawer--selected',
+                  })}
                 </Drawer.TemporaryDrawerContent>
               </Drawer.TemporaryDrawer>}
           <main className="flex-child flex mdc-toolbar-fixed-adjust">
