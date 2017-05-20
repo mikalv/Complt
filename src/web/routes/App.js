@@ -6,7 +6,7 @@ import Toolbar from 'preact-material-components/Toolbar';
 import Drawer from 'preact-material-components/Drawer';
 import Select from 'preact-material-components/Select';
 import { connect } from 'preact-redux';
-import Loadable from 'react-loadable';
+import Async from '../components/Async';
 import Spinner from '../components/Spinner';
 import IconButton from '../components/IconButton';
 import AppRouter from '../AppRouter';
@@ -16,11 +16,7 @@ import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import './App.scss';
 
-const Dialogs = Loadable({
-  loader: () => import('../components/Dialogs'),
-  LoadingComponent: () => null,
-  webpackRequireWeakId: () => require.resolveWeak('../components/Dialogs'),
-});
+const Dialogs = Async(() => import('../components/Dialogs'));
 
 const redirects = [
   ['project/inbox', '/inbox'],
