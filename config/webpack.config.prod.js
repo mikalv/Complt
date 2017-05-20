@@ -35,6 +35,21 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
 
+const uglify = new webpack.optimize.UglifyJsPlugin({
+  compress: {
+    screw_ie8: true, // React doesn't support IE8
+    warnings: false
+  },
+  mangle: {
+    screw_ie8: true
+  },
+  output: {
+    comments: false,
+    screw_ie8: true
+  },
+  sourceMap: true
+});
+
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
 // However, our output is structured with css, js and media folders.
@@ -58,6 +73,7 @@ var config = {
     require.resolve('./polyfills'),
     paths.appIndexJs
   ],
+  context: path.resolve(__dirname, ".."),
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -218,6 +234,19 @@ var config = {
     ]
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: true,
+      options: {
+        worker: {
+          plugins: [uglify],
+          output: {
+            filename: "static/js/[hash:8].worker.js",
+            chunkFilename: "static/js/[id].[hash].worker.js",
+          },
+        }
+      }
+    }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -263,20 +292,7 @@ var config = {
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
     // Minify the code.
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true, // React doesn't support IE8
-        warnings: false
-      },
-      mangle: {
-        screw_ie8: true
-      },
-      output: {
-        comments: false,
-        screw_ie8: true
-      },
-      sourceMap: true
-    }),
+    uglify,
     new OfflinePlugin({
       ServiceWorker: {
         navigateFallbackURL: '/',
