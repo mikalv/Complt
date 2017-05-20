@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import linkState from 'linkstate';
-import Textfield from 'preact-material-components/Textfield';
+import { MDCTextfield } from '@material/textfield';
 import Assignment from 'react-icons/lib/md/assignment';
 import Done from 'react-icons/lib/md/done';
 import Label from 'react-icons/lib/md/label';
@@ -15,6 +15,9 @@ class AddItem extends Component {
       input: '',
       isProject: props.initialIsProject || false,
     };
+  }
+  componentDidMount() {
+    this.MDTextfield = new MDCTextfield(this.textfield);
   }
   onFormSubmit = e => {
     e.preventDefault();
@@ -35,14 +38,25 @@ class AddItem extends Component {
     return (
       <form onSubmit={this.onFormSubmit} className="AddItem">
         <div className="flex column">
-          <Textfield
-            id="add-item-input"
-            className="AddItem-input"
-            label={`Add a ${this.state.isProject ? 'Project' : 'Task'}`}
-            value={state.input}
-            onChange={linkState(this, 'input')}
-          />
-          <p className="mdc-textfield-helptext AddItem-helptext">
+          <div
+            className="mdc-textfield"
+            ref={textfield => {
+              this.textfield = textfield;
+            }}
+          >
+            <input
+              type="text"
+              id="add-item-input"
+              className="mdc-textfield__input AddItem-input"
+              value={state.input}
+              onChange={linkState(this, 'input')}
+              aria-controls="add-item-helptext"
+            />
+            <label className="mdc-textfield__label" htmlFor="add-item-input">
+              {`Add a ${this.state.isProject ? 'Project' : 'Task'}`}
+            </label>
+          </div>
+          <p className="mdc-textfield-helptext" id="add-item-helptext">
             {state.isProject
               ? 'e.g. Report'
               : 'e.g. Finish Report @work !tomorrow at 8am!'}
