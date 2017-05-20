@@ -12,6 +12,7 @@ var OfflinePlugin = require('offline-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var InlineManifest = require('inline-manifest-webpack-plugin');
+var PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -293,7 +294,12 @@ var config = {
     // having to parse `index.html`.
     new ManifestPlugin({
       fileName: 'asset-manifest.json'
-    })
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as: 'script',
+      include: ['mdc-select', 'dialogs', 'redux-persist']
+    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
