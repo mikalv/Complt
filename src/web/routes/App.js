@@ -100,8 +100,15 @@ export class App extends Component {
                 </span>
                 <div className="mdc-simple-menu mdc-select__menu">
                   <ul className="mdc-list mdc-simple-menu__items">
-                    {itemsToShowValues.map(item => (
-                      <li className="mdc-list-item" role="option" tabIndex="0">
+                    {itemsToShowValues.map((item, i) => (
+                      <li
+                        className="mdc-list-item"
+                        role="option"
+                        tabIndex="0"
+                        aria-selected={
+                          itemsToShowValues.indexOf(props.itemsToShow) === i
+                        }
+                      >
                         {item}
                       </li>
                     ))}
