@@ -159,9 +159,6 @@
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$",
     "collectCoverageFrom": [
       "src/common/**/*.{js,jsx}"
-    ],
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
     ]
   }
 }
