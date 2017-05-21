@@ -11,7 +11,7 @@ process.env.PUBLIC_URL = process.env.REACT_APP_ELECTRON ? './' : '';
 // if this file is missing. dotenv will never modify any environment variables
 // that have already been set.
 // https://github.com/motdotla/dotenv
-require('dotenv').config({silent: true});
+require('dotenv').config();
 
 var chalk = require('chalk');
 var fs = require('fs-extra');
