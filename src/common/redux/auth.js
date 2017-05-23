@@ -1,3 +1,4 @@
+import { REHYDRATE } from 'redux-persist/es/constants';
 import { LOGIN, LOGOUT } from './actionTypes';
 
 export const initialState = '';
@@ -8,6 +9,10 @@ export default function authReducer(state = initialState, action) {
       return action.token;
     case LOGOUT:
       return initialState;
+    case REHYDRATE:
+      if (state === initialState && action.payload.auth !== undefined)
+        return action.payload.auth;
+      return state;
     default:
       return state;
   }

@@ -1,20 +1,22 @@
-/* eslint-disable */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-restricted-syntax */
 // Taken from https://gist.github.com/developit/b3231344b6b056374bc630fa58308616
 import { Component } from 'preact';
+import getDisplayName from './getDisplayName';
 
 export default function pure(target) {
   if (target.prototype && target.prototype.render) {
     target.prototype.shouldComponentUpdate = shouldComponentUpdate;
     return target;
-  } else {
-    return target.__scuWrap || (target.__scuWrap = wrap(target));
   }
+  return target.__scuWrap || (target.__scuWrap = wrap(target));
 }
 
 function wrap(fn) {
-  class Wrap extends Wrapper {}
-  Wrap.prototype.renderChild = fn;
-  return Wrap;
+  return class Wrap extends Wrapper {
+    displayName = getDisplayName(fn);
+    renderChild = fn;
+  };
 }
 
 class Wrapper extends Component {

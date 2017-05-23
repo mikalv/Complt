@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import noUpdate from '../noUpdate';
 
 const IconBase = ({ children, size, ...props }) => {
   const computedSize = size || '1em';
@@ -15,4 +16,4 @@ const IconBase = ({ children, size, ...props }) => {
   );
 };
 
-export default IconBase;
+export default noUpdate(IconBase);

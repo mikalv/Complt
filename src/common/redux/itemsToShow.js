@@ -1,3 +1,4 @@
+import { REHYDRATE } from 'redux-persist/es/constants';
 import { CHANGE_ITEMS_TO_SHOW } from './actionTypes';
 
 export const SHOW_ALL = 'All';
@@ -12,6 +13,10 @@ export default function itemsToShowReducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_ITEMS_TO_SHOW:
       return action.option;
+    case REHYDRATE:
+      if (action.payload.itemsToShow !== undefined)
+        return action.payload.itemsToShow;
+      return state;
     default:
       return state;
   }

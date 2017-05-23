@@ -1,5 +1,7 @@
 const login = (callback, state) =>
-  import('auth0-js/src/web-auth').then(WebAuth => {
+  import(
+    /* webpackChunkName: "auth0" */ 'auth0-js/src/web-auth'
+  ).then(WebAuth => {
     const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
     const redirectUri = `${window.location.origin}/login`;
     const auth0 = new WebAuth({
