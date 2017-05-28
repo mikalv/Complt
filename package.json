@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "atob": "^2.0.3",
     "autoprefixer": "7.1.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -69,7 +70,6 @@
   "dependencies": {
     "auth0-js": "^8.6.0",
     "classnames": "^2.2.5",
-    "jwt-decode": "^2.2.0",
     "linkstate": "^1.0.1",
     "mockdate": "^2.0.1",
     "pouch-redux-middleware": "https://github.com/mitchellhamilton/pouch-redux-middleware",
