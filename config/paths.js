@@ -62,10 +62,8 @@ function getServedPath(appPackageJson) {
 // config after eject: we're in ./config/
 module.exports = {
   appBuild: resolveApp('build'),
-  appPublic: resolveApp(process.env.REACT_APP_ELECTRON ? 'electron' : 'public'),
-  appHtml: resolveApp(
-    process.env.REACT_APP_ELECTRON ? 'electron/index.html' : 'public/index.html'
-  ),
+  appPublic: resolveApp('public'),
+  appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp(
     process.env.NODE_ENV === 'development'
       ? 'src/web/index-dev.js'

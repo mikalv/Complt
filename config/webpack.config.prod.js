@@ -322,8 +322,4 @@ const config = {
   },
 };
 
-if (process.env.REACT_APP_ELECTRON) {
-  config.resolve.extensions.unshift('.electron.js');
-}
-
 module.exports = config;

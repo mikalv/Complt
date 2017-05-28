@@ -4,8 +4,6 @@ process.env.REACT_APP_AUTH0_DOMAIN = 'complt.auth0.com';
 process.env.REACT_APP_AUTH0_CLIENT_ID = 'SlKB0j8GVBIfYVzJicd63jSIO9oeY3q7';
 process.env.REACT_APP_GIT_REF = process.env.CI_BUILD_REF;
 process.env.REACT_APP_COUCH_URL = 'https://api.complt.xyz/envoy';
-process.env.PUBLIC_URL = process.env.REACT_APP_ELECTRON ? './' : '';
-
 
 // Load environment variables from .env file. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables

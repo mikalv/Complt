@@ -12,19 +12,10 @@ const login = (callback, state) =>
       scope: 'openid',
       audience,
     });
-    if (!process.env.REACT_APP_ELECTRON) {
-      auth0.authorize({
-        connection: 'google-oauth2',
-        state: JSON.stringify(state),
-      });
-    } else {
-      auth0.popup.authorize(
-        {
-          connection: 'google-oauth2',
-        },
-        callback
-      );
-    }
+    auth0.authorize({
+      connection: 'google-oauth2',
+      state: JSON.stringify(state),
+    });
   });
 
 export default login;

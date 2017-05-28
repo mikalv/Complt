@@ -23,7 +23,7 @@ render(
   document.getElementById('root'),
 );
 
-if (!process.env.REACT_APP_ELECTRON) offlinePlugin.install();
+offlinePlugin.install();
 
 import(/* webpackChunkName: "raven" */'raven-js').then((Raven) => {
   Raven.config('https://36b5c3acd9014402a6a37623aef60814@sentry.io/118415').install();
