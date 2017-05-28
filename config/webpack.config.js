@@ -76,6 +76,7 @@ module.exports = env => {
         'pouchdb-selector-core': 'fbjs/lib/emptyFunction',
         'pouchdb-debug': 'fbjs/lib/emptyFunction',
         'pouchdb-changes-filter': 'fbjs/lib/emptyFunction',
+        '@material/drawer/persistent': 'fbjs/lib/emptyFunction',
       },
     },
     module: {
