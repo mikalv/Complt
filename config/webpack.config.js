@@ -45,6 +45,7 @@ module.exports = env => {
     ? 'static/js/[name].[chunkhash:8].chunk.js'
     : 'static/js/[name].[hash:8].js';
   return {
+    bail: isProd,
     entry: isProd
       ? [require.resolve('./polyfills'), paths.appIndexJs]
       : [
@@ -69,9 +70,11 @@ module.exports = env => {
           'components',
           'IconBase.js'
         ),
-        'react-addons-css-transition-group': 'preact-css-transition-group',
         'lodash/sortBy': path.join(paths.appSrc, 'web', 'sortBy.js'),
         'lodash/find': path.join(paths.appSrc, 'web', 'find.js'),
+        'pouchdb-selector-core': 'fbjs/lib/emptyFunction',
+        'pouchdb-debug': 'fbjs/lib/emptyFunction',
+        'pouchdb-changes-filter': 'fbjs/lib/emptyFunction',
       },
     },
     module: {
