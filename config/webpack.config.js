@@ -41,9 +41,6 @@ const cssLoader = [
 
 module.exports = env => {
   const isProd = env && env.production;
-  const filename = isProd
-    ? 'static/js/[name].[chunkhash:8].chunk.js'
-    : 'static/js/[name].[hash:8].js';
   return {
     bail: isProd,
     entry: isProd
@@ -56,8 +53,12 @@ module.exports = env => {
         ],
     output: {
       path: paths.appBuild,
-      filename,
-      chunkFilename: filename,
+      filename: isProd
+        ? 'static/js/[name].[chunkhash:8].js'
+        : 'static/js/[name].[hash:8].js',
+      chunkFilename: isProd
+        ? 'static/js/[name].[chunkhash:8].chunk.js'
+        : 'static/js/[name].[hash:8].chunk.js',
       publicPath: '/',
     },
     resolve: {
