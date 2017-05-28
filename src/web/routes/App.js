@@ -127,17 +127,21 @@ export class App extends Component {
         </Toolbar>
         <div className="flex App-content">
           {props.matches
-            ? <Drawer.PermanentDrawer>
-                <Toolbar className="mdc-theme--text-primary-on-accent mdc-theme--accent-bg">
-                  <Toolbar.Row />
-                  <Toolbar.Row>
-                    {props.profile.name}
-                  </Toolbar.Row>
-                </Toolbar>
-                {renderNavItems({
-                  activeClassName: 'mdc-permanent-drawer--selected',
-                })}
-              </Drawer.PermanentDrawer>
+            ? <nav className="mdc-typography mdc-permanent-drawer">
+                <div className="mdc-permanent-drawer__content">
+                  <Toolbar className="mdc-theme--text-primary-on-accent mdc-theme--accent-bg">
+                    <Toolbar.Row />
+                    <Toolbar.Row>
+                      {props.profile.name}
+                    </Toolbar.Row>
+                  </Toolbar>
+                  <nav className="mdc-list">
+                    {renderNavItems({
+                      activeClassName: 'mdc-permanent-drawer--selected',
+                    })}
+                  </nav>
+                </div>
+              </nav>
             : <Drawer.TemporaryDrawer
                 ref={drawer => {
                   this.drawer = drawer;
