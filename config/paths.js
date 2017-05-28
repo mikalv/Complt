@@ -63,7 +63,7 @@ function getServedPath(appPackageJson) {
 module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
-  appHtml: resolveApp('public/index.html'),
+  appHtml: resolveApp('src/web/index.html'),
   appIndexJs: resolveApp(
     process.env.NODE_ENV === 'development'
       ? 'src/web/index-dev.js'
@@ -78,4 +78,5 @@ module.exports = {
   nodePaths,
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  appRoot: resolveApp('.'),
 };

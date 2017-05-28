@@ -5,5 +5,5 @@ export default function logException(ex, context) {
     });
   });
   /* eslint no-console:0 no-unused-expressions:0 */
-  window.console && console.error && console.error(ex, context);
+  global.console && console.error && console.error(ex, context);
 }
