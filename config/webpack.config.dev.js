@@ -1,25 +1,24 @@
-var autoprefixer = require('autoprefixer');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-var path = require('path');
-var getClientEnvironment = require('./env');
-var paths = require('./paths');
-
-
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const path = require('path');
+const getClientEnvironment = require('./env');
+const paths = require('./paths');
+const babelConfig = require('./babel');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
-var publicPath = '/';
+const publicPath = '/';
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
-var publicUrl = '';
+const publicUrl = '';
 // Get environment variables to inject into our app.
-var env = getClientEnvironment(publicUrl);
+const env = getClientEnvironment(publicUrl);
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -41,7 +40,7 @@ module.exports = {
     // to bring better experience for Create React App users. You can replace
     // the line below with these two lines if you prefer the stock client:
     // require.resolve('react-hot-loader/patch'),
-    require.resolve('webpack-dev-server/client') + '?/',
+    `${require.resolve('webpack-dev-server/client')}?/`,
     require.resolve('webpack/hot/dev-server'),
     // require.resolve('react-dev-utils/webpackHotDevClient'),
     // We ship a few polyfills by default:
@@ -62,7 +61,7 @@ module.exports = {
     // containing code from all our entry points, and the Webpack runtime.
     filename: 'static/js/bundle.js',
     // This is the URL that app is served from. We use "/" in development.
-    publicPath: publicPath
+    publicPath,
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
@@ -80,13 +79,18 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      'react': 'preact',
+      react: 'preact',
       'react-dom': path.join(paths.appSrc, 'common', 'utils', 'ReactDOM.js'),
-      'react-icon-base': path.join(paths.appSrc, 'web', 'components', 'IconBase.js'),
+      'react-icon-base': path.join(
+        paths.appSrc,
+        'web',
+        'components',
+        'IconBase.js'
+      ),
       'react-addons-css-transition-group': 'preact-css-transition-group',
       'lodash/sortBy': path.join(paths.appSrc, 'web', 'sortBy.js'),
-      'lodash/find': path.join(paths.appSrc, 'web', 'find.js'), 
-    }
+      'lodash/find': path.join(paths.appSrc, 'web', 'find.js'),
+    },
   },
 
   module: {
@@ -98,10 +102,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
-        use: [{
-          loader: 'eslint-loader'
-        }],
-        include: paths.appSrc
+        use: [
+          {
+            loader: 'eslint-loader',
+          },
+        ],
+        include: paths.appSrc,
       },
       // ** ADDING/UPDATING LOADERS **
       // The "url" loader handles all assets unless explicitly excluded.
@@ -117,40 +123,26 @@ module.exports = {
           /\.(js|jsx)$/,
           /\.(css|scss)$/,
           /\.json$/,
-          /\.svg$/
+          /\.svg$/,
         ],
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]'
-        }
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
       },
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
         include: [paths.appSrc, /(preact-material-components|@material)/],
         loader: 'babel-loader',
-        options: {
-          presets: [['es2015', {"modules": false}], "stage-3", "react", "stage-0"],
-          plugins:[
-            ["transform-react-jsx", { "pragma": "h" }],
-            "transform-object-rest-spread",
-            "transform-react-constant-elements",
-            "syntax-dynamic-import",
-          ],
-          cacheDirectory: true,
-        }
+        options: babelConfig({ isProd: false, jsx: 'h' }),
       },
       {
         test: /\.(js|jsx)$/,
         include: /react-sortable-hoc/,
         loader: 'babel-loader',
-        options: {
-          babelrc: false,
-          "presets": [["es2015", { "modules": false }], "stage-3", "react", "stage-0"],
-          "plugins": ["lodash", "transform-react-constant-elements"],
-          cacheDirectory: true
-        }
+        options: babelConfig({ isProd: false, jsx: 'React.createElement' }),
       },
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -160,16 +152,18 @@ module.exports = {
       {
         test: /\.(css|scss)$/,
         use: [
-          'style-loader', {
+          'style-loader',
+          {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
-            }
-          }, {
+              importLoaders: 1,
+            },
+          },
+          {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-              plugins: function () {
+              plugins() {
                 return [
                   autoprefixer({
                     browsers: [
@@ -177,26 +171,29 @@ module.exports = {
                       'last 4 versions',
                       'Firefox ESR',
                       'not ie < 9', // React doesn't support IE8 anyway
-                    ]
-                  })
-                ]
-              }
-            }
+                    ],
+                  }),
+                ];
+              },
+            },
           },
-          { loader: "sass-loader", options: { sourceMap: true, includePaths: [paths.appNodeModules] } }
-        ]
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true, includePaths: [paths.appNodeModules] },
+          },
+        ],
       },
       // "file" loader for svg
       {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          name: 'static/media/[name].[hash:8].[ext]'
-        }
-      }
+          name: 'static/media/[name].[hash:8].[ext]',
+        },
+      },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
-    ]
+    ],
   },
   plugins: [
     // Makes some environment variables available in index.html.
@@ -231,12 +228,12 @@ module.exports = {
   node: {
     fs: 'empty',
     net: 'empty',
-    tls: 'empty'
+    tls: 'empty',
   },
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
   // cumbersome.
   performance: {
-    hints: false
-  }
+    hints: false,
+  },
 };
