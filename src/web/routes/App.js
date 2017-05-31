@@ -3,7 +3,6 @@ import { getCurrentUrl, route } from 'preact-router';
 import Menu from 'react-icons/lib/md/menu';
 import Sync from 'react-icons/lib/md/sync';
 import Toolbar from 'preact-material-components/Toolbar';
-import Drawer from 'preact-material-components/Drawer';
 import { connect } from 'preact-redux';
 import Async from '../components/Async';
 import Spinner from '../components/Spinner';
@@ -11,6 +10,7 @@ import IconButton from '../components/IconButton';
 import AppRouter from '../AppRouter';
 import renderNavItems from '../components/NavItems';
 import MatchMedia from '../MatchMedia';
+import TemporaryDrawer from '../components/TemporaryDrawer';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import './App.scss';
@@ -53,7 +53,7 @@ export class App extends Component {
     this.performRedirects(url);
   };
   onMenuButtonClick = () => {
-    this.drawer.MDComponent.open = !this.drawer.MDComponent.open;
+    this.drawer.toggleDrawer();
   };
   performRedirects = url => {
     redirects.forEach(redirect => {
@@ -81,7 +81,7 @@ export class App extends Component {
               {props.matches
                 ? null
                 : <IconButton
-                    title={`${this.drawer && this.drawer.MDComponent.open ? 'Close' : 'Open'} navigation drawer`}
+                    // title={`${this.drawer && this.drawer.MDComponent.open ? 'Close' : 'Open'} navigation drawer`}
                     onClick={this.onMenuButtonClick}
                   >
                     <Menu />
@@ -142,26 +142,29 @@ export class App extends Component {
                   </nav>
                 </div>
               </nav>
-            : <Drawer.TemporaryDrawer
+            : <TemporaryDrawer
+                onClick={e => {
+                  e.stopPropagation();
+                  if (e.target.nodeName === 'A') {
+                    this.drawer.toggleDrawer();
+                  }
+                }}
                 ref={drawer => {
                   this.drawer = drawer;
                 }}
               >
-                <Drawer.TemporaryDrawerHeader className="mdc-theme--accent-bg">
-                  {props.profile.name}
-                </Drawer.TemporaryDrawerHeader>
-                <Drawer.TemporaryDrawerContent
-                  onClick={e => {
-                    if (e.target.nodeName === 'A') {
-                      this.drawer.MDComponent.open = false;
-                    }
-                  }}
-                >
+                <Toolbar className="mdc-theme--text-primary-on-accent mdc-theme--accent-bg">
+                  <Toolbar.Row />
+                  <Toolbar.Row>
+                    {props.profile.name}
+                  </Toolbar.Row>
+                </Toolbar>
+                <nav className="mdc-list mdc-temporary-drawer__content">
                   {renderNavItems({
                     activeClassName: 'mdc-temporary-drawer--selected',
                   })}
-                </Drawer.TemporaryDrawerContent>
-              </Drawer.TemporaryDrawer>}
+                </nav>
+              </TemporaryDrawer>}
           <main className="flex-child flex mdc-toolbar-fixed-adjust">
             <AppRouter onChange={this.onRouteChange} />
           </main>

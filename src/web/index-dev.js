@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import './index.scss';
 import { render, options, Component } from 'preact'; // eslint-disable-line import/first
-import 'preact/devtools'; // eslint-disable-line import/first
+// import 'preact/devtools'; // eslint-disable-line import/first
 import './index.css';
 import getDisplayName from './getDisplayName';
 

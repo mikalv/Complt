@@ -1,0 +1,50 @@
+@import "@material/elevation/mdc-elevation";
+@import "../variables";
+
+.Nav {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: #303030;
+  width: 256px;
+  @include mdc-elevation(16);
+}
+.NavContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 296px;
+  height: 100%;
+  will-change: transform;
+  z-index: 20;
+}
+.Backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 50ms ease;
+  will-change: opacity;
+}
+.Backdrop--closed {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.13s cubic-bezier(0, 0, 0.2, 1);
+}
+.Backdrop--open {
+  opacity: 1;
+  transition: opacity 0.33s cubic-bezier(0, 0, 0.2, 1);
+}
+.NavContainer--closed {
+  transform: translateX(-276px);
+  transition: transform 0.13s cubic-bezier(0, 0, 0.2, 1);
+}
+.NavContainer--open {
+  pointer-events: auto;
+  width: 100vw;
+  transform: translateX(0px);
+  transition: transform 0.33s cubic-bezier(0, 0, 0.2, 1);
+}
