@@ -7,6 +7,7 @@ module.exports = options => {
       'transform-react-constant-elements',
       'transform-object-rest-spread',
       'lodash',
+      'transform-react-remove-prop-types',
     ],
     cacheDirectory: !options.isProd,
   };
