@@ -81,7 +81,7 @@ export class App extends Component {
               {props.matches
                 ? null
                 : <IconButton
-                    // title={`${this.drawer && this.drawer.MDComponent.open ? 'Close' : 'Open'} navigation drawer`}
+                    title={`Toggle navigation drawer`}
                     onClick={this.onMenuButtonClick}
                   >
                     <Menu />

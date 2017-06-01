@@ -77,6 +77,7 @@ module.exports = isProd => {
         sourceMap: true,
       }),
       new OfflinePlugin({
+        excludes: ['**/.*', '**/*.map', '_redirects'],
         ServiceWorker: {
           navigateFallbackURL: '/',
           output: 'service-worker.js',
