@@ -8,6 +8,7 @@ import MoreVert from 'react-icons/lib/md/more-vert';
 import DragHandle from 'react-icons/lib/md/drag-handle';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
 import cn from 'classnames';
+import tinytime from 'tinytime';
 import pure from '../pure';
 import IconButton from './IconButton';
 import Chip from './Chip';
@@ -42,9 +43,10 @@ const getParentProjectName = item => {
   }
 };
 
-const getFormattedDate = rawDate => {
-  const date = new Date(rawDate);
-  return date.toLocaleString();
+const formatDueDate = tinytime('Due {dddd}, {MMMM} {DD}, {YYYY} {h}:{mm}{a}');
+const getFormattedDate = dates => {
+  const date = new Date(getNextDueDate(dates));
+  return formatDueDate.render(date);
 };
 
 const Item = ({
@@ -103,7 +105,7 @@ const Item = ({
             {!item.dates || item.dates.length === 0
               ? undefined
               : <Chip className="Item-chip">
-                  {`Due ${getFormattedDate(getNextDueDate(item.dates))}`}
+                  {getFormattedDate(item.dates)}
                 </Chip>}
             {!item.tags
               ? undefined
