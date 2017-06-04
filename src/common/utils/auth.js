@@ -1,9 +1,14 @@
-import jwtDecode from 'jwt-decode';
+function decodeJWT(jwt) {
+  const array = jwt.split('.');
+  if (array.length !== 3) return;
+  const data = JSON.parse(global.atob(array[1]));
+  return data; // eslint-disable-line consistent-return
+}
 
 const getTokenExpirationDate = token => {
   try {
-    const decoded = jwtDecode(token);
-    if (!decoded.exp) {
+    const decoded = decodeJWT(token);
+    if (!decoded || !decoded.exp) {
       return null;
     }
     const date = new Date(0);

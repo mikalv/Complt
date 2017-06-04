@@ -1,6 +1,6 @@
 # Complt
 
-> A GTD SPA Made With React, Redux, PouchDB and CouchDB
+> A GTD PWA Made With Preact, Redux, PouchDB and CouchDB 
 
 
 [![build status](https://gitlab.com/mitchellhamilton/Complt/badges/master/build.svg)](https://gitlab.com/mitchellhamilton/Complt/commits/master)

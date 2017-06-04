@@ -54,11 +54,3 @@ web/deploy/landing:
     name: web/landing
     url: https://complt.xyz
   when: manual
-
-electron/build:
-  stage: deploy
-  script:
-    - 'npm run build:electron'
-  artifacts:
-    paths:
-      - dist/

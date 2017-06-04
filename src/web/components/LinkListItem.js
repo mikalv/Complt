@@ -13,7 +13,6 @@ export default class LinkListItem extends MaterialComponent {
   materialDom({ Component = Link, ...props }) {
     return (
       <Component
-        role="option"
         {...props}
         ref={control => {
           this.control = control;

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`getParents it correctly gets the parent for all items 1`] = `
 Array [
   Object {

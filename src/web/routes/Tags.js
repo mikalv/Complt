@@ -15,7 +15,10 @@ export const Tags = props => (
 
 export function mapStateToProps(state) {
   const tags = [];
-  getFilteredItems(state.items, state.itemsToShow).forEach(item => {
+  getFilteredItems(
+    Object.keys(state.items).map(id => state.items[id]),
+    state.itemsToShow
+  ).forEach(item => {
     if (!Array.isArray(item.tags)) return;
     item.tags.forEach(tag => {
       if (tags.indexOf(tag) === -1) tags.push(tag);

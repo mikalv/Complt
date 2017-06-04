@@ -1,3 +1,4 @@
+import { REHYDRATE } from 'redux-persist/es/constants';
 import reducer, { initialState, SHOW_COMPLETED } from '../itemsToShow';
 import { changeItemsToShow } from '../actions';
 
@@ -11,5 +12,21 @@ describe('itemsToShowReducer', () => {
     expect(reducer(undefined, changeItemsToShow(SHOW_COMPLETED))).toEqual(
       SHOW_COMPLETED
     );
+  });
+  it('handles REHYDRATE correctly', () => {
+    expect(
+      reducer(initialState, {
+        type: REHYDRATE,
+        payload: { itemsToShow: SHOW_COMPLETED },
+      })
+    ).toEqual(SHOW_COMPLETED);
+  });
+  it('handles REHYDRATE correctly when it is not defined in localStorage', () => {
+    expect(
+      reducer(initialState, {
+        type: REHYDRATE,
+        payload: { itemsToShow: undefined },
+      })
+    ).toEqual(initialState);
   });
 });

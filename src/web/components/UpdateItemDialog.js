@@ -71,9 +71,7 @@ export const UpdateItemDialog = props => (
 
 export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
-    const item = state.items.find(
-      ({ _id }) => _id === state.dialogs.updateItem.id
-    );
+    const item = state.items[state.dialogs.updateItem.id];
     const tags = item.tags || [];
     const date = item.dates && item.dates.length !== 0
       ? ` !${new Date(getNextDueDate(item.dates)).toString()}!`

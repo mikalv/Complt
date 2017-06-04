@@ -3,7 +3,6 @@ import { connect } from 'preact-redux';
 import SortableElement from 'react-sortable-hoc/src/SortableElement';
 import SortableContainer from 'react-sortable-hoc/src/SortableContainer';
 import pure from '../pure';
-import deferComponentRender from '../deferComponentRender';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
@@ -11,7 +10,7 @@ import Item from './Item';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 
 const SortableItem = SortableElement(Item);
-const SortableItemList = deferComponentRender(SortableContainer(ItemList));
+const SortableItemList = SortableContainer(ItemList);
 
 export const Projects = props => (
   <div className="flex-child flex-child flex column space-between">
@@ -59,11 +58,9 @@ export const Projects = props => (
 );
 
 export function mapStateToProps(state, ownProps) {
-  const project = state.items.find(item => item._id === ownProps.projectId);
+  const project = state.items[ownProps.projectId];
   if (project === undefined) return { projectChildren: [] };
-  const projectChildren = project.children.map(id =>
-    state.items.find(item => item._id === id)
-  );
+  const projectChildren = project.children.map(id => state.items[id]);
   return {
     projectChildren: getFilteredItems(projectChildren, state.itemsToShow),
   };

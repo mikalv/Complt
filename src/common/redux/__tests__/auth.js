@@ -1,3 +1,4 @@
+import { REHYDRATE } from 'redux-persist/es/constants';
 import { route } from 'preact-router';
 import reducer, { initialState } from '../auth';
 import { login, logout, loginCallback } from '../actions';
@@ -25,6 +26,19 @@ describe('authReducer', () => {
   });
   it('handles LOGOUT correctly', () => {
     expect(reducer(token, logout())).toEqual(initialState);
+  });
+  it('handles REHYDRATE correctly when state is an empty string', () => {
+    expect(
+      reducer(initialState, { type: REHYDRATE, payload: { auth: token } })
+    ).toEqual(token);
+  });
+  it('handles REHYDRATE correctly when state is not an empty string', () => {
+    expect(
+      reducer(token, {
+        type: REHYDRATE,
+        payload: { auth: 'asd123ef13asdds.asd13d13dasd.as12edasd' },
+      })
+    ).toEqual(token);
   });
 });
 

@@ -13,7 +13,9 @@ const sortDates = (a, b) => {
 
 export const mapStateToProps = ({ endTime, startTime }) => state => {
   const items = [];
-  const itemsWithParents = getParents(state.items);
+  const itemsWithParents = getParents(
+    Object.keys(state.items).map(id => state.items[id])
+  );
   itemsWithParents.forEach(item => {
     if (item && Array.isArray(item.dates)) {
       const nextDueDate = getNextDueDate(item.dates);
