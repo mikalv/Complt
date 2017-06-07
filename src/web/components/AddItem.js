@@ -1,10 +1,10 @@
 import { h, Component } from 'preact';
 import linkState from 'linkstate';
 import { MDCTextfield } from '@material/textfield';
-import Assignment from 'react-icons/lib/md/assignment';
-import Done from 'react-icons/lib/md/done';
-import Label from 'react-icons/lib/md/label';
-import Send from 'react-icons/lib/md/send';
+import Assignment from 'react-icons/md/assignment';
+import Done from 'react-icons/md/done';
+import Label from 'react-icons/md/label';
+import Send from 'react-icons/md/send';
 import IconButton from './IconButton';
 import './AddItem.scss';
 

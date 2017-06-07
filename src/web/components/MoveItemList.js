@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import List from 'preact-material-components/List';
+import List from 'preact-material-components/List/List';
 import LinkListItem from './LinkListItem';
 import './MoveItemList.scss';
 

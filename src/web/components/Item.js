@@ -1,11 +1,11 @@
 import { h } from 'preact';
 import { Link } from 'preact-router';
-import Assignment from 'react-icons/lib/md/assignment';
-import Done from 'react-icons/lib/md/done';
-import Delete from 'react-icons/lib/md/delete';
-import Create from 'react-icons/lib/md/create';
-import MoreVert from 'react-icons/lib/md/more-vert';
-import DragHandle from 'react-icons/lib/md/drag-handle';
+import Assignment from 'react-icons/md/assignment';
+import Done from 'react-icons/md/done';
+import Delete from 'react-icons/md/delete';
+import Create from 'react-icons/md/create';
+import MoreVert from 'react-icons/md/more-vert';
+import DragHandle from 'react-icons/md/drag-handle';
 import SortableHandle from 'react-sortable-hoc/src/SortableHandle';
 import cn from 'classnames';
 import tinytime from 'tinytime';

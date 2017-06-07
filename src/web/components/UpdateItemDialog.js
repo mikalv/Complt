@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import linkState from 'linkstate';
-import Textfield from 'preact-material-components/Textfield';
-import Dialog from 'preact-material-components/Dialog';
+import Textfield from 'preact-material-components/Textfield/Textfield';
+import Dialog from 'preact-material-components/Dialog/Dialog';
 import { connect } from 'preact-redux';
 import DialogContainer from './Dialog';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';

@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import Dialog from 'preact-material-components/Dialog';
+import Dialog from 'preact-material-components/Dialog/Dialog';
 import { connect } from 'preact-redux';
 import DialogContainer from './Dialog';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';

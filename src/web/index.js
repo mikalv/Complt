@@ -1,3 +1,5 @@
+global.setTimeout = global.setTimeout.bind(global);
+/* eslint-disable import/first */
 import './index.scss';
 import { render } from 'preact'; // eslint-disable-line import/first
 import offlinePlugin from 'offline-plugin/runtime'; // eslint-disable-line import/first

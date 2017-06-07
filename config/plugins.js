@@ -6,7 +6,7 @@ const OfflinePlugin = require('offline-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-const InlineManifest = require('inline-manifest-webpack-plugin');
+// const InlineManifest = require('inline-manifest-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const Clean = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
@@ -41,27 +41,29 @@ module.exports = isProd => {
   ];
   if (isProd) {
     return plugins.concat([
+      new webpack.optimize.ModuleConcatenationPlugin(),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         generateStatsFile: true,
       }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks(module) {
-          const context = module.context;
-          return (
-            context &&
-            context.indexOf('node_modules') !== -1 &&
-            context.indexOf('@material') === -1 &&
-            context.indexOf('react') === -1
-          );
-        },
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest',
-      }),
-      new InlineManifest({ name: 'webpackManifest' }),
-      new webpack.HashedModuleIdsPlugin(),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'vendor',
+      //   minChunks(module) {
+      //     const context = module.context;
+      //     return (
+      //       context &&
+      //       context.indexOf('node_modules') !== -1 &&
+      //       context.indexOf('@material') === -1 &&
+      //       context.indexOf('react') === -1
+      //     );
+      //   },
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'manifest',
+      // }),
+      // new InlineManifest({ name: 'webpackManifest' }),
+      // new webpack.NamedModulesPlugin(),
+      // new webpack.HashedModuleIdsPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true,
