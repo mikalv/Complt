@@ -3,6 +3,7 @@ import { render } from 'preact'; // eslint-disable-line import/first
 import offlinePlugin from 'offline-plugin/runtime'; // eslint-disable-line import/first
 import Root from './Root';
 import './index.css';
+import './components/MoveItemList.scss';
 
 if (!window.location.origin.indexOf('localhost') !== -1) {
   /* eslint-disable */
