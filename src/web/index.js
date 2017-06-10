@@ -1,4 +1,9 @@
+/* eslint-disable import/first */
 import './index.scss';
+import makeEventsPassive from './makeEventsPassive';
+
+makeEventsPassive();
+
 import { render } from 'preact'; // eslint-disable-line import/first
 import offlinePlugin from 'offline-plugin/runtime'; // eslint-disable-line import/first
 import Root from './Root';

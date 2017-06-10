@@ -1,7 +1,12 @@
 /* eslint-disable global-require */
+/* eslint-disable import/first */
 import './index.scss';
-import { render, options, Component } from 'preact'; // eslint-disable-line import/first
-// import 'preact/devtools'; // eslint-disable-line import/first
+import makeEventsPassive from './makeEventsPassive';
+
+makeEventsPassive();
+
+import { render, options, Component } from 'preact';
+// import 'preact/devtools';
 import './index.css';
 import getDisplayName from './getDisplayName';
 
