@@ -11,7 +11,6 @@ const ItemList = ({
   canDeleteTask,
   canDeleteProject,
   canMove,
-  onItemTap,
   onItemUpdate,
   onItemMove,
   className,
@@ -37,7 +36,6 @@ const ItemList = ({
               ? () => onLeftButtonClick(i)
               : undefined
           }
-          onItemTap={onItemTap !== undefined ? () => onItemTap(i) : undefined}
           onItemUpdate={
             onItemUpdate !== undefined ? () => onItemUpdate(i) : undefined
           }

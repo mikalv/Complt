@@ -39,11 +39,6 @@ export const Projects = props => (
             !props.projectChildren[i].isCompleted
           )}
         items={props.projectChildren}
-        onItemTap={i => {
-          if (props.projectChildren[i].isProject) {
-            props.routerPush(`/project/${props.projectChildren[i]._id}`);
-          }
-        }}
       />
     </div>
     <AddItem

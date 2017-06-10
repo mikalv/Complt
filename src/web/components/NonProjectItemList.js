@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import { route } from 'preact-router';
 import pure from '../pure';
 import deferComponentRender from '../deferComponentRender';
 import ItemList from './ItemList';
@@ -11,11 +10,6 @@ const NonProjectItemList = props => (
       props.completeItem(props.items[i]._id, !props.items[i].isCompleted)}
     onItemUpdate={i => props.showUpdateItemDialog(props.items[i]._id)}
     items={props.items}
-    onItemTap={i => {
-      if (props.items[i].isProject) {
-        route(`/project/${props.items[i]._id}`);
-      }
-    }}
     canMove
     canDeleteTask
     canDeleteProject

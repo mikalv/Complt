@@ -19,6 +19,11 @@ class AddItem extends Component {
   componentDidMount() {
     this.MDTextfield = new MDCTextfield(this.textfield);
   }
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.initialIsProject !== this.props.initialIsProject) {
+      this.setState({ isProject: nextProps.initialIsProject || false });
+    }
+  };
   onFormSubmit = e => {
     e.preventDefault();
     import(

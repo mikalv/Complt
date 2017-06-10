@@ -55,7 +55,6 @@ const Item = ({
   onDelete,
   canDelete,
   canMove,
-  onItemTap,
   onItemUpdate,
   onItemMove,
   canSort,
@@ -84,7 +83,6 @@ const Item = ({
               : <Chip
                   Component={Link}
                   href={`/project/${item._id}`}
-                  onClick={stopPropagation(onItemTap)}
                   action
                   className="Item-chip"
                 >
