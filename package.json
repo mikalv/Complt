@@ -102,7 +102,7 @@
     "start": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --config config/webpack.config.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "NODE_ENV=production webpack --env.production --config config/webpack.config.js --display-modules --display-optimization-bailout --profile --json > build/stats.json",
+    "build": "NODE_ENV=production webpack --env.production --config config/webpack.config.js --display-modules --display-optimization-bailout --profile --json > stats.json",
     "test": "jest --verbose",
     "test:watch": "jest --coverage --verbose --watch",
     "test:e2e": "wdio",
