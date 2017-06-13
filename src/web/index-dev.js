@@ -1,7 +1,9 @@
 /* eslint-disable global-require */
+/* eslint-disable import/first */
+global.setTimeout = global.setTimeout.bind(global);
 import './index.scss';
-import { render, options, Component } from 'preact'; // eslint-disable-line import/first
-// import 'preact/devtools'; // eslint-disable-line import/first
+import { render, options, Component } from 'preact';
+// import 'preact/devtools';
 import './index.css';
 import getDisplayName from './getDisplayName';
 
