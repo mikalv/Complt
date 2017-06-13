@@ -5,6 +5,7 @@ import Assignment from 'react-icons/md/assignment';
 import Done from 'react-icons/md/done';
 import Label from 'react-icons/md/label';
 import Send from 'react-icons/md/send';
+import { TASK_PLACEHOLDER, PROJECT_PLACEHOLDER } from '../constants';
 import IconButton from './IconButton';
 import './AddItem.scss';
 
@@ -57,9 +58,7 @@ class AddItem extends Component {
             </label>
           </div>
           <p className="mdc-textfield-helptext" id="add-item-helptext">
-            {state.isProject
-              ? 'e.g. Report'
-              : 'e.g. Finish Report @work !tomorrow at 8am!'}
+            {state.isProject ? PROJECT_PLACEHOLDER : TASK_PLACEHOLDER}
           </p>
           <div className="flex row space-between">
             <div>

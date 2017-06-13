@@ -83,6 +83,12 @@ module.exports = env => {
         'preact-redux': 'preact-redux/dist/preact-redux.js',
         preact: 'preact/dist/preact.js',
         'preact-router/match': 'preact-router/src/match',
+        'moment/locale/fr': path.join(
+          __dirname,
+          '..',
+          'node_modules/moment/locale/fr.js'
+        ),
+        moment: 'moment/moment.js',
         // 'pouchdb-adapter-websql-core': 'pouchdb-adapter-websql-core/lib/index.es.js',
         // 'pouchdb-adapter-utils': 'pouchdb-adapter-utils/lib/index.es.js',
         // 'pouchdb-merge': 'pouchdb-merge/lib/index.es.js',

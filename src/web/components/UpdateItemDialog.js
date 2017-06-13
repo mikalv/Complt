@@ -3,6 +3,7 @@ import linkState from 'linkstate';
 import Textfield from 'preact-material-components/Textfield/Textfield';
 import Dialog from 'preact-material-components/Dialog/Dialog';
 import { connect } from 'preact-redux';
+import { TASK_PLACEHOLDER, PROJECT_PLACEHOLDER } from '../constants';
 import DialogContainer from './Dialog';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
 import getNextDueDate from '../../common/utils/getNextDueDate';
@@ -33,9 +34,7 @@ export class UpdateItemForm extends Component {
           <Textfield
             className="full-width"
             placeholder={
-              props.item.isProject
-                ? 'e.g. Report'
-                : 'e.g. Finish Report @work !tomorrow at 8am!'
+              props.item.isProject ? PROJECT_PLACEHOLDER : TASK_PLACEHOLDER
             }
             value={state.input}
             onChange={linkState(this, 'input')}
@@ -74,7 +73,7 @@ export function mapStateToProps(state) {
     const item = state.items[state.dialogs.updateItem.id];
     const tags = item.tags || [];
     const date = item.dates && item.dates.length !== 0
-      ? ` !${new Date(getNextDueDate(item.dates)).toString()}!`
+      ? ` ${new Date(getNextDueDate(item.dates)).toString()}`
       : '';
     const defaultInputValue = `${item.name} ${tags.join(' ')}${date}`.trim();
     return {

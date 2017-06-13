@@ -1,4 +1,4 @@
-import dateCreate from 'sugar-date/date/create';
+import { parse } from 'chrono-node';
 import { DUE_DATE } from './getNextDueDate';
 
 export default function processItem(value, isProject = false) {
@@ -10,21 +10,21 @@ export default function processItem(value, isProject = false) {
     dates: [],
   };
   if (isProject) item.children = [];
-  const date = value.match(/!([\s\S]+?)!/);
-  let valueWithoutDate;
-  if (date) {
-    const parsedDate = dateCreate(date[1], { future: true });
-    if (parsedDate.toString() === 'Invalid Date') valueWithoutDate = value;
-    else {
-      valueWithoutDate = `${value
-        .substring(0, date.index)
-        .trim()} ${value.substring(date.index + date[0].length).trim()}`;
+  const parsedDate = parse(value);
+  let valueWithoutDate = value;
+  if (parsedDate.length > 0) {
+    if (parsedDate[0].start) {
       item.dates.push({
         dateType: DUE_DATE,
-        value: parsedDate.toISOString(),
+        value: parsedDate[0].start.date().toISOString(),
       });
+      valueWithoutDate = `${value
+        .substring(0, parsedDate[0].index)
+        .trim()} ${value
+        .substring(parsedDate[0].index + parsedDate[0].text.length)
+        .trim()}`;
     }
-  } else valueWithoutDate = value;
+  }
   valueWithoutDate.split(' ').forEach(part => {
     if (part.split('')[0] === '@') {
       item.tags.push(part);
