@@ -44,7 +44,7 @@ module.exports = env => {
   return {
     bail: isProd,
     entry: isProd
-      ? paths.appIndexJs
+      ? [require.resolve('./polyfills'), paths.appIndexJs]
       : [
           `${require.resolve('webpack-dev-server/client')}?/`,
           require.resolve('webpack/hot/dev-server'),

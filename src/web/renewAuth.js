@@ -1,5 +1,3 @@
-import logException from '../common/utils/logException';
-
 export const renewAuth = WebAuth =>
   new Promise((resolve, reject) => {
     const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
@@ -19,11 +17,6 @@ export const renewAuth = WebAuth =>
       },
       (err, result) => {
         if (err) {
-          if (err.error !== 'login_required')
-            logException(
-              new Error('There was an error renewing the auth token'),
-              err
-            );
           reject(err);
           return;
         }

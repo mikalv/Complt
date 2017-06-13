@@ -3,12 +3,10 @@ import { route } from 'preact-router';
 import reducer, { initialState } from '../auth';
 import { login, logout, loginCallback } from '../actions';
 import { LOGIN, GET_PROFILE, SYNC_STARTED } from '../actionTypes';
-import logException from '../../utils/logException';
 import getTokenInfo from '../../utils/getTokenInfo';
 import mockStore from '../mockStore';
 
 jest
-  .mock('../../utils/logException')
   .mock('../../utils/getTokenInfo')
   .mock('../../../web/showToast')
   .mock('preact-router');
@@ -45,7 +43,6 @@ describe('authReducer', () => {
 describe('loginCallback()', () => {
   it('returns nothing if there is no result', () => {
     expect(loginCallback()()).toEqual(undefined);
-    expect(logException).not.toBeCalled();
   });
   it('gets the profile, dispatches the correct actions and pushes to the pathname passed', () => {
     const store = mockStore();
@@ -133,9 +130,5 @@ describe('loginCallback()', () => {
         },
       ]);
     });
-  });
-  it('logs the error if there is one', () => {
-    loginCallback(new Error('Some Error'))();
-    expect(logException).toBeCalledWith(new Error('Some Error'));
   });
 });
