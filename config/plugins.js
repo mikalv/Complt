@@ -38,14 +38,13 @@ module.exports = isProd => {
     }),
     new webpack.DefinePlugin(env.stringified),
     new LodashModuleReplacementPlugin({ shorthands: true }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: isProd ? 'static' : 'server',
+    }),
   ];
   if (isProd) {
     return plugins.concat([
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        generateStatsFile: true,
-      }),
       // new webpack.optimize.CommonsChunkPlugin({
       //   name: 'vendor',
       //   minChunks(module) {
@@ -63,7 +62,7 @@ module.exports = isProd => {
       // }),
       // new InlineManifest({ name: 'webpackManifest' }),
       // new webpack.NamedModulesPlugin(),
-      // new webpack.HashedModuleIdsPlugin(),
+      new webpack.HashedModuleIdsPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true,
