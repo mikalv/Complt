@@ -40,6 +40,8 @@ module.exports = isProd => {
     new LodashModuleReplacementPlugin({ shorthands: true }),
     new BundleAnalyzerPlugin({
       analyzerMode: isProd ? 'static' : 'server',
+      generateStatsFile: isProd,
+      statsOptions: { all: true },
     }),
   ];
   if (isProd) {
