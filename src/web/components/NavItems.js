@@ -31,6 +31,11 @@ export const navItems = [
     icon: Label,
   },
   {
+    href: '/overdue',
+    text: 'Overdue',
+    icon: Today,
+  },
+  {
     href: '/today',
     text: 'Today',
     icon: Today,
@@ -38,11 +43,6 @@ export const navItems = [
   {
     href: '/tomorrow',
     text: 'Tomorrow',
-    icon: Today,
-  },
-  {
-    href: '/overdue',
-    text: 'Overdue',
     icon: Today,
   },
   {
