@@ -71,6 +71,7 @@
   "dependencies": {
     "auth0-js": "^8.6.0",
     "classnames": "^2.2.5",
+    "detect-passive-events": "^1.0.2",
     "linkstate": "^1.0.1",
     "mockdate": "^2.0.1",
     "pouch-redux-middleware": "https://github.com/mitchellhamilton/pouch-redux-middleware",
