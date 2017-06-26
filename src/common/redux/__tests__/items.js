@@ -1,10 +1,10 @@
-import uuid from 'uuid/v4';
+import uuid from '../../utils/uuid';
 import reducer, { initialState } from '../items';
 import * as actions from '../actions';
 
 jest.mock('../../../web/showToast');
 
-jest.mock('uuid/v4');
+jest.mock('../../utils/uuid');
 uuid.mockReturnValue('item5');
 
 const items = {

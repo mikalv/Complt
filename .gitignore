@@ -8,14 +8,9 @@ coverage
 
 # production
 build
-dist.js
 
 # misc
 .DS_Store
 .env
 npm-debug.log
-.serverless
-.webpack
-dist/
-.exponent
 errorShots/

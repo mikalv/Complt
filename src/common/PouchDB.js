@@ -1,6 +1,6 @@
-import PouchDB from 'pouchdb-core';
-import PouchDBAdapterIdb from 'pouchdb-adapter-idb';
-import PouchDBAdapterWebSql from 'pouchdb-adapter-websql';
+import PouchDB from 'pouchdb-core/lib/index.es';
+import PouchDBAdapterIdb from 'pouchdb-adapter-idb/lib/index.es';
+import PouchDBAdapterWebSql from 'pouchdb-adapter-websql/lib/index.es';
 
 PouchDB.plugin(PouchDBAdapterIdb).plugin(PouchDBAdapterWebSql);
 

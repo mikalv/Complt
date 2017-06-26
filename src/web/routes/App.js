@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { getCurrentUrl, route } from 'preact-router';
-import Menu from 'react-icons/lib/md/menu';
-import Sync from 'react-icons/lib/md/sync';
+import Menu from 'react-icons/md/menu';
+import Sync from 'react-icons/md/sync';
 import Toolbar from 'preact-material-components/Toolbar';
 import { connect } from 'preact-redux';
 import Async from '../components/Async';

@@ -12,7 +12,6 @@ import {
   SYNC_SUCCEDED,
   LOGIN,
 } from '../actionTypes';
-import logException from '../../utils/logException';
 import pouchDBSync from '../../utils/pouchDBSync';
 import renewAuth from '../../../web/renewAuth';
 import isTokenExpired from '../../utils/auth';
@@ -22,7 +21,6 @@ import mockStore from '../mockStore';
 jest
   .mock('../../db')
   .mock('../../utils/auth')
-  .mock('../../utils/logException')
   .mock('../../utils/pouchDBSync')
   .mock('../../../web/renewAuth')
   .mock('../../../web/showToast');
@@ -117,10 +115,6 @@ describe('sync() action creator', () => {
       expect(showToast).toBeCalledWith({
         message: 'An error occured while syncing, please try again later',
       });
-      expect(logException).toBeCalledWith(
-        new Error('An error occured while syncing'),
-        { status: 500 }
-      );
     });
   });
   it('dispatches the correct acions when the sync completes', () => {

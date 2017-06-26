@@ -7,7 +7,6 @@ import profile from '../common/redux/profile';
 import dialogs from '../common/redux/dialogs';
 import syncState from '../common/redux/syncState';
 import itemsToShow from '../common/redux/itemsToShow';
-import logException from '../common/utils/logException';
 import db from '../common/db';
 import {
   removeItemPouch,
@@ -24,14 +23,6 @@ const pouchMiddleware = PouchMiddleware({
     insert: insertItemPouch,
     update: updateItemPouch,
     batchInsert: batchInsertItemPouch,
-  },
-  handleResponse: (error, data, cb) => {
-    if (error) {
-      logException(
-        new Error('An error occured in pouch-redux-middleware', { error, data })
-      );
-    }
-    cb(error);
   },
 });
 

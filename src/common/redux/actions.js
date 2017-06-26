@@ -1,9 +1,8 @@
-import uuid from 'uuid/v4';
 import { route } from 'preact-router';
+import uuid from '../utils/uuid';
 import showToast from '../../web/showToast';
 import pouchDBSync from '../utils/pouchDBSync';
 import isTokenExpired from '../utils/auth';
-import logException from '../utils/logException';
 import renewAuth from '../../web/renewAuth';
 import getTokenInfo from '../utils/getTokenInfo';
 import loginWithGoogle from '../../web/loginWithGoogle';
@@ -37,7 +36,6 @@ export const login = token => ({ type: LOGIN, token });
 
 export const loginCallback = (error, result) => dispatch => {
   if (error) {
-    logException(error);
     return;
   }
   if (!result) return;
@@ -148,7 +146,6 @@ export const sync = (dispatch, getState) => () =>
       if (error.status === 401) {
         dispatch(showSignInToast(true));
       } else {
-        logException(new Error('An error occured while syncing'), error);
         showToast({
           message: 'An error occured while syncing, please try again later',
         });

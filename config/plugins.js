@@ -6,7 +6,7 @@ const OfflinePlugin = require('offline-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-const InlineManifest = require('inline-manifest-webpack-plugin');
+// const InlineManifest = require('inline-manifest-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const Clean = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
@@ -38,34 +38,65 @@ module.exports = isProd => {
     }),
     new webpack.DefinePlugin(env.stringified),
     new LodashModuleReplacementPlugin({ shorthands: true }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: isProd ? 'static' : 'server',
+      generateStatsFile: isProd,
+      statsOptions: { all: true },
+    }),
   ];
   if (isProd) {
     return plugins.concat([
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        generateStatsFile: true,
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks(module) {
-          const context = module.context;
-          return (
-            context &&
-            context.indexOf('node_modules') !== -1 &&
-            context.indexOf('@material') === -1 &&
-            context.indexOf('react') === -1
-          );
-        },
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest',
-      }),
-      new InlineManifest({ name: 'webpackManifest' }),
+      new webpack.optimize.ModuleConcatenationPlugin(),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'vendor',
+      //   minChunks(module) {
+      //     const context = module.context;
+      //     return (
+      //       context &&
+      //       context.indexOf('node_modules') !== -1 &&
+      //       context.indexOf('@material') === -1 &&
+      //       context.indexOf('react') === -1
+      //     );
+      //   },
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'manifest',
+      // }),
+      // new InlineManifest({ name: 'webpackManifest' }),
+      // new webpack.NamedModulesPlugin(),
       new webpack.HashedModuleIdsPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
-          screw_ie8: true,
+          unsafe_comps: true,
+          properties: true,
+          keep_fargs: false,
+          pure_getters: true,
+          collapse_vars: true,
+          unsafe: true,
           warnings: false,
+          screw_ie8: true,
+          sequences: true,
+          dead_code: true,
+          drop_debugger: true,
+          comparisons: true,
+          conditionals: true,
+          evaluate: true,
+          booleans: true,
+          loops: true,
+          unused: true,
+          hoist_funs: true,
+          if_return: true,
+          join_vars: true,
+          cascade: true,
+          drop_console: false,
+          pure_funcs: [
+            'classCallCheck',
+            '_classCallCheck',
+            '_possibleConstructorReturn',
+            'Object.freeze',
+            'invariant',
+            'warning',
+          ],
         },
         mangle: {
           screw_ie8: true,
