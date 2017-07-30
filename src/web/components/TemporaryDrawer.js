@@ -19,17 +19,18 @@ const passive = detectPassiveEvents.hasSupport
 
 export default class Drawer extends Component {
   componentDidMount = () => {
-    this.nav.base.addEventListener('touchstart', this.startDrag, passive);
-    this.nav.base.addEventListener('touchmove', this.setPosition, passive);
-    this.nav.base.addEventListener('touchend', this.endDrag);
+    this.nav.addEventListener('touchstart', this.startDrag, passive);
+    this.nav.addEventListener('touchmove', this.setPosition, passive);
+    this.nav.addEventListener('touchend', this.endDrag);
   };
   componentWillUnmount = () => {
-    this.nav.base.removeEventListener('touchstart', this.startDrag);
-    this.nav.base.removeEventListener('touchmove', this.setPosition);
-    this.nav.base.removeEventListener('touchend', this.endDrag);
+    this.nav.removeEventListener('touchstart', this.startDrag);
+    this.nav.removeEventListener('touchmove', this.setPosition);
+    this.nav.removeEventListener('touchend', this.endDrag);
   };
   setPosition = e => {
     if (this.isDragging) {
+      e.preventDefault();
       const newX = e.touches[0].clientX;
       if (
         newX - this.startX + this.initialTransform < 0 &&
