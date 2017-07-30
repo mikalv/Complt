@@ -20,12 +20,11 @@ export function renderListItem(item, onChooseItem, itemToMove, key) {
   ];
 }
 
-const MoveItemList = props => (
+const MoveItemList = props =>
   <div>
     <List>
       {renderListItem(props.itemTree, props.onChooseItem, props.itemToMove, 1)}
     </List>
-  </div>
-);
+  </div>;
 
 export default MoveItemList;

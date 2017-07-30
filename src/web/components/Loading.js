@@ -2,10 +2,9 @@ import { h } from 'preact';
 import Spinner from './Spinner';
 import './Loading.css';
 
-const Loading = ({ size }) => (
+const Loading = ({ size }) =>
   <div className="Loading">
     <Spinner id="items-loading" size={size} />
-  </div>
-);
+  </div>;
 
 export default Loading;

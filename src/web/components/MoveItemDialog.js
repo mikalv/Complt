@@ -9,7 +9,7 @@ import MoveItemList from './MoveItemList';
 export const moveItem = (handleMoveItem, id, parentProject) => newParent =>
   handleMoveItem(id, parentProject, newParent);
 
-export const MoveItemDialog = props => (
+export const MoveItemDialog = props =>
   <DialogContainer
     id="Move Item Dialog"
     aria-describedby="MoveItemDialogHeader"
@@ -37,8 +37,7 @@ export const MoveItemDialog = props => (
         Cancel
       </Dialog.FooterButton>
     </Dialog.Footer>
-  </DialogContainer>
-);
+  </DialogContainer>;
 
 export function mapStateToProps(state) {
   const itemTree = itemsToTree(state.items, 'root');

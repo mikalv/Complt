@@ -3,13 +3,15 @@ import cn from 'classnames';
 import detectPassiveEvents from 'detect-passive-events';
 import './TemporaryDrawer.scss';
 
-const NavContainer = ({ children, className, ...props }) => (
-  <div className={cn(className, 'NavContainer')} {...props}>{children}</div>
-);
+const NavContainer = ({ children, className, ...props }) =>
+  <div className={cn(className, 'NavContainer')} {...props}>
+    {children}
+  </div>;
 
-const Backdrop = ({ children, className, ...props }) => (
-  <div className={cn(className, 'Backdrop')} {...props}>{children}</div>
-);
+const Backdrop = ({ children, className, ...props }) =>
+  <div className={cn(className, 'Backdrop')} {...props}>
+    {children}
+  </div>;
 
 const passive = detectPassiveEvents.hasSupport
   ? { passive: true, capture: false }
@@ -92,7 +94,8 @@ export default class Drawer extends Component {
         this.currentX - this.startX + this.initialTransform;
       if (currentTransform < 0 && currentTransform > -276) {
         this.currentTransform = currentTransform;
-        this.nav.base.style.transform = `translateX(${this.currentTransform}px)`;
+        this.nav.base.style.transform = `translateX(${this
+          .currentTransform}px)`;
         this.backdrop.base.style.opacity = 1 - this.currentTransform / -276;
       }
       window.requestAnimationFrame(this.update);
@@ -114,7 +117,9 @@ export default class Drawer extends Component {
           onClick={this.toggleDrawer}
           className="NavContainer--closed"
         >
-          <nav {...props} className="Nav mdc-temporary-drawer">{children}</nav>
+          <nav {...props} className="Nav mdc-temporary-drawer">
+            {children}
+          </nav>
         </NavContainer>
       </div>
     );

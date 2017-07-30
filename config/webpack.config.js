@@ -129,7 +129,9 @@ module.exports = env => {
         {
           test: /\.(sass|scss|css)$/,
           use: isProd
-            ? ExtractText.extract(Object.assign(cssLoader, {}))
+            ? ExtractText.extract(
+                Object.assign(cssLoader, { fallback: 'style-loader' })
+              )
             : ['style-loader'].concat(cssLoader),
         },
         {

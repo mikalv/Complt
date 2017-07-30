@@ -58,7 +58,7 @@ export class UpdateItemForm extends Component {
   }
 }
 
-export const UpdateItemDialog = props => (
+export const UpdateItemDialog = props =>
   <DialogContainer
     id="Update Item Dialog"
     visible={props.visible}
@@ -66,16 +66,16 @@ export const UpdateItemDialog = props => (
   >
     <Dialog.Header>Update Item</Dialog.Header>
     <UpdateItemForm {...props} />
-  </DialogContainer>
-);
+  </DialogContainer>;
 
 export function mapStateToProps(state) {
   if (state.dialogs.updateItem.visible) {
     const item = state.items[state.dialogs.updateItem.id];
     const tags = item.tags || [];
-    const date = item.dates && item.dates.length !== 0
-      ? ` !${new Date(getNextDueDate(item.dates)).toString()}!`
-      : '';
+    const date =
+      item.dates && item.dates.length !== 0
+        ? ` !${new Date(getNextDueDate(item.dates)).toString()}!`
+        : '';
     const defaultInputValue = `${item.name} ${tags.join(' ')}${date}`.trim();
     return {
       visible: true,

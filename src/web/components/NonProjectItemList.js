@@ -3,7 +3,7 @@ import pure from '../pure';
 import deferComponentRender from '../deferComponentRender';
 import ItemList from './ItemList';
 
-const NonProjectItemList = props => (
+const NonProjectItemList = props =>
   <ItemList
     className="flex-child scroll"
     onLeftButtonClick={i =>
@@ -27,7 +27,6 @@ const NonProjectItemList = props => (
         props.showMoveItemDialog(item._id, null);
       }
     }}
-  />
-);
+  />;
 
 export default deferComponentRender(pure(NonProjectItemList));

@@ -8,7 +8,7 @@ import All from './routes/All';
 import Tags from './routes/Tags';
 import Tag from './routes/Tag';
 
-const AppRouter = ({ onChange }) => (
+const AppRouter = ({ onChange }) =>
   <Router onChange={onChange}>
     <All path="/all" />
     <Projects path="/inbox" projectId="inbox" />
@@ -27,7 +27,6 @@ const AppRouter = ({ onChange }) => (
     <Tomorrow path="/tomorrow" />
     <Overdue path="/overdue" />
     <Week path="/week" />
-  </Router>
-);
+  </Router>;
 
 export default AppRouter;

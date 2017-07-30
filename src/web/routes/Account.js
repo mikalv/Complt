@@ -16,10 +16,14 @@ const renderAvatar = picture => {
   );
 };
 
-export const Account = props => (
+export const Account = props =>
   <div className="flex-child flex center column text-center">
-    <h1>{props.user.name}</h1>
-    <p>{props.user.email}</p>
+    <h1>
+      {props.user.name}
+    </h1>
+    <p>
+      {props.user.email}
+    </p>
     <div className="Account-avatar-container">
       {renderAvatar(props.user.picture)}
     </div>
@@ -47,8 +51,7 @@ export const Account = props => (
         Sign Out
       </Button>
     </div>
-  </div>
-);
+  </div>;
 
 function mapStateToProps(state) {
   return {

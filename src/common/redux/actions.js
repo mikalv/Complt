@@ -168,19 +168,19 @@ export const hideUpdateItemDialog = () => ({
 });
 
 export const handleUpdateItem = (updatedItemInput, item) => dispatch => {
-  import(
-    /* webpackChunkName: "process-item" */ '../utils/processItem'
-  ).then(({ default: processItem }) => {
-    const processedItem = processItem(updatedItemInput, item.isProject);
-    const newItem = {
-      ...item,
-      name: processedItem.name,
-      tags: processedItem.tags,
-      dates: processedItem.dates,
-    };
-    dispatch(updateItem(newItem));
-    dispatch(hideUpdateItemDialog());
-  });
+  import(/* webpackChunkName: "process-item" */ '../utils/processItem').then(
+    ({ default: processItem }) => {
+      const processedItem = processItem(updatedItemInput, item.isProject);
+      const newItem = {
+        ...item,
+        name: processedItem.name,
+        tags: processedItem.tags,
+        dates: processedItem.dates,
+      };
+      dispatch(updateItem(newItem));
+      dispatch(hideUpdateItemDialog());
+    }
+  );
 };
 
 export const showMoveItemDialog = (id, parentProject) => ({

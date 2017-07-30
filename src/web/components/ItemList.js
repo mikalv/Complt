@@ -16,7 +16,7 @@ const ItemList = ({
   className,
   canSort,
   ItemComponent = Item,
-}) => (
+}) =>
   <ul className={cn(className, 'ItemList')}>
     {items.map((item, i) => {
       if (!item) return null;
@@ -28,7 +28,7 @@ const ItemList = ({
           canSort={canSort}
           canDelete={
             (canDeleteTask && item.isProject === false) ||
-              (canDeleteProject && item.isProject === true)
+            (canDeleteProject && item.isProject === true)
           }
           canMove={canMove}
           onLeftButtonClick={
@@ -47,7 +47,6 @@ const ItemList = ({
         <Divider />,
       ];
     })}
-  </ul>
-);
+  </ul>;
 
 export default ItemList;

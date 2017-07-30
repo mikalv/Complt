@@ -8,7 +8,7 @@ export default function noUpdate(target) {
     target.prototype.shouldComponentUpdate = shouldComponentUpdate;
     return target;
   }
-  return target.__scunWrap || (target.__scunWrap = wrap(target));
+  return target.__scunWrap || (target.__scunWrap = wrap(target)); // eslint-disable-line no-return-assign
 }
 
 function wrap(fn) {

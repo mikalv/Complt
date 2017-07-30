@@ -1,21 +1,21 @@
 const login = (callback, state) =>
-  import(
-    /* webpackChunkName: "auth0" */ 'auth0-js/src/web-auth'
-  ).then(WebAuth => {
-    const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
-    const redirectUri = `${window.location.origin}/login`;
-    const auth0 = new WebAuth({
-      domain: process.env.REACT_APP_AUTH0_DOMAIN,
-      clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
-      redirectUri,
-      responseType: 'id_token',
-      scope: 'openid',
-      audience,
-    });
-    auth0.authorize({
-      connection: 'google-oauth2',
-      state: JSON.stringify(state),
-    });
-  });
+  import(/* webpackChunkName: "auth0" */ 'auth0-js/src/web-auth').then(
+    WebAuth => {
+      const audience = `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo`;
+      const redirectUri = `${window.location.origin}/login`;
+      const auth0 = new WebAuth({
+        domain: process.env.REACT_APP_AUTH0_DOMAIN,
+        clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
+        redirectUri,
+        responseType: 'id_token',
+        scope: 'openid',
+        audience,
+      });
+      auth0.authorize({
+        connection: 'google-oauth2',
+        state: JSON.stringify(state),
+      });
+    }
+  );
 
 export default login;

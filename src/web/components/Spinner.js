@@ -3,7 +3,7 @@ import './Spinner.scss';
 
 // Credit for this component goes to http://codepen.io/mrrocks/pen/EiplA
 
-const Spinner = ({ size = 65, ...props }) => (
+const Spinner = ({ size = 65, ...props }) =>
   <svg
     className="spinner"
     {...props}
@@ -21,7 +21,6 @@ const Spinner = ({ size = 65, ...props }) => (
       cy="33"
       r="30"
     />
-  </svg>
-);
+  </svg>;
 
 export default Spinner;

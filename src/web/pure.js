@@ -9,7 +9,7 @@ export default function pure(target) {
     target.prototype.shouldComponentUpdate = shouldComponentUpdate;
     return target;
   }
-  return target.__scuWrap || (target.__scuWrap = wrap(target));
+  return target.__scuWrap || (target.__scuWrap = wrap(target)); // eslint-disable-line no-return-assign
 }
 
 function wrap(fn) {
@@ -33,9 +33,7 @@ export function shouldComponentUpdate(props, state) {
 }
 
 function shallowDiffers(a, b) {
-  for (const key in a)
-    if (a[key] !== b[key]) return true;
-  for (const key in b)
-    if (!(key in a)) return true;
+  for (const key in a) if (a[key] !== b[key]) return true;
+  for (const key in b) if (!(key in a)) return true;
   return false;
 }

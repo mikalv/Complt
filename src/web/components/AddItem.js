@@ -26,15 +26,15 @@ class AddItem extends Component {
   };
   onFormSubmit = e => {
     e.preventDefault();
-    import(
-      '../../common/utils/processItem'
-    ).then(({ default: processItem }) => {
-      const item = processItem(this.state.input, this.state.isProject);
-      if (item) {
-        this.props.onAddItem(item);
-        this.resetValue();
+    import('../../common/utils/processItem').then(
+      ({ default: processItem }) => {
+        const item = processItem(this.state.input, this.state.isProject);
+        if (item) {
+          this.props.onAddItem(item);
+          this.resetValue();
+        }
       }
-    });
+    );
   };
   resetValue = () => this.setState({ input: '' });
   addTag = () => this.setState({ input: `${this.state.input} @` });
@@ -83,7 +83,9 @@ class AddItem extends Component {
                 ? <IconButton
                     type="button"
                     className="IconButton-margin"
-                    title={`Switch to creating a ${state.isProject ? 'task' : 'project'}`}
+                    title={`Switch to creating a ${state.isProject
+                      ? 'task'
+                      : 'project'}`}
                     onClick={this.toggleIsProject}
                   >
                     {state.isProject ? <Done /> : <Assignment />}

@@ -2,11 +2,10 @@ import { h } from 'preact';
 import UpdateItemDialog from './UpdateItemDialog';
 import MoveItemDialog from './MoveItemDialog';
 
-const Dialogs = () => (
+const Dialogs = () =>
   <div>
     <UpdateItemDialog />
     <MoveItemDialog />
-  </div>
-);
+  </div>;
 
 export default Dialogs;

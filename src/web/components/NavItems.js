@@ -62,7 +62,7 @@ const navItemsCache = {};
 const renderNavItems = ({ activeClassName }) => {
   if (navItemsCache[activeClassName] !== undefined)
     return navItemsCache[activeClassName];
-  return navItems.map(Item => (
+  return navItems.map(Item =>
     <LinkListItem
       Component={Link}
       onClick={e => {
@@ -75,7 +75,7 @@ const renderNavItems = ({ activeClassName }) => {
       <Item.icon className="mdc-list-item__start-detail" />
       {Item.text}
     </LinkListItem>
-  ));
+  );
 };
 
 export default renderNavItems;

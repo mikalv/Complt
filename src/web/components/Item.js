@@ -15,11 +15,11 @@ import Chip from './Chip';
 import getNextDueDate from '../../common/utils/getNextDueDate';
 import './Item.scss';
 
-const Handle = SortableHandle(props => (
+const Handle = SortableHandle(props =>
   <IconButton className="IconButton-margin" {...props}>
     <DragHandle />
   </IconButton>
-));
+);
 
 const stopPropagation = callback => {
   if (typeof callback === 'function') {
@@ -58,25 +58,29 @@ const Item = ({
   onItemUpdate,
   onItemMove,
   canSort,
-}) => (
+}) =>
   <li className="flex row Item">
     <div className="Item-left">
       <IconButton
         className={cn('IconButton-margin', {
           'completed-color': item.isCompleted,
         })}
-        title={`${item.isCompleted ? 'Unc' : 'C'}omplete ${item.isProject ? 'project' : 'task'}`}
+        title={`${item.isCompleted ? 'Unc' : 'C'}omplete ${item.isProject
+          ? 'project'
+          : 'task'}`}
         onClick={stopPropagation(onLeftButtonClick)}
       >
         {item.isProject === true ? <Assignment /> : <Done />}
       </IconButton>
     </div>
     <div className="Item-center">
-      <span className="Item-name">{item.name}</span>
+      <span className="Item-name">
+        {item.name}
+      </span>
       {(item.dates && item.dates.length !== 0) ||
-        (item.tags && item.tags.length !== 0) ||
-        item.parent ||
-        item.children
+      (item.tags && item.tags.length !== 0) ||
+      item.parent ||
+      item.children
         ? <div className="Item-chip-container">
             {!item.children
               ? undefined
@@ -107,7 +111,7 @@ const Item = ({
                 </Chip>}
             {!item.tags
               ? undefined
-              : item.tags.map(tag => (
+              : item.tags.map(tag =>
                   <Chip
                     Component={Link}
                     action
@@ -117,7 +121,7 @@ const Item = ({
                   >
                     {tag}
                   </Chip>
-                ))}
+                )}
           </div>
         : undefined}
     </div>
@@ -133,7 +137,9 @@ const Item = ({
       {canMove
         ? <IconButton
             className="IconButton-margin"
-            title={`Move ${item.isProject ? 'project' : 'task'} to another project`}
+            title={`Move ${item.isProject
+              ? 'project'
+              : 'task'} to another project`}
             onClick={stopPropagation(onItemMove)}
           >
             <MoreVert />
@@ -149,7 +155,6 @@ const Item = ({
           </IconButton>
         : undefined}
     </div>
-  </li>
-);
+  </li>;
 
 export default pure(Item);

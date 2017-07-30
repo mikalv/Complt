@@ -13,6 +13,7 @@ import MatchMedia from '../MatchMedia';
 import TemporaryDrawer from '../components/TemporaryDrawer';
 import { values as itemsToShowValues } from '../../common/redux/itemsToShow';
 import mapDispatchToProps from '../../common/utils/mapDispatchToProps';
+import ga from '../analytics';
 import './App.scss';
 
 const Dialogs = Async(() =>
@@ -25,9 +26,7 @@ const redirects = [
   ['', '/inbox'],
 ];
 
-const importMaterialSelectPromise = import(
-  /* webpackChunkName: "mdc-select" */ '@material/select'
-);
+const importMaterialSelectPromise = import(/* webpackChunkName: "mdc-select" */ '@material/select');
 
 export class App extends Component {
   componentDidMount() {
@@ -48,8 +47,7 @@ export class App extends Component {
     this.updateSelectedIndex(prevProps);
   }
   onRouteChange = ({ url }) => {
-    window.ga('set', 'page', url);
-    window.ga('send', 'pageview');
+    ga.send('pageview');
     this.performRedirects(url);
   };
   onMenuButtonClick = () => {
@@ -100,7 +98,7 @@ export class App extends Component {
                 </span>
                 <div className="mdc-simple-menu mdc-select__menu">
                   <ul className="mdc-list mdc-simple-menu__items">
-                    {itemsToShowValues.map((item, i) => (
+                    {itemsToShowValues.map((item, i) =>
                       <li
                         className="mdc-list-item"
                         role="option"
@@ -111,7 +109,7 @@ export class App extends Component {
                       >
                         {item}
                       </li>
-                    ))}
+                    )}
                   </ul>
                 </div>
               </div>

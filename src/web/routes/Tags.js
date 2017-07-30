@@ -5,13 +5,14 @@ import LinkListItem from '../components/LinkListItem';
 import getFilteredItems from '../../common/utils/getFilteredItems';
 import deferComponentRender from '../deferComponentRender';
 
-export const Tags = props => (
+export const Tags = props =>
   <List className="flex-child">
-    {props.tags.map(tag => (
-      <LinkListItem href={`/tag/${tag}`} key={tag}>{tag}</LinkListItem>
-    ))}
-  </List>
-);
+    {props.tags.map(tag =>
+      <LinkListItem href={`/tag/${tag}`} key={tag}>
+        {tag}
+      </LinkListItem>
+    )}
+  </List>;
 
 export function mapStateToProps(state) {
   const tags = [];

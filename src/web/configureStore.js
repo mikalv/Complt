@@ -14,6 +14,7 @@ import {
   updateItemPouch,
   batchInsertItemPouch,
 } from '../common/redux/actions';
+import ga from './analytics';
 
 const pouchMiddleware = PouchMiddleware({
   path: 'items',
@@ -29,7 +30,7 @@ const pouchMiddleware = PouchMiddleware({
 const analyticsMiddleware = () => next => action => {
   next(action);
   if (!action.type.match(/(POUCH|INITIAL_ITEMS_LOADED|persist)/)) {
-    window.ga('send', 'event', 'redux', action.type);
+    ga.send('event', { ec: 'redux', ea: action.type });
   }
 };
 
@@ -58,12 +59,12 @@ const store = createStore(
   enhancer
 );
 
-import(
-  /* webpackChunkName: "redux-persist" */ 'redux-persist/es/persistStore'
-).then(({ default: persistStore }) => {
-  persistStore(store, {
-    whitelist: ['auth', 'profile', 'itemsToShow'],
-  });
-});
+import(/* webpackChunkName: "redux-persist" */ 'redux-persist/es/persistStore').then(
+  ({ default: persistStore }) => {
+    persistStore(store, {
+      whitelist: ['auth', 'profile', 'itemsToShow'],
+    });
+  }
+);
 
 export default store;

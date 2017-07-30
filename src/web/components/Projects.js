@@ -12,7 +12,7 @@ import getFilteredItems from '../../common/utils/getFilteredItems';
 const SortableItem = SortableElement(Item);
 const SortableItemList = SortableContainer(ItemList);
 
-export const Projects = props => (
+export const Projects = props =>
   <div className="flex-child flex-child flex column space-between">
     <div className="scroll">
       <SortableItemList
@@ -49,8 +49,7 @@ export const Projects = props => (
         else props.createTask(props.projectId, item);
       }}
     />
-  </div>
-);
+  </div>;
 
 export function mapStateToProps(state, ownProps) {
   const project = state.items[ownProps.projectId];
