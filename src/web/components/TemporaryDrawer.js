@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import cn from 'classnames';
-import detectPassiveEvents from 'detect-passive-events';
 import './TemporaryDrawer.scss';
 
 const NavContainer = ({ children, className, ...props }) =>
@@ -13,21 +12,7 @@ const Backdrop = ({ children, className, ...props }) =>
     {children}
   </div>;
 
-const passive = detectPassiveEvents.hasSupport
-  ? { passive: true, capture: false }
-  : false;
-
 export default class Drawer extends Component {
-  componentDidMount = () => {
-    this.nav.addEventListener('touchstart', this.startDrag, passive);
-    this.nav.addEventListener('touchmove', this.setPosition, passive);
-    this.nav.addEventListener('touchend', this.endDrag);
-  };
-  componentWillUnmount = () => {
-    this.nav.removeEventListener('touchstart', this.startDrag);
-    this.nav.removeEventListener('touchmove', this.setPosition);
-    this.nav.removeEventListener('touchend', this.endDrag);
-  };
   setPosition = e => {
     if (this.isDragging) {
       e.preventDefault();
@@ -115,12 +100,19 @@ export default class Drawer extends Component {
           ref={nav => {
             this.nav = nav;
           }}
+          onTouchStart={this.startDrag}
+          onTouchEnd={this.endDrag}
+          onTouchMove={this.setPosition}
           onClick={this.toggleDrawer}
           className="NavContainer--closed"
         >
+<<<<<<< HEAD
           <nav {...props} className="Nav mdc-temporary-drawer">
             {children}
           </nav>
+=======
+          <nav {...props} className="Nav">{children}</nav>
+>>>>>>> parent of 8fde5fa... Use passive event listeners in TemporaryDrawer
         </NavContainer>
       </div>
     );

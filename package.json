@@ -71,7 +71,6 @@
   "dependencies": {
     "auth0-js": "^8.8.0",
     "classnames": "^2.2.5",
-    "detect-passive-events": "^1.0.2",
     "ganalytics": "^2.0.1",
     "linkstate": "^1.0.1",
     "mockdate": "^2.0.1",
